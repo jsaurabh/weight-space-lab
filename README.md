@@ -11,11 +11,11 @@ Experiments in writing and editing transformer weights directly, without trainin
 | Experiment | Result | Details |
 | --- | --- | --- |
 | Guided tiny transformers | Parity: 2,046/2,046; addition: 10,000/10,000 | [Methods](docs/tiny-transformers.md) |
-| Astra-generated tiny transformers | Both tasks solved on the first proposal | [Report](results/discovery/astra-initial/README.md) |
+| Astra-generated tiny transformers | Both tasks solved on the first proposal | [Report](reports/tiny-discovery.md) |
 | Local Qwen feasibility tests | Both 64- and 4,096-token runs reached the cap | [Notes](docs/qwen-replay.md#local-feasibility) |
-| Published Qwen edit replay | Base **4/64 → 28/64** | [Report](results/qwen/g4-pilot/README.md) |
-| Blind Astra Qwen repair search | Base **5/64 → 3/64**; no improvement | [Report](results/qwen/blind-discovery/README.md) |
-| Astra vs GPT-5.5 Qwen repair | Base **7/64**; Astra **11/64**; GPT-5.5 **13/64** | [Report](results/comparison/qwen-astra-vs-gpt55-20261103/README.md) |
+| Published Qwen edit replay | Base **4/64 → 28/64** | [Report](reports/qwen-published-edit.md) |
+| Blind Astra Qwen repair search | Base **5/64 → 3/64**; no improvement | [Report](reports/qwen-blind-search.md) |
+| Astra vs GPT-5.5 Qwen repair | Base **7/64**; Astra **11/64**; GPT-5.5 **13/64** | [Report](reports/qwen-editor-comparison.md) |
 
 Tiny-task scores cover the complete stated domains. Qwen pilots use different
 question sets; compare editors within the matched comparison above. These are
@@ -33,9 +33,10 @@ uv run --extra qwen --no-editable python experiments/fetch_artifacts.py
 uv run --extra qwen --no-editable python -m unittest discover -s tests -v
 ```
 
-The artifact download is about 201 MB and verifies the pinned hashes in
+The artifact download is about 238 MB and verifies the pinned hashes in
 [model_artifacts.json](model_artifacts.json). No GPU or API key is needed for
-setup, tests or saved-result replay.
+setup, tests or saved-result replay. Raw records are restored under ignored
+`results/`; they are not tracked in Git.
 
 ## Reproduce the tiny models
 
@@ -62,7 +63,7 @@ For fresh model runs and checkpoint reconstruction:
 - [Published-edit replay](docs/qwen-replay.md): pinned base model, exact edit verification, local and G4 commands.
 - [Blind-search protocol](docs/blind-qwen-discovery.md): editor tools, budgets and test isolation.
 - [Astra vs GPT-5.5 on Qwen](docs/qwen-editor-comparison.md): matched editor budgets and G4 reproduction commands.
-- [Frozen blind candidate](results/qwen/blind-discovery/README.md#replay-without-further-api-calls): reconstruct the selected checkpoint without calling the editor.
+- [Frozen blind candidate](docs/blind-qwen-discovery.md): reconstruct the selected checkpoint without calling the editor.
 
 The base Qwen model is downloaded separately. Generating new Qwen answers is
 practical on a GPU; regrading saved answers requires only CPU.
@@ -77,5 +78,6 @@ uv run --extra qwen --no-editable weight-space-discover run --task all --max-att
 ```
 
 The cost limit is an estimated API ceiling. Prompts, responses, selections and
-scores are saved with each run. Checkpoints and activation arrays are hosted on
-Hugging Face; code, reports and logs are kept here.
+scores are saved with each run. Code and concise reports live here. Checkpoints,
+raw experiment records and logs are hosted on Hugging Face; downloads restore
+ignored `results/` locally.

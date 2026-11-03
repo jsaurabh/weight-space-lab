@@ -1,8 +1,0 @@
-{
-  "checkpoint_label": "transport_backup",
-  "successful_forward_calls": 5,
-  "analysis_calls": 17,
-  "elapsed_seconds": 1308.7785334587097,
-  "refunded_failed_forward_requests": 2,
-  "reason": "Replace rejected executable-callback transport with native disk checkpoint reload; no candidate changes"
-}

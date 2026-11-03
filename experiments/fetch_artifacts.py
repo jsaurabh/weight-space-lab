@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import re
+import tarfile
 import tempfile
 from urllib.parse import quote
 from urllib.request import Request, urlopen
@@ -18,6 +19,39 @@ def matches(path, info):
         while chunk := source.read(1024 * 1024):
             digest.update(chunk)
     return digest.hexdigest() == info["sha256"]
+
+
+def download(repository, revision, remote, target, info):
+    target.parent.mkdir(parents=True, exist_ok=True)
+    url = f"https://huggingface.co/{repository}/resolve/{revision}/{quote(remote, safe='/')}"
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as output:
+            temporary = Path(output.name)
+            with urlopen(Request(url, headers={"User-Agent": "weight-space-lab-artifact-fetch"}), timeout=120) as response:
+                total = 0
+                while chunk := response.read(1024 * 1024):
+                    total += len(chunk)
+                    if total > info["bytes"]:
+                        raise ValueError("Downloaded artifact exceeds its recorded size: " + remote)
+                    output.write(chunk)
+        if not matches(temporary, info):
+            raise ValueError("Artifact checksum or size mismatch: " + remote)
+        os.replace(temporary, target)
+        print("DOWNLOADED", remote)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def restore_records(archive, root):
+    root = root.resolve()
+    with tarfile.open(archive) as source:
+        for member in source.getmembers():
+            destination = (root / member.name).resolve()
+            if not member.isfile() or not destination.is_relative_to(root / "results"):
+                raise ValueError("Record archive contains an unexpected path: " + member.name)
+        source.extractall(root, filter="data")
 
 
 def main():
@@ -44,26 +78,23 @@ def main():
         if args.verify_only:
             missing.append(name)
             continue
-        target.parent.mkdir(parents=True, exist_ok=True)
-        url = f"https://huggingface.co/{repository}/resolve/{revision}/{quote(name, safe='/')}"
-        temporary = None
-        try:
-            with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as output:
-                temporary = Path(output.name)
-                with urlopen(Request(url, headers={"User-Agent": "weight-space-lab-artifact-fetch"}), timeout=120) as response:
-                    total = 0
-                    while chunk := response.read(1024 * 1024):
-                        total += len(chunk)
-                        if total > info["bytes"]:
-                            raise ValueError("Downloaded artifact exceeds its recorded size: " + name)
-                        output.write(chunk)
-            if not matches(temporary, info):
-                raise ValueError("Artifact checksum or size mismatch: " + name)
-            os.replace(temporary, target)
-            print("DOWNLOADED", name)
-        finally:
-            if temporary is not None:
-                temporary.unlink(missing_ok=True)
+        download(repository, revision, name, target, info)
+    for name, info in manifest.get("record_archives", {}).items():
+        if args.group != "all" and args.group not in info["groups"]:
+            continue
+        target = (root / ".artifacts" / name).resolve()
+        if not target.is_relative_to(root / ".artifacts" / "records"):
+            raise ValueError("Record archive path escapes its cache directory")
+        if not matches(target, info):
+            if args.verify_only:
+                missing.append(name)
+                continue
+            download(repository, revision, name, target, info)
+        if args.verify_only:
+            print("VERIFIED", name)
+        else:
+            restore_records(target, root)
+            print("RESTORED", name)
     if missing:
         raise SystemExit("Missing or changed artifacts: " + ", ".join(missing))
 

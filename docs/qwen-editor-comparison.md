@@ -45,10 +45,11 @@ and consume none of their feedback budget.
 
 Source: [authors' public training data and setup](https://github.com/RikiyaT/lm_understand-logs/tree/4d09ba6d6a7e891dd8063974dfe81b3d78e3494f/exp8_math).
 The per-run `protocol.json`, payload hashes, tool logs and frozen manifests are
-the authoritative record. Model artifacts belong on Hugging Face; source,
-reports and API exchanges belong on GitHub.
+the authoritative record. Model artifacts belong on Hugging Face; source
+and concise reports belong on GitHub. Raw API exchanges, generated answers and
+recovery snapshots are archived on Hugging Face and restored under ignored `results/`.
 
-An [interrupted GPT-5.5-only attempt](../results/comparison/qwen-astra-vs-gpt55-20261103-interrupted/)
+An [interrupted GPT-5.5-only attempt](../reports/qwen-editor-comparison.md#limits-and-cost)
 is excluded: a validator falsely rejected a sparse column edit. The corrected
 interface is tested before both fresh discovery runs.
 
@@ -93,45 +94,11 @@ Reconstruction verifies the frozen patch and replaced tensor hashes, needs CPU
 and disk space, and makes no editor calls. Regrading the saved evaluation with
 `analyze.py` also needs only CPU. Generating new answers uses the GPU.
 
-## Recorded API interruption
+## Archived records
 
-In the November 3 run, Astra's tenth API request received a 400 prompt-filter
-rejection after a long raw Qwen math continuation entered its history. It had
-used one GPU feedback call and made no edits. GPT-5.5 had already frozen.
-The controller exported the available records and stopped the G4.
-
-One clarified continuation was accepted before allocating a replacement G4.
-The original rejected request and stdout are retained. The recovered history
-omits that single long stdout item and adds an infrastructure notice requesting
-compact diagnostics. Astra's own artifacts, base checkpoint and counters are
-restored; temporary CPU variables are cleared. The numerical backend, tools,
-sampling and ten-call budget stay the same. This is a declared context change
-and a limitation of the head-to-head comparison.
-
-The run-specific recovery uses `recover_api.py` once, then `resume.py` after
-provisioning and initializing another G4 with the commands above. It is not an
-automatic retry mechanism. Recovery sources, before/after histories and hashes
-are recorded under the run's `recovery_001` directory. Peer weights and the test
-are uploaded to the replacement VM only after Astra freezes.
-
-The first recovery launcher then exposed a missing multiprocessing entry-point
-guard. Failed generation requests ran no answers and were refunded. The host
-stopped API execution, preserved the exact current checkpoint, corrected the
-launcher, and restored cumulative counters from the actual editor tool records
-(three successful forward calls). Both completed probes were checked by
-reconstructing the edited projection's outputs from its recorded inputs; their
-claimed base/current states matched. Native GPU checks verified candidate
-loading and exact base restoration before the editor continued. CPU variables
-were cleared again. These infrastructure detours also limit interpretations of
-Astra's discovery time and API cost.
-
-The user then paused the run during Astra call 35. Colab reported the VM lost,
-and that call's result was unavailable. On resumption, all named checkpoints
-were reconstructed on Colab CPU from the recorded edit programs and saved
-probes. Every reconstructed tensor hash matched its original manifest. The
-full records of practice generations 004–006 were lost; their original returned
-summaries remain explicitly marked as summary-only artifacts. Call 35 was
-reissued without another editor API request, followed by the three remaining
-feedback calls. The user pause was excluded from the wall budget. Subsequent
-forward feedback, checkpoint backups and final-evaluation progress are saved
-locally during execution. See `resumption_002` for the exact recovery record.
+Raw requests, generated texts, checksums and the detailed recovery history are
+stored in the Hugging Face `records/qwen-editor-comparison.tar.gz` archive.
+The fetch command above restores them to ignored `results/`. One-off recovery
+scripts are preserved there under `maintenance_tools/`; they are historical
+records, not part of the fresh-run workflow. The [result report](../reports/qwen-editor-comparison.md)
+summarizes the deviations and limits.

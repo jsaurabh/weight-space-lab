@@ -1,9 +1,0 @@
-{
-  "api_calls": 48,
-  "api_wall_seconds": 483.5655108739975,
-  "cached_input_tokens": 2376448,
-  "colab_compute_included": false,
-  "estimated_api_cost_usd": 2.919984,
-  "input_tokens": 2538114,
-  "output_tokens": 30781
-}

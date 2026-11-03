@@ -10,9 +10,8 @@ readout. There is one block and no LayerNorm. Only the weights differ by task.
 | Parity | All 2,046 bit strings of length 1–10 | Even/odd bit |
 | Addition | All 10,000 ordered pairs of two-digit numbers | Three-digit sum |
 
-Results: [parity](../results/reference/parity/report.json),
-[addition](../results/reference/addition/report.json).
-Independent API constructions: [report](../results/discovery/astra-initial/README.md).
+Per-task reports are restored under `results/reference/` by the artifact fetch
+command. Independent API constructions: [report](../reports/tiny-discovery.md).
 
 ## Mechanisms
 

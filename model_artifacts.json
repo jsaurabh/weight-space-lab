@@ -106,7 +106,37 @@
       "sha256": "e92a92aafd1f1068b4fd94aa0fbe081ba3ddea2047ee7bcac7161d861be299e7"
     }
   },
+  "record_archives": {
+    "records/qwen-editor-comparison.tar.gz": {
+      "bytes": 26294557,
+      "extract_to": ".",
+      "groups": [
+        "qwen-comparison"
+      ],
+      "member_count": 697,
+      "sha256": "96d15bbda2162f47bbec760b31ff0fab8d24d12d754c5bf7587be585956fd443"
+    },
+    "records/qwen-pilots.tar.gz": {
+      "bytes": 10843448,
+      "extract_to": ".",
+      "groups": [
+        "qwen-published",
+        "qwen-blind"
+      ],
+      "member_count": 313,
+      "sha256": "75c89488f482cd053f8f33f47678e60f843dc437ec6d3228e1335e3bdc1a8a85"
+    },
+    "records/tiny.tar.gz": {
+      "bytes": 60976,
+      "extract_to": ".",
+      "groups": [
+        "tiny"
+      ],
+      "member_count": 30,
+      "sha256": "b18d95a87da0027e8f88787e4f3ce0815a6651631b0a7e7fa6293297cbe70548"
+    }
+  },
   "repo_id": "jsaurabh/weight-space-lab-artifacts",
   "repo_type": "model",
-  "revision": "341a4f3af99762d3c61fd4de5ed57ca674442324"
+  "revision": "cc1de044b3e5d11fb6a62faebb212d7432f1d0b5"
 }

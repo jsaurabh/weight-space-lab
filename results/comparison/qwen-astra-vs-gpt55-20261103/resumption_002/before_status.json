@@ -1,8 +1,0 @@
-{
-  "analysis_calls": 8,
-  "edited_tensors": 0,
-  "elapsed_seconds": 403.4527790839993,
-  "forward_calls": 1,
-  "frozen": false,
-  "phase": "exporting"
-}

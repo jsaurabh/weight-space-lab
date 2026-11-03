@@ -31,7 +31,7 @@ class QwenComparison(unittest.TestCase):
     def test_recovery_worker_import_does_not_start_service_in_spawned_child(self):
         fake_backend = MagicMock()
         namespace = {"__name__": "__mp_main__"}
-        source = (DIRECTORY / "resume_service.py").read_text()
+        source = (DIRECTORY.parents[1] / "results/comparison/qwen-astra-vs-gpt55-20261103/maintenance_tools/resume_service.py").read_text()
         with patch.dict(sys.modules, {"backend": fake_backend}):
             exec(compile(source, "resume_service.py", "exec"), namespace)
         fake_backend.Service.assert_not_called()

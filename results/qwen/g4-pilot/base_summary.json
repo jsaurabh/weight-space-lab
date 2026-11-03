@@ -1,9 +1,0 @@
-{
-  "aggregate_tokens_per_second": 4897.568881217518,
-  "correct": 4,
-  "generation_seconds": 403.407087867,
-  "hit_token_limit": 60,
-  "initialization_seconds": 161.33445522099987,
-  "mean_generated_tokens": 30870.53125,
-  "total": 64
-}

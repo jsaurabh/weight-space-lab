@@ -1,7 +1,0 @@
-{
-  "interrupted_utc": "2026-11-03T18:44:42.416245+00:00",
-  "reason": "Infrastructure defect: strided whole-tensor-gain validation missed a single edited column and falsely rejected a legitimate sparse intervention. Trial stopped before Astra or held-out evaluation; both editors restart with corrected full-array validation.",
-  "excluded_from_editor_comparison": true,
-  "api_cost_usd": 1.584578,
-  "heldout_uploaded": false
-}

@@ -12,3 +12,6 @@ __pycache__/
 dist/
 *.egg-info/
 .artifacts/
+
+# Generated outputs and restored historical experiment records
+results/
