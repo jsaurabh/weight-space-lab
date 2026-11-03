@@ -1,7 +1,6 @@
 # Weight Space Lab
 
 Experiments in writing and editing transformer weights directly, without training.
-Tiny models run on CPU; Qwen experiments use a Colab G4.
 
 [Model artifacts](https://huggingface.co/jsaurabh/weight-space-lab-artifacts) ·
 [Original research](https://rikiyat.github.io/blog/weight-space-programming/) ·
