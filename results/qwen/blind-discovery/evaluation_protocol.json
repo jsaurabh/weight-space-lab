@@ -1,0 +1,27 @@
+{
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "base_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "conditions": [
+    "base",
+    "current"
+  ],
+  "dataset": "HuggingFaceH4/MATH-500",
+  "dataset_revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+  "dtype": "bfloat16",
+  "grade_after_last_think_end_if_present": true,
+  "max_model_len": 34816,
+  "prefix_caching": false,
+  "problems": 32,
+  "samples_per_problem": 2,
+  "sampling": {
+    "max_tokens": 32768,
+    "presence_penalty": 1.5,
+    "seed": 0,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "test_returned_to_editor": false,
+  "test_sha256": "6c12349f82ee2c5087cacb0b004cf5c07277923216480743d297e41e2c0b202f",
+  "thinking_enabled": true
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+    "changed_entries": 262144,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "fccad1a938bcb028b90e574c387595a1ed32fc0c8cd1456680efbca3804bc90f",
+    "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  }
+]

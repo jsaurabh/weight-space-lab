@@ -1,0 +1,27 @@
+{
+  "api_requests": 55,
+  "cache_write_tokens": 155252,
+  "cached_input_tokens": 3579311,
+  "estimated_api_cost_usd": 7.128361,
+  "excludes": "Colab compute charges; estimate is not an invoice",
+  "input_tokens": 3734728,
+  "long_context_pricing": {
+    "input_and_cache_multiplier": 2,
+    "output_multiplier": 1.5,
+    "threshold_input_tokens": 272000
+  },
+  "maximum_request_input_tokens": 155255,
+  "model": "gpt-6-astra",
+  "output_tokens": 32135,
+  "pricing_source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "pricing_usd_per_million": {
+    "cache_write": 12.5,
+    "cached_input": 1,
+    "output": 50,
+    "uncached_input": 10
+  },
+  "pricing_verified_utc": "2026-11-03",
+  "reasoning_effort": "max",
+  "reasoning_tokens": 19372,
+  "service_tier": "default"
+}

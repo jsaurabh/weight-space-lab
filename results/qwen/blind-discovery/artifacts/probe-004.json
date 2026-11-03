@@ -1,0 +1,973 @@
+{
+  "texts": [
+    {
+      "hidden": {
+        "array": "root/texts/0/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        19,
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "text": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n",
+      "tokens": {
+        "array": "root/texts/0/tokens",
+        "dtype": "int64",
+        "shape": [
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/1/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        26,
+        25,
+        24,
+        23,
+        22,
+        21,
+        20,
+        19
+      ],
+      "text": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 =",
+      "tokens": {
+        "array": "root/texts/1/tokens",
+        "dtype": "int64",
+        "shape": [
+          27
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/2/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        43,
+        42,
+        41,
+        40,
+        39,
+        38,
+        37,
+        36
+      ],
+      "text": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42. The calculation is complete. The answer is 42.\n",
+      "tokens": {
+        "array": "root/texts/2/tokens",
+        "dtype": "int64",
+        "shape": [
+          44
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/3/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        54,
+        53,
+        52,
+        51,
+        50,
+        49,
+        48,
+        47
+      ],
+      "text": "<|im_start|>user\nA box has 8 red balls and 6 blue balls. How many balls are in the box?<|im_end|>\n<|im_start|>assistant\n<think>\nThe total is 8 + 6 = 14 balls. Therefore, the answer is 14.\n",
+      "tokens": {
+        "array": "root/texts/3/tokens",
+        "dtype": "int64",
+        "shape": [
+          55
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/4/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        33,
+        32,
+        31,
+        30,
+        29,
+        28,
+        27,
+        26
+      ],
+      "text": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42.\n</think>\n\n",
+      "tokens": {
+        "array": "root/texts/4/tokens",
+        "dtype": "int64",
+        "shape": [
+          34
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/5/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        42,
+        41,
+        40,
+        39,
+        38,
+        37,
+        36,
+        35
+      ],
+      "text": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42.\n</think>\n\nThe answer is \\boxed{42}.",
+      "tokens": {
+        "array": "root/texts/5/tokens",
+        "dtype": "int64",
+        "shape": [
+          43
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/6/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        73,
+        72,
+        71,
+        70,
+        69,
+        68,
+        67,
+        66
+      ],
+      "text": "<|im_start|>user\nA shop has 9 boxes of 12 pencils each and sells 36 pencils. How many remain?<|im_end|>\n<|im_start|>assistant\n<think>\nFirst, the shop has 9 * 12 = 108 pencils. After selling 36, there are 108 - 36 = 72 pencils.\n",
+      "tokens": {
+        "array": "root/texts/6/tokens",
+        "dtype": "int64",
+        "shape": [
+          74
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/7/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          8,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.self_attn.o_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.23.self_attn.o_proj/input",
+            "dtype": "float32",
+            "shape": [
+              8,
+              2048
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.23.self_attn.o_proj/output",
+            "dtype": "float32",
+            "shape": [
+              8,
+              1024
+            ]
+          }
+        }
+      },
+      "positions": [
+        67,
+        66,
+        65,
+        64,
+        63,
+        62,
+        61,
+        60
+      ],
+      "text": "<|im_start|>user\nA shop has 9 boxes of 12 pencils each and sells 36 pencils. How many remain?<|im_end|>\n<|im_start|>assistant\n<think>\nFirst, the shop has 9 * 12 = 108 pencils. After selling 36, there are 108 - 36 =",
+      "tokens": {
+        "array": "root/texts/7/tokens",
+        "dtype": "int64",
+        "shape": [
+          68
+        ]
+      }
+    }
+  ],
+  "which": "base"
+}

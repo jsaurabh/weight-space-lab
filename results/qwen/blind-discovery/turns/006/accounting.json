@@ -1,0 +1,16 @@
+{
+  "cost_usd_estimated": 0.1092665,
+  "reserved_estimate_usd": 1.1401125,
+  "usage": {
+    "input_tokens": 15821,
+    "input_tokens_details": {
+      "cache_write_tokens": 7419,
+      "cached_tokens": 8399
+    },
+    "output_tokens": 162,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 15983
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "include": [
+    "reasoning.encrypted_content"
+  ],
+  "input": [
+    {
+      "content": "You are an experimental neural-network weight programmer. Improve the math\naccuracy of the given pretrained target by diagnosing its behavior and directly\nediting its weights. Discover your own intervention from the base weights and\nthe allowed practice feedback. Explain the hypothesis behind each action briefly.\n\nRules: no training, optimizers, backpropagation, gradient estimation, parameter\nfitting to examples, supervised regressions, memorization tables, pretrained\nexternal weights, architecture changes, or changes to generation settings.\nUse reasoning, numerical inspection, statistics and closed-form algebraic edits.\nThe CPU Python environment cannot execute the neural network. Only the provided\ngenerate/probe tools run it, in inference mode. You have no internet, shell,\nrepository access or other tools. Practice answers are allowed. The final test\nset is sealed and unavailable to every tool during discovery.\n\nEmbeddings, the output head and the final normalization are fixed. Internal\nmodel tensors may be edited; multiplying an entire tensor by one scalar is not\nan admissible repair. Do not conceal training inside analysis code. All code,\nedits and feedback are recorded for audit. No human will supply repair hints.\n\nYou have 20 forward-tool calls (generate or probe), 100 CPU analysis calls and\n60 API turns, subject to a $25 estimated API ceiling. Use feedback economically.\nKeep checkpoints of promising edits and choose the final checkpoint yourself.\nCall finish only when you have selected the final weights. Final test scores\nwill be measured only after you finish and cannot be used for further editing.\n",
+      "role": "system"
+    },
+    {
+      "content": "{\"target\": \"Qwen/Qwen3.5-0.8B\", \"revision\": \"2fc06364715b967f1860aea9cf38778875588b17\", \"text_architecture\": {\"attention_bias\": false, \"attention_dropout\": 0.0, \"attn_output_gate\": true, \"dtype\": \"bfloat16\", \"eos_token_id\": 248044, \"full_attention_interval\": 4, \"head_dim\": 256, \"hidden_act\": \"silu\", \"hidden_size\": 1024, \"initializer_range\": 0.02, \"intermediate_size\": 3584, \"layer_types\": [\"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\"], \"linear_conv_kernel_dim\": 4, \"linear_key_head_dim\": 128, \"linear_num_key_heads\": 16, \"linear_num_value_heads\": 16, \"linear_value_head_dim\": 128, \"mamba_ssm_dtype\": \"float32\", \"max_position_embeddings\": 262144, \"mlp_only_layers\": [], \"model_type\": \"qwen3_5_text\", \"mtp_num_hidden_layers\": 1, \"mtp_use_dedicated_embeddings\": false, \"num_attention_heads\": 8, \"num_hidden_layers\": 24, \"num_key_value_heads\": 2, \"rms_norm_eps\": 1e-06, \"rope_parameters\": {\"mrope_interleaved\": true, \"mrope_section\": [11, 11, 10], \"partial_rotary_factor\": 0.25, \"rope_theta\": 10000000, \"rope_type\": \"default\"}, \"tie_word_embeddings\": true, \"use_cache\": true, \"vocab_size\": 248320}, \"tensor_catalog\": \"names, shapes and config are available in python_analysis\", \"practice_examples_available\": 256, \"goal\": \"Improve math answer accuracy by discovering and applying a useful internal weight repair. Inspect behavior and weights, run justified experiments, and finalize your selected checkpoint. Use comparable practice IDs when evaluating candidates.\"}",
+      "role": "user"
+    }
+  ],
+  "max_output_tokens": 16000,
+  "model": "gpt-6-astra",
+  "parallel_tool_calls": false,
+  "reasoning": {
+    "effort": "max"
+  },
+  "service_tier": "default",
+  "store": false,
+  "tools": [
+    {
+      "description": "Read public training practice questions and answers. IDs are the only IDs accepted by generate.",
+      "name": "practice",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Run persistent CPU NumPy analysis; cannot run the target. Globals: np, math, names (tensor names), shapes, config. Helpers: weight(name, current=False) returns float32 copy; save_edit(name, array) replaces an internal tensor; remove_edit(name); clear_edits(); list_edits(); checkpoint(label); restore(label); artifact(id) returns saved generation/probe data; tokenize(text); decode(ids). Use print for results. No file/network/process access. Explain your experiment in reason.",
+      "name": "python_analysis",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Run practice generation with fixed thinking/sampling. which is base/current/both. Max 32 total generations, 16 paired problems for both. Each problem gets one sample. Returns scores and an artifact ID containing full texts. One forward-call budget unit.",
+      "name": "generate",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "max_tokens": {
+            "type": "integer"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids",
+          "max_tokens"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Teacher-force up to 8 texts (max 2048 tokens each) using base or current weights, with no gradients. Capture all layer hidden states and optional module input/output vectors at up to 32 token positions (negative indices allowed). modules are full module names, e.g. a tensor name with its final .weight removed. Returns an artifact: texts is a list, each with tokens, positions, hidden (array of layers x positions x width), modules (dict name -> input/output arrays). Module names are drawn from the public target architecture. One forward-call budget unit.",
+      "name": "probe",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Select an existing checkpoint label, or empty string for current weights, and freeze it permanently for independent testing.",
+      "name": "finish",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ]
+}

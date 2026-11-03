@@ -1,0 +1,55 @@
+{
+  "arguments": {
+    "count": 8,
+    "offset": 0
+  },
+  "name": "practice",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 98,
+    "remaining_forward_calls": 20,
+    "result": [
+      {
+        "answer": "13",
+        "id": "gsm8k-train-4640",
+        "question": "Teresa is collecting pencils. She has 14 colored pencils and 35 black pencils. Her three younger siblings need pencils for class and their dad asks her to share all her pencils, giving each an equal number of pencils, regardless of color. He tells her she can keep 10 of them for herself. How many pencils does each sibling get?"
+      },
+      {
+        "answer": "1150",
+        "id": "gsm8k-train-0543",
+        "question": "In Mary's class, there are 25 students. Their teacher told them they could pay $50 each to finance a big science project that they and their society would benefit greatly from. They all paid the full amount except for 4 students, who paid half. How much was the class able to gather together?"
+      },
+      {
+        "answer": "9",
+        "id": "gsm8k-train-3089",
+        "question": "Tracy has been collecting novels from her friends to donate to the Children For The Future charity organization. In the first week she collects a certain number of books. In the next five weeks, she collects ten times as many books as she did in the first week. How many books did she collect in the first week if she has 99 books now?"
+      },
+      {
+        "answer": "2",
+        "id": "gsm8k-train-5162",
+        "question": "A train travels 360 miles in 3 hours. At the same rate, how many additional hours would it take to travel an additional 240 miles?"
+      },
+      {
+        "answer": "5",
+        "id": "gsm8k-train-5250",
+        "question": "7 out of 40 people in a cafeteria are wearing checkered shirts. The rest of the people are wearing vertical stripes and horizontal stripes. The number of people wearing horizontal stripes is 4 times as many as the people wearing checkered shirts. How many people are wearing vertical stripes?"
+      },
+      {
+        "answer": "4",
+        "id": "gsm8k-train-1305",
+        "question": "Randy has 1 more baseball glove than 7 times the number of bats he has. If he has 29 baseball gloves, how many bats does he have?"
+      },
+      {
+        "answer": "163",
+        "id": "gsm8k-train-0996",
+        "question": "A club opens up and charges $20 to enter.  James buys 2 rounds for his 5 friends.  He also buys 6 drinks for himself. Drinks cost $6 each.  He decides to eat some food so he orders some fried chicken which costs $14.  He leaves a 30% tip on everything he orders.  How much did he spend for the night?"
+      },
+      {
+        "answer": "3",
+        "id": "gsm8k-train-3396",
+        "question": "Remy sold 55 bottles of soda in the morning. Nick sold six fewer bottles of soda than Remy. The price per bottle is $.50. If their total evening sales are $55, how much more did they earn in the evening than in the morning?"
+      }
+    ],
+    "seconds": 0.00011954999990848592
+  }
+}

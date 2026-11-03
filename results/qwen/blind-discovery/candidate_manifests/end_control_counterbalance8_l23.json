@@ -1,0 +1,24 @@
+[
+  {
+    "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+    "changed_entries": 3543235,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "25a2cea550e5988f490e59aa7145f44c65784c63fa43cbace1e46f489178e396",
+    "name": "model.language_model.layers.23.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+    "changed_entries": 2028021,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "118bdabd67c646652eafd492f65cc9786b032935462de21a30c2caca9be71ff7",
+    "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  }
+]

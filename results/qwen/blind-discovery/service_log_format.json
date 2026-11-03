@@ -1,0 +1,6 @@
+{
+  "normalization": "Terminal carriage-return updates split onto separate lines; trailing whitespace removed. Exact original bytes retained in gzip.",
+  "original_file": "service_raw.log.gz",
+  "original_uncompressed_sha256": "85b5a0c0057178d6ae25d1d1c594ea8277498363635e1aa7647f53cb338628f5",
+  "readable_file": "service.log"
+}

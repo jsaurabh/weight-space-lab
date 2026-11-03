@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "restore('end_control_reflection_l23')\nprint('FINAL TENSORS',[(e['name'],e['changed_entries']) for e in list_edits()])\nfor aid in ['generation-001','generation-006','generation-007','generation-008','generation-010','generation-011','generation-012','generation-013','generation-014','generation-016']:\n    a=artifact(aid)\n    for which,es in a.items():\n        print(aid,which,'correct',sum(int(e['correct']) for e in es),'total',len(es),'token_limits',sum(int(e['hit_token_limit']) for e in es))\ncheckpoint('selected_final_reflection')",
+    "reason": "Select the conservative norm-preserving two-matrix reflection based on diagnostic termination selectivity, while explicitly recording that practice generation showed no accuracy gain. Remove all later speculative edits."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 64,
+    "remaining_forward_calls": 4,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3296290,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "886da5b4b5785c4dd3f7c0c50df5d6888fbdb70f8480f279cba38a39430ee05a",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 1886896,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "c67b702c49de9fed854193021f4bcb04659f0f7766857ba5822f7e95d5ad4aac",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "FINAL TENSORS [('model.language_model.layers.23.mlp.down_proj.weight', 3296290), ('model.language_model.layers.23.self_attn.o_proj.weight', 1886896)]\ngeneration-001 base correct 0 total 8 token_limits 8\ngeneration-006 current correct 0 total 4 token_limits 4\ngeneration-007 current correct 0 total 4 token_limits 4\ngeneration-008 current correct 0 total 4 token_limits 4\ngeneration-010 current correct 0 total 2 token_limits 2\ngeneration-011 current correct 0 total 2 token_limits 2\ngeneration-012 current correct 0 total 2 token_limits 2\ngeneration-013 current correct 0 total 2 token_limits 2\ngeneration-014 current correct 0 total 2 token_limits 2\ngeneration-016 current correct 0 total 2 token_limits 2\n",
+      "truncated": false
+    },
+    "seconds": 0.07471410000016476
+  }
+}

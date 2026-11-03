@@ -1,0 +1,261 @@
+{
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793688729.0,
+  "conversation": null,
+  "created_at": 1793688722.0,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_06db6cb8977ea444016ae98492393087d19d1d7d99d45c0979",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "arguments": "{\"checkpoint_label\":\"selected_final_reflection\",\"rationale\":\"Selected a conservative, data-free Householder reflection W'=(I-2uu^T)W in only layer 23's MLP down projection and attention output projection. The unit direction u is the fixed </think>-versus-<think> embedding difference weighted by the fixed effective final-normalization gains. This preserves each matrix's singular values in exact arithmetic and reverses a measured late-layer anti-termination component without changing embeddings, output head, normalization, architecture, or generation settings. Probes showed higher closure probability at completed calculations with little change to numerical continuations. Important limitation: no practice accuracy gain was demonstrated; base scored 0/8 and this candidate scored 0/4 on comparable problems, all reaching the 2048-token limit. Broader semantic, memory, row-norm, stronger-control, and head-ablation experiments were reverted. This is the selected mechanistically motivated experimental candidate, not a claimed validated improvement.\"}",
+      "call_id": "call_2rVdatqcwA7IedMK0sPVD1i3",
+      "caller": null,
+      "id": "fc_06db6cb8977ea444016ae98493d59c87d1959fbd25f020bfa0",
+      "name": "finish",
+      "namespace": null,
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "parallel_tool_calls": false,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "max",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Read public training practice questions and answers. IDs are the only IDs accepted by generate.",
+      "name": "practice",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Run persistent CPU NumPy analysis; cannot run the target. Globals: np, math, names (tensor names), shapes, config. Helpers: weight(name, current=False) returns float32 copy; save_edit(name, array) replaces an internal tensor; remove_edit(name); clear_edits(); list_edits(); checkpoint(label); restore(label); artifact(id) returns saved generation/probe data; tokenize(text); decode(ids). Use print for results. No file/network/process access. Explain your experiment in reason.",
+      "name": "python_analysis",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Run practice generation with fixed thinking/sampling. which is base/current/both. Max 32 total generations, 16 paired problems for both. Each problem gets one sample. Returns scores and an artifact ID containing full texts. One forward-call budget unit.",
+      "name": "generate",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "max_tokens": {
+            "type": "integer"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids",
+          "max_tokens"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Teacher-force up to 8 texts (max 2048 tokens each) using base or current weights, with no gradients. Capture all layer hidden states and optional module input/output vectors at up to 32 token positions (negative indices allowed). modules are full module names, e.g. a tensor name with its final .weight removed. Returns an artifact: texts is a list, each with tokens, positions, hidden (array of layers x positions x width), modules (dict name -> input/output arrays). Module names are drawn from the public target architecture. One forward-call budget unit.",
+      "name": "probe",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Select an existing checkpoint label, or empty string for current weights, and freeze it permanently for independent testing.",
+      "name": "finish",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 155255,
+    "input_tokens_details": {
+      "cache_write_tokens": 2634,
+      "cached_tokens": 152618
+    },
+    "output_tokens": 215,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 155470
+  },
+  "user": null
+}

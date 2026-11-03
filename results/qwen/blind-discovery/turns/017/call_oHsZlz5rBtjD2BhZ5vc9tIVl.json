@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "p3=artifact('probe-003')\nfor key,t in [('base',p2['texts'][0]),('current',p3['texts'][0])]:\n    h=np.asarray(t['hidden'])[-1,0]\n    logits=emb@h\n    mx=float(np.max(logits)); logz=mx+float(np.log(np.sum(np.exp(logits-mx))))\n    top=np.argsort(logits)[-8:][::-1]\n    print(key,[(decode([int(idx)]),round(float(logits[idx]),3)) for idx in top], 'end_logprob',float(logits[end_id])-logz)\n    for m,d in t['modules'].items():\n        if '23.' in m:\n            print(m,float(np.asarray(d['output'])[0]@control_unit))",
+    "reason": "Verify that the successful current probe actually used the rank-one repair, and measure the end-marker probability change without assuming the failed generation ran."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 89,
+    "remaining_forward_calls": 15,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3056817,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "5216495e5a6891b17459a413a4aa99e6265a65139f196ce04a0e7b9cab0aaff8",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 1747376,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "97b6b7026bfcfb95e6947d11def64d3bb2c7c000eaf061873902986f33e8d42e",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "base [('</think>', 20.321), ('The', 18.91), ('I', 18.906), ('1', 17.316), ('   ', 16.76), ('This', 16.713), ('There', 16.696), ('Let', 16.115)] end_logprob -0.6255503296852112\nmodel.language_model.layers.23.mlp.down_proj -0.04533889889717102\nmodel.language_model.layers.23.self_attn.o_proj -0.164571613073349\ncurrent [('</think>', 21.106), ('I', 18.838), ('The', 18.815), ('1', 17.158), ('   ', 16.829), ('There', 16.613), ('This', 16.607), ('  ', 16.096)] end_logprob -0.31298989057540894\nmodel.language_model.layers.23.mlp.down_proj 0.000608392059803009\nmodel.language_model.layers.23.self_attn.o_proj -0.0009203106164932251\n",
+      "truncated": false
+    },
+    "seconds": 0.04069056800017279
+  }
+}

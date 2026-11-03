@@ -1,0 +1,269 @@
+{
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793687082.0,
+  "conversation": null,
+  "created_at": 1793687072.0,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_06db6cb8977ea444016ae97e20ccf087d1a623dedf26e3a020",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6X4qvFSw59sb_Br9zwN2QoUAeHzVMuUnIV9NUoj0khQaMmJ5PfKFt1zU-cOo0YbuQCJw6DzyS4bzUzizZODDKx7_AtGBpwYUYowSjkqlPi2fnoE9kdP39Fe7ZxL-enK92RNRJskbZ1DDlJwja4MRYiqjei1XVgtbtBLNRKjQn3OSvJbatsT_hTT0Q3D3HZkqvPrVU5ItzggDPnyHrRuLZxeggDKx_FO24OJkO5aYH3zrNnsfFMs8g8b2FcNhF0kYQdsgHF_WtdmoaUoPyU2og5P0hFu_TGH28dhvPHfjJT1eD-7Orh5SIWdITDE4xN-1nww1bXws6XMSj1Hc7EX2YLOOvzQSqtfKKA_Iv09xrdXCePmxtyEDpDLx_xVwwTKIjWdsybOg9HX_wGhaQIeJuCTpm-VZMBXdyE29somFIBQ13cj3NpOE1FI0EQScADCVm9dFFOBypQ0YJeqpjegVH4sYMArVNPNqGp_huhWAofuCnPWKityMTIJrZG8ehAbKAdaYmPUcQtjkozz_hNHYCV9rmM0GaIJM7uE3i_BlewalieH9mE174_CUae1wtz65cmHodiguG7uNW8nwD473AHgdoR7q_uJTjWOqeFPQIhKMl2wE1MhAXoTB-F-7rju4ShKYSio8IRplOA1kxBF7HHIXQb3sUktcRlFHqaxSOsLYmNCn55xySaYK92aFp4Ae7WhNqibP0L8hYgmJm16uYfFWZwobHez2qaTmqJ2ht6klJAmHU9GLRTqSdKqALABegvrFgYOK07C4MjGq1R3qrDStkbLdYTFijNi4eMRsILYNsX4z-bYstKyTsdf_4ubmznk6PpjM2qIeq_calLWE-k51WrmsGimk72sjBmBIk2YMaohXq7Uq33EVnLA-Y382t6tY0t0JuBHOQdnnwKNHPYGTLUUMM4kiLVVrFYNGwnXcp1M9i9gSjwuZk2yOBTw3IG2Z-O7KaTYsJw1NHiq_YuEJo8Ki6ZfCIGkh3BHcS_rzdfsHlfJpQVIyGAhTjqDUKHVBSPJKrQoha4ymuNsrchca-v0BBusx_umwadMCQ3TT1XDoSabUfwq9qj0T_6sabjtjaGsDarNIMMPC9DQpYJ7RP5be7iUyMwJCsw5sb_ASbFxLRY0lOMbbD6qoiq-IW4JMwzhVEuXz4LNvESgSOEJwHcSVA0CBCM-IJZH79gJeYBqnCV3t-8LqsFcboXgbYU3oE6KKeAWstcawUg0odquTYbPY3DIsEjPc-KR-BgQ0IlcXhtaSRJxopvjceZ_5bmriQ7XHhmXg2JBKvo4z2q6Dt2MfcnzRlVsstXUnPhYNK0AEmcxLMqbfFtroWOR_r5FoCEtMVR4xzaZb16fb30ujjFPEyluiNDxUWbl-RNfUeFn1MdhzoGtHslQgHk31uR0OmMdE-FA5G8JOe5SQizBXXGgxgN71u6t4zbGKsDhdIxMCJKaqzGUrACYDhuImFbRJt8OxxfVLQYpJ7rl5ErVgIb75QL4FC6xwNbGyJ8X1UbcKBmYzEkaZTaX93JioEPRmPYShzJJmVYVovjYZl3muq9r5F_phAQl-AfDMXFuWEhzn9V6s6nItsHuNvJsxJEEeiV_DBjQeHJV0RMuV6bTV-CTukk1bwOFR9AAKajLPU3zxx2DzeD9VKhG5nQ-9-NxUVJvu_V5jO7jEUAjBxB3gVtMvdAsuRaymMhKNeIshHMOdZ9r-JIY0fkCh8SUb8AYMWarnkstMQ_M8x49z-YX7tvxYNsMUqPfLIiB3dk6hCwn3zfTO_e7me1kvrBbtrAIh2wrlWDxlcWgOBwx5k6vzhX5RFY0wLKjPxCVB1plZrxYIBPxzIbRAPP5XfjMAfMW25niWR3-xvfi5XO2eFK5WVJutcyeUwJQ6kiT35nha7PgjmncMDjMyc3p85tiH_fZ3eeUt1v9xNfy9qkYsbuK8hqldPWrQ8HjeRoI7hEn7Gj_DpYoL_uoaPTkXwXq9OiMNccOwSOBB9wQwpj7xS-a5qYJ7JWf1kfd6xSYB3ZPvPentGImn5ogV5bL0E_gVl6nzhf6QWqgXmdi8ma5CGoVhvaM1A02X2M86VxLDfvcP-dCv-8y5l0ohrdy40FAfPT9kremMTvxBFp775wHKNwlYE4PZ3o65Dg0vgUpKHd24b2zA_dP_g00Y_IpvN01k3ttgYmpirYkpRTputnnkx-YsOB-6h5zCrEotSXFYPV5MCBnY2GtDqJQPNQZhoO1LO7HyF5YD_CeHwouMG97SXlfO0rr9efpddiG-GXa-c6YZmkih7xei2sAPS1xpTFiR72fWOYpaX-jeFRJ2yepH7oXhvzRHliFM2ckFEmOLaX57mOZezl2ud6tfogiCmbDp_lQ_c7cWVAZrLft33sQodyCdl6OvH4GdTlPvpOwsBHxtvX0iVXB5rMADrJ1z9pHrPaIdFAaU9SfAWA0tADXqWCXQBW8J8P_RoKKbbSmK_aKeKnMKRvtZk2KVV7zPan14BcnAX1N-dElVaqkMWX2D9CcAfYIydBdwV-9AoUrPeYSp1LX06jGALVrtzVhdcYip3cjWgijvH27F78mCm5B-D07WPqQaFcuZ4_HR6V_8l87uo1R9VMc6ewHx9wmQ8Q9PMc08QxKvhfaQ4CjqNl4bSmoS3A==",
+      "id": "rs_06db6cb8977ea444016ae97e22471887d1a4a23bf8f123e40d",
+      "status": null,
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"reason\":\"Quantify termination specificity and the contribution of a weight-derived doubt-versus-conclusion direction. No direction is fitted to the diagnostic examples.\",\"code\":\"p4=artifact('probe-004')\\ndoubt_words=['Wait',' Wait','Maybe',' maybe','But',' But','However',' However','Alternatively',' alternatively','Perhaps',' perhaps']\\nresolve_words=['Therefore',' Therefore','Thus',' Thus','Hence',' hence','Finally',' finally','So',' So']\\ndoubt_ids=[int(tokenize(s)[0]) for s in doubt_words]\\nresolve_ids=[int(tokenize(s)[0]) for s in resolve_words]\\ndoubt=(np.mean(emb[doubt_ids],axis=0)-np.mean(emb[resolve_ids],axis=0))*(1+fnorm)\\ndoubt=doubt/np.linalg.norm(doubt)\\nprint('doubt/control overlap',float(doubt@control_unit))\\nfor i,t in enumerate(p4['texts']):\\n    x=np.asarray(t['hidden'])[-1,0]\\n    logits=emb@x\\n    mx=float(np.max(logits)); lz=mx+float(np.log(np.sum(np.exp(logits-mx))))\\n    top=np.argsort(logits)[-5:][::-1]\\n    print('TEXT',i,[(decode([int(j)]),round(float(logits[j]),2)) for j in top],'end logp',round(float(logits[end_id])-lz,2))\\n    print('module components',[ (m.split('layers.')[1],round(float(np.asarray(d['output'])[0]@control_unit),3),round(float(np.asarray(d['output'])[0]@doubt),3)) for m,d in t['modules'].items()])\\n\"}",
+      "call_id": "call_mYV6pc3hqzdVFB36J0VLYb9W",
+      "caller": null,
+      "id": "fc_06db6cb8977ea444016ae97e25416c87d18b446b9061a641bc",
+      "name": "python_analysis",
+      "namespace": null,
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "parallel_tool_calls": false,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "max",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Read public training practice questions and answers. IDs are the only IDs accepted by generate.",
+      "name": "practice",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Run persistent CPU NumPy analysis; cannot run the target. Globals: np, math, names (tensor names), shapes, config. Helpers: weight(name, current=False) returns float32 copy; save_edit(name, array) replaces an internal tensor; remove_edit(name); clear_edits(); list_edits(); checkpoint(label); restore(label); artifact(id) returns saved generation/probe data; tokenize(text); decode(ids). Use print for results. No file/network/process access. Explain your experiment in reason.",
+      "name": "python_analysis",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Run practice generation with fixed thinking/sampling. which is base/current/both. Max 32 total generations, 16 paired problems for both. Each problem gets one sample. Returns scores and an artifact ID containing full texts. One forward-call budget unit.",
+      "name": "generate",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "max_tokens": {
+            "type": "integer"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids",
+          "max_tokens"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Teacher-force up to 8 texts (max 2048 tokens each) using base or current weights, with no gradients. Capture all layer hidden states and optional module input/output vectors at up to 32 token positions (negative indices allowed). modules are full module names, e.g. a tensor name with its final .weight removed. Returns an artifact: texts is a list, each with tokens, positions, hidden (array of layers x positions x width), modules (dict name -> input/output arrays). Module names are drawn from the public target architecture. One forward-call budget unit.",
+      "name": "probe",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Select an existing checkpoint label, or empty string for current weights, and freeze it permanently for independent testing.",
+      "name": "finish",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 38343,
+    "input_tokens_details": {
+      "cache_write_tokens": 1257,
+      "cached_tokens": 37083
+    },
+    "output_tokens": 474,
+    "output_tokens_details": {
+      "reasoning_tokens": 86
+    },
+    "total_tokens": 38817
+  },
+  "user": null
+}

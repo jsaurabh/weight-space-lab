@@ -59,6 +59,7 @@ class BlindProtocol(unittest.TestCase):
             check_budget(0., 0.01, request, None, 0)
         self.assertLess(check_budget(0., 25., request, usage, 1000), 25.)
 
+    @unittest.skipUnless(importlib.util.find_spec('safetensors'), 'Install the qwen extra to check native checkpoint transport')
     def test_native_reload_uses_complete_checkpoint_and_restores_base(self):
         from safetensors.torch import load_file, save_file
         class Engine:

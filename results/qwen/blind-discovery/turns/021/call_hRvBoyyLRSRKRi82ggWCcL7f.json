@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "ow=weight(prefix+'23.self_attn.o_proj.weight')\ncr=(control_unit@ow).reshape(8,256)\nfor i,t in enumerate(p4['texts']):\n    z=np.asarray(t['modules'][prefix+'23.self_attn.o_proj']['input'])[0].reshape(8,256)\n    vals=np.sum(cr*z,axis=1)\n    print('text',i,'control by head',np.round(vals,4).tolist())\nprint('projection row norms per head',np.linalg.norm(cr,axis=1).tolist())\n# Stronger but still rank-one candidate: reflect the suppressive final-layer component.\nclear_edits()\nfor m in [prefix+'23.mlp.down_proj',prefix+'23.self_attn.o_proj']:\n    w=weight(m+'.weight')\n    save_edit(m+'.weight',w-2.0*np.outer(control_unit,control_unit@w))\ncheckpoint('end_control_reflection_l23')",
+    "reason": "Localize the final attention's anti-termination signal by head, checking whether it is selective for reasoning boundaries rather than a general numerical feature."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 86,
+    "remaining_forward_calls": 14,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3296290,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "886da5b4b5785c4dd3f7c0c50df5d6888fbdb70f8480f279cba38a39430ee05a",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 1886896,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "c67b702c49de9fed854193021f4bcb04659f0f7766857ba5822f7e95d5ad4aac",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "text 0 control by head [0.0017000000225380063, -0.026599999517202377, -0.00139999995008111, -0.04190000146627426, 0.0414000004529953, -0.011500000022351742, 0.09210000187158585, 0.00930000003427267]\ntext 1 control by head [-0.00860000029206276, -0.029100000858306885, -0.04129999876022339, -0.050700001418590546, 0.005799999926239252, -0.032499998807907104, 0.04610000178217888, -0.009399999864399433]\ntext 2 control by head [-0.015599999576807022, -0.01899999938905239, -0.16609999537467957, -0.03290000185370445, 0.012199999764561653, -0.03460000082850456, 0.10599999874830246, -0.01489999983459711]\ntext 3 control by head [-0.020500000566244125, -0.01360000018030405, -0.1395999938249588, -0.04050000011920929, -0.010099999606609344, -0.035599999129772186, 0.10270000249147415, -0.033399999141693115]\ntext 4 control by head [-0.01640000008046627, -0.023600000888109207, -0.047200001776218414, -0.06019999831914902, 0.02250000089406967, -0.030700000002980232, 0.07360000163316727, -0.04170000180602074]\ntext 5 control by head [-0.024299999698996544, -0.009999999776482582, -0.13729999959468842, -0.03449999913573265, 0.11410000175237656, -0.031199999153614044, 0.09269999712705612, -0.0010000000474974513]\ntext 6 control by head [-0.052400000393390656, -0.015699999406933784, -0.17020000517368317, -0.04270000010728836, -0.009100000374019146, -0.05040000006556511, 0.07859999686479568, -0.015399999916553497]\ntext 7 control by head [-0.018699999898672104, -0.0006000000284984708, 0.013399999588727951, -0.031099999323487282, -0.006300000008195639, -0.03970000147819519, 0.0044999998062849045, -0.0142000000923872]\nprojection row norms per head [0.222177192568779, 0.20221513509750366, 0.1824658364057541, 0.18628478050231934, 0.2771763503551483, 0.1879032850265503, 0.16793222725391388, 0.24428756535053253]\n",
+      "truncated": false
+    },
+    "seconds": 0.061670046000017464
+  }
+}

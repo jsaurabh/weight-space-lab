@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "p4=artifact('probe-004')\ndoubt_words=['Wait',' Wait','Maybe',' maybe','But',' But','However',' However','Alternatively',' alternatively','Perhaps',' perhaps']\nresolve_words=['Therefore',' Therefore','Thus',' Thus','Hence',' hence','Finally',' finally','So',' So']\ndoubt_ids=[int(tokenize(s)[0]) for s in doubt_words]\nresolve_ids=[int(tokenize(s)[0]) for s in resolve_words]\ndoubt=(np.mean(emb[doubt_ids],axis=0)-np.mean(emb[resolve_ids],axis=0))*(1+fnorm)\ndoubt=doubt/np.linalg.norm(doubt)\nprint('doubt/control overlap',float(doubt@control_unit))\nfor i,t in enumerate(p4['texts']):\n    x=np.asarray(t['hidden'])[-1,0]\n    logits=emb@x\n    mx=float(np.max(logits)); lz=mx+float(np.log(np.sum(np.exp(logits-mx))))\n    top=np.argsort(logits)[-5:][::-1]\n    print('TEXT',i,[(decode([int(j)]),round(float(logits[j]),2)) for j in top],'end logp',round(float(logits[end_id])-lz,2))\n    print('module components',[ (m.split('layers.')[1],round(float(np.asarray(d['output'])[0]@control_unit),3),round(float(np.asarray(d['output'])[0]@doubt),3)) for m,d in t['modules'].items()])\n",
+    "reason": "Quantify termination specificity and the contribution of a weight-derived doubt-versus-conclusion direction. No direction is fitted to the diagnostic examples."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 87,
+    "remaining_forward_calls": 14,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3056817,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "5216495e5a6891b17459a413a4aa99e6265a65139f196ce04a0e7b9cab0aaff8",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 1747376,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "97b6b7026bfcfb95e6947d11def64d3bb2c7c000eaf061873902986f33e8d42e",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "doubt/control overlap 0.011226155795156956\nTEXT 0 [('Thinking', 26.04), ('The', 19.04), ('Here', 18.23), ('Okay', 17.63), ('I', 16.92)] end logp -10.09\nmodule components [('20.mlp.down_proj', 0.004, -0.006), ('21.mlp.down_proj', -0.18, -0.006), ('22.mlp.down_proj', 0.161, -0.016), ('23.mlp.down_proj', -0.147, -0.087), ('23.self_attn.o_proj', 0.063, -0.114)]\nTEXT 1 [(' ', 21.53), (' ?', 19.34), (' \\n', 15.93), ('\\n', 15.72), ('?', 15.04)] end logp -15.14\nmodule components [('20.mlp.down_proj', 0.046, 0.042), ('21.mlp.down_proj', -0.025, 0.029), ('22.mlp.down_proj', 0.375, 0.152), ('23.mlp.down_proj', 0.038, -0.043), ('23.self_attn.o_proj', -0.119, -0.062)]\nTEXT 2 [('</think>', 20.32), ('The', 18.91), ('I', 18.91), ('1', 17.32), ('   ', 16.76)] end logp -0.63\nmodule components [('20.mlp.down_proj', 0.077, 0.085), ('21.mlp.down_proj', 0.075, 0.007), ('22.mlp.down_proj', 0.268, -0.003), ('23.mlp.down_proj', -0.045, -0.047), ('23.self_attn.o_proj', -0.165, -0.066)]\nTEXT 3 [('The', 19.95), ('Let', 19.23), ('I', 19.22), ('Wait', 19.0), ('However', 18.55)] end logp -4.52\nmodule components [('20.mlp.down_proj', -0.018, 0.102), ('21.mlp.down_proj', 0.088, 0.002), ('22.mlp.down_proj', 0.172, 0.017), ('23.mlp.down_proj', -0.109, -0.021), ('23.self_attn.o_proj', -0.19, -0.089)]\nTEXT 4 [('1', 22.94), ('**', 21.14), ('4', 20.46), ('$', 20.09), ('$$', 19.67)] end logp -8.65\nmodule components [('20.mlp.down_proj', -0.023, 0.049), ('21.mlp.down_proj', 0.102, 0.034), ('22.mlp.down_proj', 0.129, 0.056), ('23.mlp.down_proj', 0.044, -0.075), ('23.self_attn.o_proj', -0.124, -0.053)]\nTEXT 5 [('<|im_end|>', 22.77), ('\\n\\n', 18.56), ('\\n', 17.84), ('**', 15.27), (' \\n\\n', 14.89)] end logp -11.44\nmodule components [('20.mlp.down_proj', 0.027, 0.05), ('21.mlp.down_proj', 0.019, 0.09), ('22.mlp.down_proj', 0.205, 0.056), ('23.mlp.down_proj', -0.12, -0.011), ('23.self_attn.o_proj', -0.031, -0.055)]\nTEXT 6 [('Wait', 20.55), ('The', 20.02), ('I', 19.04), ('This', 18.67), ('However', 18.32)] end logp -6.56\nmodule components [('20.mlp.down_proj', -0.034, 0.099), ('21.mlp.down_proj', 0.114, -0.002), ('22.mlp.down_proj', 0.087, -0.014), ('23.mlp.down_proj', -0.107, -0.037), ('23.self_attn.o_proj', -0.277, -0.109)]\nTEXT 7 [(' ', 22.48), (' ?', 15.73), (' ...', 14.12), (' ??', 13.33), (' (', 13.22)] end logp -20.74\nmodule components [('20.mlp.down_proj', -0.034, 0.004), ('21.mlp.down_proj', -0.075, 0.028), ('22.mlp.down_proj', 0.243, 0.158), ('23.mlp.down_proj', 0.071, 0.048), ('23.self_attn.o_proj', -0.093, -0.066)]\n",
+      "truncated": false
+    },
+    "seconds": 0.118014273999961
+  }
+}

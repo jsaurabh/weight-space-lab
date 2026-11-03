@@ -1,0 +1,48 @@
+{
+  "arguments": {
+    "modules": [
+      "model.language_model.layers.3.self_attn.o_proj",
+      "model.language_model.layers.7.self_attn.o_proj",
+      "model.language_model.layers.11.self_attn.o_proj",
+      "model.language_model.layers.15.self_attn.o_proj",
+      "model.language_model.layers.19.self_attn.o_proj",
+      "model.language_model.layers.23.self_attn.o_proj"
+    ],
+    "positions": [
+      -1,
+      -2,
+      -3,
+      -4
+    ],
+    "reason": "Before the final candidate, inspect earlier full-attention heads at completed calculations. A head that directly favors renewed questioning may be a more precise causal target than global lexical or normalization edits.",
+    "texts": [
+      "<|im_start|>user\nTeresa has 14 colored pencils and 35 black pencils. She keeps 10 and shares the rest equally among 3 siblings. How many pencils does each sibling get?<|im_end|>\n<|im_start|>assistant\n<think>\nThe total is 14 + 35 = 49. After keeping 10, she has 39 left. Each sibling receives 39 / 3 = 13 pencils.\n",
+      "<|im_start|>user\nRemy sold 55 bottles and Nick sold 6 fewer bottles in the morning, at $0.50 per bottle. Evening sales totaled $55. How much more did they earn in the evening?<|im_end|>\n<|im_start|>assistant\n<think>\nNick sold 55 - 6 = 49 bottles. Morning sales were (55 + 49) * 0.50 = 52 dollars. The difference is 55 - 52 = 3 dollars.\n"
+    ],
+    "which": "base"
+  },
+  "name": "probe",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 67,
+    "remaining_forward_calls": 5,
+    "result": {
+      "artifact": "probe-015",
+      "hidden_shape": [
+        25,
+        4,
+        1024
+      ],
+      "modules": [
+        "model.language_model.layers.3.self_attn.o_proj",
+        "model.language_model.layers.7.self_attn.o_proj",
+        "model.language_model.layers.11.self_attn.o_proj",
+        "model.language_model.layers.15.self_attn.o_proj",
+        "model.language_model.layers.19.self_attn.o_proj",
+        "model.language_model.layers.23.self_attn.o_proj"
+      ],
+      "texts": 2
+    },
+    "seconds": 0.187997328000165
+  }
+}

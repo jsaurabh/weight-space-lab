@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "clear_edits()\nfor m in ['model.language_model.layers.23.mlp.down_proj','model.language_model.layers.23.self_attn.o_proj']:\n    w=weight(m+'.weight')\n    repaired=w-np.outer(control_unit,control_unit@w)\n    save_edit(m+'.weight',repaired)\ncheckpoint('end_control_l23')\nprint(list_edits())",
+    "reason": "Test a minimal rank-one repair: prevent the final MLP and attention output from overwriting the existing think-ending-versus-think-start signal. This removes only one output direction, not an entire tensor scale."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 90,
+    "remaining_forward_calls": 18,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3056817,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "5216495e5a6891b17459a413a4aa99e6265a65139f196ce04a0e7b9cab0aaff8",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 1747376,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "97b6b7026bfcfb95e6947d11def64d3bb2c7c000eaf061873902986f33e8d42e",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "[{'name': 'model.language_model.layers.23.mlp.down_proj.weight', 'shape': [1024, 3584], 'dtype': 'torch.bfloat16', 'changed_entries': 3056817, 'base_sha256': '1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48', 'edited_sha256': '5216495e5a6891b17459a413a4aa99e6265a65139f196ce04a0e7b9cab0aaff8'}, {'name': 'model.language_model.layers.23.self_attn.o_proj.weight', 'shape': [1024, 2048], 'dtype': 'torch.bfloat16', 'changed_entries': 1747376, 'base_sha256': '0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3', 'edited_sha256': '97b6b7026bfcfb95e6947d11def64d3bb2c7c000eaf061873902986f33e8d42e'}]\n",
+      "truncated": false
+    },
+    "seconds": 0.07784585699982927
+  }
+}

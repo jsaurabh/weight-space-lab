@@ -1,0 +1,41 @@
+{
+  "base": {
+    "accuracy": 0.078125,
+    "closed_and_correct": 3,
+    "correct": 5,
+    "finished_and_correct": 3,
+    "generation_seconds": 398.27281533399946,
+    "hit_token_limit": 61,
+    "mean_tokens": 31415.53125,
+    "thinking_closed": 3,
+    "total": 64
+  },
+  "bootstrap_replicates": 10000,
+  "current": {
+    "accuracy": 0.046875,
+    "closed_and_correct": 3,
+    "correct": 3,
+    "finished_and_correct": 3,
+    "generation_seconds": 399.1137125790001,
+    "hit_token_limit": 61,
+    "mean_tokens": 31535.171875,
+    "thinking_closed": 3,
+    "total": 64
+  },
+  "mean_accuracy_difference": -0.03125,
+  "paired_sample_losses": 2,
+  "paired_sample_wins": 0,
+  "problem_cluster_bootstrap_95_interval": [
+    -0.078125,
+    0.0
+  ],
+  "problem_subjects": {
+    "Algebra": 5,
+    "Counting & Probability": 5,
+    "Geometry": 5,
+    "Intermediate Algebra": 5,
+    "Number Theory": 4,
+    "Prealgebra": 4,
+    "Precalculus": 4
+  }
+}

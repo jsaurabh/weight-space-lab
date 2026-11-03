@@ -11,6 +11,6 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-      - run: uv sync --locked
-      - run: uv run python -m unittest discover -s tests -v
-      - run: uv run weight-space-lab run --task all --output results/ci
+      - run: uv sync --locked --extra qwen
+      - run: uv run --extra qwen python -m unittest discover -s tests -v
+      - run: uv run --extra qwen weight-space-lab run --task all --output results/ci

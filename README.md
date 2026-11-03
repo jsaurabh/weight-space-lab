@@ -1,7 +1,7 @@
 # Weight Space Lab
 
-On-device CPU experiments in assigning tiny transformer weights directly, without
-gradient descent, pretrained target weights, or an external answer function.
+Experiments in assigning transformer weights directly, without gradient descent.
+Tiny models run on the local CPU; pretrained Qwen repair experiments use a Colab G4.
 
 Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming/)
 and [Weight-Space Programming from scratch on simple tasks](https://csinva.io/weight-space-programming-autoresearch/analyze/toy_examples/report.html).
@@ -17,6 +17,14 @@ The [completed G4 pilot](results/qwen/g4-pilot/README.md) improved accuracy from
 25/64. It uses 16 fixed problems with four samples each and the original
 32,768-token cap. All 128 outputs were audited against the published grader.
 This is a small subset result; the G4 session has been terminated.
+
+A subsequent [independent Qwen repair search](results/qwen/blind-discovery/README.md)
+gave a fresh API editor no published edit or prior conversation. It selected its
+own two-matrix intervention, but **did not find a useful repair**: on 32 sealed
+questions with two samples each, accuracy was 5/64 for base and 3/64 for its
+candidate. Both hit the token limit 61/64 times and finished correctly 3/64 times.
+The complete search, frozen weights, held-out outputs and replay checks are saved.
+Estimated editor API usage was $7.13; the G4 was stopped.
 
 ## Current experiment
 
@@ -199,6 +207,6 @@ uv run weight-space-discover replay results/discovery/astra-initial/parity/selec
 Known parity solutions are public, so even a context-isolated API run does not
 establish novelty or absence of pretraining exposure. A single run also does not
 establish reliable discovery rates across attempts or models. Next experiments
-can repeat independent runs, vary model size, test additional tasks, and separately
-investigate edits to a small pretrained language model. No credentials belong in
+can repeat independent runs, vary model size, test additional tasks, and improve
+the practice feedback used for pretrained-model repair. No credentials belong in
 Git; `.env` files and weight checkpoints are ignored.

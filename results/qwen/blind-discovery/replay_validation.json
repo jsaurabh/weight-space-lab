@@ -1,0 +1,26 @@
+{
+  "actual_changes": [
+    {
+      "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+      "changed_entries": 3296290,
+      "edited_sha256": "886da5b4b5785c4dd3f7c0c50df5d6888fbdb70f8480f279cba38a39430ee05a",
+      "name": "model.language_model.layers.23.mlp.down_proj.weight"
+    },
+    {
+      "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+      "changed_entries": 1886896,
+      "edited_sha256": "c67b702c49de9fed854193021f4bcb04659f0f7766857ba5822f7e95d5ad4aac",
+      "name": "model.language_model.layers.23.self_attn.o_proj.weight"
+    }
+  ],
+  "changed_tensor_count": 2,
+  "exact_frozen_candidate_reconstructed": true,
+  "method": "Materialized full checkpoint from pinned local base and frozen selected tensors, then hashed every named tensor; no generation or API calls",
+  "named_state_sha256": {
+    "base": "1887a10dcd937b20b22864061c885b932d2509cd5292d4f09cd63bdd929b2343",
+    "candidate": "52bd86a147a1838680b46869ec61234af0b9f30712428bd213af9be3e8430d8c"
+  },
+  "only_selected_tensors_changed": true,
+  "tensor_count": 488,
+  "unchanged_tensor_count": 486
+}

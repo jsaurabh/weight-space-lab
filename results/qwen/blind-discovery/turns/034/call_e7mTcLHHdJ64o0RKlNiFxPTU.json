@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "moments={}\nfor i in range(12,24):\n    root=prefix+str(i)+'.'\n    norm=1+weight(root+'post_attention_layernorm.weight')\n    g=weight(root+'mlp.gate_proj.weight')*norm[None,:]\n    up=weight(root+'mlp.up_proj.weight')*norm[None,:]\n    b=0.5*np.sum(g*up,axis=1)\n    down=weight(root+'mlp.down_proj.weight')\n    c=ambig@down\n    moments[i]=b\n    pos=(b*c)>0\n    print(i,'expected ambig',round(float(c@b),4),'positive contribution',round(float(c[pos]@b[pos]),4),'negative contribution',round(float(c[~pos]@b[~pos]),4),'positive count',int(np.sum(pos)))\n    mod=root+'mlp.down_proj'\n    if mod in p9['texts'][0]['modules']:\n        for ti,t in enumerate(p9['texts']):\n            a=np.asarray(t['modules'][mod]['input'])[0]\n            print('  diagnostic',ti,'actual positive',round(float(c[pos]@a[pos]),4),'actual negative',round(float(c[~pos]@a[~pos]),4),'mean-feature cosine',round(float(a@b/np.linalg.norm(a)/np.linalg.norm(b)),3))\n",
+    "reason": "Check a data-free SwiGLU moment estimate: for centered isotropic input, E[silu(g\u00b7x)(u\u00b7x)] = (g\u00b7u)/2. This can identify persistent ambiguity-writing components without learning from example labels."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 77,
+    "remaining_forward_calls": 11,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3543235,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "25a2cea550e5988f490e59aa7145f44c65784c63fa43cbace1e46f489178e396",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 2028021,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "118bdabd67c646652eafd492f65cc9786b032935462de21a30c2caca9be71ff7",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "12 expected ambig -0.0034 positive contribution 0.0631 negative contribution -0.0665 positive count 1798\n13 expected ambig 0.0048 positive contribution 0.0754 negative contribution -0.0706 positive count 1769\n14 expected ambig 0.0006 positive contribution 0.0977 negative contribution -0.0972 positive count 1847\n15 expected ambig 0.0035 positive contribution 0.103 negative contribution -0.0995 positive count 1793\n  diagnostic 0 actual positive 0.0578 actual negative -0.0293 mean-feature cosine 0.072\n  diagnostic 1 actual positive -0.0802 actual negative -0.1256 mean-feature cosine 0.07\n16 expected ambig -0.0079 positive contribution 0.1148 negative contribution -0.1227 positive count 1754\n17 expected ambig -0.0115 positive contribution 0.1498 negative contribution -0.1614 positive count 1752\n18 expected ambig 0.0061 positive contribution 0.195 negative contribution -0.1889 positive count 1839\n  diagnostic 0 actual positive -0.0852 actual negative 0.1497 mean-feature cosine 0.01\n  diagnostic 1 actual positive 0.1131 actual negative -0.1102 mean-feature cosine 0.1\n19 expected ambig 0.0099 positive contribution 0.1428 negative contribution -0.133 positive count 1838\n  diagnostic 0 actual positive -0.07 actual negative 0.0081 mean-feature cosine 0.03\n  diagnostic 1 actual positive 0.0317 actual negative -0.0625 mean-feature cosine 0.12\n20 expected ambig -0.0068 positive contribution 0.1433 negative contribution -0.1501 positive count 1750\n  diagnostic 0 actual positive 0.0445 actual negative 0.0032 mean-feature cosine 0.049\n  diagnostic 1 actual positive 0.0517 actual negative -0.1417 mean-feature cosine 0.145\n21 expected ambig -0.0017 positive contribution 0.1615 negative contribution -0.1632 positive count 1788\n  diagnostic 0 actual positive 0.0408 actual negative 0.0011 mean-feature cosine 0.107\n  diagnostic 1 actual positive 0.0833 actual negative -0.0851 mean-feature cosine 0.12\n22 expected ambig 0.0089 positive contribution 0.2061 negative contribution -0.1972 positive count 1803\n  diagnostic 0 actual positive 0.0668 actual negative -0.1345 mean-feature cosine 0.056\n  diagnostic 1 actual positive 0.2133 actual negative -0.2279 mean-feature cosine 0.16\n23 expected ambig 0.0112 positive contribution 0.2563 negative contribution -0.2451 positive count 1801\n  diagnostic 0 actual positive -0.1592 actual negative -0.1457 mean-feature cosine -0.053\n  diagnostic 1 actual positive 0.2136 actual negative -0.352 mean-feature cosine 0.09\n",
+      "truncated": false
+    },
+    "seconds": 0.11718176700014737
+  }
+}

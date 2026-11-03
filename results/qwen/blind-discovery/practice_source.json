@@ -1,0 +1,8 @@
+{
+  "repository": "openai/grade-school-math",
+  "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+  "file": "grade_school_math/data/train.jsonl",
+  "sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+  "sample_count": 256,
+  "selection_seed": 20261102
+}

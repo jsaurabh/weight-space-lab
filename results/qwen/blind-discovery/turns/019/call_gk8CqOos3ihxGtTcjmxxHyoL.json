@@ -1,0 +1,56 @@
+{
+  "arguments": {
+    "modules": [
+      "model.language_model.layers.20.mlp.down_proj",
+      "model.language_model.layers.21.mlp.down_proj",
+      "model.language_model.layers.22.mlp.down_proj",
+      "model.language_model.layers.23.mlp.down_proj",
+      "model.language_model.layers.23.self_attn.o_proj"
+    ],
+    "positions": [
+      -1,
+      -2,
+      -3,
+      -4,
+      -5,
+      -6,
+      -7,
+      -8
+    ],
+    "reason": "Establish a broader base diagnostic: start-of-reasoning, unfinished arithmetic, completed reasoning, and final-answer mode. This distinguishes desirable closure from premature or repeated closing tags.",
+    "texts": [
+      "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n",
+      "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 =",
+      "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42. The calculation is complete. The answer is 42.\n",
+      "<|im_start|>user\nA box has 8 red balls and 6 blue balls. How many balls are in the box?<|im_end|>\n<|im_start|>assistant\n<think>\nThe total is 8 + 6 = 14 balls. Therefore, the answer is 14.\n",
+      "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42.\n</think>\n\n",
+      "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42.\n</think>\n\nThe answer is \\boxed{42}.",
+      "<|im_start|>user\nA shop has 9 boxes of 12 pencils each and sells 36 pencils. How many remain?<|im_end|>\n<|im_start|>assistant\n<think>\nFirst, the shop has 9 * 12 = 108 pencils. After selling 36, there are 108 - 36 = 72 pencils.\n",
+      "<|im_start|>user\nA shop has 9 boxes of 12 pencils each and sells 36 pencils. How many remain?<|im_end|>\n<|im_start|>assistant\n<think>\nFirst, the shop has 9 * 12 = 108 pencils. After selling 36, there are 108 - 36 ="
+    ],
+    "which": "base"
+  },
+  "name": "probe",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 88,
+    "remaining_forward_calls": 14,
+    "result": {
+      "artifact": "probe-004",
+      "hidden_shape": [
+        25,
+        8,
+        1024
+      ],
+      "modules": [
+        "model.language_model.layers.20.mlp.down_proj",
+        "model.language_model.layers.21.mlp.down_proj",
+        "model.language_model.layers.22.mlp.down_proj",
+        "model.language_model.layers.23.mlp.down_proj",
+        "model.language_model.layers.23.self_attn.o_proj"
+      ],
+      "texts": 8
+    },
+    "seconds": 1.4918018460002713
+  }
+}

@@ -1,0 +1,530 @@
+[
+  {
+    "base_sha256": "cbee28fc3b42e07e491fffd593b2ee9ec58ae952dc9133e178f8a80ea916d308",
+    "changed_entries": 1731842,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "ea5399faee8ccb7e33fc4321f694b265e1e59bdd3ee7eafbd6c0de96c6355104",
+    "name": "model.language_model.layers.0.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "57c93b2a4452740b0b82386debc7c66df7774f98425a0253dd9d3e7006e989ac",
+    "changed_entries": 3031797,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "fd3acfbf31f8cd6e27e68368ea319232a7a93990883b3e1a1936d3fa56aa791e",
+    "name": "model.language_model.layers.0.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "66cb7582a142ba85cff4a46c46a1c25b51a6033c83b5784eaf82e51c9ef96594",
+    "changed_entries": 1728950,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "a1898aa7955e3bf27be3575e2219ce0742b66b959120990454d8f5e5537d9581",
+    "name": "model.language_model.layers.1.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "feda6221cef862b7eb343576a03dd1ad215a56561b084c80f26adbf284f1d292",
+    "changed_entries": 3036583,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "e073b23f7b1565328c1775995722715e9de8ea65f4b7ba93d85caa89bc8648e4",
+    "name": "model.language_model.layers.1.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "588e20883705d942ccab8d166e35f6d4969b4da0992af5dc84bcb8b6070fa26d",
+    "changed_entries": 1762550,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "94f89705586831c3d744ccc63b867832d9ba921d42e9235f7f9bce30c5e6d712",
+    "name": "model.language_model.layers.10.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "e32e37cffba5b41c4939ad74507e10dea14db631b6fef69c16b1a37dd3dc9b12",
+    "changed_entries": 3080860,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "44a306f61b7cb0491dba07bce07f8a3e5ae183a95f18fa7f19f5b337c282d1b6",
+    "name": "model.language_model.layers.10.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "5120ba8e1da3aeb89ddcf924f2c5e5108fdfe63fb072a4f270dd3508c7e24e3f",
+    "changed_entries": 3050804,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "23fe9157613366167cdbf2a03d3cd1f9402fc17a2361fcafb2cb8fe8ae1b6dcb",
+    "name": "model.language_model.layers.11.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "fd07e3e0b48deb3d36314fb39863cc30739c0d0cd9575da79bc26f562ba2762e",
+    "changed_entries": 1733920,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "b066a636b3b02d567943820fd05e8efb6d655459d7cef1a446a67973efd76014",
+    "name": "model.language_model.layers.11.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "7fd66cf843f4ded4175804494f9ed9ed91375bf224d99a209789bb762c7e19ed",
+    "changed_entries": 1770623,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "ab25bfd7c6e7c411a93c71bddc92d4ce9852f2b333bf58cd77551e67252bd811",
+    "name": "model.language_model.layers.12.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "2d5f2fef40eb81eddb32ab0ca8e4e53e5578c53f335cdd6b54d9d62051b0759e",
+    "changed_entries": 3076591,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "4de2cdb977b543a0a755817a393203ccd5b2cc6b6aaa0956a7708e6a691e8827",
+    "name": "model.language_model.layers.12.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "ed7cb4978176a6fadd07c3fd9d90fb6ab0ac125021e198d8f4dce00fa7169c3b",
+    "changed_entries": 1757673,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "eaf26ea90eae7bdea2fefb514dca849d113dd0376a02f545131aaf92122fdc5c",
+    "name": "model.language_model.layers.13.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "a903cbbf112b0c17b53cc7c89faed3df7fa718ec5f0a148ab474b6a75a064210",
+    "changed_entries": 3036163,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "331549788fb8580c838598ba53e61248e4a5dc5716015e2b304b9ddb733b4a0a",
+    "name": "model.language_model.layers.13.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "4104c25ec4cce12ad592be6a296c4cc0275e2e8f4b00521f49bb03187d8a83c0",
+    "changed_entries": 1721126,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "38e0e31771b91ef44fc5e5b591dd5e5855e557a381f5a0189a1228fe95e3fc0a",
+    "name": "model.language_model.layers.14.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "96d8150df0567e3d748b0388e6a20781b0569388a4ffa2a34faa531c85642803",
+    "changed_entries": 3034383,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "e3ba28e3e287df567e131a6568196c0a331461c532c455a492c5f5d61c324331",
+    "name": "model.language_model.layers.14.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "ef60d2c687bab19464dca9c8bfd7777e46ad226df0c9e25643b0bab04b5a1cca",
+    "changed_entries": 2976223,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "c7ce1d89a112105e0c4b9839c029a4406147dae03161997afde6449dcc8d1035",
+    "name": "model.language_model.layers.15.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "2f5be1b0f59d3bf45a992e18c26b3658ce5112527ea570b00d05fe1a48140092",
+    "changed_entries": 1704799,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "6b46487a6f126601b00dda09e3169f03b8190095a171c6971683d4d7ae88f87e",
+    "name": "model.language_model.layers.15.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "726ecc2ab3ba05f84cbff821eca9425519c30aec5d7ab1cf3aceaea7af38722a",
+    "changed_entries": 1687468,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "d187ee5370ecd32fe032b24f3b463b47d6f5aad9ace9fb3a9986e29a3c114916",
+    "name": "model.language_model.layers.16.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "e12df33b47e0bb61125b8fe421d0aba4a75e6bf0b07e1b233f79937b978356d0",
+    "changed_entries": 2966476,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "f273649c94639b64b9ea5438ae7281d8d1abfa5b2085fd77443285edf87806ef",
+    "name": "model.language_model.layers.16.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "73a8878d3e33c44b82f667c38243a535b6a3ca73c3a5fcf8c7dde790d246744d",
+    "changed_entries": 1693432,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "8dca115609cd133541a3aad0536081896bb751a3031515745831ce903db233f9",
+    "name": "model.language_model.layers.17.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "412058832c188e22c34c358c8e59601fbc9a945b7ac7fb8ed5b4712302b237a8",
+    "changed_entries": 2957709,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "648a2c6aad242f4f46c99d119b21b0db9ac563f62a5c027c37d97ad7e382c264",
+    "name": "model.language_model.layers.17.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "45929a42f3c3e0b9ade395dfb3ac8acc5084dd010cd4045cd8f570629b19d1e3",
+    "changed_entries": 1676862,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "28591044563e7f9a8cc7cb3651ede3a5f3fa1d1bc553ae04eff2f1c93ed5730d",
+    "name": "model.language_model.layers.18.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "f41124d728ee26c54cd15b22cdd10138cbfe5a04c6e7fe514f53d86d4780d838",
+    "changed_entries": 2944350,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "b7512ac1fb2d6e628a07ae069b9f65f4f8d9addb43225c03cf15a6241b1c92bd",
+    "name": "model.language_model.layers.18.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "638eedeb701b94aa861f4438e615c07ec6c60ee703db1bfee2de577bb6498c3e",
+    "changed_entries": 2908294,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "3cb69d62b5ea8219a6d6ba1dfa157a56f856749cc0911bcf1caa11d8c534d9af",
+    "name": "model.language_model.layers.19.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "1cc073772f5471e681af8b4cd8b8ceedf2ede22b2e062949671cf0f17335e8bf",
+    "changed_entries": 1628966,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "af8112f7ed403eaf907e8c744dc6ce141cb7f8d6d851448251f2986deb3876e8",
+    "name": "model.language_model.layers.19.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "c5950ca4569b4492985fed6839ede13d4c630e6950e9215cbfe2b810316b335e",
+    "changed_entries": 1735147,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "98f8695566f182707c31d9654104d20cd1448fe79ca3376db1fc6fb0a4cc5730",
+    "name": "model.language_model.layers.2.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "9196cbdeb8929eb1440cb8d7981aa72a19354f9bfaa22806e224694c303a902a",
+    "changed_entries": 3041993,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "2cae006540663339280754ed374bb56470e0bbf6c0d3949698647d830f4ce6be",
+    "name": "model.language_model.layers.2.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "15d1f278000fcab352ac74ed65c6dadd83dea32d95805681215e7531d8b5add5",
+    "changed_entries": 1683556,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "14bf029dca8028a73bdb95b3965c8dee5dc9d692c08761a330c9bb4c54e8b9b9",
+    "name": "model.language_model.layers.20.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "95321f2c16e168880266841a7ba2839bc0830079d02a052e0b109c19132b01db",
+    "changed_entries": 2933412,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "8a8494dc77d0d216fd0dd5f7ca3ed14d8ae7d8d381dc49b594b7fd5fedc6d68e",
+    "name": "model.language_model.layers.20.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "facb92f1502efd9987c3c2341f6934687f633ee6d99ea7b00d4e083236d54ec1",
+    "changed_entries": 1699337,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "54b7dcfe99a119cb249487a81061574cf8578ad64f28608e029a205cb6b8de58",
+    "name": "model.language_model.layers.21.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "af9fa5ecc9556068d867a410180e79bb3b5ac93c05059b8c98fef526c4483d9c",
+    "changed_entries": 2910521,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "1d9458a60399da0e712e8fe732b5b6acecf2d1cec00bbf13f01be94ebcaa7e59",
+    "name": "model.language_model.layers.21.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "0c0430dd7c274bf62f0b6144a8a39034695b0bc00090b66070e68b0327c6aa11",
+    "changed_entries": 1680374,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "a1f3bc911d7e8971016caf9f537d9d99e620a7c625e490a3dad6e8ecf194a303",
+    "name": "model.language_model.layers.22.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "198e2fabef4ee48484d9c952018e465376acea23511f126b7edceef8a66f50a1",
+    "changed_entries": 2848095,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "1c42592c3367babc82198bee2d2326459e9b69b9ee96cdc326572bc2243d6ca4",
+    "name": "model.language_model.layers.22.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+    "changed_entries": 2788652,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "72745f71bc7e34eafc661010ff4bf08147ab219081de34f187feb49ea86995ab",
+    "name": "model.language_model.layers.23.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+    "changed_entries": 1615244,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "b3ba8b81e6101d268c1cc33656ac5855adb18b1efe250821464884dfd7593e8e",
+    "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "d3428ec277dd5195c9a42720be5b4068fcc51943670c62f57e61b5adebcae1da",
+    "changed_entries": 3021697,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "eb05029e0fe3ef008ed59e523febed7a73a8895512ee7ca0f97819e48ecef465",
+    "name": "model.language_model.layers.3.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "4c92f1c5a423b022da52875dc21b31e0957110aefefc8826e0be5bcc875cc9cf",
+    "changed_entries": 1741304,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "41eb9e8f13330fbb2eeef7d50529cf9351353d5795d5e571de2769bfbe585d38",
+    "name": "model.language_model.layers.3.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "8bf7b33388b1fc049199bb51d73573a2e0d25cda81793605502981b2916e3618",
+    "changed_entries": 1738527,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "ff8939aa647632fdd825fe4e8f532cc87ae0fb88b142df77159881deed00051f",
+    "name": "model.language_model.layers.4.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "ba121be04f6cb888879295137310ca32ae19429a1aa03ef7c4ea2f361bb62734",
+    "changed_entries": 3031899,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "f3e9164148bf209c81bdf4d1e5165801e1408a7a7aab0b68d32e2186d1eb9171",
+    "name": "model.language_model.layers.4.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "9f01e959dff41fc8c81a1774e92f9fb48eea7ad3448e8ef1e61a05d594f67c89",
+    "changed_entries": 1736874,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "1426cbcf2c93fce5887f12bb7f662d291808032753d6276cf3b0dfc159fd28df",
+    "name": "model.language_model.layers.5.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "60f0a77529c775c10da70e76c08a9518918abbae9b264b9d5d6130dff55520e7",
+    "changed_entries": 3018544,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "b57348dfa839d7846b2422e1fb216c57ede1ea0a2c962c062effd187e4cc540b",
+    "name": "model.language_model.layers.5.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "457bf7c14c06028eb639e62d6b2131a8fdbda264fe40e15a45f7cfdf199fd898",
+    "changed_entries": 1737676,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "474c1ce845fbeb9a1add55a8797b7ae6674d1014f82d5d8ed80a4b1b53287308",
+    "name": "model.language_model.layers.6.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "b750e840ad51e8d4b7d0d7f46269df9b7060cc705212c0416b5a34607e3e15b1",
+    "changed_entries": 3027680,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "c48c8646a50beaee3551a8177f9ddd392c190eea6c24d686774fff49827aec7f",
+    "name": "model.language_model.layers.6.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "0c2ba3eec24441cc0a4b4c9e6956f64210caa2acb8fae18b3579fce9ec49159c",
+    "changed_entries": 3045983,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "ff9f235fe6ff69fc86ae7b22b3dff212e71bda2e14edbfe82723793440e0a9df",
+    "name": "model.language_model.layers.7.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "495f9a04acd3b164cd7fb06a9d3e09f699e4abb0298b6cb3313b2d9b8470a63c",
+    "changed_entries": 1737425,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "f7ad65a6dd8a123425a3aa59c5a18bfd83bb56571916e0cbef2ded36e4898501",
+    "name": "model.language_model.layers.7.self_attn.o_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "f999552cfea17861edc5f5dd25b48f51e89fe3f12e3d7b27c482993d61f773b9",
+    "changed_entries": 1747855,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "c7466c185edc3ae26f136a5e91a6dfd051d30909a4377926b854c7f668fa5d10",
+    "name": "model.language_model.layers.8.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "05fb318d3507148575b60805a4d34ccaba09aab41705d75a33fe101a78ff841c",
+    "changed_entries": 3088262,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "cbdcc93a025c448d46f2de9d489cf5efb6c17b8b14d6ca48d4d032aeccfa871f",
+    "name": "model.language_model.layers.8.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  },
+  {
+    "base_sha256": "253571bd7bcb82ae7d6c3db2a5ba0ea44b62deb54d2dbc5cd43672c4081691ca",
+    "changed_entries": 1752672,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "5c572e61ab6f48faff744e9355245ffd4a0ca6ab4bb40d561a665c6b3e3317ab",
+    "name": "model.language_model.layers.9.linear_attn.out_proj.weight",
+    "shape": [
+      1024,
+      2048
+    ]
+  },
+  {
+    "base_sha256": "09751bd4c7ef156fd8c5cf4e3be0d6250c7cccc14cf30883fbb28d213fec6132",
+    "changed_entries": 3067532,
+    "dtype": "torch.bfloat16",
+    "edited_sha256": "8e700a8cf64a9b27ecdd0dfc95f53bd2bc0b44f712a13b1cb76cd692de1900d4",
+    "name": "model.language_model.layers.9.mlp.down_proj.weight",
+    "shape": [
+      1024,
+      3584
+    ]
+  }
+]

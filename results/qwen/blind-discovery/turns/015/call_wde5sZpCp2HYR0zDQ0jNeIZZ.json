@@ -1,0 +1,37 @@
+{
+  "arguments": {
+    "modules": [
+      "model.language_model.layers.23.mlp.down_proj",
+      "model.language_model.layers.23.self_attn.o_proj"
+    ],
+    "positions": [
+      -1,
+      -2
+    ],
+    "reason": "The edited-generation call failed before inference with a serialization error. Check whether the same checkpoint can be evaluated through the independent probe path.",
+    "texts": [
+      "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n<think>\n17 + 25 = 42. The calculation is complete. The answer is 42.\n"
+    ],
+    "which": "current"
+  },
+  "name": "probe",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 90,
+    "remaining_forward_calls": 16,
+    "result": {
+      "artifact": "probe-003",
+      "hidden_shape": [
+        25,
+        2,
+        1024
+      ],
+      "modules": [
+        "model.language_model.layers.23.mlp.down_proj",
+        "model.language_model.layers.23.self_attn.o_proj"
+      ],
+      "texts": 1
+    },
+    "seconds": 0.05102194099981716
+  }
+}

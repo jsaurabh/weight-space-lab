@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "code": "p5=artifact('probe-005')\ndef logstats(t):\n    h=np.asarray(t['hidden'])[-1,0]\n    ls=emb@h\n    mx=float(np.max(ls)); lz=mx+float(np.log(np.sum(np.exp(ls-mx))))\n    return ls,lz\nfor i,(a,b) in enumerate(zip(p4['texts'],p5['texts'])):\n    la,za=logstats(a); lb,zb=logstats(b)\n    top=np.argsort(lb)[-4:][::-1]\n    orig=int(np.argmax(la))\n    print(i,'end logp',round(float(la[end_id])-za,3),round(float(lb[end_id])-zb,3), 'base top',decode([orig]), 'base top logp delta',round(float(lb[orig]-la[orig])-zb+za,3),'new top',[(decode([int(j)]),round(float(lb[j]),2)) for j in top])\n# Inspect the mean vocabulary effect of the reflection's one residual direction.\nend_direction=(1+fnorm)*control_unit\nlex=emb@end_direction\ntop=np.argsort(lex)[-16:][::-1]\nprint('direction favors',[(decode([int(j)]),round(float(lex[j]),3)) for j in top])",
+    "reason": "Compare the reflection against base on all diagnostic states, including probability assigned to the unchanged numerical and formatting continuations."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 85,
+    "remaining_forward_calls": 13,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 3296290,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "886da5b4b5785c4dd3f7c0c50df5d6888fbdb70f8480f279cba38a39430ee05a",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0bfc9597711007322dfd0be5efc1d105232e9c89efcb03cc3d06b9a29ccdd8f3",
+          "changed_entries": 1886896,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "c67b702c49de9fed854193021f4bcb04659f0f7766857ba5822f7e95d5ad4aac",
+          "name": "model.language_model.layers.23.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        }
+      ],
+      "stdout": "0 end logp -10.09 -9.172 base top Thinking base top logp delta -0.0 new top [('Thinking', 25.98), ('The', 18.99), ('Here', 18.24), ('Okay', 17.53)]\n1 end logp -15.143 -14.573 base top   base top logp delta 0.01 new top [(' ', 21.58), (' ?', 19.3), (' \\n', 15.96), ('\\n', 15.72)]\n2 end logp -0.626 -0.145 base top </think> base top logp delta 0.481 new top [('</think>', 21.93), ('I', 18.79), ('The', 18.77), ('1', 17.0)]\n3 end logp -4.521 -1.915 base top The base top logp delta -0.152 new top [('The', 19.8), ('</think>', 19.31), ('I', 19.01), ('Let', 18.93)]\n4 end logp -8.654 -7.905 base top 1 base top logp delta -0.003 new top [('1', 22.89), ('**', 21.12), ('4', 20.4), ('$', 20.0)]\n5 end logp -11.436 -10.037 base top <|im_end|> base top logp delta 0.001 new top [('<|im_end|>', 22.65), ('\\n\\n', 18.34), ('\\n', 17.76), ('**', 15.28)]\n6 end logp -6.56 -3.06 base top Wait base top logp delta -0.023 new top [('Wait', 20.38), ('The', 19.8), ('I', 18.81), ('This', 18.38)]\n7 end logp -20.744 -20.608 base top   base top logp delta 0.0 new top [(' ', 22.53), (' ?', 15.69), (' ...', 14.11), (' ??', 13.28)]\ndirection favors [('</think>', 1.513), ('`.`', 0.474), ('`\\\\', 0.458), ('\u5fa8', 0.439), ('erende', 0.412), ('/lg', 0.41), ('enze', 0.41), ('\u6709\u9053', 0.395), ('antau', 0.394), ('lags', 0.394), ('anisme', 0.392), ('`(', 0.382), (' `-', 0.382), ('                                                                                           ', 0.376), ('enzio', 0.375), ('              \\n', 0.374)]\n",
+      "truncated": false
+    },
+    "seconds": 0.20771899700002905
+  }
+}

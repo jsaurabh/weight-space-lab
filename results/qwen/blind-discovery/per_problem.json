@@ -1,0 +1,226 @@
+[
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/prealgebra/1003.json",
+    "subject": "Prealgebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/number_theory/132.json",
+    "subject": "Number Theory"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/intermediate_algebra/515.json",
+    "subject": "Intermediate Algebra"
+  },
+  {
+    "base": 1.0,
+    "current": 0.5,
+    "difference": -0.5,
+    "id": "test/prealgebra/1907.json",
+    "subject": "Prealgebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/precalculus/1199.json",
+    "subject": "Precalculus"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/intermediate_algebra/1510.json",
+    "subject": "Intermediate Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/geometry/347.json",
+    "subject": "Geometry"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/number_theory/838.json",
+    "subject": "Number Theory"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/geometry/183.json",
+    "subject": "Geometry"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/algebra/769.json",
+    "subject": "Algebra"
+  },
+  {
+    "base": 0.5,
+    "current": 0.0,
+    "difference": -0.5,
+    "id": "test/precalculus/1105.json",
+    "subject": "Precalculus"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/precalculus/659.json",
+    "subject": "Precalculus"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/number_theory/466.json",
+    "subject": "Number Theory"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/number_theory/13.json",
+    "subject": "Number Theory"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/counting_and_probability/430.json",
+    "subject": "Counting & Probability"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/prealgebra/1572.json",
+    "subject": "Prealgebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/prealgebra/1187.json",
+    "subject": "Prealgebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/counting_and_probability/765.json",
+    "subject": "Counting & Probability"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/counting_and_probability/761.json",
+    "subject": "Counting & Probability"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/intermediate_algebra/1555.json",
+    "subject": "Intermediate Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/counting_and_probability/119.json",
+    "subject": "Counting & Probability"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/algebra/1547.json",
+    "subject": "Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/precalculus/927.json",
+    "subject": "Precalculus"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/algebra/2023.json",
+    "subject": "Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/algebra/567.json",
+    "subject": "Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/geometry/880.json",
+    "subject": "Geometry"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/geometry/1108.json",
+    "subject": "Geometry"
+  },
+  {
+    "base": 1.0,
+    "current": 1.0,
+    "difference": 0.0,
+    "id": "test/algebra/2157.json",
+    "subject": "Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/counting_and_probability/10.json",
+    "subject": "Counting & Probability"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/intermediate_algebra/752.json",
+    "subject": "Intermediate Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/intermediate_algebra/860.json",
+    "subject": "Intermediate Algebra"
+  },
+  {
+    "base": 0.0,
+    "current": 0.0,
+    "difference": 0.0,
+    "id": "test/geometry/802.json",
+    "subject": "Geometry"
+  }
+]

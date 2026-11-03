@@ -43,7 +43,8 @@ def main():
             score = bool(grader.is_correct(pred, r["answer"]))
             row = {k: v for k, v in r.items() if k not in {"text", "question", "answer", "correct"}}
             row.update(condition=mode, correct=score, original_remote_correct=r["correct"],
-                       closed_and_correct=score and r["thinking_closed"])
+                       closed_and_correct=score and r["thinking_closed"],
+                       finished_and_correct=score and not r["hit_token_limit"])
             all_rows.append(row)
             if score != r["correct"]:
                 changes.append({"condition": mode, "id": r["id"], "sample": r["sample"],
@@ -52,6 +53,7 @@ def main():
         summary[mode] = {"correct": sum(r["correct"] for r in group), "total": len(group),
             "accuracy": statistics.mean(r["correct"] for r in group),
             "closed_and_correct": sum(r["closed_and_correct"] for r in group),
+            "finished_and_correct": sum(r["finished_and_correct"] for r in group),
             "thinking_closed": sum(r["thinking_closed"] for r in group),
             "hit_token_limit": sum(r["hit_token_limit"] for r in group),
             "mean_tokens": statistics.mean(r["tokens"] for r in group),
