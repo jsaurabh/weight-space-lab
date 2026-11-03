@@ -7,6 +7,11 @@ Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/
 and [Weight-Space Programming from scratch on simple tasks](https://csinva.io/weight-space-programming-autoresearch/analyze/toy_examples/report.html).
 This repository is an independent implementation of the idea, not the authors' code.
 
+The repository also includes a [Qwen3.5-0.8B published-edit replay](docs/qwen-replay.md):
+bit-exact reconstruction of the two edited tensors, a local Apple GPU pilot,
+and a paired MATH-500 evaluation on a Colab G4. This replays an existing edit;
+the tiny-transformer experiments below test fresh API-generated weights.
+
 ## Current experiment
 
 Two guided reference constructions establish a working, inspectable local testbed.
