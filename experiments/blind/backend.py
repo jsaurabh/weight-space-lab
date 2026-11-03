@@ -95,6 +95,37 @@ class Service:
         self.frozen = False
         self.started = time.monotonic()
         self.namespace = None
+        self.engine_signature = ()
+        self.maintenance_notice = None
+        snapshot = ROOT / "maintenance_snapshot.json"
+        if snapshot.exists():
+            saved = json.loads(snapshot.read_text())
+            self.restore(saved["checkpoint_label"])
+            self.forward_calls = saved["successful_forward_calls"]
+            self.analysis_calls = saved["analysis_calls"]
+            self.started -= saved["elapsed_seconds"]
+            for descriptor in sorted((OUT / "artifacts").glob("*.json")):
+                array_path = descriptor.with_suffix(".npz")
+                arrays = np.load(array_path, allow_pickle=False) if array_path.exists() else None
+
+                def decode_artifact(value):
+                    if isinstance(value, dict) and set(value) == {"array", "shape", "dtype"}:
+                        return np.array(arrays[value["array"]], copy=True)
+                    if isinstance(value, dict):
+                        return {k: decode_artifact(v) for k, v in value.items()}
+                    if isinstance(value, list):
+                        return [decode_artifact(v) for v in value]
+                    return value
+
+                self.artifacts[descriptor.stem] = decode_artifact(json.loads(descriptor.read_text()))
+                if arrays is not None:
+                    arrays.close()
+            self.maintenance_notice = (
+                "Infrastructure maintenance fixed candidate-weight transport using the native reload API. "
+                "Your exact current edits, checkpoints and all generation/probe artifacts are preserved. "
+                "Temporary CPU analysis variables were cleared; recreate them from your transcript/artifacts. "
+                "Failed weight-transfer requests that ran no inference were refunded. No repair choices changed."
+            )
         source = OUT / "source"
         source.mkdir(exist_ok=True)
         for name in ["backend.py", "protocol.py"]:
@@ -207,7 +238,7 @@ class Service:
             import builtins
             allowed = ["abs", "all", "any", "bool", "dict", "enumerate", "Exception", "float", "int", "isinstance",
                        "len", "list", "max", "min", "next", "print", "reversed", "round", "set", "sorted", "str",
-                       "sum", "tuple", "type", "ValueError", "zip"]
+                       "repr", "sum", "tuple", "type", "ValueError", "zip"]
             safe = {name: getattr(builtins, name) for name in allowed}
 
             def limited_range(*args):
@@ -217,7 +248,7 @@ class Service:
                 return values
 
             def restricted_import(name, *args, **kwargs):
-                if name not in {"numpy", "math"}:
+                if name not in {"numpy", "math"} and not name.startswith("numpy."):
                     raise ValueError("Unavailable module")
                 return __import__(name, *args, **kwargs)
 
@@ -255,25 +286,43 @@ class Service:
         return self.llm
 
     def apply_generator(self, which):
-        from safetensors.torch import save_file
+        from safetensors.torch import load_file, save_file
+        from shutil import copyfile
         llm = self.get_llm()
         target = self.edits if which == "current" else {}
-        names = set(target) | self.engine_applied
-        if names:
-            values = {name: target.get(name, self.base_tensor(name)) for name in names}
-            path = str(ROOT / "apply.safetensors")
-            save_file(values, path)
-
-            def load(model):
-                from safetensors.torch import load_file
-                state = load_file(path, device="cpu")
-                loaded = model.load_weights(iter(state.items()))
-                return {"loaded_parameters": len(loaded)}
-
-            applied = llm.apply_model(load)
-            if any(item["loaded_parameters"] == 0 for item in applied):
-                raise ValueError("Generator did not load the candidate tensors")
+        signature = tuple((name, digest(t)) for name, t in sorted(target.items()))
+        if signature != self.engine_signature:
+            directory = BASE
+            if target:
+                directory = ROOT / "runtime-candidate"
+                directory.mkdir(exist_ok=True)
+                for source in BASE.iterdir():
+                    if source.is_file() and not source.name.endswith(".safetensors"):
+                        copyfile(source, directory / source.name)
+                for shard in sorted(set(self.mapping.values())):
+                    tensors = load_file(BASE / shard, device="cpu")
+                    tensors.update({name: value for name, value in target.items() if self.mapping[name] == shard})
+                    save_file(tensors, directory / shard, metadata={"format": "pt"})
+            # String RPC + a complete checkpoint avoids serializing executable
+            # callbacks and preserves vLLM's default serialization protections.
+            llm.collective_rpc("reload_weights", kwargs={"weights_path": str(directory), "is_checkpoint_format": True})
+            self.engine_signature = signature
         self.engine_applied = set(target)
+
+    def smoke_reload(self):
+        self.apply_generator("base")
+        before = self.llm.collective_rpc("compute_weight_checksums")
+        self.apply_generator("current")
+        after = self.llm.collective_rpc("compute_weight_checksums")
+        changes = [name for name in before[0] if before[0][name] != after[0][name]]
+        self.apply_generator("base")
+        restored = self.llm.collective_rpc("compute_weight_checksums")
+        result = {"changed_gpu_parameters": changes, "base_roundtrip_exact": before == restored,
+                  "candidate_tensors": self.list_edits(), "did_not_run_inference": True}
+        if not result["base_roundtrip_exact"] or (self.edits and not changes):
+            raise ValueError("Native reload round-trip check failed")
+        write(OUT / "native_reload_validation.json", result)
+        return result
 
     def put_artifact(self, data, prefix):
         identifier = f"{prefix}-{len(self.artifacts) + 1:03d}"
@@ -461,6 +510,8 @@ class Service:
             return self.final_evaluate()
         if name == "export":
             return self.export()
+        if name == "smoke_reload":
+            return self.smoke_reload()
         raise ValueError("Unknown operation")
 
     def run(self):
@@ -471,7 +522,10 @@ class Service:
                 response_path = ROOT / "responses" / path.name
                 if response_path.exists():
                     continue
-                request = json.loads(path.read_text())
+                try:
+                    request = json.loads(path.read_text())
+                except json.JSONDecodeError:
+                    continue
                 started = time.perf_counter()
                 self.update_status("tool_" + request["name"])
                 try:
@@ -479,6 +533,9 @@ class Service:
                 except Exception as exc:
                     result = {"ok": False, "error": type(exc).__name__ + ": " + str(exc)[:3000]}
                     print(traceback.format_exc(), flush=True)
+                if self.maintenance_notice and request["name"] in {"practice", "python_analysis", "generate", "probe", "finish"}:
+                    result["maintenance_notice"] = self.maintenance_notice
+                    self.maintenance_notice = None
                 result["remaining_forward_calls"] = MAX_FORWARD_CALLS - self.forward_calls
                 result["remaining_analysis_calls"] = MAX_ANALYSIS_CALLS - self.analysis_calls
                 result["seconds"] = time.perf_counter() - started

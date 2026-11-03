@@ -74,9 +74,31 @@ million stored elements. Values must retain shape and dtype, remain finite,
 and have absolute value at most one million.
 
 The generator uses vLLM 0.33.0. Arbitrary candidate tensors are applied through
-its native model weight loader, and prior changes are restored from the pinned
-base when switching conditions. Prefix caching is disabled. A separate frozen
+its native `reload_weights` RPC with a complete checkpoint, and prior changes
+are restored from the pinned base when switching conditions. No executable
+callback is serialized and vLLM's serialization protection remains enabled.
+Prefix caching is disabled. A separate frozen
 Transformers model provides teacher-forced probes under inference mode.
+
+## Infrastructure maintenance during this run
+
+The initial callback-based weight transfer was rejected by vLLM before candidate
+generation could run. Discovery was suspended while that generic interface was
+replaced with native checkpoint reload. The two failed transfers that ran no
+inference were refunded; successful generations and probes still count against
+the original 20-call budget.
+
+The editor's exact current tensors, checkpoints, observations and complete API
+history were preserved. GPU checksums confirmed that the two tensors in its
+then-current candidate changed, and that restoring the base recovered every
+GPU checksum exactly. This validation ran no inference. Source versions before
+and after maintenance, checkpoint hashes and the budget snapshot are retained.
+
+Temporary CPU analysis variables were cleared by the restart. The same API
+conversation resumed at turn 25 with only a neutral notice about the transport
+repair and cleared variables. The host supplied no numerical repair, diagnostic
+conclusion or algorithm suggestion. The discovery wall clock and API turn cap
+were not reset.
 
 ## Budgets and audit trail
 

@@ -88,15 +88,16 @@ def main():
     parser.add_argument("--max-turns", type=int, default=60)
     parser.add_argument("--max-cost-usd", type=float, default=25.)
     parser.add_argument("--skip-final-evaluation", action="store_true")
+    parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     key = os.environ.get("OPENAI_API_KEY") or dotenv_values(Path.cwd() / ".env.local").get("OPENAI_API_KEY")
     if not key:
         raise SystemExit("No authorized project API key available")
     output = args.output
-    output.mkdir(parents=True, exist_ok=False)
+    output.mkdir(parents=True, exist_ok=args.resume)
     bridge = Bridge(args.session, Path(".artifacts/blind-bridge"))
     client = OpenAI(api_key=key, max_retries=0, timeout=600)
-    manifest = {"protocol": "blind_qwen_discovery_v1", "model": "gpt-6-astra", "reasoning_effort": "max",
+    manifest = json.loads((output / "run.json").read_text()) if args.resume else {"protocol": "blind_qwen_discovery_v1", "model": "gpt-6-astra", "reasoning_effort": "max",
         "max_api_turns": args.max_turns, "max_forward_calls": 20, "estimated_api_ceiling_usd": args.max_cost_usd,
         "prior_conversation_provided": False, "external_repair_files_provided": False,
         "sealed_test_uploaded_during_discovery": False, "status": "initializing", "api_cost_usd_estimated": 0.,
@@ -104,7 +105,8 @@ def main():
     write(output / "run.json", manifest)
     spent, previous_usage, new_bytes = 0., None, 0
     frozen = False
-    started = time.monotonic()
+    created = datetime.fromisoformat(manifest["created_utc"])
+    started = time.monotonic() - (datetime.now(timezone.utc) - created).total_seconds()
     try:
         metadata = bridge.rpc("metadata", {}, timeout=240)
         if not metadata["ok"]:
@@ -117,8 +119,57 @@ def main():
                 "practice_examples_available": info["practice_count"],
                 "goal": "Improve math answer accuracy by discovering and applying a useful internal weight repair. Inspect behavior and weights, run justified experiments, and finalize your selected checkpoint. Use comparable practice IDs when evaluating candidates."}
         history = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": json.dumps(task)}]
+        first_turn = 1
+        if args.resume:
+            completed = sorted(p for p in (output / "turns").iterdir() if (p / "response.json").exists())
+            last = completed[-1]
+            original_request = json.loads((last / "request.json").read_text())
+            original_response = json.loads((last / "response.json").read_text())
+
+            def without_none(value):
+                if isinstance(value, dict):
+                    return {k: without_none(v) for k, v in value.items() if v is not None}
+                if isinstance(value, list):
+                    return [without_none(v) for v in value]
+                return value
+
+            history = original_request["input"] + without_none(original_response["output"])
+            for item in original_response["output"]:
+                if item["type"] != "function_call":
+                    continue
+                saved_call = last / (item["call_id"] + ".json")
+                arguments = json.loads(item["arguments"])
+                if saved_call.exists():
+                    result = json.loads(saved_call.read_text())["response"]
+                else:
+                    matches = []
+                    for path in bridge.directory.glob("request-*.json"):
+                        request_data = json.loads(path.read_text())
+                        if request_data["name"] == item["name"] and request_data["arguments"] == arguments:
+                            response_path = path.with_name(path.name.replace("request-", "response-", 1))
+                            if response_path.exists():
+                                matches.append(response_path)
+                    if not matches:
+                        raise RuntimeError("Cannot resume without the completed pending tool response")
+                    result = json.loads(max(matches, key=lambda p: p.stat().st_mtime).read_text())
+                    write(saved_call, {"name": item["name"], "arguments": arguments, "response": result})
+                text = json.dumps(result)
+                history.append({"type": "function_call_output", "call_id": item["call_id"], "output": text})
+                new_bytes += len(text.encode())
+            notice = ("Infrastructure-only notice: the candidate-generation weight-loading interface was repaired. "
+                "Your exact current weights, checkpoints, and all generation/probe artifacts are preserved. "
+                "Temporary CPU analysis variables were cleared; reconstruct them from your transcript and artifact IDs. "
+                "Two failed weight transfers that ran no inference were refunded. No repair decisions or numerical "
+                "candidate values were changed. Continue your own experiment without external hints.")
+            history.append({"role": "user", "content": notice})
+            new_bytes += len(notice.encode())
+            spent = sum(json.loads((p / "accounting.json").read_text())["cost_usd_estimated"] for p in completed)
+            previous_usage = original_response["usage"]
+            first_turn = int(last.name) + 1
+            manifest["resumed_at_turn"] = first_turn
+            manifest["maintenance_notice"] = notice
         manifest["status"] = "discovering"
-        for turn in range(1, args.max_turns + 1):
+        for turn in range(first_turn, args.max_turns + 1):
             if time.monotonic() - started > 3 * 3600:
                 manifest["stop_reason"] = "three-hour discovery wall limit"
                 break

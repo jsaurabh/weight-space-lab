@@ -1,7 +1,10 @@
 import importlib.util
+import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import torch
@@ -11,6 +14,7 @@ sys.path.insert(0, str(DIRECTORY))
 from protocol import SYSTEM, TOOLS, validate_code
 from driver import check_budget, usage_cost
 from backend import Service
+import backend
 
 
 class BlindProtocol(unittest.TestCase):
@@ -54,6 +58,36 @@ class BlindProtocol(unittest.TestCase):
         with self.assertRaises(ValueError):
             check_budget(0., 0.01, request, None, 0)
         self.assertLess(check_budget(0., 25., request, usage, 1000), 25.)
+
+    def test_native_reload_uses_complete_checkpoint_and_restores_base(self):
+        from safetensors.torch import load_file, save_file
+        class Engine:
+            def __init__(self):
+                self.calls = []
+            def collective_rpc(self, method, kwargs):
+                self.calls.append((method, kwargs, load_file(Path(kwargs['weights_path']) / 'model.safetensors')))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            base = root / 'base'
+            base.mkdir()
+            original = {'edited': torch.ones(2, dtype=torch.bfloat16), 'fixed': torch.zeros(2, dtype=torch.bfloat16)}
+            save_file(original, base / 'model.safetensors')
+            (base / 'config.json').write_text('{}')
+            engine = Engine()
+            service = Service.__new__(Service)
+            service.edits = {'edited': original['edited'] + 1}
+            service.mapping = {name: 'model.safetensors' for name in original}
+            service.engine_signature = ()
+            service.get_llm = lambda: engine
+            with patch.object(backend, 'BASE', base), patch.object(backend, 'ROOT', root):
+                service.apply_generator('current')
+                service.apply_generator('current')
+                service.apply_generator('base')
+            self.assertEqual(len(engine.calls), 2)
+            self.assertTrue(all(c[0] == 'reload_weights' for c in engine.calls))
+            self.assertTrue(torch.equal(engine.calls[0][2]['edited'], service.edits['edited']))
+            self.assertTrue(torch.equal(engine.calls[0][2]['fixed'], original['fixed']))
+            self.assertTrue(all(torch.equal(engine.calls[1][2][k], v) for k, v in original.items()))
 
 
 if __name__ == "__main__":
