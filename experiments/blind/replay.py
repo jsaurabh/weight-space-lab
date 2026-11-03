@@ -24,7 +24,7 @@ def main():
     frozen = json.loads((args.result / "frozen.json").read_text())
     selected = args.result / "selected.safetensors"
     if not selected.is_file():
-        raise FileNotFoundError("Fetch the model artifacts first: python3 experiments/fetch_artifacts.py --group qwen-blind")
+        raise FileNotFoundError("Fetch the model artifacts first: python3 experiments/fetch_artifacts.py")
     if hashlib.sha256(selected.read_bytes()).hexdigest() != frozen["selected_file_sha256"]:
         raise ValueError("Selected checkpoint checksum differs from the frozen choice")
     edits = load_file(selected)

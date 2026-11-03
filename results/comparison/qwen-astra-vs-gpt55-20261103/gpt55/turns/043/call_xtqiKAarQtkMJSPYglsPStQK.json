@@ -1,0 +1,30 @@
+{
+  "arguments": {
+    "code": "restore('antiwait_l23_a8')\nidxs=np.array([25,225,425,625,1025,1425,1825,2225,2625,3225,3825,4425,5025,5625,6225,6825,7425,7850,8350,9050,9550,10150,10650,11250,11750,12250,12750,13250,13950,14650,14790,14950])\nfor idx in idxs:\n    print(int(idx), practice_ids[int(idx)])",
+    "reason": "Restore best antiwait_l23_a8 after testing closure variant; select another validation batch of IDs at new offsets."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 73,
+    "remaining_forward_calls": 2,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 2037563,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "893048bbeff031c064a9e66279a89e244f026df34782169338b4a16fa1af9c51",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        }
+      ],
+      "stdout": "25 gsm8k_train_26\n225 gsm8k_train_226\n425 gsm8k_train_427\n625 gsm8k_train_627\n1025 gsm8k_train_1027\n1425 gsm8k_train_1428\n1825 gsm8k_train_1828\n2225 gsm8k_train_2228\n2625 gsm8k_train_2628\n3225 gsm8k_train_3228\n3825 gsm8k_train_3828\n4425 gsm8k_train_4428\n5025 gsm8k_train_5028\n5625 gsm8k_train_5629\n6225 gsm8k_train_6229\n6825 gsm8k_train_6829\n7425 gsm8k_train_7429\n7850 math_train_algebra_383\n8350 math_train_algebra_889\n9050 math_train_algebra_1598\n9550 math_train_counting_and_probability_374\n10150 math_train_geometry_224\n10650 math_train_geometry_783\n11250 math_train_intermediate_algebra_528\n11750 math_train_intermediate_algebra_1037\n12250 math_train_number_theory_252\n12750 math_train_number_theory_757\n13250 math_train_prealgebra_394\n13950 math_train_prealgebra_1098\n14650 math_train_precalculus_642\n14790 aime_1986-6\n14950 aime_2000-I-11\n",
+      "truncated": false
+    },
+    "seconds": 0.01874787999986438
+  }
+}

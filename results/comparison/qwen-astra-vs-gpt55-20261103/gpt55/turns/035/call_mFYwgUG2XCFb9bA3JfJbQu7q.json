@@ -1,0 +1,14 @@
+{
+  "arguments": {
+    "code": "orig=set(['gsm8k_train_0','gsm8k_train_1','gsm8k_train_2','gsm8k_train_10','gsm8k_train_101','gsm8k_train_502','gsm8k_train_1002','gsm8k_train_2003','gsm8k_train_3003','gsm8k_train_4003','gsm8k_train_5003','gsm8k_train_6004','gsm8k_train_7004','math_train_algebra_0','math_train_algebra_100','math_train_counting_and_probability_0','math_train_geometry_0','math_train_intermediate_algebra_0','math_train_number_theory_0','math_train_prealgebra_0','math_train_precalculus_0','math_train_algebra_1008','math_train_geometry_595','math_train_number_theory_472','math_train_prealgebra_614','math_train_precalculus_445','math_train_intermediate_algebra_752','math_train_counting_and_probability_277','math_train_algebra_502','aime_1983-1','aime_1983-3','aime_1983-4'])\n# choose spread by offsets: 14 gsm, 14 math, 4 aime\nidxs=[50,150,750,1250,1750,2500,3500,4500,5500,6500,7200,300,900,6900,\n      7500,7700,8200,8900,9400,9900,10400,10900,11400,11900,12400,13000,13700,14400,\n      14760,14850,15000,15300]\nids=[]\nfor idx in idxs:\n    pid=practice_ids[idx]\n    if pid in orig:\n        # advance until unused\n        j=idx+1\n        while practice_ids[j] in orig: j+=1\n        pid=practice_ids[j]\n    ids.append(pid)\nprint(len(ids), ids)\n# print questions answers short source\nfor pid in ids[:5]:\n    r=practice_row(pid); print(pid,r.get('source'),r['answer'],r['question'][:80].replace('\\n',' '))",
+    "reason": "Select a second independent mixed validation batch of 32 IDs from practice_ids, avoiding the original batch."
+  },
+  "name": "python_analysis",
+  "response": {
+    "error": "ValueError: Unsupported analysis construct",
+    "ok": false,
+    "remaining_analysis_calls": 78,
+    "remaining_forward_calls": 4,
+    "seconds": 0.0008831599998302408
+  }
+}

@@ -1,0 +1,2381 @@
+{
+  "texts": [
+    {
+      "hidden": {
+        "array": "root/texts/0/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/0/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/0/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/0/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/0/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        51
+      ],
+      "text": "Wait, I'll write \\boxed{10}.\n    Okay, I'll write \\boxed{10}.\n    Wait, I'll write \\boxed{10}.\n    Okay, I'll write \\boxed{10}.\n    ",
+      "tokens": {
+        "array": "root/texts/0/tokens",
+        "dtype": "int64",
+        "shape": [
+          52
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/0/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/0/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/1/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/1/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/1/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/1/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/1/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        57
+      ],
+      "text": "If every 3rd buys, then 125 people buy.\n    Wait, what if \"every third\" means \"every 3rd\" (meaning 1/3)?\n    If every 3rd buys, then 125 people buy.\n    ",
+      "tokens": {
+        "array": "root/texts/1/tokens",
+        "dtype": "int64",
+        "shape": [
+          58
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/1/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/1/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/2/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/2/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/2/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/2/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/2/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        51
+      ],
+      "text": "No, \"holds 2 tubes of lip gloss\".\n    Wait, maybe the text means she brings 6 tubes, and *each* of those tubes holds 2 people?\n    No, \"holds 2 tubes of lip gloss\".\n    ",
+      "tokens": {
+        "array": "root/texts/2/tokens",
+        "dtype": "int64",
+        "shape": [
+          52
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/2/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/2/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/3/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/3/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/3/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/3/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/3/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        51
+      ],
+      "text": "Maybe \"half that amount\" refers to the *number of large glasses*?\n    No, \"that amount\" refers to the quantity of jelly beans.\n    Maybe \"half that amount\" refers to the *number of large glasses*?\n    ",
+      "tokens": {
+        "array": "root/texts/3/tokens",
+        "dtype": "int64",
+        "shape": [
+          52
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/3/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/3/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/4/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/4/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/4/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/4/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/4/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        64
+      ],
+      "text": "Wait, I think the visual is:\nRow 1: `& & 1 & & 1 & &`\nRow 2: `& 1 & & 2 & & 1 &`\nRow 3: `1 & & 3 & & 3 & & 1`\n",
+      "tokens": {
+        "array": "root/texts/4/tokens",
+        "dtype": "int64",
+        "shape": [
+          65
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/4/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/4/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/5/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/5/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/5/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/5/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/5/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        77
+      ],
+      "text": "Wait, if $AAA_4$ is a number in base 4, then its value is $A(4^2 + 4^1 + 4^0)$.\nWait, if $AAA_4$ is a number in base 4, then its value is $A(4^2 + 4^1 + 4^0)$.\n",
+      "tokens": {
+        "array": "root/texts/5/tokens",
+        "dtype": "int64",
+        "shape": [
+          78
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/5/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/5/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/6/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/6/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/6/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/6/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/6/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        57
+      ],
+      "text": "Wait, $\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$ is symmetric.\nWait, $\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$ is symmetric.\n",
+      "tokens": {
+        "array": "root/texts/6/tokens",
+        "dtype": "int64",
+        "shape": [
+          58
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/6/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/6/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/7/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/7/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/7/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/7/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/7/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        69
+      ],
+      "text": "$729 + 243 = 972$.\n    $27 + 1 = 28$.\n    $972 + 28 = 1000$.\n    \n    Wait.\n    $972 + 28 = 1000$.\n    \n    ",
+      "tokens": {
+        "array": "root/texts/7/tokens",
+        "dtype": "int64",
+        "shape": [
+          70
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/7/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/7/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/8/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/8/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/8/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/8/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/8/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        75
+      ],
+      "text": "Step 2: Find the depth in mid-May ($x$).\nSince $y = x + 10$ and $y = 15$:\n$$15 = x + 10$$\nSubtract 10 from both sides:\n$$x = 5$$\n\nTherefore, the river was 5 feet deep in mid-May.\n\n",
+      "tokens": {
+        "array": "root/texts/8/tokens",
+        "dtype": "int64",
+        "shape": [
+          76
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/8/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/8/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/9/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/9/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/9/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/9/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/9/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        75
+      ],
+      "text": "To solve this problem, we can break it down into two steps based on the information provided:\n\n1. Find the number of clips sold in April: 48.\n2. Find the number sold in May: half of 48, which is 24.\n3. Add them: 48 + 24 = 72.\n\n",
+      "tokens": {
+        "array": "root/texts/9/tokens",
+        "dtype": "int64",
+        "shape": [
+          76
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/9/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/9/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/10/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/10/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/10/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/10/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/10/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        31
+      ],
+      "text": "The calculation gives $12 \\times \\frac{50}{60} = 10$, so the babysitting pay is ten dollars.\n\n",
+      "tokens": {
+        "array": "root/texts/10/tokens",
+        "dtype": "int64",
+        "shape": [
+          32
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/10/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/10/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    },
+    {
+      "hidden": {
+        "array": "root/texts/11/hidden",
+        "dtype": "float32",
+        "shape": [
+          25,
+          1,
+          1024
+        ]
+      },
+      "modules": {
+        "model.language_model.layers.16.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.16.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.16.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.17.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.17.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.17.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.18.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.18.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.18.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.19.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.19.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.19.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.20.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.20.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.20.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.21.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.21.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.21.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.22.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.22.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.22.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        },
+        "model.language_model.layers.23.mlp.down_proj": {
+          "input": {
+            "array": "root/texts/11/modules/model.language_model.layers.23.mlp.down_proj/input",
+            "dtype": "float32",
+            "shape": [
+              1,
+              3584
+            ]
+          },
+          "output": {
+            "array": "root/texts/11/modules/model.language_model.layers.23.mlp.down_proj/output",
+            "dtype": "float32",
+            "shape": [
+              1,
+              1024
+            ]
+          }
+        }
+      },
+      "next_ids": {
+        "array": "root/texts/11/next_ids",
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "next_logprobs": {
+        "array": "root/texts/11/next_logprobs",
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "positions": [
+        8
+      ],
+      "text": "The answer is \\boxed{5}.\n\n",
+      "tokens": {
+        "array": "root/texts/11/tokens",
+        "dtype": "int64",
+        "shape": [
+          9
+        ]
+      },
+      "top_ids": {
+        "array": "root/texts/11/top_ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          20
+        ]
+      },
+      "top_logprobs": {
+        "array": "root/texts/11/top_logprobs",
+        "dtype": "float32",
+        "shape": [
+          1,
+          20
+        ]
+      }
+    }
+  ],
+  "which": "base"
+}

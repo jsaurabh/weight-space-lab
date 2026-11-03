@@ -1,0 +1,30 @@
+{
+  "arguments": {
+    "code": "restore('antiwait_l23_a8')\nidxs=np.array([7480,7520,7600,7800,8000,8300,8600,9000,9300,9600,10000,10300,10600,11000,11300,11600,12000,12300,12600,12900,13300,13600,14000,14500,14770,14800,14880,14920,14980,15080,15200,15400])\nfor idx in idxs:\n    print(int(idx),practice_ids[int(idx)])",
+    "reason": "Select final MATH/AIME-heavy validation batch and keep antiwait_l23_a8 active."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 72,
+    "remaining_forward_calls": 1,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 2037563,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "893048bbeff031c064a9e66279a89e244f026df34782169338b4a16fa1af9c51",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        }
+      ],
+      "stdout": "7480 math_train_algebra_11\n7520 math_train_algebra_51\n7600 math_train_algebra_131\n7800 math_train_algebra_333\n8000 math_train_algebra_534\n8300 math_train_algebra_838\n8600 math_train_algebra_1141\n9000 math_train_algebra_1548\n9300 math_train_counting_and_probability_105\n9600 math_train_counting_and_probability_434\n10000 math_train_geometry_71\n10300 math_train_geometry_375\n10600 math_train_geometry_732\n11000 math_train_intermediate_algebra_274\n11300 math_train_intermediate_algebra_580\n11600 math_train_intermediate_algebra_884\n12000 math_train_intermediate_algebra_1294\n12300 math_train_number_theory_302\n12600 math_train_number_theory_605\n12900 math_train_prealgebra_43\n13300 math_train_prealgebra_445\n13600 math_train_prealgebra_746\n14000 math_train_prealgebra_1148\n14500 math_train_precalculus_481\n14770 aime_1984-14\n14800 aime_1987-1\n14880 aime_1993-13\n14920 aime_1997-12\n14980 aime_2002-I-3\n15080 aime_2006-I-14\n15200 aime_2011-II-8\n15400 aime_2021-I-9\n",
+      "truncated": false
+    },
+    "seconds": 0.019044169999688165
+  }
+}

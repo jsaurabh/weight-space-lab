@@ -1,0 +1,14 @@
+{
+  "arguments": {
+    "code": "base=artifact('probe-002')['texts']; cur=artifact('probe-003')['texts']\nwait_ids=[tokenize(' Wait')[0],tokenize('Wait')[0]]\nclose_id=tokenize('</think>')[0]\nfor i,(b,c) in enumerate(zip(base,cur)):\n    print('\\ntext',i,'end',repr(b['text'][-35:]))\n    for label,t in [('base',b),('cur',c)]:\n        ids=list(map(int,t['top_ids'][0])); lps=list(map(float,t['top_logprobs'][0]))\n        top=[(decode([ids[k]]),round(lps[k],3)) for k in range(8)]\n        # get logprob of wait ids if in top or use? actual top only top20 includes likely\n        wp=[]\n        for wid in wait_ids+[close_id]:\n            if wid in ids: wp.append((decode([wid]), round(lps[ids.index(wid)],3), ids.index(wid)+1))\n            else: wp.append((decode([wid]), None, None))\n        print(' ',label,'top',top,'special',wp)",
+    "reason": "Compare base vs antiwait probe top logprobs and Wait ranks on loop/non-loop motifs."
+  },
+  "name": "python_analysis",
+  "response": {
+    "error": "NameError: name 'map' is not defined",
+    "ok": false,
+    "remaining_analysis_calls": 82,
+    "remaining_forward_calls": 7,
+    "seconds": 0.00161243899992769
+  }
+}

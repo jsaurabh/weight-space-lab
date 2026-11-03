@@ -1,0 +1,10 @@
+{
+  "comparison": "Unicode NFKC, case-fold and whitespace-normalized exact question matching",
+  "computed_before_test_upload": true,
+  "computed_utc": "2026-11-03T19:32:27.743435+00:00",
+  "editor_feedback_provided": false,
+  "exact_overlaps": [],
+  "practice_count": 15458,
+  "test_count": 32,
+  "test_sha256": "1792be52c154d08aa44df28ce8484f33031c2ffe0ebb256a9af636188f585023"
+}

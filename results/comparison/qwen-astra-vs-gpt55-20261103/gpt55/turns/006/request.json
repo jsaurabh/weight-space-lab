@@ -1,0 +1,268 @@
+{
+  "include": [
+    "reasoning.encrypted_content"
+  ],
+  "input": [
+    {
+      "content": "Improve Qwen3.5-0.8B's math accuracy by diagnosing failures and directly\nediting internal weights. Find your own intervention using only the base weights,\ntraining-practice data and these tools. No published repair, previous editor\nconversation or final test is available.\n\nNo training, gradient estimation, optimizers, supervised fitting, memorization\nanswer tables, pretrained external weights, architecture changes or decoding\nchanges. CPU analysis may inspect weights and saved observations with NumPy and\nclosed-form algebra. Only generate/probe execute Qwen, in inference mode on GPU.\nNo internet, shell, repository or arbitrary file access. Embeddings, output head,\nfinal normalization and pure whole-tensor scalar gains are not editable.\n\nDiagnose actual failures first. Repetition and unfinished thinking are legitimate\nfailure mechanisms to investigate; merely forcing a stop marker or suppressing\nthinking irrespective of the question is not a demonstrated math improvement.\nUse causal interventions, compare strengths, and measure accuracy on the same\npractice IDs before and after editing. Prefer sufficiently large paired batches;\n32 paired problems fit one generation call. Keep an edit only when practice\naccuracy justifies it; fewer cut-off outputs alone are insufficient. Keep a base\ncheckpoint and restore it if no repair has convincing evidence.\n\nAll generation calls use thinking and the same fixed sampling, with a 32,768-token\ncap. Generation artifacts contain full texts and answers for inspection. Probes\ncan examine long model continuations at selected positions and return hidden\nstates, module inputs/outputs, next-token log probabilities and top token IDs.\n\nYou have exactly 10 successful forward-tool calls (generate or probe), up to\n100 CPU analysis calls and 120 API turns. Use the full forward budget before\nfinish; failed requests are refunded. CPU range/size/time restrictions apply.\nKeep named checkpoints of candidates. Explain each experiment concisely in its\nreason field. At the end select a checkpoint with finish. The held-out test will\nbe uploaded only after BOTH editors' choices are frozen, and no test feedback\nwill reach either editor. The other editor's work is never shown to you.\n",
+      "role": "system"
+    },
+    {
+      "content": "{\"goal\": \"Find an evidence-supported internal weight repair for math accuracy; compare base and edited behavior on practice, then select a final checkpoint.\", \"practice_count\": 15458, \"practice_sources\": {\"aime\": {\"count\": 714, \"offset\": 14744}, \"gsm8k\": {\"count\": 7469, \"offset\": 0}, \"math\": {\"count\": 7275, \"offset\": 7469}}, \"revision\": \"2fc06364715b967f1860aea9cf38778875588b17\", \"target\": \"Qwen/Qwen3.5-0.8B\", \"text_architecture\": {\"attention_bias\": false, \"attention_dropout\": 0.0, \"attn_output_gate\": true, \"dtype\": \"bfloat16\", \"eos_token_id\": 248044, \"full_attention_interval\": 4, \"head_dim\": 256, \"hidden_act\": \"silu\", \"hidden_size\": 1024, \"initializer_range\": 0.02, \"intermediate_size\": 3584, \"layer_types\": [\"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\", \"linear_attention\", \"linear_attention\", \"linear_attention\", \"full_attention\"], \"linear_conv_kernel_dim\": 4, \"linear_key_head_dim\": 128, \"linear_num_key_heads\": 16, \"linear_num_value_heads\": 16, \"linear_value_head_dim\": 128, \"mamba_ssm_dtype\": \"float32\", \"max_position_embeddings\": 262144, \"mlp_only_layers\": [], \"model_type\": \"qwen3_5_text\", \"mtp_num_hidden_layers\": 1, \"mtp_use_dedicated_embeddings\": false, \"num_attention_heads\": 8, \"num_hidden_layers\": 24, \"num_key_value_heads\": 2, \"rms_norm_eps\": 1e-06, \"rope_parameters\": {\"mrope_interleaved\": true, \"mrope_section\": [11, 11, 10], \"partial_rotary_factor\": 0.25, \"rope_theta\": 10000000, \"rope_type\": \"default\"}, \"tie_word_embeddings\": true, \"use_cache\": true, \"vocab_size\": 248320}}",
+      "role": "user"
+    },
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6i07yAXBw3Zg3y0-dTOErZE7eK98ScY7JpROlsqK4Oab103elWrwQH42fNV-5x5UKtoIgpc-ZIAZZuhocwMe1KOveTA1b-uS5hBwVAwSB-4083fGgRJr_hL4saN4MWapFCxqsS_H-OiXbgMQEqC9QLsgD1ukfrvKIEDewB_C6MW2fJ9L15nEuXI2yzRfr1pxZs8GV-LMGII4fx7GQdH1jfZboy0F5JGHF_A6Clw2X_Ogpch8L9FYDAsiotEblGSgH4j2zjRbHfv8zYWZXLlT8sBbW4DWxwZbZU-95wTheZoJH_b6EQxf3XWZv7gwlFfhodqiL2E0k1GrgWzXiN2Kl8ivivOfyMv8GXgkPn3ca7eMU1ZO1L96AjpNMcDKZgOLOj2LmZyoaRRV2KVIScEJGcPAl_DeNw7RQsYe4H7fkGIQ5NdeEGLnZBcH_RX5oRhKxYAoQrDed4OKJK9lZjqFQ997t1JEWNhBbPdoiEDjB9YKCeuS26VBqFR4Kfh_bcBHzRslqBcHRlnmkK68bIYCSI28X0YGcHT4s4w_L8280Xho6uXHALiIsZ7pmD2YULtaVHGgbILBLPJCec4vaOvtgNk7KS1IjFA7fokkq_xRwlO7FHyByz9bDDn2fvYaZHlQ9sZwKHWu_6s92bx9y6GngNaKM8h-o5Chce0eCmHsy-0HGTBsJSLkfpRrCdnwiMiJSnEx_qGAQ5PQ3Ty08GehYsU7HbOuTav_mlAdIQ37oDjakQPiKQhcfbLMJZS0v35cBGJnRJwljeWdWZI4vcVuuX2nZNc5aLgXRYZ4BllVH525IKtJ6NhmLgiNQOscVnYqe_j4i6UOkqdI8u5E6EXOTPg51oG2OcPnBXXFFpzUyvgRZ_58J5xP4pKFbY37Eb3dVL5hmQkSTi8fgI0fatgvkJdkgHRQj6I3uKw4LwASdcLjmOtYXnaSuO97gVYHHI83HZhcCDuwytfPKC26OJ5KqxrXX1xMLjqpE_EYoxjUbCfrvQQUL711fetCFf1PHOmcBCRRjkPw8YmZFp5blLoncFCfUGF4djUkKjHO_0_1M58sWsTboae0aoCFlgbQgiNaMjV06x2ib63khSnw1795bpxKQ787zCGMHdS-d-5QIJs9_bo6kW8CHeQZozS_xzi1aq5dONYlVrz-Hcu3PI3dpt_sDGk4xwCNRVLfpxTebERTGpbb-229tGUoAfRZHYqvF3rx0CN7hvxLuXEAgPX67d9HErTu4mzekBdyMgmNkT6qVuIWrroCYUKwJ-vkJNmB4vYdquku36rkbrrgm_FJcmuUVWa-ANFUTj5kmN4DvkDiP5amqGOtB0ryE31pFQ4zJvZmHPDpf7Vpt6UMxPyVPL6AvjXNEGhCgokqffxMm1NfteEBxMRGAh3r03NFEwQAD0Lgud0anMtWh2Ovn5lINauf6kfVcCnXDSlyKMcEgaFMjiIvhaKLknu75ty8NoI-nVb6gHgKBr0CKW6O6lnM13XxF_HEZADiN9Hy8poWj5iaAg6jy5MkuLB9UHinoxUZwS1vH7ZioloIknWDOcugLY7DqELTCryZL1ylDTokFjuqpYBaCJZu3QdDcWyvWivTz0jh9AxX6VgE0nJLIyqEqdan4SEOa4dG06zZRogZUGZspXV-b5BlCrbBmfirGNxz7AaMubzKpm2DvQ94EJ9TUg6R6PDXcHcSkar6EYAOy192eOVP1fvC2ExROpIWfDvUduyiheIWvFJX3Xqh87Op7vcxw_2EvVqAsPVca3R7JHDQjvHJlqEIDZ_Y1452ABwF6d0rrRyIAhQh5Std5fsAmw3XuUfJ9ADm0T5fp98pjq1MF-ixthllI2TlCpR8S3LJ6Ii1jQH2ChNSe2KhDGUSsHwT8CxJPfRTEfPaQxAMwYzDq2iwUe5-B86ZFapee3yAurr1EKlOMtGte5JhUzITFz6EyyEukujTRZVRroxlUj9uEkEl1M9qCs94iD9SDyJlMGWLi2pRJ0gUkoZJJLcF-2c4F-Fpd5voxDOT0zTyXpLyVJ65djrlf7eVYvY4ZPxzBxaBEOlIKirmGPqb6v8LzNxQ_ZUSxEoO9M987ermvaqtBvelnGv2VIM_Dz4NpIM1EVZg17aZFrDJBQpljg7vLGjyuPPtm9HUaB1cH8WO61v-VU85Y6ML4PLnIKdiUJPC_hH7KFyvNrxPGFPFr-uvcrihNQZAAz9nOxmWyL20VwgCOWc73Ds7WHSewqMW7XUMffoG-aO8btWIzQoUxcV-lfyDIamYFT0T6PcxSb-n7yJ_19cRlUMS0C3DW5fWEJBk7UbDZUbN9cxJvz2WFAUM1FWMI1KFP2EACPj9IKLq53uFKI3Ne8ekZMafCvz_9wOOS6Y5KQBvt7KTfOTxB2mkY2HGKshjd2O8PPVRKMHWPlExSDMzdsD4n3AlafK0tD61kvIhVsqo8KbZwzJswEokvLYWw852IgfJFOWNP4E9U5SiBVfVBXh0FmpB67K5cNfMK6XdP11iF-1kSUBwYJqNdyY4KdxWo5rbDEigZpUNlfx6IqQCqdJ8exzj0hEB009IAwfoHRpnaJiYnXcmNh0f7GrFuqS7dv8dbUmCstbPsabB6_LxQJ3E06X70pkFk0FVgyq3uUDbA38vRyv4oHi0ewB1bMPtT7kLOBglFRC3jGoDppn0eXbIXZUA2JYUBj3Zegqr0JcwsToNVzL3eROFG0Hiq3G4g_3PeSz0pK11IEp3bGtMMdzfx6f32YBk7BvFuUHo_Dkdi7geYWj7PBfv-bpLrBmzcZ2NUnD1NlgyB6uhCyxUAkUTBNtEFHqJ2BnEOvJO9bGkqCiwSiVvZ-EnMGphDOguCq6d4Bmy8jaR1iONvK1DlFOXkz0K1hPoOL6qI_AbuA41pfURpEWmDMLGJkfaFUCrg9rVqQAhbzHOsF1BU9AG9mHMEDED3xMyrJnX1kalZhYmXUNoro28u971W1uiA9fnI05pqj4iGB0Hrai5odMh2Qji3SYRoBxO2ETwNUeEmxmkxstExQr8sqj87jOM5u-aHSBYWsCLVhFoRUzkINeh-VVn4V5bL3v1Gem_5Ete1zzrbLodNEWmLbgflR9WNm_37d3YSKpEtD4Mu0f2jJISbSYX5g9X7xogkAq_fbqXpYnniDOGex-JVUgATTxbrfQqb9ybsSkrnI9tdtDCm6yzS9bh5zouPiOe81dEockDwABVj8lzVM3-lSe0xPupbImMy7YtXRkXnxFe1TFP9axrnnv7D31O8b4LWQsDpFxb4uK5sDsK6HFwug2pJrwIOgf5ZD9qkZA8hGwr7Ol0F8R8m1KrWDmN9B50w9__WSX0pjX98EudDhm1kFR1AVinQNAiXLUrzzCq03O9hDfKWEWDyCZQBPxNxRwHnWSUhmj5V5QMktHKU8Ot5ZZyva6KkHU17-AHdzAKrjoVrCmy0dE7cQmPhPoR2UMByfL6CiLSO5DlvjaGBI8eK_oZyNWTGph6A2DhMvlyF_MO3vbk9aPAiXLhf_PdBWPZQlU87jsJjEx6M-higm2A_IE1tR6N60GzlXMnj6POxzfzVQiWiVXt25Q_LC4mTvKwJVvZVmXYfSDTFyMDz6IrLVqRyGhtaEk3TYwlwqj-Tt2uhNvgD_T5Qffry9nGH6VvpSWQC86V7BD-Tic3Iz0l6eVxG_MQdBdFW8IsPS8FBrAE64qjtSsruT7ffxwogv679OR05n6wu_qYg_A8h75fus_Wxyy3Mh5sc1BVVXV7fCP_02fvl_vI59L25r3HGvPwUffLLusajnjBYZIughV4kPpPmgwqfExvHAoDSMUmX0sJUOreh-yF0dHaAa6YPDR99DTCiF7KDrggqgYCfkWNvpRCohQWHQ==",
+      "id": "rs_08a23327a7e2d296016aea2d37ea7c87d1b61f9a2da6bc2023",
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"offset\":0,\"count\":3}",
+      "call_id": "call_oLGssNY0qtAgdLyfmM4OvmUZ",
+      "id": "fc_08a23327a7e2d296016aea2d3acd6087d1a0190d47270444f7",
+      "name": "practice",
+      "status": "completed",
+      "type": "function_call"
+    },
+    {
+      "call_id": "call_oLGssNY0qtAgdLyfmM4OvmUZ",
+      "output": "{\"ok\": true, \"remaining_analysis_calls\": 100, \"remaining_forward_calls\": 10, \"result\": [{\"answer\": \"72\", \"id\": \"gsm8k_train_0\", \"question\": \"Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. How many clips did Natalia sell altogether in April and May?\", \"solution\": \"Natalia sold 48/2 = <<48/2=24>>24 clips in May.\\nNatalia sold 48+24 = <<48+24=72>>72 clips altogether in April and May.\", \"source\": \"gsm8k\"}, {\"answer\": \"10\", \"id\": \"gsm8k_train_1\", \"question\": \"Weng earns $12 an hour for babysitting. Yesterday, she just did 50 minutes of babysitting. How much did she earn?\", \"solution\": \"Weng earns 12/60 = $<<12/60=0.2>>0.2 per minute.\\nWorking 50 minutes, she earned 0.2 x 50 = $<<0.2*50=10>>10.\", \"source\": \"gsm8k\"}, {\"answer\": \"5\", \"id\": \"gsm8k_train_2\", \"question\": \"Betty is saving money for a new wallet which costs $100. Betty has only half of the money she needs. Her parents decided to give her $15 for that purpose, and her grandparents twice as much as her parents. How much more money does Betty need to buy the wallet?\", \"solution\": \"In the beginning, Betty has only 100 / 2 = $<<100/2=50>>50.\\nBetty's grandparents gave her 15 * 2 = $<<15*2=30>>30.\\nThis means, Betty needs 100 - 50 - 30 - 15 = $<<100-50-30-15=5>>5 more.\", \"source\": \"gsm8k\"}], \"seconds\": 0.00011878000009346579}",
+      "type": "function_call_output"
+    },
+    {
+      "arguments": "{\"reason\":\"Inspect available weight names and shapes, make base checkpoint.\", \"code\":\"print('num weights', len(names))\\nfor i,n in enumerate(names[:80]):\\n    print(i,n,shapes[n])\\nprint('...last')\\nfor i,n in enumerate(names[-20:], len(names)-20): print(i,n,shapes[n])\\ncheckpoint('base')\\nprint('practice ids', len(practice_ids), practice_ids[:3], practice_ids[-3:])\"}",
+      "call_id": "call_Sn8YhoLMdiFZ1lcVkDOqgtSe",
+      "id": "fc_08a23327a7e2d296016aea2d3e126887d1b079db2dd5336b60",
+      "name": "python_analysis",
+      "status": "completed",
+      "type": "function_call"
+    },
+    {
+      "call_id": "call_Sn8YhoLMdiFZ1lcVkDOqgtSe",
+      "output": "{\"ok\": true, \"remaining_analysis_calls\": 99, \"remaining_forward_calls\": 10, \"result\": {\"edits\": [], \"stdout\": \"num weights 488\\n0 model.language_model.embed_tokens.weight [248320, 1024]\\n1 model.language_model.layers.0.input_layernorm.weight [1024]\\n2 model.language_model.layers.0.linear_attn.A_log [16]\\n3 model.language_model.layers.0.linear_attn.conv1d.weight [6144, 1, 4]\\n4 model.language_model.layers.0.linear_attn.dt_bias [16]\\n5 model.language_model.layers.0.linear_attn.in_proj_a.weight [16, 1024]\\n6 model.language_model.layers.0.linear_attn.in_proj_b.weight [16, 1024]\\n7 model.language_model.layers.0.linear_attn.in_proj_qkv.weight [6144, 1024]\\n8 model.language_model.layers.0.linear_attn.in_proj_z.weight [2048, 1024]\\n9 model.language_model.layers.0.linear_attn.norm.weight [128]\\n10 model.language_model.layers.0.linear_attn.out_proj.weight [1024, 2048]\\n11 model.language_model.layers.0.mlp.down_proj.weight [1024, 3584]\\n12 model.language_model.layers.0.mlp.gate_proj.weight [3584, 1024]\\n13 model.language_model.layers.0.mlp.up_proj.weight [3584, 1024]\\n14 model.language_model.layers.0.post_attention_layernorm.weight [1024]\\n15 model.language_model.layers.1.input_layernorm.weight [1024]\\n16 model.language_model.layers.1.linear_attn.A_log [16]\\n17 model.language_model.layers.1.linear_attn.conv1d.weight [6144, 1, 4]\\n18 model.language_model.layers.1.linear_attn.dt_bias [16]\\n19 model.language_model.layers.1.linear_attn.in_proj_a.weight [16, 1024]\\n20 model.language_model.layers.1.linear_attn.in_proj_b.weight [16, 1024]\\n21 model.language_model.layers.1.linear_attn.in_proj_qkv.weight [6144, 1024]\\n22 model.language_model.layers.1.linear_attn.in_proj_z.weight [2048, 1024]\\n23 model.language_model.layers.1.linear_attn.norm.weight [128]\\n24 model.language_model.layers.1.linear_attn.out_proj.weight [1024, 2048]\\n25 model.language_model.layers.1.mlp.down_proj.weight [1024, 3584]\\n26 model.language_model.layers.1.mlp.gate_proj.weight [3584, 1024]\\n27 model.language_model.layers.1.mlp.up_proj.weight [3584, 1024]\\n28 model.language_model.layers.1.post_attention_layernorm.weight [1024]\\n29 model.language_model.layers.10.input_layernorm.weight [1024]\\n30 model.language_model.layers.10.linear_attn.A_log [16]\\n31 model.language_model.layers.10.linear_attn.conv1d.weight [6144, 1, 4]\\n32 model.language_model.layers.10.linear_attn.dt_bias [16]\\n33 model.language_model.layers.10.linear_attn.in_proj_a.weight [16, 1024]\\n34 model.language_model.layers.10.linear_attn.in_proj_b.weight [16, 1024]\\n35 model.language_model.layers.10.linear_attn.in_proj_qkv.weight [6144, 1024]\\n36 model.language_model.layers.10.linear_attn.in_proj_z.weight [2048, 1024]\\n37 model.language_model.layers.10.linear_attn.norm.weight [128]\\n38 model.language_model.layers.10.linear_attn.out_proj.weight [1024, 2048]\\n39 model.language_model.layers.10.mlp.down_proj.weight [1024, 3584]\\n40 model.language_model.layers.10.mlp.gate_proj.weight [3584, 1024]\\n41 model.language_model.layers.10.mlp.up_proj.weight [3584, 1024]\\n42 model.language_model.layers.10.post_attention_layernorm.weight [1024]\\n43 model.language_model.layers.11.input_layernorm.weight [1024]\\n44 model.language_model.layers.11.mlp.down_proj.weight [1024, 3584]\\n45 model.language_model.layers.11.mlp.gate_proj.weight [3584, 1024]\\n46 model.language_model.layers.11.mlp.up_proj.weight [3584, 1024]\\n47 model.language_model.layers.11.post_attention_layernorm.weight [1024]\\n48 model.language_model.layers.11.self_attn.k_norm.weight [256]\\n49 model.language_model.layers.11.self_attn.k_proj.weight [512, 1024]\\n50 model.language_model.layers.11.self_attn.o_proj.weight [1024, 2048]\\n51 model.language_model.layers.11.self_attn.q_norm.weight [256]\\n52 model.language_model.layers.11.self_attn.q_proj.weight [4096, 1024]\\n53 model.language_model.layers.11.self_attn.v_proj.weight [512, 1024]\\n54 model.language_model.layers.12.input_layernorm.weight [1024]\\n55 model.language_model.layers.12.linear_attn.A_log [16]\\n56 model.language_model.layers.12.linear_attn.conv1d.weight [6144, 1, 4]\\n57 model.language_model.layers.12.linear_attn.dt_bias [16]\\n58 model.language_model.layers.12.linear_attn.in_proj_a.weight [16, 1024]\\n59 model.language_model.layers.12.linear_attn.in_proj_b.weight [16, 1024]\\n60 model.language_model.layers.12.linear_attn.in_proj_qkv.weight [6144, 1024]\\n61 model.language_model.layers.12.linear_attn.in_proj_z.weight [2048, 1024]\\n62 model.language_model.layers.12.linear_attn.norm.weight [128]\\n63 model.language_model.layers.12.linear_attn.out_proj.weight [1024, 2048]\\n64 model.language_model.layers.12.mlp.down_proj.weight [1024, 3584]\\n65 model.language_model.layers.12.mlp.gate_proj.weight [3584, 1024]\\n66 model.language_model.layers.12.mlp.up_proj.weight [3584, 1024]\\n67 model.language_model.layers.12.post_attention_layernorm.weight [1024]\\n68 model.language_model.layers.13.input_layernorm.weight [1024]\\n69 model.language_model.layers.13.linear_attn.A_log [16]\\n70 model.language_model.layers.13.linear_attn.conv1d.weight [6144, 1, 4]\\n71 model.language_model.layers.13.linear_attn.dt_bias [16]\\n72 model.language_model.layers.13.linear_attn.in_proj_a.weight [16, 1024]\\n73 model.language_model.layers.13.linear_attn.in_proj_b.weight [16, 1024]\\n74 model.language_model.layers.13.linear_attn.in_proj_qkv.weight [6144, 1024]\\n75 model.language_model.layers.13.linear_attn.in_proj_z.weight [2048, 1024]\\n76 model.language_model.layers.13.linear_attn.norm.weight [128]\\n77 model.language_model.layers.13.linear_attn.out_proj.weight [1024, 2048]\\n78 model.language_model.layers.13.mlp.down_proj.weight [1024, 3584]\\n79 model.language_model.layers.13.mlp.gate_proj.weight [3584, 1024]\\n...last\\n468 model.visual.merger.norm.bias [768]\\n469 model.visual.merger.norm.weight [768]\\n470 model.visual.patch_embed.proj.bias [768]\\n471 model.visual.patch_embed.proj.weight [768, 3, 2, 16, 16]\\n472 model.visual.pos_embed.weight [2304, 768]\\n473 mtp.fc.weight [1024, 2048]\\n474 mtp.layers.0.input_layernorm.weight [1024]\\n475 mtp.layers.0.mlp.down_proj.weight [1024, 3584]\\n476 mtp.layers.0.mlp.gate_proj.weight [3584, 1024]\\n477 mtp.layers.0.mlp.up_proj.weight [3584, 1024]\\n478 mtp.layers.0.post_attention_layernorm.weight [1024]\\n479 mtp.layers.0.self_attn.k_norm.weight [256]\\n480 mtp.layers.0.self_attn.k_proj.weight [512, 1024]\\n481 mtp.layers.0.self_attn.o_proj.weight [1024, 2048]\\n482 mtp.layers.0.self_attn.q_norm.weight [256]\\n483 mtp.layers.0.self_attn.q_proj.weight [4096, 1024]\\n484 mtp.layers.0.self_attn.v_proj.weight [512, 1024]\\n485 mtp.norm.weight [1024]\\n486 mtp.pre_fc_norm_embedding.weight [1024]\\n487 mtp.pre_fc_norm_hidden.weight [1024]\\npractice ids 15458 ['gsm8k_train_0', 'gsm8k_train_1', 'gsm8k_train_2'] ['aime_2023-II-11', 'aime_2023-II-13', 'aime_2023-II-15']\\n\", \"truncated\": false}, \"seconds\": 0.002390710000099716}",
+      "type": "function_call_output"
+    },
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6i1HCGGUZrjoExb6Iro9jN5t0xGpqEO9yAwzDnbjk4jyPH8RWTefLsQR06KVRaQqu9VaRKpcf9qpWhidVkc-xcUUxy1NiGpWjN47N0S0j37kCGxR6mh4Sl5QJC0XEDhYl8yTJ8yScb66s-bOASSaONeDvj_ZnyN5gsiYuo2WS7oOcjmMH3TfTV1iA60FM7W75n7a0wdqxkCtHb2ctyi5Pz2Yr4MpJynXUg7YddyXQp2tNOs9gWHmTMEoW2XbVWDHb46rcHqqaa60obHsEEaJoKK_F7rxLMDHDDdAvUCfT-WzyCOuWBO6nigmWglEOIpk_o01Q9H8eW23O5ziBrCStTaMuQ53H-T2U6CSXacwyq7Vs-Z3hmOcmOugIlXmwXFvDEXP6mHS7rwSEQH7DBDjE7fSzf5WGfFRky7J4bw2AaEYQrpHiuTf0ucYh2M8vsyVUgDz_CWppdcw-_EVmx-RNpcEfT7-q9mHVz_XhRgBptsRp72l7t4OqMVBp6ZYX7yzW3Q_CjJoRJmeHDK3uLYGcbU2P83IZ7nwekSz6qkSJy8Mvt6Gw0BJie4rsFqIa_bHnKPkm3-8NMhW8pjLTU-xrW3MH8VgmAUas38-eIpXiwk-YQTM9bcXuVOcujpCaY0_w3dh8vgz_MntmtG33RinKxf_zrQJE787qLtqIgJb4L3JpxmNcP6lxmbH7qjjynIy_NQBTHPuh0BPDTU8tMg57QmRSUFocFXqpa9P-mDHdjK0StRywiRwXoD6i-tN5ISu037qnIOAltWTiDoe4u5bxkvTFUEaKdiUUu7zuKWfqOsHCrPMVETtmo8_0hIZ2CUWt6jSjaRURUKdJ-QYATOuNVeN96T-U97mzV5oIiXQzIEbdzuDkN5-mv602jHhmCEsedj0yKqV-pV0hwiui8jnSzS8KfOKH-T4EBaRPDL0YRWf4yUfpQzRe2t8IZKOFTAoTci1RvATDJi2MadGnB5S_K26vxcZMRGJEe4d_gWWyPtTll4YuWL1bz4xmt285gBZIXqYdhKXFMTYdVWmJKVxE4q4OP4V3Qwv727Lq-rpKmvNmaq5UKylV6mWgW5m9WKpOVBMXKMqiu-tX5eOpXGzdO9v2t7egWsFl54Em7DLQZePoql5RbTwAsgASLLdZPa6TeSv3jlfcAeyp7hegm6dodLI3OrnDq5rhsBeirU_1bb6fArpx9bADODOXKNmwQp0jc1c7rK3hXOdJHXNOYhoMOTjgwBM8QMc_cvKhbQ10N3HKIMq42NTAPkQ_CqGKUaLFw3_Lm4KTpmQWbNlmGWdvgj4wUXrg2PUrGwZRXJjb_ZZmk4FJjmTsYqOp1nYWuh66ljiJAtf9RpcKClkBEGnaYQusB6oPvLd6wDBXqpXME_m1sOHb6OutTsUbwjJDvwPWrrxMpufJ1Vdi_Ah6Npgr7UNw3TUMixbaOZVCjH-Q16C_KP4R-lXlHfL3-LvK7rShbP38E1HzsnTOsu51rWsJe-YeLy9GvtUIVAJf6U5LbB1EYV5NBLZGWDnd5M6bLYUiV9Bt5nyPHVI1eZH-R9kefaQr65miWzzBHnh8xBARTJswsf7bEeeJ8jwASgz8QeqRZJBOWps1OIbfHpsLPJ8JAjyN1FcIjYt5YB8CAi90debsKhAuSJ9xQ9TuHLfyI4VGYDT9QvgN6zkMSuVUTgcc64WJhBGdxaeQT1dXLrINiDpe2z8IO1Q4GIvXRh91V1breroOYvf3UBzaIW4eznCF2362TnNOPK3964e8RlRdscUFT5zUE7XlzQmpNJIdqoOEnvs09LyQKALdgOICnW7HvG0PKYx8Pp_1b0uFnziEhfQI9gIfDZHVYuUOPZsNe8Uf6_LvJSw4XB5Mfey78F-t8yeJKlkxy-lX_4B55u4iLXIOQE-nDuwGl5vroRFHTtdFzs5hGEcU1j8daMJnx7rPRBEUhkm2eo5B3DSqgHLSMDBwFRQwr-XMe0bBQeW6WZzxpD_KXJbOZG_I4icc6h9lQ9_8Rm-0mKNzmBputCfrYoesLmwragKMXWmDUo1dIJupzZS-L5ns5ANbtaWaIFNxMLGGfus14uqGzKpyKeK-QCmiDh88H9qNejSvrk3uQKnEQzzIwlOu4-6nO1ODnI_hs4-PshnbWZzK68gQlvsSs9EPfzuWKKlle30uhcsFgvNTzIkOupNJMRMt1JjsAht51D9QWRwOd5gBlDX0uIX84gb2U_jmnS3NSaRbQSPs8VOpqv3ozkLWxOnjVZXuaR6qzJUdmhQHpvmM2p_T6-aZ3bepRdQ5APiRpU2Mym2idlxqlf3OsYmdzQPlodxGKljVxRF8mOMF26XplFNjpIZrFL21JolrsluoTXBfe1nWjwfLEi_efoj0f8VNVbt3rb1uB3GxEp-QzAS0THfwusWBnhJZ-_gBLNkYnmOi-9Qf_qJAUf4kHR2HBwKUzX_FBOl8Jm7MkG-y-HUMB53P5ebSnLmXHBoFrrNJG8mPcr6aC3qOr6yLd3GZ6xZLiyCQyXIxd4frSXkBimpa3cuG2ZiazWygvidIAN5x4n4W-JrvQEPrlVerfiQac29sHRIkAUR3jMJNwVmfRrukG4tk9YiIsHs8ZC36uOZSGAmIvezTAOaUmImzh9e6DVIWkLC8wRTHddg76RawdE0kCuy4RpSYnBkJf0vQYcvrEXXZA9p1kd6ygwVJ3j8H7U0_1pL3dCcBQxpWN8sgNArT2eeKqpsXnCscY5qr3_O2wRyozFs1wFnVwG4qFA2e3UY3fcNw1yanKpylyzbk8g6VQUmrebn8bsskGRobOt082qZH-fdpitEDqoDkMnCKRfQriIxJEZp_w0KnB_G5fj-DluSKyVPGdbw3o_ptIrNxp26ugJYxNJVlOUoNyJHn3zpkVtqLcYDFfZYYy4xiX61BqhjqvfIqjmQXfPEt0lV_bb_x0YrVVKSB0hdSYKESmbKQR56_U9ypukIRoBdHQpgXOnt_3A7d6OISl9PLcrES_GU5RojSNlum8-LyrEg90VP6ZG7_XjaZBxGXTa9DyM_--5oOQIcR0UD_CCVDliInJ0mrYzd3rHOWB89F-6ggGrilspScMOtSoBgP7Vfb9han7y938qG8bIuRl4qAcuBhF1ywm0Xu61ktjKTToa-mG1Lo_1lXNMQw_cA47fXgSR4WvU6dMPIQqa3lDA=",
+      "id": "rs_08a23327a7e2d296016aea2d42525c87d19f52babcad2a9906",
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"reason\":\"Baseline thinking generations on a mixed practice batch to diagnose failure modes before any edit.\",\"which\":\"base\",\"ids\":[\"gsm8k_train_0\",\"gsm8k_train_1\",\"gsm8k_train_2\",\"gsm8k_train_10\",\"gsm8k_train_100\",\"gsm8k_train_500\",\"gsm8k_train_1000\",\"gsm8k_train_2000\",\"gsm8k_train_3000\",\"gsm8k_train_4000\",\"gsm8k_train_5000\",\"gsm8k_train_6000\",\"gsm8k_train_7000\",\"math_train_0\",\"math_train_100\",\"math_train_500\",\"math_train_1000\",\"math_train_1500\",\"math_train_2000\",\"math_train_2500\",\"math_train_3000\",\"math_train_3500\",\"math_train_4000\",\"math_train_4500\",\"math_train_5000\",\"math_train_5500\",\"math_train_6000\",\"math_train_6500\",\"math_train_7000\",\"aime_1983-I-1\",\"aime_1983-I-2\",\"aime_1983-I-3\"]}",
+      "call_id": "call_zThNM9Uh0AwpaNVvkmogvKj0",
+      "id": "fc_08a23327a7e2d296016aea2d44bd2c87d1903f052112d3ec1d",
+      "name": "generate",
+      "status": "completed",
+      "type": "function_call"
+    },
+    {
+      "call_id": "call_zThNM9Uh0AwpaNVvkmogvKj0",
+      "output": "{\"error\": \"ValueError: Provide distinct valid practice IDs\", \"ok\": false, \"remaining_analysis_calls\": 99, \"remaining_forward_calls\": 10, \"seconds\": 0.0006773299999167648}",
+      "type": "function_call_output"
+    },
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6i1Ka4ZGlrDmV2SPcIYPQU-QlwwPb1RNAHVfAsBsuXZdC123TiXT32iGQ-hS0fBVWwggcObSeSNm0dVzs8a5F1Nfmp-zzsSb435-j5C96T3q1gcA-oXwiQN-GNWA2gGFMavr8quYOLrq4kdshKZvwS3suNRKRpkWT9RtRV6y-TYGw9xA9daOqAypWfknY5oXlx77_uSxAAjtp0lAChpp2ZDtwNNkkyrIJ9LIUHQ0IhTAT6YgC0T83weJn7m_nu-zdRrlDFi3Jl-Kn8tWeEE7-eurjkF-pAsBFoXMOCo5iAygFi7ADyjR2gxHHHyVVrsPKV6IVJg7zYKBpbS1GTO-RZE710vkfqqwPLoFviQnwoUNgeNrp0N60nHrKUXIzfMw0h-d9FicSFIkQLttU2T3ReGTNtA6-mLqLeGTndrvG2iZUYqTdiwAz8J-0N583obNNclDWYpXG94tm960ThZfnxA3AYGzPUTTVQiIbmW8muyMtsILJnjCWmFNUN7HCNqD0-i0EO3fETlKJK0H77p2db7HfiRNww2t5-ItAaxxc9NHu-jAo2XFYcl4WyJTZRG-s-93OZ28YRJyp-ILb_hVOxhWmjk3gEuDCsLtmFDG-C4eYMa2F5KByD42uWvi7Ie5aGVsvpFtLFMAD1y3m4JUmnfgOYuc8_GUM6Oilc4LUOBj4hMknFHu8XfzWqTqpxE2PAjnBSwlAX2U9epBWb1EEVeizJouIcxMV7Nm77HKUHyAxgW9pqTmWMYqtZSbkZQ5yaoRdunrYiK3QEgD0tsu13UFN5fOZMqjTRICFxMOXsu5z-UdBeKuC7ROWBm849Rhli3hE5-w8vCEXHXdDz4Zasg8O7PTJIn4GqwEwvJIElVjzjUJc2CvqzyT8W2pgU8_xhBNpB036vQche0qcjtApQjcJN5I_xSFt9Qf9N6HnSsnPv2zoPhKqjV93TlTH8fGs8QGmln7EGey-turJIivuZBnJ8bxJQj3u4nOw_USd2IJ1cNDnymtlygcN0aBPW4_846btZxs6_plvPzN0nnFupnhLWv9NHa1l6sl2VjPT_hSEp885iJYenbN1fvTp1AVO5dEqnPtwS1IRjob1iGN7yzaB3Ez-1iDOZL2cRHCznPftiN2Ee05iHcPGgMcSfrP9TnSDlGSqFNVf4NLPbgRHmCa1xpqvVWWdtlbXX9TEPJH2-gibT9bZ2cy2y7ds2-pi4f3Ud6HTre03DFnhWLk_vCIi9nRapB5GsD4C39PTPk0xWxXFcd-4VvKBkK9y_a9LoFC8ZD4IvkoHsbPPBJ-iXI-SbK9QoVkMk3uhZFLpq11MtNw840MHGvWl6qvIsfCHU5Rc_kFSWHOI7X03Q38rzQo5Y05J_XmZQZfhEjGlTQ001SYUzDm5E3DnhOtYxKnOMplHkrCvUGTibJLMy_GzZuHZR1mPBgCRXsU_MTYw6R7CLMEtAG0GSm0UXIZVf0gqKMma7gy7BKiDI_p4_xvNSlsJXWpVkLlAz3HF6TJdBW7kIFDGhOLAioVLhQqwMhuGVBU0f70elt4qxeXT5FP0yU6ktXgkWLAStilR_1u2elPCRtyuHn3wMlb6f5Lf1IniYTFHjmQ2fO2bYjx0MhsU3WudaMyP4-QdDn1FBM7e9g3kNYIa6PMhEPNM_8FLCei-3C7XZqJkDLSMXlp_zDapA2vgVe4N0u9HmtLAld_5Afx1Pv9lF3dqzDZNWKUEL9ZQY1IBE1gtKWyLufNpGNA0yaPpw==",
+      "id": "rs_08a23327a7e2d296016aea2d49fc5c87d193eccd5c861c6d59",
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"offset\":7469,\"count\":5}",
+      "call_id": "call_6uObW9MnTbWmyKAGFZ3CjSLf",
+      "id": "fc_08a23327a7e2d296016aea2d4a788c87d1893634154ee4ea54",
+      "name": "practice",
+      "status": "completed",
+      "type": "function_call"
+    },
+    {
+      "call_id": "call_6uObW9MnTbWmyKAGFZ3CjSLf",
+      "output": "{\"ok\": true, \"remaining_analysis_calls\": 99, \"remaining_forward_calls\": 10, \"result\": [{\"answer\": \"0\", \"id\": \"math_train_algebra_0\", \"level\": \"Level 5\", \"question\": \"Let \\\\[f(x) = \\\\left\\\\{\\n\\\\begin{array}{cl} ax+3, &\\\\text{ if }x>2, \\\\\\\\\\nx-5 &\\\\text{ if } -2 \\\\le x \\\\le 2, \\\\\\\\\\n2x-b &\\\\text{ if } x <-2.\\n\\\\end{array}\\n\\\\right.\\\\]Find $a+b$ if the piecewise function is continuous (which means that its graph can be drawn without lifting your pencil from the paper).\", \"solution\": \"For the piecewise function to be continuous, the cases must \\\"meet\\\" at $2$ and $-2$. For example, $ax+3$ and $x-5$ must be equal when $x=2$. This implies $a(2)+3=2-5$, which we solve to get $2a=-6 \\\\Rightarrow a=-3$. Similarly, $x-5$ and $2x-b$ must be equal when $x=-2$. Substituting, we get $-2-5=2(-2)-b$, which implies $b=3$. So $a+b=-3+3=\\\\boxed{0}$.\", \"source\": \"math\", \"subject\": \"algebra\"}, {\"answer\": \"98\", \"id\": \"math_train_algebra_1\", \"level\": \"Level 5\", \"question\": \"A rectangular band formation is a formation with $m$ band members in each of $r$ rows, where $m$ and $r$ are integers. A particular band has less than 100 band members. The director arranges them in a rectangular formation and finds that he has two members left over. If he increases the number of members in each row by 1 and reduces the number of rows by 2, there are exactly enough places in the new formation for each band member. What is the largest number of members the band could have?\", \"solution\": \"Let $x$ be the number of band members in each row for the original formation, when two are left over.  Then we can write two equations from the given information: $$rx+2=m$$ $$(r-2)(x+1)=m$$ Setting these equal, we find: $$rx+2=(r-2)(x+1)=rx-2x+r-2$$ $$2=-2x+r-2$$ $$4=r-2x$$ We know that the band has less than 100 members.  Based on the first equation, we must have $rx$ less than 98.  We can guess and check some values of $r$ and $x$ in the last equation.  If $r=18$, then $x=7$, and $rx=126$ which is too big.  If $r=16$, then $x=6$, and $rx=96$, which is less than 98.  Checking back in the second formation, we see that $(16-2)(6+1)=14\\\\cdot 7=98$ as it should.  This is the best we can do, so the largest number of members the band could have is $\\\\boxed{98}$.\", \"source\": \"math\", \"subject\": \"algebra\"}, {\"answer\": \"4\", \"id\": \"math_train_algebra_2\", \"level\": \"Level 3\", \"question\": \"What is the degree of the polynomial $(4 +5x^3 +100 +2\\\\pi x^4 + \\\\sqrt{10}x^4 +9)$?\", \"solution\": \"This polynomial is not written in standard form.  However, we don't need to write it in standard form, nor do we need to pay attention to the coefficients.  We just look for the exponents on $x$.  We have an $x^4$ term and no other term of higher degree, so $\\\\boxed{4}$ is the degree of the polynomial.\", \"source\": \"math\", \"subject\": \"algebra\"}, {\"answer\": \"17\", \"id\": \"math_train_algebra_3\", \"level\": \"Level 3\", \"question\": \"Evaluate $\\\\left\\\\lceil3\\\\left(6-\\\\frac12\\\\right)\\\\right\\\\rceil$.\", \"solution\": \"Firstly, $3\\\\left(6-\\\\frac12\\\\right)=18-1-\\\\frac12=17-\\\\frac12$.  Because $0\\\\le\\\\frac12<1$, we have $\\\\left\\\\lceil17-\\\\frac12\\\\right\\\\rceil=\\\\boxed{17}$.\", \"source\": \"math\", \"subject\": \"algebra\"}, {\"answer\": \"6\", \"id\": \"math_train_algebra_4\", \"level\": \"Level 3\", \"question\": \"Sam is hired for a 20-day period. On days that he works, he earns $\\\\$$60. For each day that he does not work, $\\\\$$30 is subtracted from his earnings. At the end of the 20-day period, he received $\\\\$$660. How many days did he not work?\", \"solution\": \"Call $x$ the number of days Sam works and $y$ the number of days he does not. We can set up the following system of equations to represent the given information: \\\\begin{align*}\\nx+y &= 20 \\\\\\\\\\n60x - 30y &= 660 \\\\\\\\\\n\\\\end{align*} The first equation represents the total number of days Sam works, and the second equation represents his total profit. Solving for $x$ in the first equation yields $x = 20 - y$. Substituting into the second equation gives $60(20-y) - 30y = 660$. Canceling a factor of $10$ and multiplying out gives $120 - 6y - 3y = 66$. This simplifies to $-9y = -54$, or $y = 6$. Thus, Sam did not work for $\\\\boxed{6}$ days.\", \"source\": \"math\", \"subject\": \"algebra\"}], \"seconds\": 0.00012566999998853134}",
+      "type": "function_call_output"
+    },
+    {
+      "arguments": "{\"offset\":14744,\"count\":5}",
+      "call_id": "call_PE4ZC3dvVNFh5FWjC9sW0KX6",
+      "id": "fc_08a23327a7e2d296016aea2d4deed887d1964abc383f41a77b",
+      "name": "practice",
+      "status": "completed",
+      "type": "function_call"
+    },
+    {
+      "call_id": "call_PE4ZC3dvVNFh5FWjC9sW0KX6",
+      "output": "{\"ok\": true, \"remaining_analysis_calls\": 99, \"remaining_forward_calls\": 10, \"result\": [{\"answer\": \"60\", \"id\": \"aime_1983-1\", \"question\": \"Let $x$ , $y$ and $z$ all exceed $1$ and let $w$ be a positive number such that $\\\\log_xw=24$ , $\\\\log_y w = 40$ and $\\\\log_{xyz}w=12$ . Find $\\\\log_zw$ .\", \"solution\": \"\", \"source\": \"aime\", \"year\": 1983}, {\"answer\": \"20\", \"id\": \"aime_1983-3\", \"question\": \"What is the product of the real roots of the equation $x^2 + 18x + 30 = 2 \\\\sqrt{x^2 + 18x + 45}$ ?\", \"solution\": \"\", \"source\": \"aime\", \"year\": 1983}, {\"answer\": \"26\", \"id\": \"aime_1983-4\", \"question\": \"A machine-shop cutting tool has the shape of a notched circle, as shown. The radius of the circle is $\\\\sqrt{50}$ cm, the length of $AB$ is $6$ cm and that of $BC$ is $2$ cm. The angle $ABC$ is a right angle. Find the square of the distance (in centimeters) from $B$ to the center of the circle. [asy] size(150); defaultpen(linewidth(0.6)+fontsize(11)); real r=10; pair O=(0,0), A=r*dir(45),B=(A.x,A.y-r); path P=circle(O,r); pair C=intersectionpoint(B--(B.x+r,B.y),P); // Drawing arc instead of full circle //draw(P); draw(arc(O, r, degrees(A), degrees(C))); draw(C--B--A--B); dot(A); dot(B); dot(C); label(\\\"$A$\\\",A,NE); label(\\\"$B$\\\",B,S); label(\\\"$C$\\\",C,SE); [/asy]\", \"solution\": \"\", \"source\": \"aime\", \"year\": 1983}, {\"answer\": \"4\", \"id\": \"aime_1983-5\", \"question\": \"Suppose that the sum of the squares of two complex numbers $x$ and $y$ is $7$ and the sum of the cubes is $10$ . What is the largest real value that $x + y$ can have?\", \"solution\": \"\", \"source\": \"aime\", \"year\": 1983}, {\"answer\": \"35\", \"id\": \"aime_1983-6\", \"question\": \"Let $a_n=6^{n}+8^{n}$ . Determine the remainder on dividing $a_{83}$ by $49$ .\", \"solution\": \"\", \"source\": \"aime\", \"year\": 1983}], \"seconds\": 0.00013018999993619218}",
+      "type": "function_call_output"
+    }
+  ],
+  "max_output_tokens": 16000,
+  "model": "gpt-5.5-2026-04-23",
+  "parallel_tool_calls": false,
+  "reasoning": {
+    "effort": "xhigh"
+  },
+  "service_tier": "default",
+  "store": false,
+  "tools": [
+    {
+      "description": "Read training questions, answers and available reference solutions. Returns up to 16 rows, using offsets in the combined pool. Metadata lists source ranges.",
+      "name": "practice",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "maximum": 16,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Persistent CPU NumPy only; cannot run the target. Globals: np, math, names, shapes, config, practice_ids (all training IDs in source order). Helpers: practice_row(id) returns a copied training question/answer/solution; weight(name,current=False) returns a float32 COPY; save_edit(name,array), remove_edit(name), clear_edits(), list_edits(), checkpoint(label), restore(label), artifact(id), tokenize(text), decode(ids). Print compact summaries. No files/network/processes or training. A checkpoint label has up to 40 letters, digits, underscores or hyphens.",
+      "name": "python_analysis",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Thinking generation on distinct practice IDs: base, current or both. Fixed 32768-token cap; max 64 TOTAL generations, so max 32 paired problems for both. One sample per problem. Returns accuracy, token limits, paired rescues/losses, and an artifact ID containing complete texts. One forward-budget unit.",
+      "name": "generate",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "Teacher-force base/current on up to 16 raw texts, <=32768 tokens each and <=131072 tokens total. At up to 32 selected positions (negative indices allowed), capture all layer hidden states and up to 8 modules' input/output vectors, top-20 next-token IDs/logprobs and actual next-token logprobs where present. Module name is its tensor name without .weight. Artifact: texts entries have text,tokens,positions,hidden (layers x positions x width),modules (name -> input/output arrays),top_ids,top_logprobs,next_ids,next_logprobs. One forward-budget unit. Include exact chat template text for faithful diagnostic probes.",
+      "name": "probe",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "description": "After all 10 forward calls, select a checkpoint label (or empty string for current weights) and freeze permanently. The host alone performs later held-out evaluation. Restore your base checkpoint if no edit is justified.",
+      "name": "finish",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ]
+}

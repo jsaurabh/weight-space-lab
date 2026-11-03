@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "code": "E=weight('model.language_model.embed_tokens.weight')\ntoks=[' Wait','Wait','</think>',' The',' Therefore',' So',' Okay',' \\\\',' boxed','boxed',' Final',' Answer']\nfor s in toks:\n    ids=tokenize(s)\n    print(repr(s),ids,[decode([i]) for i in ids], 'norms',[float(np.linalg.norm(E[i])) for i in ids])\nwait=(E[tokenize(' Wait')[0]]+E[tokenize('Wait')[0]])/2\nsafe_ids=[tokenize('</think>')[0],tokenize(' The')[0],tokenize(' Therefore')[0],tokenize(' So')[0],tokenize(' Okay')[0]]\nsafe=E[safe_ids].mean(0)\nt=wait-safe\nprint('wait norm',np.linalg.norm(wait),'safe norm',np.linalg.norm(safe),'t norm',np.linalg.norm(t), 't rms', np.sqrt(np.mean(t*t)))\n# token directions pair dot stats\nfor s in ['</think>',' The',' Therefore',' So',' Okay',' \\\\']:\n    e=E[tokenize(s)[0]]\n    print('diff Wait-',s,'norm',float(np.linalg.norm(wait-e)), 'dot_t',float((wait-e)@t))",
+    "reason": "Inspect token embedding norms and target vector norms to choose rank-one edit scale."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 85,
+    "remaining_forward_calls": 8,
+    "result": {
+      "edits": [],
+      "stdout": "' Wait' [13428] [' Wait'] norms [0.534511148929596]\n'Wait' [13784] ['Wait'] norms [0.557399332523346]\n'</think>' [248069] ['</think>'] norms [0.5706069469451904]\n' The' [561] [' The'] norms [0.5731591582298279]\n' Therefore' [14833] [' Therefore'] norms [0.5466201901435852]\n' So' [1987] [' So'] norms [0.5387072563171387]\n' Okay' [34267] [' Okay'] norms [0.5781364440917969]\n' \\\\' [1088] [' \\\\'] norms [0.6763611435890198]\n' boxed' [71160] [' boxed'] norms [0.6165673732757568]\n'boxed' [76367] ['boxed'] norms [0.6608548164367676]\n' Final' [12650] [' Final'] norms [0.6239348649978638]\n' Answer' [21134] [' Answer'] norms [0.6064515113830566]\nwait norm 0.52242976 safe norm 0.301053 t norm 0.54745406 t rms 0.01710794\ndiff Wait- </think> norm 0.7349600195884705 dot_t 0.28851020336151123\ndiff Wait-  The norm 0.7559118866920471 dot_t 0.31378626823425293\ndiff Wait-  Therefore norm 0.7185837626457214 dot_t 0.31051871180534363\ndiff Wait-  So norm 0.7045742869377136 dot_t 0.315160870552063\ndiff Wait-  Okay norm 0.7059412598609924 dot_t 0.27055349946022034\ndiff Wait-  \\ norm 0.8672510981559753 dot_t 0.26730644702911377\n",
+      "truncated": false
+    },
+    "seconds": 0.165428165999856
+  }
+}

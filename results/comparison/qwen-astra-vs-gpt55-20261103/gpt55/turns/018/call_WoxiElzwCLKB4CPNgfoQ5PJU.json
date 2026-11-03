@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "code": "p=artifact('probe-002')['texts']; E=weight('model.language_model.embed_tokens.weight'); fn=weight('model.language_model.norm.weight')\nfor i in [1,5]:\n    ids=np.array(p[i]['top_ids'][0],dtype=int)\n    art=np.array(p[i]['top_logprobs'][0],dtype=np.float32)\n    print('TEXT',i, 'artifact', [(decode([int(ids[k])]),float(art[k])) for k in range(5)])\n    best=[]\n    for li in range(25):\n        h=np.array(p[i]['hidden'],dtype=np.float32)[li,0]\n        # try with and without final norm\n        for normed in [True,False]:\n            if normed:\n                hn=h*fn/np.sqrt(np.mean(h*h)+1e-6)\n            else:\n                hn=h\n            logits=E@hn\n            mx=logits.max(); lp=logits-(mx+np.log(np.exp(logits-mx).sum()))\n            err=np.mean((lp[ids[:10]]-art[:10])**2)\n            rank_wait=np.where(np.argsort(-lp)==ids[0])[0][0] if False else -1\n            best.append((err,li,normed,[(decode([int(j)]),round(float(lp[j]),2)) for j in np.argsort(-lp)[:3]]))\n    best=sorted(best,key=lambda x:x[0])[:5]\n    for b in best: print(' ',b[:3], b[3])",
+    "reason": "Check which hidden layer index reproduces probe top logits best to identify hidden semantics."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 90,
+    "remaining_forward_calls": 8,
+    "result": {
+      "edits": [],
+      "stdout": "TEXT 1 artifact [(' Wait', -1.6772452592849731), (' ', -2.0522451400756836), (' If', -2.3022451400756836), (' Then', -2.5522451400756836), (' What', -2.6147451400756836)]\n  (np.float32(0.0005144123), 24, False) [(' Wait', -1.72), (' ', -2.08), (' If', -2.29)]\n  (np.float32(0.49801096), 24, True) [(' If', -1.99), (' Wait', -2.28), (' Then', -2.7)]\n  (np.float32(35.32791), 23, True) [(' WAIT', -5.92), (' waiter', -6.07), ('warts', -6.09)]\n  (np.float32(55.894817), 22, True) [('\u6362\u53e5\u8bdd\u8bf4', -5.99), (' waiter', -6.22), ('warts', -6.3)]\n  (np.float32(79.33976), 23, False) [(' Wait', -11.63), ('urado', -11.67), ('\u044b\u0432\u0430\u0442\u044c', -11.69)]\nTEXT 5 artifact [('Wait', -0.9075897932052612), ('This', -3.032589912414551), ('Is', -3.157589912414551), ('If', -3.157589912414551), ('What', -3.157589912414551)]\n  (np.float32(0.0011899127), 24, False) [('Wait', -0.92), ('This', -3.06), ('I', -3.14)]\n  (np.float32(0.14965926), 24, True) [('Wait', -1.14), ('What', -3.03), ('If', -3.25)]\n  (np.float32(17.235088), 23, True) [('Wait', -4.2), ('\u62b1\u6b49', -4.76), ('WAIT', -4.97)]\n  (np.float32(41.257347), 19, True) [('\u4e3a\u4ec0\u4e48', -5.59), ('irme', -6.28), ('\u4e3a\u4ec0\u4e48\u4f1a', -6.32)]\n  (np.float32(42.25607), 22, True) [('wait', -1.94), ('WAIT', -2.31), (' WAIT', -3.04)]\n",
+      "truncated": false
+    },
+    "seconds": 1.4164171100001113
+  }
+}

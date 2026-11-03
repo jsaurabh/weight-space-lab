@@ -10,6 +10,21 @@
       "group": "qwen-comparison",
       "sha256": "f48714c352876bf0e3432eed6d9b8a5956b9729c88ee54dc3a2cbcfd8e4525e1"
     },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/gpt55/artifacts/probe-002.npz": {
+      "bytes": 1598775,
+      "group": "qwen-comparison",
+      "sha256": "f37fb53e1673820848dc21f226fbaa52cd900dba7a75d601e1bd0628bb18d586"
+    },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/gpt55/artifacts/probe-003.npz": {
+      "bytes": 732401,
+      "group": "qwen-comparison",
+      "sha256": "e041fb97b542c3c0e04186c5d80b4a3d3956ab8371a26517ce378ced87a4d6ab"
+    },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/gpt55/selected.safetensors": {
+      "bytes": 7340160,
+      "group": "qwen-comparison",
+      "sha256": "e6a194111a7b3ac029ac21deab7870af2aa56e4e40a1e5b5b9849db6808f1d9d"
+    },
     "results/discovery/astra-initial/addition/weights.pt": {
       "bytes": 87807,
       "group": "tiny",
@@ -73,5 +88,5 @@
   },
   "repo_id": "jsaurabh/weight-space-lab-artifacts",
   "repo_type": "model",
-  "revision": "2fc6ef70c4e94c622f5d66901c0655cf44699045"
+  "revision": "94c57ea8d65cb713c69d1184ff9ddcab81aec22c"
 }

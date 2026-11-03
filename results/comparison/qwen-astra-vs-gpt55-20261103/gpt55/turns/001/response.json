@@ -1,0 +1,275 @@
+{
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793731899.0,
+  "conversation": null,
+  "created_at": 1793731894.0,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_08a23327a7e2d296016aea2d36c37087d1bd33b3ad29cfd1b8",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-5.5-2026-04-23",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6i07yAXBw3Zg3y0-dTOErZE7eK98ScY7JpROlsqK4Oab103elWrwQH42fNV-5x5UKtoIgpc-ZIAZZuhocwMe1KOveTA1b-uS5hBwVAwSB-4083fGgRJr_hL4saN4MWapFCxqsS_H-OiXbgMQEqC9QLsgD1ukfrvKIEDewB_C6MW2fJ9L15nEuXI2yzRfr1pxZs8GV-LMGII4fx7GQdH1jfZboy0F5JGHF_A6Clw2X_Ogpch8L9FYDAsiotEblGSgH4j2zjRbHfv8zYWZXLlT8sBbW4DWxwZbZU-95wTheZoJH_b6EQxf3XWZv7gwlFfhodqiL2E0k1GrgWzXiN2Kl8ivivOfyMv8GXgkPn3ca7eMU1ZO1L96AjpNMcDKZgOLOj2LmZyoaRRV2KVIScEJGcPAl_DeNw7RQsYe4H7fkGIQ5NdeEGLnZBcH_RX5oRhKxYAoQrDed4OKJK9lZjqFQ997t1JEWNhBbPdoiEDjB9YKCeuS26VBqFR4Kfh_bcBHzRslqBcHRlnmkK68bIYCSI28X0YGcHT4s4w_L8280Xho6uXHALiIsZ7pmD2YULtaVHGgbILBLPJCec4vaOvtgNk7KS1IjFA7fokkq_xRwlO7FHyByz9bDDn2fvYaZHlQ9sZwKHWu_6s92bx9y6GngNaKM8h-o5Chce0eCmHsy-0HGTBsJSLkfpRrCdnwiMiJSnEx_qGAQ5PQ3Ty08GehYsU7HbOuTav_mlAdIQ37oDjakQPiKQhcfbLMJZS0v35cBGJnRJwljeWdWZI4vcVuuX2nZNc5aLgXRYZ4BllVH525IKtJ6NhmLgiNQOscVnYqe_j4i6UOkqdI8u5E6EXOTPg51oG2OcPnBXXFFpzUyvgRZ_58J5xP4pKFbY37Eb3dVL5hmQkSTi8fgI0fatgvkJdkgHRQj6I3uKw4LwASdcLjmOtYXnaSuO97gVYHHI83HZhcCDuwytfPKC26OJ5KqxrXX1xMLjqpE_EYoxjUbCfrvQQUL711fetCFf1PHOmcBCRRjkPw8YmZFp5blLoncFCfUGF4djUkKjHO_0_1M58sWsTboae0aoCFlgbQgiNaMjV06x2ib63khSnw1795bpxKQ787zCGMHdS-d-5QIJs9_bo6kW8CHeQZozS_xzi1aq5dONYlVrz-Hcu3PI3dpt_sDGk4xwCNRVLfpxTebERTGpbb-229tGUoAfRZHYqvF3rx0CN7hvxLuXEAgPX67d9HErTu4mzekBdyMgmNkT6qVuIWrroCYUKwJ-vkJNmB4vYdquku36rkbrrgm_FJcmuUVWa-ANFUTj5kmN4DvkDiP5amqGOtB0ryE31pFQ4zJvZmHPDpf7Vpt6UMxPyVPL6AvjXNEGhCgokqffxMm1NfteEBxMRGAh3r03NFEwQAD0Lgud0anMtWh2Ovn5lINauf6kfVcCnXDSlyKMcEgaFMjiIvhaKLknu75ty8NoI-nVb6gHgKBr0CKW6O6lnM13XxF_HEZADiN9Hy8poWj5iaAg6jy5MkuLB9UHinoxUZwS1vH7ZioloIknWDOcugLY7DqELTCryZL1ylDTokFjuqpYBaCJZu3QdDcWyvWivTz0jh9AxX6VgE0nJLIyqEqdan4SEOa4dG06zZRogZUGZspXV-b5BlCrbBmfirGNxz7AaMubzKpm2DvQ94EJ9TUg6R6PDXcHcSkar6EYAOy192eOVP1fvC2ExROpIWfDvUduyiheIWvFJX3Xqh87Op7vcxw_2EvVqAsPVca3R7JHDQjvHJlqEIDZ_Y1452ABwF6d0rrRyIAhQh5Std5fsAmw3XuUfJ9ADm0T5fp98pjq1MF-ixthllI2TlCpR8S3LJ6Ii1jQH2ChNSe2KhDGUSsHwT8CxJPfRTEfPaQxAMwYzDq2iwUe5-B86ZFapee3yAurr1EKlOMtGte5JhUzITFz6EyyEukujTRZVRroxlUj9uEkEl1M9qCs94iD9SDyJlMGWLi2pRJ0gUkoZJJLcF-2c4F-Fpd5voxDOT0zTyXpLyVJ65djrlf7eVYvY4ZPxzBxaBEOlIKirmGPqb6v8LzNxQ_ZUSxEoO9M987ermvaqtBvelnGv2VIM_Dz4NpIM1EVZg17aZFrDJBQpljg7vLGjyuPPtm9HUaB1cH8WO61v-VU85Y6ML4PLnIKdiUJPC_hH7KFyvNrxPGFPFr-uvcrihNQZAAz9nOxmWyL20VwgCOWc73Ds7WHSewqMW7XUMffoG-aO8btWIzQoUxcV-lfyDIamYFT0T6PcxSb-n7yJ_19cRlUMS0C3DW5fWEJBk7UbDZUbN9cxJvz2WFAUM1FWMI1KFP2EACPj9IKLq53uFKI3Ne8ekZMafCvz_9wOOS6Y5KQBvt7KTfOTxB2mkY2HGKshjd2O8PPVRKMHWPlExSDMzdsD4n3AlafK0tD61kvIhVsqo8KbZwzJswEokvLYWw852IgfJFOWNP4E9U5SiBVfVBXh0FmpB67K5cNfMK6XdP11iF-1kSUBwYJqNdyY4KdxWo5rbDEigZpUNlfx6IqQCqdJ8exzj0hEB009IAwfoHRpnaJiYnXcmNh0f7GrFuqS7dv8dbUmCstbPsabB6_LxQJ3E06X70pkFk0FVgyq3uUDbA38vRyv4oHi0ewB1bMPtT7kLOBglFRC3jGoDppn0eXbIXZUA2JYUBj3Zegqr0JcwsToNVzL3eROFG0Hiq3G4g_3PeSz0pK11IEp3bGtMMdzfx6f32YBk7BvFuUHo_Dkdi7geYWj7PBfv-bpLrBmzcZ2NUnD1NlgyB6uhCyxUAkUTBNtEFHqJ2BnEOvJO9bGkqCiwSiVvZ-EnMGphDOguCq6d4Bmy8jaR1iONvK1DlFOXkz0K1hPoOL6qI_AbuA41pfURpEWmDMLGJkfaFUCrg9rVqQAhbzHOsF1BU9AG9mHMEDED3xMyrJnX1kalZhYmXUNoro28u971W1uiA9fnI05pqj4iGB0Hrai5odMh2Qji3SYRoBxO2ETwNUeEmxmkxstExQr8sqj87jOM5u-aHSBYWsCLVhFoRUzkINeh-VVn4V5bL3v1Gem_5Ete1zzrbLodNEWmLbgflR9WNm_37d3YSKpEtD4Mu0f2jJISbSYX5g9X7xogkAq_fbqXpYnniDOGex-JVUgATTxbrfQqb9ybsSkrnI9tdtDCm6yzS9bh5zouPiOe81dEockDwABVj8lzVM3-lSe0xPupbImMy7YtXRkXnxFe1TFP9axrnnv7D31O8b4LWQsDpFxb4uK5sDsK6HFwug2pJrwIOgf5ZD9qkZA8hGwr7Ol0F8R8m1KrWDmN9B50w9__WSX0pjX98EudDhm1kFR1AVinQNAiXLUrzzCq03O9hDfKWEWDyCZQBPxNxRwHnWSUhmj5V5QMktHKU8Ot5ZZyva6KkHU17-AHdzAKrjoVrCmy0dE7cQmPhPoR2UMByfL6CiLSO5DlvjaGBI8eK_oZyNWTGph6A2DhMvlyF_MO3vbk9aPAiXLhf_PdBWPZQlU87jsJjEx6M-higm2A_IE1tR6N60GzlXMnj6POxzfzVQiWiVXt25Q_LC4mTvKwJVvZVmXYfSDTFyMDz6IrLVqRyGhtaEk3TYwlwqj-Tt2uhNvgD_T5Qffry9nGH6VvpSWQC86V7BD-Tic3Iz0l6eVxG_MQdBdFW8IsPS8FBrAE64qjtSsruT7ffxwogv679OR05n6wu_qYg_A8h75fus_Wxyy3Mh5sc1BVVXV7fCP_02fvl_vI59L25r3HGvPwUffLLusajnjBYZIughV4kPpPmgwqfExvHAoDSMUmX0sJUOreh-yF0dHaAa6YPDR99DTCiF7KDrggqgYCfkWNvpRCohQWHQ==",
+      "id": "rs_08a23327a7e2d296016aea2d37ea7c87d1b61f9a2da6bc2023",
+      "status": null,
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"offset\":0,\"count\":3}",
+      "call_id": "call_oLGssNY0qtAgdLyfmM4OvmUZ",
+      "caller": null,
+      "id": "fc_08a23327a7e2d296016aea2d3acd6087d1a0190d47270444f7",
+      "name": "practice",
+      "namespace": null,
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "parallel_tool_calls": false,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "xhigh",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Read training questions, answers and available reference solutions. Returns up to 16 rows, using offsets in the combined pool. Metadata lists source ranges.",
+      "name": "practice",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "maximum": 16,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Persistent CPU NumPy only; cannot run the target. Globals: np, math, names, shapes, config, practice_ids (all training IDs in source order). Helpers: practice_row(id) returns a copied training question/answer/solution; weight(name,current=False) returns a float32 COPY; save_edit(name,array), remove_edit(name), clear_edits(), list_edits(), checkpoint(label), restore(label), artifact(id), tokenize(text), decode(ids). Print compact summaries. No files/network/processes or training. A checkpoint label has up to 40 letters, digits, underscores or hyphens.",
+      "name": "python_analysis",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Thinking generation on distinct practice IDs: base, current or both. Fixed 32768-token cap; max 64 TOTAL generations, so max 32 paired problems for both. One sample per problem. Returns accuracy, token limits, paired rescues/losses, and an artifact ID containing complete texts. One forward-budget unit.",
+      "name": "generate",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Teacher-force base/current on up to 16 raw texts, <=32768 tokens each and <=131072 tokens total. At up to 32 selected positions (negative indices allowed), capture all layer hidden states and up to 8 modules' input/output vectors, top-20 next-token IDs/logprobs and actual next-token logprobs where present. Module name is its tensor name without .weight. Artifact: texts entries have text,tokens,positions,hidden (layers x positions x width),modules (name -> input/output arrays),top_ids,top_logprobs,next_ids,next_logprobs. One forward-budget unit. Include exact chat template text for faithful diagnostic probes.",
+      "name": "probe",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "After all 10 forward calls, select a checkpoint label (or empty string for current weights) and freeze permanently. The host alone performs later held-out evaluation. Restore your base checkpoint if no edit is justified.",
+      "name": "finish",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1661,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 207,
+    "output_tokens_details": {
+      "reasoning_tokens": 184
+    },
+    "total_tokens": 1868
+  },
+  "user": null
+}

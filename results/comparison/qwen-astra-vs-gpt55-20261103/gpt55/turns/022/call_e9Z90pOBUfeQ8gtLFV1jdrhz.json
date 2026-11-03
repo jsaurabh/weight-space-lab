@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "code": "p=artifact('probe-002')['texts']; loop_idx=np.arange(8); norm_idx=np.arange(8,12)\nfor m in ['model.language_model.layers.20.mlp.down_proj','model.language_model.layers.21.mlp.down_proj','model.language_model.layers.22.mlp.down_proj','model.language_model.layers.23.mlp.down_proj']:\n    X=np.stack([np.array(t['modules'][m]['input'][0],dtype=np.float32) for t in p])\n    L=X[loop_idx].mean(0); N=X[norm_idx].mean(0)\n    # min norm u with u.L=1, u.N=0\n    A=np.stack([L,N],axis=0).astype(np.float64)\n    y=np.array([1.0,0.0])\n    u=A.T @ np.linalg.solve(A@A.T + 1e-6*np.eye(2), y)\n    scores=X@u\n    # Alternative whitened diff normalized mean loop=1\n    d=L-N; u2=d/(np.dot(d,L)+1e-9)\n    scores2=X@u2\n    print('\\n',m)\n    print('u norm',np.linalg.norm(u),'scores', [round(float(s),3) for s in scores], 'means loop/norm',scores[loop_idx].mean(),scores[norm_idx].mean())\n    print('u2 norm',np.linalg.norm(u2),'scores2', [round(float(s),3) for s in scores2], 'means',scores2[loop_idx].mean(),scores2[norm_idx].mean())\n    # score margin\n    print('score min loop max norm',scores[loop_idx].min(), scores[norm_idx].max())",
+    "reason": "Compute rank-one activation detectors (loop-vs-normal) for late MLPs and estimate scalar scores on probed contexts."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 86,
+    "remaining_forward_calls": 8,
+    "result": {
+      "edits": [],
+      "stdout": "\n model.language_model.layers.20.mlp.down_proj\nu norm 0.26415363259052244 scores [1.002, 0.999, 1.104, 0.968, 0.85, 0.99, 0.996, 1.091, 0.086, -0.036, -0.026, -0.025] means loop/norm 0.9999999302237987 3.856682921545701e-08\nu2 norm 0.5269529 scores2 [1.059, 1.066, 1.272, 1.125, 0.767, 0.721, 0.772, 1.218, -1.184, -1.269, -1.444, -1.339] means 0.99999994 -1.3089827\nscore min loop max norm 0.8495399616032222 0.08636003714469517\n\n model.language_model.layers.21.mlp.down_proj\nu norm 0.2352630642090063 scores [0.948, 0.979, 1.086, 0.982, 0.863, 1.011, 1.031, 1.099, 0.05, 0.029, -0.07, -0.009] means loop/norm 0.9999999446512867 3.4390724440100384e-08\nu2 norm 0.48434538 scores2 [0.995, 1.066, 1.252, 1.122, 0.68, 0.827, 0.901, 1.156, -1.192, -1.271, -1.544, -1.292] means 1.0000001 -1.3247771\nscore min loop max norm 0.8625927159039578 0.04980384607063855\n\n model.language_model.layers.22.mlp.down_proj\nu norm 0.1265113286993497 scores [1.172, 1.098, 1.161, 1.015, 0.591, 0.917, 0.959, 1.088, 0.021, 0.003, -0.051, 0.027] means loop/norm 0.999999983994848 1.1724856368786063e-08\nu2 norm 0.19513099 scores2 [1.186, 1.129, 1.207, 1.015, 0.499, 0.902, 0.925, 1.139, -0.632, -0.556, -0.736, -0.592] means 0.9999997 -0.6287647\nscore min loop max norm 0.5907876538784703 0.02650411106642564\n\n model.language_model.layers.23.mlp.down_proj\nu norm 0.07678417346096203 scores [1.307, 1.286, 1.388, 1.351, 0.429, 0.449, 0.469, 1.322, -0.022, 0.051, -0.102, 0.072] means loop/norm 0.999999994104191 4.130523971468403e-09\nu2 norm 0.14979564 scores2 [1.761, 1.703, 1.914, 1.895, -0.295, -0.363, -0.324, 1.709, -1.18, -0.955, -1.503, -0.869] means 1.0 -1.1268185\nscore min loop max norm 0.42906743716540846 0.07188121170093564\n",
+      "truncated": false
+    },
+    "seconds": 0.003927621000002546
+  }
+}

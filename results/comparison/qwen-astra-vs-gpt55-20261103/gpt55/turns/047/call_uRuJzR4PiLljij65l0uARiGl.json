@@ -1,0 +1,30 @@
+{
+  "arguments": {
+    "code": "# Summarize paired a8 validations\nfor artid in ['generation-004','generation-007','generation-009','generation-010']:\n    art=artifact(artid); b=art['base']; c=art['current']\n    bc=sum(1 for e in b if e['correct']); cc=sum(1 for e in c if e['correct'])\n    bl=sum(1 for e in b if e['hit_token_limit']); cl=sum(1 for e in c if e['hit_token_limit'])\n    resc=sum(1 for i in range(len(b)) if (not b[i]['correct']) and c[i]['correct'])\n    loss=sum(1 for i in range(len(b)) if b[i]['correct'] and (not c[i]['correct']))\n    print(artid,'base/current',bc,cc,'net',cc-bc,'resc/loss',resc,loss,'limits',bl,cl)\n# Independent only excluding original\nfor label, ids in [('independent',['generation-007','generation-009','generation-010']),('all_a8',['generation-004','generation-007','generation-009','generation-010'])]:\n    bc=cc=bl=cl=resc=loss=tot=0\n    for artid in ids:\n        art=artifact(artid); b=art['base']; c=art['current']; tot+=len(b)\n        bc+=sum(1 for e in b if e['correct']); cc+=sum(1 for e in c if e['correct'])\n        bl+=sum(1 for e in b if e['hit_token_limit']); cl+=sum(1 for e in c if e['hit_token_limit'])\n        resc+=sum(1 for i in range(len(b)) if (not b[i]['correct']) and c[i]['correct'])\n        loss+=sum(1 for i in range(len(b)) if b[i]['correct'] and (not c[i]['correct']))\n    print(label,'total',tot,'base',bc,'current',cc,'net',cc-bc,'resc/loss',resc,loss,'limits',bl,cl)\nprint('active edits',list_edits())",
+    "reason": "Final aggregate evidence summary and verify selected checkpoint is active before finish."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 71,
+    "remaining_forward_calls": 0,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 2037563,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "893048bbeff031c064a9e66279a89e244f026df34782169338b4a16fa1af9c51",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        }
+      ],
+      "stdout": "generation-004 base/current 4 10 net 6 resc/loss 7 1 limits 30 22\ngeneration-007 base/current 4 11 net 7 resc/loss 9 2 limits 28 21\ngeneration-009 base/current 4 7 net 3 resc/loss 5 2 limits 29 25\ngeneration-010 base/current 2 6 net 4 resc/loss 4 0 limits 30 26\nindependent total 96 base 10 current 24 net 14 resc/loss 18 4 limits 87 72\nall_a8 total 128 base 14 current 34 net 20 resc/loss 25 5 limits 117 94\nactive edits [{'name': 'model.language_model.layers.23.mlp.down_proj.weight', 'shape': [1024, 3584], 'dtype': 'torch.bfloat16', 'changed_entries': 2037563, 'base_sha256': '1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48', 'edited_sha256': '893048bbeff031c064a9e66279a89e244f026df34782169338b4a16fa1af9c51'}]\n",
+      "truncated": false
+    },
+    "seconds": 0.01912171000003582
+  }
+}

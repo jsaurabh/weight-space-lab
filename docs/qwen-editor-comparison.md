@@ -32,10 +32,11 @@ the same prompts and sampling: thinking enabled, temperature 0.6, top-p 0.95,
 top-k 20, presence penalty 1.5, seed 0 and 32,768 new tokens.
 
 This is one independent discovery attempt per editor. It compares performance
-under these constraints, not overall model equivalence. It is smaller than the
-authors' 50-pass experiment: reduced batch/probe sizes, a restricted NumPy
-analysis interface, and the pinned full model used with text inputs. Astra's
-separate `max` reasoning setting is not tested.
+under these constraints, not overall model equivalence. The
+[authors evaluate 10, 25 and 50 forward passes](https://rikiyat.github.io/blog/weight-space-programming/).
+Our 10-call pilot uses smaller generation/probe batches, a restricted NumPy
+analysis interface, and the pinned full model with text inputs. Astra's separate
+`max` reasoning setting is not tested.
 
 The initial hardware preflight uses a separate workspace: a temporary generic
 tensor change verifies GPU loading and exact base restoration, then a short
@@ -54,6 +55,9 @@ interface is tested before both fresh discovery runs.
 ## Run
 
 Install the repository's `qwen` extra and configure `OPENAI_API_KEY` locally.
+The GPU commands require an authenticated Colab CLI and G4 access. This run used
+CLI 0.7.4 on macOS; install it with
+`uv tool install google-colab-cli==0.7.4` and consult `colab readme` for setup.
 The preparation step uses public data and no editor API calls. Use a new result
 directory; the cache and Colab session below are intended for one active run.
 
@@ -71,3 +75,19 @@ uv run --extra qwen --no-editable python experiments/qwen_compare/analyze.py res
 The driver exports evidence and stops the G4 in its cleanup path. If interrupted
 before the driver starts, stop the provisioned session with
 `colab stop -s weight-space-qwen-compare`.
+
+## Replay a frozen choice
+
+After the completed run is published, fetch its saved tensors and activation
+arrays with `python3 experiments/fetch_artifacts.py --group qwen-comparison`.
+The shared reconstruction tool accepts either editor's result directory:
+
+```sh
+uv run --extra qwen --no-editable python experiments/blind/replay.py --result results/comparison/qwen-astra-vs-gpt55-20261103/gpt55 --base .artifacts/qwen-base --output .artifacts/qwen-gpt55-replay
+uv run --extra qwen --no-editable python experiments/blind/replay.py --result results/comparison/qwen-astra-vs-gpt55-20261103/astra --base .artifacts/qwen-base --output .artifacts/qwen-astra-replay
+```
+
+Use a local copy of the pinned base revision listed in `protocol.json`.
+Reconstruction verifies the frozen patch and replaced tensor hashes, needs CPU
+and disk space, and makes no editor calls. Regrading the saved evaluation with
+`analyze.py` also needs only CPU. Generating new answers uses the GPU.

@@ -31,7 +31,7 @@ uv run --extra qwen --no-editable python experiments/fetch_artifacts.py
 uv run --extra qwen --no-editable python -m unittest discover -s tests -v
 ```
 
-The artifact download is about 30 MB and verifies the pinned hashes in
+The artifact download is about 43 MB and verifies the pinned hashes in
 [model_artifacts.json](model_artifacts.json). No GPU or API key is needed for
 setup, tests or saved-result replay.
 
