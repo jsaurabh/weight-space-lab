@@ -13,6 +13,16 @@ edit with an API programmer. No training or gradients are involved.
 - MATH-500 dataset revision: `6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be`.
 - Published numerical diff and attribution: `third_party/qwen_p50c/`.
 
+Before using the published numerical diff, restore its binary from our public
+Hugging Face artifact repository:
+
+```sh
+python3 experiments/fetch_artifacts.py --group qwen-published
+```
+
+The download is pinned and checked against the original SHA-256. Reports,
+source code, provenance and licenses stay in GitHub.
+
 The edit affects only `model.language_model.layers.15.mlp.down_proj.weight` and
 `model.language_model.layers.19.mlp.down_proj.weight`. They have shape
 1024 × 3584. Both base and edited tensors are verified against raw bfloat16

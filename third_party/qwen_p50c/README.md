@@ -16,3 +16,8 @@ published manifest and makes no changes to the numerical diff.
 Base weights are downloaded separately from `Qwen/Qwen3.5-0.8B` at revision
 `2fc06364715b967f1860aea9cf38778875588b17`, under its Apache 2.0 license.
 Base weights and full edited checkpoints are not committed to this repository.
+
+The numerical `edit.npz` is now hosted on
+[Hugging Face](https://huggingface.co/jsaurabh/weight-space-lab-artifacts/blob/645821601020cbd7dbfdac9ae576c1332a1f6604/third_party/qwen_p50c/edit.npz).
+Restore it with `python3 experiments/fetch_artifacts.py --group qwen-published`.
+Its original SHA-256 and attribution are unchanged.

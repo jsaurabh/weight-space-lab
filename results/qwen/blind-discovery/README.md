@@ -51,7 +51,7 @@ The edit changes **5,183,186 BF16 entries**. A complete checkpoint was rebuilt
 locally and every named tensor was hashed: exactly these two of 488 tensors
 changed, and all 486 others matched the pinned base. See
 [the freeze manifest](frozen.json), [full replay validation](replay_validation.json)
-and [the selected weights](selected.safetensors).
+and [the selected weights on Hugging Face](https://huggingface.co/jsaurabh/weight-space-lab-artifacts/blob/645821601020cbd7dbfdac9ae576c1332a1f6604/results/qwen/blind-discovery/selected.safetensors).
 
 ## Discovery protocol and limitations
 
@@ -120,6 +120,15 @@ verified on 2026-11-03 UTC; it is not a billing invoice. See
 [usage summary](api_usage_summary.json).
 
 ## Replay without further API calls
+
+Model weights and activation arrays are hosted on
+[Hugging Face](https://huggingface.co/jsaurabh/weight-space-lab-artifacts).
+The JSON descriptors and all original checksums remain here. Restore those
+exact binary files into the expected paths before replay or integrity checks:
+
+```sh
+python3 experiments/fetch_artifacts.py --group qwen-blind
+```
 
 With the pinned base cached locally, reconstruct the exact full candidate:
 

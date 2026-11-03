@@ -7,6 +7,33 @@ Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/
 and [Weight-Space Programming from scratch on simple tasks](https://csinva.io/weight-space-programming-autoresearch/analyze/toy_examples/report.html).
 This repository is an independent implementation of the idea, not the authors' code.
 
+## Completed experiment index
+
+| Experiment | Result | Evidence |
+| --- | --- | --- |
+| Guided parity construction, local CPU | 2,046 / 2,046 | [Report](results/reference/parity/report.json) |
+| Guided addition construction, local CPU | 10,000 / 10,000 | [Report](results/reference/addition/report.json) |
+| Independent Astra constructions, local CPU targets | Both tasks solved on the first proposal; $0.33 estimated API usage | [Report and exact API exchanges](results/discovery/astra-initial/README.md) |
+| Local Qwen 64-token smoke test, Apple GPU | Both conditions reached the cap; feasibility check | [Manifest](results/qwen/local-pilot/manifest.json), [outputs](results/qwen/local-pilot/generations.jsonl) |
+| Local Qwen 4,096-token pilot, Apple GPU | Both conditions reached the cap; about 31 tokens/s | [Manifest](results/qwen/local-4096/manifest.json), [outputs](results/qwen/local-4096/generations.jsonl) |
+| Published Qwen edit replay, Colab G4 | Base 4/64 → published edit 28/64 | [Audited report](results/qwen/g4-pilot/README.md) |
+| Independent blind Qwen repair search, Colab G4 | Base 5/64 → candidate 3/64; no useful repair found | [Search, audit and evaluation](results/qwen/blind-discovery/README.md) |
+
+Code, reports, prompts, generation logs and checksums live on GitHub. The four
+tiny-model checkpoints, Qwen weight edits and activation arrays live in the
+public [Hugging Face artifact repository](https://huggingface.co/jsaurabh/weight-space-lab-artifacts).
+[model_artifacts.json](model_artifacts.json) pins their exact revision, sizes and
+SHA-256 hashes. Restore all 12 artifacts into this checkout with:
+
+```sh
+python3 experiments/fetch_artifacts.py
+```
+
+The command needs no API key or GPU. It downloads about 30 MB and verifies every
+file. Public base Qwen weights remain in their original Hugging Face repository;
+our code downloads the pinned revision separately. Comparisons between Astra,
+GPT-5.4, GPT-5.5 and GPT-6 Sol have been discussed but have **not been run**.
+
 The repository also includes a [Qwen3.5-0.8B published-edit replay](docs/qwen-replay.md):
 bit-exact reconstruction of the two edited tensors, a local Apple GPU pilot,
 and a paired MATH-500 evaluation on a Colab G4. This replays an existing edit;
@@ -62,13 +89,14 @@ Install [uv](https://docs.astral.sh/uv/) if needed, then:
 
 ```sh
 uv sync --locked
+python3 experiments/fetch_artifacts.py
 uv run weight-space-lab run --task all
 uv run python -m unittest discover -s tests -v
 ```
 
 Python 3.12 is selected by `.python-version`. The model uses CPU float64 and one
 compute thread; no GPU, Colab session, API key, or network connection is required
-after dependencies are installed. The lockfile records dependency versions.
+after dependencies and artifacts are installed. The lockfile records dependency versions.
 
 On macOS, if Python reports that it cannot find `weight_space_lab`, use
 `uv sync --locked --no-editable` and `uv run --no-editable ...` for the commands
@@ -85,8 +113,9 @@ uv run weight-space-lab inspect addition '89+76='
 Each run writes a JSON report and a loadable `weights.pt` under
 `results/reference/<task>/`. Reports include accuracy, group counts, failures,
 timing, tensor shapes, all parameter and buffer elements, nonzero values, and a
-SHA-256 digest of the named tensor state. Checkpoints are ignored by Git and can
-be recreated locally. Timing depends on hardware and package versions.
+SHA-256 digest of the named tensor state. Frozen checkpoints are hosted on
+Hugging Face; local `.pt` files are ignored by Git and can also be recreated
+from the constructions. Timing depends on hardware and package versions.
 
 ## How the reference weights work
 

@@ -49,6 +49,8 @@ def rebuild_tensor(base, spec, archive, index):
 
 
 def read_edit(directory):
+    if not (directory / "edit.npz").is_file():
+        raise FileNotFoundError("Fetch the model artifact first: python3 experiments/fetch_artifacts.py --group qwen-published")
     manifest = json.loads((directory / "manifest.json").read_text())
     provenance = json.loads((directory / "provenance.json").read_text())
     data = (directory / "edit.npz").read_bytes()

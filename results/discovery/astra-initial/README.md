@@ -63,6 +63,10 @@ precision arithmetic, other runtimes, longer inputs, or larger numbers.
 
 ## Evidence and replay
 
+- The two frozen `weights.pt` checkpoints are on
+  [Hugging Face](https://huggingface.co/jsaurabh/weight-space-lab-artifacts/tree/645821601020cbd7dbfdac9ae576c1332a1f6604/results/discovery/astra-initial).
+  Restore them with `python3 experiments/fetch_artifacts.py --group tiny`.
+  The exact numerical proposals remain here and can reconstruct the same weights.
 - [Run manifest and estimated cost](manifest.json)
 - [Parity selection and final score](parity/selection.json), [full report](parity/final_all.json)
 - [Addition selection and final score](addition/selection.json), [full report](addition/final_all.json)
