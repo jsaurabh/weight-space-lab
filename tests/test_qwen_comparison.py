@@ -1,0 +1,93 @@
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import sys
+import tempfile
+import unittest
+from unittest.mock import patch
+
+import torch
+
+DIRECTORY = Path(__file__).resolve().parents[1] / "experiments/qwen_compare"
+
+
+def module(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    loaded = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(loaded)
+    return loaded
+
+
+protocol = module("comparison_protocol", DIRECTORY / "protocol.py")
+with patch.dict(sys.modules, {"protocol": protocol}):
+    backend = module("comparison_backend", DIRECTORY / "backend.py")
+    driver = module("comparison_driver", DIRECTORY / "driver.py")
+
+
+class QwenComparison(unittest.TestCase):
+    def test_equal_long_generation_budget_and_no_published_solution(self):
+        self.assertEqual(protocol.MAX_FORWARD_CALLS, 10)
+        tools = {tool["name"]: tool for tool in protocol.TOOLS}
+        self.assertEqual(set(tools), {"practice", "python_analysis", "generate", "probe", "finish"})
+        self.assertNotIn("max_tokens", tools["generate"]["parameters"]["properties"])
+        self.assertIn("32768", tools["generate"]["description"])
+        self.assertIn("32,768", protocol.SYSTEM)
+        for marker in ["p50c", "layers.15", "layers.19", "130188", "Householder"]:
+            self.assertNotIn(marker, protocol.SYSTEM + str(protocol.TOOLS))
+
+    def test_separate_model_costs(self):
+        usage = {"input_tokens": 1000, "output_tokens": 1000}
+        self.assertAlmostEqual(driver.usage_cost("astra", usage), 0.06)
+        self.assertAlmostEqual(driver.usage_cost("gpt55", usage), 0.035)
+        with self.assertRaises(ValueError):
+            driver.usage_cost("astra", {**usage, "input_tokens_details": {"cached_tokens": 1001}})
+
+    @unittest.skipUnless(importlib.util.find_spec("safetensors"), "Install the qwen extra")
+    def test_finish_requires_full_budget_and_test_requires_freeze(self):
+        service = backend.Service.__new__(backend.Service)
+        service.frozen = False
+        service.forward_calls = 0
+        with self.assertRaises(ValueError):
+            service.finish("", "early")
+        with self.assertRaises(ValueError):
+            service.evaluate_conditions([], "invalid")
+
+    @unittest.skipUnless(importlib.util.find_spec("safetensors"), "Install the qwen extra")
+    def test_three_conditions_use_frozen_bytes_and_clear_base(self):
+        from safetensors.torch import save_file
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            output = root / "results"
+            output.mkdir()
+            test = root / "sealed_test.json"
+            test.write_text(json.dumps([{"unique_id": "held", "problem": "2+2", "answer": "4"}]))
+            conditions = []
+            for index, label in enumerate(["astra", "gpt55"], 1):
+                checkpoint = root / (label + ".safetensors")
+                save_file({"writer": torch.tensor([index], dtype=torch.bfloat16)}, checkpoint)
+                manifest = root / (label + ".json")
+                manifest.write_text(json.dumps({"test_data_present_at_freeze": False,
+                    "selected_file_sha256": hashlib.sha256(checkpoint.read_bytes()).hexdigest()}))
+                conditions.append({"label": label, "checkpoint": str(checkpoint), "manifest": str(manifest)})
+            service = backend.Service.__new__(backend.Service)
+            service.frozen = True
+            service.edits = {"old": torch.ones(1)}
+            service.update_status = lambda phase: None
+            seen = []
+            def generate(rows, which, max_tokens, samples, seed):
+                seen.append({k: float(v[0]) for k, v in service.edits.items()})
+                self.assertEqual((which, max_tokens, samples, seed), ("current", 32768, 2, 0))
+                return {"records": [], "total": 2, "correct": 0}
+            service.generate_rows = generate
+            with patch.object(backend, "ROOT", root), patch.object(backend, "OUT", output):
+                summary = service.evaluate_conditions(conditions, hashlib.sha256(test.read_bytes()).hexdigest())
+                self.assertEqual(set(summary), {"base", "astra", "gpt55"})
+                self.assertEqual(seen, [{}, {"writer": 1.0}, {"writer": 2.0}])
+                (root / "astra.safetensors").write_bytes(b"changed")
+                with self.assertRaises(ValueError):
+                    service.evaluate_conditions(conditions, hashlib.sha256(test.read_bytes()).hexdigest())
+
+
+if __name__ == "__main__":
+    unittest.main()
