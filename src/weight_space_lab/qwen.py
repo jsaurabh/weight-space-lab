@@ -100,29 +100,43 @@ class PresencePenalty:
 
 
 def last_boxed(text):
-    start = text.rfind("\\boxed{")
+    # Match the published grader's preference for the last boxed expression,
+    # otherwise the last fbox, including Qwen's occasional unbraced form.
+    start = text.rfind("\\boxed")
+    key = "\\boxed"
     if start < 0:
-        return None
-    depth = 1
-    for position in range(start + 7, len(text)):
-        if text[position] == "{":
-            depth += 1
-        elif text[position] == "}":
-            depth -= 1
-            if depth == 0:
-                return text[start:position + 1]
+        start, key = text.rfind("\\fbox"), "\\fbox"
+        if start < 0:
+            return None
+    tail = text[start + len(key):]
+    content = tail.lstrip()
+    if content.startswith("{"):
+        depth = 0
+        for position, char in enumerate(content):
+            if char == "{":
+                depth += 1
+            elif char == "}":
+                depth -= 1
+                if depth == 0:
+                    answer = content[1:position].strip()
+                    return "\\boxed{" + answer + "}" if answer else None
+    elif key == "\\boxed" and tail.startswith(" "):
+        answer = tail.strip().split("$")[0].split("\n")[0].strip()
+        return "\\boxed{" + answer + "}" if answer else None
     return None
 
 
 def grade(answer, generated):
     from math_verify import parse, verify
+    if "</think>" in generated:
+        generated = generated.split("</think>")[-1].strip()
     boxed = last_boxed(generated)
     if boxed is None:
         return False
     try:
-        gold = parse("\\boxed{" + str(answer) + "}")
-        predicted = parse(boxed)
-        return bool(gold and predicted and verify(gold, predicted))
+        gold = parse("\\boxed{" + str(answer) + "}", parsing_timeout=5)
+        predicted = parse(boxed, parsing_timeout=5)
+        return bool(gold and predicted and verify(gold, predicted, timeout_seconds=5))
     except Exception:
         return False
 

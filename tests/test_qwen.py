@@ -57,12 +57,16 @@ class QwenEdit(unittest.TestCase):
         self.assertEqual(last_boxed(r"First \boxed{1}, finally \boxed{\frac{1}{2}}."), r"\boxed{\frac{1}{2}}")
         self.assertIsNone(last_boxed(r"unfinished \boxed{\frac{1}{2}"))
         self.assertIsNone(last_boxed("No final answer"))
+        self.assertEqual(last_boxed(r"Answer: \fbox {2}"), r"\boxed{2}")
+        self.assertEqual(last_boxed(r"Answer: \boxed 5$"), r"\boxed{5}")
 
     @unittest.skipUnless(importlib.util.find_spec("math_verify"), "optional qwen dependencies not installed")
     def test_math_grading_equivalence_and_incomplete_reasoning(self):
         self.assertTrue(grade("1/2", r"Answer: \boxed{\frac{1}{2}}"))
         self.assertFalse(grade("1/2", r"Answer: \boxed{2}"))
         self.assertFalse(grade("42", "I think it is 42 but no boxed answer yet"))
+        self.assertFalse(grade("42", r"reasoning \boxed{42}</think>final without a box"))
+        self.assertTrue(grade("42", r"reasoning \boxed{0}</think>final \fbox{42}"))
 
 
 if __name__ == "__main__":

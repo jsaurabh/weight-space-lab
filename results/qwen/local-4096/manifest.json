@@ -1,0 +1,67 @@
+{
+  "backend": "transformers",
+  "dataset_sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132",
+  "deviations_from_published_benchmark": [
+    "Transformers instead of vLLM",
+    "one sample per problem instead of four",
+    "1 MATH-500 problems instead of 500",
+    "4096 token cap instead of 32768"
+  ],
+  "device": "mps",
+  "dtype": "bfloat16",
+  "experiment": "published_edit_replay",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "problems": 1,
+  "results": {
+    "base": {
+      "correct": 0,
+      "hit_token_limit": 1,
+      "mean_tokens": 4096.0,
+      "tokens_per_second": 30.832888802643268,
+      "total": 1
+    },
+    "published_edit": {
+      "correct": 0,
+      "hit_token_limit": 1,
+      "mean_tokens": 4096.0,
+      "tokens_per_second": 31.10108958141913,
+      "total": 1
+    }
+  },
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "sampling": {
+    "enable_thinking": true,
+    "max_new_tokens": 4096,
+    "presence_penalty": 1.5,
+    "samples_per_problem": 1,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "seed": 20261102,
+  "selected_ids": [
+    "test/algebra/634.json"
+  ],
+  "status": "completed",
+  "verification": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "base_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "changed_entries": 130188,
+    "edit_upstream_revision": "4d09ba6d6a7e891dd8063974dfe81b3d78e3494f",
+    "tensors": [
+      {
+        "base_sha256": "ef60d2c687bab19464dca9c8bfd7777e46ad226df0c9e25643b0bab04b5a1cca",
+        "changed_entries": 65260,
+        "edited_sha256": "82e2d733ea64feaeb4af93a1e065641d3df98b494a8b7576ef2f52e90fe2ee53",
+        "name": "model.language_model.layers.15.mlp.down_proj.weight"
+      },
+      {
+        "base_sha256": "638eedeb701b94aa861f4438e615c07ec6c60ee703db1bfee2de577bb6498c3e",
+        "changed_entries": 64928,
+        "edited_sha256": "8ef3c61bc36af113ad58e89dbb0a4a14dcba5a45cb750c15ab515c82ddd12eb2",
+        "name": "model.language_model.layers.19.mlp.down_proj.weight"
+      }
+    ],
+    "verified": true
+  }
+}

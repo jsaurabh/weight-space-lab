@@ -12,6 +12,12 @@ bit-exact reconstruction of the two edited tensors, a local Apple GPU pilot,
 and a paired MATH-500 evaluation on a Colab G4. This replays an existing edit;
 the tiny-transformer experiments below test fresh API-generated weights.
 
+The [completed G4 pilot](results/qwen/g4-pilot/README.md) improved accuracy from
+**4/64 (6.25%) to 28/64 (43.75%)**, while token-limit hits fell from 60/64 to
+25/64. It uses 16 fixed problems with four samples each and the original
+32,768-token cap. All 128 outputs were audited against the published grader.
+This is a small subset result; the G4 session has been terminated.
+
 ## Current experiment
 
 Two guided reference constructions establish a working, inspectable local testbed.

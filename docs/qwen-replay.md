@@ -19,6 +19,16 @@ The edit affects only `model.language_model.layers.15.mlp.down_proj.weight` and
 SHA-256 hashes; 130,188 entries actually differ after rounding. The authors
 describe this as removing a looping direction from 64 columns of each matrix.
 
+Our independent numerical audit is saved in `results/qwen/edit-analysis.json`.
+On the 64 changed columns of each layer, the first singular component explains
+99.99945% and 99.99914% of the squared difference, respectively. Up to bfloat16
+rounding, each edit is approximately `W' = W - 6*u*(u.T @ W)` on those columns.
+Thus it counteracts that component strongly: the new projection is roughly -5
+times the original projection, rather than an orthogonal deletion. The two
+layer-specific directions have absolute cosine similarity 0.849. This audit
+describes the published numerical change; it does not independently establish
+the behavioral meaning of those directions.
+
 ## Local feasibility
 
 The initial device has 16 GB unified memory and an Apple GPU. Full bfloat16
@@ -30,6 +40,12 @@ are not a fair throughput comparison between base and edit.
 The local pilot used one problem with a 64-token cap. Both conditions hit that
 cap before an answer. Its zero scores are a setup check, not an estimate of
 math accuracy or evidence against the edit.
+
+A second local run used a 4,096-token cap on the same fixed problem. Both
+conditions again hit the cap without a correct boxed answer, at roughly 31
+tokens/s. This is recorded under `results/qwen/local-4096/`; the G4 comparison
+retains the published 32,768-token cap rather than treating the short local run
+as a benchmark replication.
 
 ```sh
 uv sync --extra qwen --no-editable
@@ -80,6 +96,14 @@ interval resamples problems as clusters, keeping the four samples together.
 With only 16 problems, the interval will be wide. This pilot cannot reproduce
 the published full MATH-500 percentage exactly or establish broad capability
 improvements beyond the evaluated set.
+
+Saved generations are regraded locally with extraction and equivalence functions
+copied from the published harness (`third_party/qwen_p50c/published_grading.py`).
+That grader reads the final text after the last thinking-close tag when present,
+and supports the authors' alternate box formats. The initial remote grader was
+slightly narrower; original outputs/scores remain saved, and `grader_validation.json`
+records any score changes and agreement with the corrected local implementation.
+No generations are repeated for this grading check.
 
 ## Remote payload and replay
 

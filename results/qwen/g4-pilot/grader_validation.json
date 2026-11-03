@@ -1,0 +1,12 @@
+{
+  "comparisons": 128,
+  "disagreements": [],
+  "method": "published extraction and math-verify equivalence on saved texts; no regeneration",
+  "published_grader_source_sha256": "4f7e0c9ab3fc29ded977fa12c65170ee39f91471cbdc67b592ee092f15704da8",
+  "remote_score_changes": 1,
+  "software": {
+    "latex2sympy2-extended": "1.11.0",
+    "math-verify": "0.9.0",
+    "sympy": "1.14.0"
+  }
+}

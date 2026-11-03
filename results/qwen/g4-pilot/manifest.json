@@ -1,0 +1,55 @@
+{
+  "code_sha256": {
+    "qwen_colab_runner.py": "f613b002898ca92fdcf15da1f4b97100b5e149a50d8aedb4c7c4f828647ce939",
+    "qwen_edit_helper.py": "8fdd17f3b7d0b03b23ed09e59c89605279133f681f2227e296e106a6b1b089dd"
+  },
+  "colab_accelerator_requested": "G4",
+  "condition_time_limit_seconds": 1200,
+  "dataset": "HuggingFaceH4/MATH-500",
+  "dataset_revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+  "dataset_sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132",
+  "deviations_from_published_benchmark": [
+    "16 problems instead of 500",
+    "full multimodal checkpoint with text-only prompts instead of text-only export"
+  ],
+  "experiment": "published_qwen_p50c_edit_replay",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB, 12.0",
+  "problems": 16,
+  "sampling": {
+    "enable_thinking": true,
+    "max_tokens": 32768,
+    "n": 4,
+    "presence_penalty": 1.5,
+    "seed": 0,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "selected_ids": [
+    "test/algebra/634.json",
+    "test/algebra/1072.json",
+    "test/intermediate_algebra/1981.json",
+    "test/intermediate_algebra/1422.json",
+    "test/algebra/1936.json",
+    "test/algebra/2176.json",
+    "test/algebra/1035.json",
+    "test/precalculus/675.json",
+    "test/algebra/2102.json",
+    "test/algebra/1837.json",
+    "test/algebra/853.json",
+    "test/intermediate_algebra/1014.json",
+    "test/intermediate_algebra/190.json",
+    "test/intermediate_algebra/558.json",
+    "test/intermediate_algebra/1791.json",
+    "test/number_theory/1128.json"
+  ],
+  "selection_seed": 20261102,
+  "software": {
+    "math-verify": "0.9.0",
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0"
+  },
+  "status": "completed",
+  "wall_seconds": 956.901017118
+}
