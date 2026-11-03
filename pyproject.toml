@@ -8,10 +8,11 @@ version = "0.1.0"
 description = "CPU experiments in programming tiny transformer weights without training"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["torch>=2.6,<3", "numpy>=2,<3"]
+dependencies = ["torch>=2.6,<3", "numpy>=2,<3", "openai>=2,<3", "python-dotenv>=1,<2"]
 
 [project.scripts]
 weight-space-lab = "weight_space_lab.cli:main"
+weight-space-discover = "weight_space_lab.discovery:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/weight_space_lab"]

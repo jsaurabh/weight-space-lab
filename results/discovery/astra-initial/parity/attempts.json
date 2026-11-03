@@ -1,0 +1,27 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "development_correct": 200,
+      "development_total": 200,
+      "estimated_cost_usd": 0.090505,
+      "reserved_cost_upper_estimate_usd": 0.917138,
+      "response_id": "resp_03d92684ca3d093b016ae9692bbdb487d0a5477a3902cbd0dc",
+      "response_status": "completed",
+      "returned_model": "gpt-6-astra",
+      "state_sha256": "be2a125f02e354b1474e3d58398c3c8021490f2921f6ab6951e3afa8798cb5d6",
+      "usage": {
+        "input_tokens": 1557,
+        "input_tokens_details": {
+          "cache_write_tokens": 1554,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1421,
+        "output_tokens_details": {
+          "reasoning_tokens": 844
+        },
+        "total_tokens": 2978
+      }
+    }
+  ]
+}

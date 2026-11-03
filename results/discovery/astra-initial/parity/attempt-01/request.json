@@ -1,0 +1,89 @@
+{
+  "input": [
+    {
+      "content": "You are programming a tiny transformer by setting its weights directly. Solve the specified bounded task using the unchanged architecture. There is no training, fitting, optimizer, gradient computation, pretrained target, external computation of answers, or ability to change the forward function. You have no tools or repository access. Return the structured numeric proposal. Every attempt starts from all-zero weights, so each proposal must be complete. Explain your mechanism concisely. Do not merely describe weights: supply them.",
+      "role": "system"
+    },
+    {
+      "content": "TASK\nGiven a nonempty binary string of length 1 through 10, output a single token: 0 when the number of ones is even and 1 when it is odd. The input string is LEFT-padded with _ to exactly 10 characters, then = is appended. Predict the answer from the logits at the final = position. Padding is not a bit.\nVocabulary indices: {0: '0', 1: '1', 2: '=', 3: '_'}\nFixed config: {\"vocab_size\": 4, \"context\": 11, \"width\": 3, \"heads\": 1, \"hidden\": 10}\nTensor names and shapes: {\"token.weight\": [4, 3], \"position.weight\": [11, 3], \"query.weight\": [3, 3], \"key.weight\": [3, 3], \"value.weight\": [3, 3], \"attention_out.weight\": [3, 3], \"mlp_in.weight\": [10, 3], \"mlp_in.bias\": [10], \"mlp_out.weight\": [3, 10], \"mlp_out.bias\": [3], \"readout.weight\": [4, 3], \"readout.bias\": [4]}\n\nEXACT NETWORK IMPLEMENTATION\n\"\"\"A fixed causal transformer made only of ordinary dense tensor operations.\"\"\"\n\nfrom dataclasses import asdict, dataclass\nimport math\n\nimport torch\nfrom torch import nn\n\n\n@dataclass(frozen=True)\nclass Config:\n    vocab_size: int\n    context: int\n    width: int\n    heads: int\n    hidden: int\n\n\nclass TinyTransformer(nn.Module):\n    \"\"\"One attention block and ReLU MLP, residuals, no normalization.\n\n    This is a simplified transformer, not an unchanged GPT architecture.\n    No task-dependent operations occur in forward().\n    \"\"\"\n\n    def __init__(self, config: Config):\n        super().__init__()\n        if config.width % config.heads:\n            raise ValueError(\"Width must be divisible by the number of heads\")\n        self.config = config\n        self.token = nn.Embedding(config.vocab_size, config.width)\n        self.position = nn.Embedding(config.context, config.width)\n        self.query = nn.Linear(config.width, config.width, bias=False)\n        self.key = nn.Linear(config.width, config.width, bias=False)\n        self.value = nn.Linear(config.width, config.width, bias=False)\n        self.attention_out = nn.Linear(config.width, config.width, bias=False)\n        self.mlp_in = nn.Linear(config.width, config.hidden)\n        self.mlp_out = nn.Linear(config.hidden, config.width)\n        self.readout = nn.Linear(config.width, config.vocab_size)\n        self.to(device=\"cpu\", dtype=torch.float64)\n        with torch.no_grad():\n            for parameter in self.parameters():\n                parameter.zero_()\n        self.requires_grad_(False)\n\n    def forward(self, tokens, *, trace=False):\n        batch, length = tokens.shape\n        if length > self.config.context:\n            raise ValueError(\"Input exceeds configured context length\")\n        positions = torch.arange(length, device=tokens.device)\n        x = self.token(tokens) + self.position(positions)\n        head_width = self.config.width // self.config.heads\n\n        def split(projection):\n            return projection(x).reshape(batch, length, self.config.heads, head_width).transpose(1, 2)\n\n        q, k, v = split(self.query), split(self.key), split(self.value)\n        scores = q @ k.transpose(-1, -2) / math.sqrt(head_width)\n        mask = torch.ones(length, length, dtype=torch.bool, device=tokens.device).triu(1)\n        attention = scores.masked_fill(mask, float(\"-inf\")).softmax(dim=-1)\n        routed = (attention @ v).transpose(1, 2).reshape(batch, length, self.config.width)\n        after_attention = x + self.attention_out(routed)\n        hidden = torch.relu(self.mlp_in(after_attention))\n        after_mlp = after_attention + self.mlp_out(hidden)\n        logits = self.readout(after_mlp)\n        if trace:\n            return logits, {\"attention\": attention, \"after_attention\": after_attention,\n                            \"hidden\": hidden, \"after_mlp\": after_mlp}\n        return logits\n\n    @torch.inference_mode()\n    def generate(self, tokens, count):\n        for _ in range(count):\n            next_token = self(tokens)[:, -1].argmax(dim=-1, keepdim=True)\n            tokens = torch.cat((tokens, next_token), dim=1)\n        return tokens\n\n    def inventory(self):\n        parameters = list(self.named_parameters())\n        buffers = list(self.named_buffers())\n        return {\n            \"config\": asdict(self.config),\n            \"parameters\": sum(t.numel() for _, t in parameters),\n            \"buffer_elements\": sum(t.numel() for _, t in buffers),\n            \"stored_elements\": sum(t.numel() for _, t in parameters + buffers),\n            \"nonzero_elements\": sum(int(torch.count_nonzero(t)) for _, t in parameters + buffers),\n            \"tensors\": {name: list(t.shape) for name, t in parameters + buffers},\n        }\n\n\nASSIGNMENT FORMAT\nAll tensors start at zero. Each patch names a tensor and supplies one list of indices per tensor axis. The selected elements are the Cartesian product of these lists, in row-major order (last axis changes fastest). values contains either one number, broadcast to that product, or exactly one number per selected element. A vector uses one axis; a matrix uses two. Patches apply in order; later assignments overwrite earlier ones. Omitted elements remain zero. Linear weight matrices have shape (out, in). Use only finite numeric constants, absolute value at most 1e6. Index lists must be nonempty and contain no duplicates. Example of syntax only: {\"tensor\":\"query.weight\",\"axes\":[[0,1],[0,1]],\"values\":[1,0,0,1]} assigns a 2x2 identity block. You may use dense blocks or broadcast assignments to keep your JSON compact. The evaluator uses CPU float64, causal masking and greedy token selection. Only development scores and at most five failures are available between attempts. The final candidate is frozen before evaluation on the unseen remainder.",
+      "role": "user"
+    }
+  ],
+  "max_output_tokens": 16000,
+  "model": "gpt-6-astra",
+  "reasoning": {
+    "effort": "high"
+  },
+  "service_tier": "default",
+  "store": false,
+  "text": {
+    "format": {
+      "name": "weight_proposal",
+      "schema": {
+        "additionalProperties": false,
+        "properties": {
+          "explanation": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "patches": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "axes": {
+                  "items": {
+                    "items": {
+                      "type": "integer"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "tensor": {
+                  "enum": [
+                    "token.weight",
+                    "position.weight",
+                    "query.weight",
+                    "key.weight",
+                    "value.weight",
+                    "attention_out.weight",
+                    "mlp_in.weight",
+                    "mlp_in.bias",
+                    "mlp_out.weight",
+                    "mlp_out.bias",
+                    "readout.weight",
+                    "readout.bias"
+                  ],
+                  "type": "string"
+                },
+                "values": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "tensor",
+                "axes",
+                "values"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "name",
+          "explanation",
+          "patches"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "json_schema"
+    }
+  }
+}

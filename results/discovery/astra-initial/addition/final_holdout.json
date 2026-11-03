@@ -1,0 +1,86 @@
+{
+  "accuracy": 1.0,
+  "buffer_elements": 0,
+  "config": {
+    "context": 8,
+    "heads": 4,
+    "hidden": 81,
+    "vocab_size": 12,
+    "width": 32
+  },
+  "correct": 9800,
+  "device": "cpu",
+  "dtype": "torch.float64",
+  "evaluation": "provided_subset",
+  "failures_first_10": [],
+  "groups": {
+    "carry": {
+      "correct": 4412,
+      "total": 4412
+    },
+    "no_ones_carry": {
+      "correct": 5388,
+      "total": 5388
+    }
+  },
+  "nonzero_elements": 106,
+  "parameters": 10429,
+  "platform": {
+    "machine": "arm64",
+    "system": "Darwin"
+  },
+  "provenance": "api_discovery_holdout",
+  "seconds": 0.150165,
+  "state_sha256": "72b52ee217502443d3aa1e105d335752e7a6ca15a6b7e43541a75fd37b054a75",
+  "stored_elements": 10429,
+  "task": "addition",
+  "tensors": {
+    "attention_out.weight": [
+      32,
+      32
+    ],
+    "key.weight": [
+      32,
+      32
+    ],
+    "mlp_in.bias": [
+      81
+    ],
+    "mlp_in.weight": [
+      81,
+      32
+    ],
+    "mlp_out.bias": [
+      32
+    ],
+    "mlp_out.weight": [
+      32,
+      81
+    ],
+    "position.weight": [
+      8,
+      32
+    ],
+    "query.weight": [
+      32,
+      32
+    ],
+    "readout.bias": [
+      12
+    ],
+    "readout.weight": [
+      12,
+      32
+    ],
+    "token.weight": [
+      12,
+      32
+    ],
+    "value.weight": [
+      32,
+      32
+    ]
+  },
+  "torch_version": "2.15.0",
+  "total": 9800
+}

@@ -8,7 +8,7 @@ import time
 
 import torch
 
-from .programs import VOCABS
+from .specs import VOCABS
 
 
 def examples(task):
@@ -41,12 +41,15 @@ def state_digest(model):
 
 
 @torch.inference_mode()
-def evaluate(model, task, batch_size=256):
+def evaluate(model, task, batch_size=256, *, rows=None, provenance="guided_reference_construction"):
     if batch_size < 1:
         raise ValueError("Batch size must be positive")
     model.eval()
     vocab = VOCABS[task]
-    rows = list(examples(task))
+    is_subset = rows is not None
+    rows = list(examples(task) if rows is None else rows)
+    if not rows:
+        raise ValueError("Evaluation must contain at least one example")
     groups, failures = {}, []
     correct = 0
     started = time.perf_counter()
@@ -66,8 +69,8 @@ def evaluate(model, task, batch_size=256):
                 failures.append({"prompt": prompt, "expected": expected, "actual": prediction})
     return {
         "task": task,
-        "provenance": "guided_reference_construction",
-        "evaluation": "exhaustive_finite_domain",
+        "provenance": provenance,
+        "evaluation": "provided_subset" if is_subset else "exhaustive_finite_domain",
         "correct": correct,
         "total": len(rows),
         "accuracy": correct / len(rows),

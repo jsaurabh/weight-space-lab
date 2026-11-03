@@ -11,7 +11,9 @@ This repository is an independent implementation of the idea, not the authors' c
 
 Two guided reference constructions establish a working, inspectable local testbed.
 These results do **not** measure whether a separate LLM can independently discover
-the weights. No OpenAI API integration or credential is required for this phase.
+the weights. No OpenAI API credential is required to run or replay local models.
+A separate API discovery runner now tests fresh numerical constructions using a
+programmer model, without providing the reference implementations or weights.
 
 | Task | Input | Output | Final evaluation |
 | --- | --- | --- | --- |
@@ -49,7 +51,7 @@ Python 3.12 is selected by `.python-version`. The model uses CPU float64 and one
 compute thread; no GPU, Colab session, API key, or network connection is required
 after dependencies are installed. The lockfile records dependency versions.
 
-Inspect individual computations:
+Inspect individual guided reference computations:
 
 ```sh
 uv run weight-space-lab inspect parity 10101
@@ -112,20 +114,74 @@ The reference designers know both algorithms and evaluation domains; this is not
 a blind evaluation of an autonomous programmer. The tests are correctness checks,
 not a statistical estimate of a model's discovery ability.
 
-## Next experiments
+## API-driven discovery
 
-1. Freeze the architecture, task spec, and a restricted development evaluator.
-2. Give an API programmer only the spec and tensor schema, excluding reference
-   constructions, final test cases, and this repository's solutions from its context.
-3. Accept numerical tensors through a constrained format rather than letting the
-   programmer replace the forward function or evaluation code.
-4. Record prompts, every attempt, development feedback, evaluation budget, API
-   usage, and tensor digests. Freeze the submitted weights before final evaluation.
-5. Evaluate independently; distinguish guided, one-shot, and feedback-assisted runs.
-6. Repeat across independent attempts and compare random and guided baselines.
-7. Separately investigate targeted edits to a small pretrained language model.
+The [first live run](results/discovery/astra-initial/README.md) succeeded on the
+first proposal for both tasks, with no feedback revisions:
 
-Known parity solutions are public, so even a context-isolated API run will not
-establish novelty or absence of pretraining exposure. API access and spending
-limits will be configured separately before that phase. No credentials belong
-in Git; `.env` files and weight checkpoints are ignored.
+| Task | Full domain | Unseen remainder | Stored / nonzero values |
+| --- | --- | --- | --- |
+| Parity | 2,046 / 2,046 | 1,846 / 1,846 | 170 / 37 |
+| Addition | 10,000 / 10,000 | 9,800 / 9,800 | 10,429 / 106 |
+
+Total estimated API cost: **$0.325747**, including cache writes. These are actual API-produced numerical
+proposals, saved without hand edits. They are separate from the guided results
+above. Counts and explanations are limited to the defined bounded tasks.
+
+The programmer runs through the OpenAI API; target execution and evaluation stay
+on the local CPU. The configured API key is read from `OPENAI_API_KEY` or this
+project's ignored `.env.local`; it is never included in experiment logs.
+
+```sh
+uv run weight-space-discover run --task all --max-attempts 3 --max-cost-usd 5
+```
+
+The initial model is GPT-6 Astra with high reasoning effort. Each task starts a
+fresh conversation with its spec, vocabulary, fixed tensor shapes, the exact
+forward implementation, and a generic assignment format. Neither reference
+construction, reference weights, repository access, nor tools are supplied.
+The architecture was chosen using the guided references, so architecture
+selection itself is not an independent discovery result.
+
+The model returns structured JSON containing an explanation and numerical
+assignments. A patch names a tensor, selects a Cartesian product of indices, and
+supplies constants. No generated source code or expressions are executed.
+The loader enforces index bounds, shape, finite values, and size limits. Every
+attempt starts from zero; the architecture and evaluator cannot be replaced.
+
+For each task, 200 development examples are sampled without replacement using a
+fixed recorded seed. Up to five development failures are sent back per attempt.
+Selection uses only development accuracy, preferring the earliest tied candidate,
+and stops at 100% development accuracy or the attempt/cost limit. The selected
+proposal and state digest are frozen before final evaluation. Final results
+include both the full finite domain and the disjoint unseen remainder: 1,846
+parity inputs or 9,800 addition inputs. Final feedback is never sent to the
+programmer. Zero and one seeded random model provide holdout baselines.
+
+Each run saves requests, raw response objects, proposals, development reports,
+selection metadata, final reports, baseline reports, token usage, and estimated
+cost. Response IDs identify remote responses, but authorization headers and
+credentials are never logged. `store=False` is requested and API retries are
+disabled. No optional paid tools are enabled. New runs require a fresh directory;
+rerunning a command creates a new paid experiment rather than resuming a run.
+
+The default ceiling is **$5 estimated standard API usage**, with at most three
+attempts per task and 16,000 output tokens per attempt, including reasoning.
+Before each call the runner reserves a conservative token-based estimate using
+the published input/output rates plus a cache-write allowance. It stops before
+making a request that would exceed the estimated ceiling. This is a local
+estimate, not an account billing limit or an invoice; prices can change. Rates
+and their official source/date are recorded in each run manifest.
+
+Replay a saved proposal with no API calls:
+
+```sh
+uv run weight-space-discover replay results/discovery/astra-initial/parity/selected.json --task parity
+```
+
+Known parity solutions are public, so even a context-isolated API run does not
+establish novelty or absence of pretraining exposure. A single run also does not
+establish reliable discovery rates across attempts or models. Next experiments
+can repeat independent runs, vary model size, test additional tasks, and separately
+investigate edits to a small pretrained language model. No credentials belong in
+Git; `.env` files and weight checkpoints are ignored.

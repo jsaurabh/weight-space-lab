@@ -1,0 +1,18 @@
+{
+  "attempt_count": 1,
+  "baseline_holdout_accuracy": {
+    "random_seed_1337": 0.0,
+    "zero": 0.5059588299024919
+  },
+  "development_count": 200,
+  "full_correct": 2046,
+  "full_total": 2046,
+  "holdout_correct": 1846,
+  "holdout_total": 1846,
+  "nonzero_elements": 37,
+  "selected_attempt": 1,
+  "state_sha256": "be2a125f02e354b1474e3d58398c3c8021490f2921f6ab6951e3afa8798cb5d6",
+  "status": "evaluated",
+  "stored_elements": 170,
+  "task": "parity"
+}

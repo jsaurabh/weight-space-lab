@@ -1,0 +1,488 @@
+{
+  "explanation": "Two attention heads average the operand tens and ones digits. Two more select the generated hundreds and tens digits when available, otherwise '+', whose value is zero. Their output forms R = 10(a+c)+b+d-100H-10T, subtracting only available output digits. Three position-gated ReLUs rescale R for the current decimal place. Digit logits implement nearest-integer selection with thresholds halfway between valid integer inputs. Attention score gaps exceed 1400, making unwanted attention negligible in float64.",
+  "name": "Position-routed addition with autoregressive remainder",
+  "patches": [
+    {
+      "axes": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0
+        ]
+      ],
+      "tensor": "token.weight",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          1
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          1,
+          4
+        ],
+        [
+          3
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          6
+        ],
+        [
+          6
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          7
+        ],
+        [
+          7
+        ]
+      ],
+      "tensor": "position.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          8
+        ],
+        [
+          1
+        ]
+      ],
+      "tensor": "query.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          16
+        ],
+        [
+          5
+        ]
+      ],
+      "tensor": "query.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          17
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "tensor": "query.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          24
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "tensor": "query.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          25
+        ],
+        [
+          7
+        ]
+      ],
+      "tensor": "query.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ],
+      "tensor": "key.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ],
+      "tensor": "key.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          16,
+          24
+        ],
+        [
+          4
+        ]
+      ],
+      "tensor": "key.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          17
+        ],
+        [
+          6
+        ]
+      ],
+      "tensor": "key.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          25
+        ],
+        [
+          7
+        ]
+      ],
+      "tensor": "key.weight",
+      "values": [
+        64
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          8,
+          16,
+          24
+        ],
+        [
+          0
+        ]
+      ],
+      "tensor": "value.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          8
+        ],
+        [
+          0,
+          8,
+          16,
+          24
+        ]
+      ],
+      "tensor": "attention_out.weight",
+      "values": [
+        20,
+        2,
+        -100,
+        -10
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          8
+        ]
+      ],
+      "tensor": "mlp_in.weight",
+      "values": [
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "tensor": "mlp_in.weight",
+      "values": [
+        1000,
+        0,
+        0,
+        0,
+        1000,
+        0,
+        0,
+        0,
+        1000
+      ]
+    },
+    {
+      "axes": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "tensor": "mlp_in.bias",
+      "values": [
+        -999
+      ]
+    },
+    {
+      "axes": [
+        [
+          9
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "tensor": "mlp_out.weight",
+      "values": [
+        0.01,
+        0.1,
+        1
+      ]
+    },
+    {
+      "axes": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          5,
+          6,
+          7,
+          9
+        ]
+      ],
+      "tensor": "readout.weight",
+      "values": [
+        -1.01,
+        -1.1,
+        -2,
+        2,
+        -2.02,
+        -2.2,
+        -4,
+        4,
+        -3.03,
+        -3.3,
+        -6,
+        6,
+        -4.04,
+        -4.4,
+        -8,
+        8,
+        -5.05,
+        -5.5,
+        -10,
+        10,
+        -6.06,
+        -6.6,
+        -12,
+        12,
+        -7.07,
+        -7.7,
+        -14,
+        14,
+        -8.08,
+        -8.8,
+        -16,
+        16,
+        -9.09,
+        -9.9,
+        -18,
+        18
+      ]
+    },
+    {
+      "axes": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "tensor": "readout.bias",
+      "values": [
+        -1,
+        -4,
+        -9,
+        -16,
+        -25,
+        -36,
+        -49,
+        -64,
+        -81,
+        -1000,
+        -1000
+      ]
+    }
+  ]
+}

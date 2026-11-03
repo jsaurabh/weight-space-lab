@@ -3,9 +3,10 @@
 import torch
 
 from .model import Config, TinyTransformer
+from .specs import VOCABS
 
-PARITY_VOCAB = "01=_"
-ADDITION_VOCAB = "0123456789+="
+PARITY_VOCAB = VOCABS["parity"]
+ADDITION_VOCAB = VOCABS["addition"]
 
 
 @torch.no_grad()
@@ -85,4 +86,3 @@ def addition():
 
 
 BUILDERS = {"parity": parity, "addition": addition}
-VOCABS = {"parity": PARITY_VOCAB, "addition": ADDITION_VOCAB}

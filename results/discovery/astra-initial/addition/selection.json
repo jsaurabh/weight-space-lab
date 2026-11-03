@@ -1,0 +1,5 @@
+{
+  "attempt": 1,
+  "selection_rule": "highest development accuracy; earliest tie",
+  "state_sha256": "72b52ee217502443d3aa1e105d335752e7a6ca15a6b7e43541a75fd37b054a75"
+}

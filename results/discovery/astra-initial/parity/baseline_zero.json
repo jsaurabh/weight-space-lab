@@ -1,0 +1,169 @@
+{
+  "accuracy": 0.5059588299024919,
+  "buffer_elements": 0,
+  "config": {
+    "context": 11,
+    "heads": 1,
+    "hidden": 10,
+    "vocab_size": 4,
+    "width": 3
+  },
+  "correct": 934,
+  "device": "cpu",
+  "dtype": "torch.float64",
+  "evaluation": "provided_subset",
+  "failures_first_10": [
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "_________1="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "________01="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "________10="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "_______010="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "_______100="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "_______111="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "______0001="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "______0010="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "______0100="
+    },
+    {
+      "actual": "0",
+      "expected": "1",
+      "prompt": "______0111="
+    }
+  ],
+  "groups": {
+    "1": {
+      "correct": 1,
+      "total": 2
+    },
+    "10": {
+      "correct": 469,
+      "total": 916
+    },
+    "2": {
+      "correct": 2,
+      "total": 4
+    },
+    "3": {
+      "correct": 4,
+      "total": 7
+    },
+    "4": {
+      "correct": 8,
+      "total": 16
+    },
+    "5": {
+      "correct": 13,
+      "total": 29
+    },
+    "6": {
+      "correct": 29,
+      "total": 59
+    },
+    "7": {
+      "correct": 57,
+      "total": 113
+    },
+    "8": {
+      "correct": 117,
+      "total": 236
+    },
+    "9": {
+      "correct": 234,
+      "total": 464
+    }
+  },
+  "nonzero_elements": 0,
+  "parameters": 170,
+  "platform": {
+    "machine": "arm64",
+    "system": "Darwin"
+  },
+  "provenance": "baseline_zero",
+  "seconds": 0.007765,
+  "state_sha256": "b9c97a5a01a9f964ee530f03623b493531150c59763423aa71e1027d3751a385",
+  "stored_elements": 170,
+  "task": "parity",
+  "tensors": {
+    "attention_out.weight": [
+      3,
+      3
+    ],
+    "key.weight": [
+      3,
+      3
+    ],
+    "mlp_in.bias": [
+      10
+    ],
+    "mlp_in.weight": [
+      10,
+      3
+    ],
+    "mlp_out.bias": [
+      3
+    ],
+    "mlp_out.weight": [
+      3,
+      10
+    ],
+    "position.weight": [
+      11,
+      3
+    ],
+    "query.weight": [
+      3,
+      3
+    ],
+    "readout.bias": [
+      4
+    ],
+    "readout.weight": [
+      4,
+      3
+    ],
+    "token.weight": [
+      4,
+      3
+    ],
+    "value.weight": [
+      3,
+      3
+    ]
+  },
+  "torch_version": "2.15.0",
+  "total": 1846
+}

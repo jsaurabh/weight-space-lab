@@ -1,0 +1,62 @@
+{
+  "cost_accounting": "Includes uncached input, cached input, cache writes, and output (including reasoning)",
+  "estimated_cost_ceiling_usd": 5.0,
+  "estimated_cost_usd": 0.325747,
+  "max_attempts_per_task": 3,
+  "max_output_tokens_per_attempt": 16000,
+  "model": "gpt-6-astra",
+  "model_source_sha256": "1b139a728313d43d6c7d80f5ffc9d95fffeab853fa0aecb59c949c9865232903",
+  "price_checked_date": "2026-11-02",
+  "price_rates_per_million": {
+    "cache_write": 12.5,
+    "cached_input": 1.0,
+    "input": 10.0,
+    "output": 50.0
+  },
+  "price_source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "protocol": "numeric_only_fixed_architecture_v1",
+  "reasoning_effort": "high",
+  "reference_weights_provided": false,
+  "schema_sha256": "c6b48c342199e49608bb23385e73d28b1b463525f1bccc814053be5cb6ed413a",
+  "seed": 20261102,
+  "status": "completed",
+  "tasks": [
+    {
+      "attempt_count": 1,
+      "baseline_holdout_accuracy": {
+        "random_seed_1337": 0.0,
+        "zero": 0.5059588299024919
+      },
+      "development_count": 200,
+      "full_correct": 2046,
+      "full_total": 2046,
+      "holdout_correct": 1846,
+      "holdout_total": 1846,
+      "nonzero_elements": 37,
+      "selected_attempt": 1,
+      "state_sha256": "be2a125f02e354b1474e3d58398c3c8021490f2921f6ab6951e3afa8798cb5d6",
+      "status": "evaluated",
+      "stored_elements": 170,
+      "task": "parity"
+    },
+    {
+      "attempt_count": 1,
+      "baseline_holdout_accuracy": {
+        "random_seed_1337": 0.0,
+        "zero": 0.00010204081632653062
+      },
+      "development_count": 200,
+      "full_correct": 10000,
+      "full_total": 10000,
+      "holdout_correct": 9800,
+      "holdout_total": 9800,
+      "nonzero_elements": 106,
+      "selected_attempt": 1,
+      "state_sha256": "72b52ee217502443d3aa1e105d335752e7a6ca15a6b7e43541a75fd37b054a75",
+      "status": "evaluated",
+      "stored_elements": 10429,
+      "task": "addition"
+    }
+  ],
+  "tools_provided": false
+}

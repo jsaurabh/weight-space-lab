@@ -1,0 +1,137 @@
+{
+  "accuracy": 0.00010204081632653062,
+  "buffer_elements": 0,
+  "config": {
+    "context": 8,
+    "heads": 4,
+    "hidden": 81,
+    "vocab_size": 12,
+    "width": 32
+  },
+  "correct": 1,
+  "device": "cpu",
+  "dtype": "torch.float64",
+  "evaluation": "provided_subset",
+  "failures_first_10": [
+    {
+      "actual": "000",
+      "expected": "001",
+      "prompt": "00+01="
+    },
+    {
+      "actual": "000",
+      "expected": "002",
+      "prompt": "00+02="
+    },
+    {
+      "actual": "000",
+      "expected": "003",
+      "prompt": "00+03="
+    },
+    {
+      "actual": "000",
+      "expected": "004",
+      "prompt": "00+04="
+    },
+    {
+      "actual": "000",
+      "expected": "005",
+      "prompt": "00+05="
+    },
+    {
+      "actual": "000",
+      "expected": "006",
+      "prompt": "00+06="
+    },
+    {
+      "actual": "000",
+      "expected": "007",
+      "prompt": "00+07="
+    },
+    {
+      "actual": "000",
+      "expected": "008",
+      "prompt": "00+08="
+    },
+    {
+      "actual": "000",
+      "expected": "009",
+      "prompt": "00+09="
+    },
+    {
+      "actual": "000",
+      "expected": "010",
+      "prompt": "00+10="
+    }
+  ],
+  "groups": {
+    "carry": {
+      "correct": 0,
+      "total": 4412
+    },
+    "no_ones_carry": {
+      "correct": 1,
+      "total": 5388
+    }
+  },
+  "nonzero_elements": 0,
+  "parameters": 10429,
+  "platform": {
+    "machine": "arm64",
+    "system": "Darwin"
+  },
+  "provenance": "baseline_zero",
+  "seconds": 0.150198,
+  "state_sha256": "4079b26470ab8ed5fb5bf576235e1122c744b1b8860b162371a2bfab224499b6",
+  "stored_elements": 10429,
+  "task": "addition",
+  "tensors": {
+    "attention_out.weight": [
+      32,
+      32
+    ],
+    "key.weight": [
+      32,
+      32
+    ],
+    "mlp_in.bias": [
+      81
+    ],
+    "mlp_in.weight": [
+      81,
+      32
+    ],
+    "mlp_out.bias": [
+      32
+    ],
+    "mlp_out.weight": [
+      32,
+      81
+    ],
+    "position.weight": [
+      8,
+      32
+    ],
+    "query.weight": [
+      32,
+      32
+    ],
+    "readout.bias": [
+      12
+    ],
+    "readout.weight": [
+      12,
+      32
+    ],
+    "token.weight": [
+      12,
+      32
+    ],
+    "value.weight": [
+      32,
+      32
+    ]
+  },
+  "torch_version": "2.15.0",
+  "total": 9800
+}
