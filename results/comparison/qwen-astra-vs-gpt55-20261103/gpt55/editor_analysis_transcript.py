@@ -1,6 +1,5 @@
 # Exact editor CPU cells in execution order.
-# Helpers and persistent state were supplied by the recorded backend;
-# this transcript is for inspection, not a standalone program.
+# Inspection transcript; helpers and persistent state were supplied by the backend.
 
 # Turn 002; tool success: True
 # Inspect available weight names and shapes, make base checkpoint.

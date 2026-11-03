@@ -2,6 +2,7 @@
   "events": [
     {
       "artifact": "generation-001",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_0",
         "gsm8k_train_1",
@@ -52,6 +53,7 @@
     },
     {
       "artifact": "generation-004",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_0",
         "gsm8k_train_1",
@@ -114,6 +116,7 @@
     },
     {
       "artifact": "generation-005",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_0",
         "gsm8k_train_1",
@@ -176,6 +179,7 @@
     },
     {
       "artifact": "generation-006",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_0",
         "gsm8k_train_1",
@@ -238,6 +242,7 @@
     },
     {
       "artifact": "generation-007",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_51",
         "gsm8k_train_151",
@@ -300,6 +305,7 @@
     },
     {
       "artifact": "generation-008",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_0",
         "gsm8k_train_1",
@@ -362,6 +368,7 @@
     },
     {
       "artifact": "generation-009",
+      "full_records_available": true,
       "ids": [
         "gsm8k_train_26",
         "gsm8k_train_226",
@@ -424,6 +431,7 @@
     },
     {
       "artifact": "generation-010",
+      "full_records_available": true,
       "ids": [
         "math_train_algebra_11",
         "math_train_algebra_51",
@@ -489,9 +497,11 @@
     "generate": 2,
     "python_analysis": 4
   },
-  "generated_tokens": 13360126,
+  "generated_tokens_in_retained_full_records": 13360126,
+  "generation_calls_missing_full_records": 0,
+  "generation_calls_with_full_records": 8,
   "generation_seconds": 3205.161431235998,
-  "scope": "Practice feedback recorded during discovery; not the sealed evaluation.",
+  "scope": "Practice feedback during discovery; not the sealed test.",
   "successful_tool_calls": {
     "finish": 1,
     "generate": 8,

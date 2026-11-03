@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "code": "restore('base');print(list_edits())",
+    "reason": "Return active weights to the untouched base while generation is blocked; keep the candidate checkpoint only for a future causal accuracy test."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 89,
+    "remaining_forward_calls": 8,
+    "result": {
+      "edits": [],
+      "stdout": "[]\n",
+      "truncated": false
+    },
+    "seconds": 0.0006266299997150782
+  }
+}

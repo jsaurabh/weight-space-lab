@@ -73,6 +73,7 @@ class Bridge:
         write(request, {"id": self.number, "name": name, "arguments": arguments})
         self.upload(request, self.remote + "/requests/" + filename)
         deadline = time.monotonic() + timeout
+        last_health = time.monotonic()
         while time.monotonic() < deadline:
             result = self.command(["download", "-s", self.session, self.remote + "/responses/" + filename, str(response)], check=False)
             if result.returncode == 0 and response.exists():
@@ -80,6 +81,25 @@ class Bridge:
                     return json.loads(response.read_text())
                 except json.JSONDecodeError:
                     pass
+            if time.monotonic() - last_health >= 45:
+                health = self.command(['exec', '-s', self.session, '-f',
+                    str(Path(__file__).with_name('status.py')), '--timeout', '60'], check=False)
+                if health.returncode:
+                    raise RuntimeError('Colab numerical worker is unavailable; saved local records retained')
+                if name == 'evaluate_conditions':
+                    directory = self.local / 'evaluation_progress'
+                    directory.mkdir(exist_ok=True)
+                    for item in ['problems', 'candidates', 'summary', 'base', 'astra', 'gpt55']:
+                        candidate = directory / (item + '.partial.json')
+                        downloaded = self.command(['download', '-s', self.session,
+                            self.remote + '/results/evaluation/' + item + '.json', str(candidate)], check=False)
+                        if downloaded.returncode == 0 and candidate.exists():
+                            try:
+                                json.loads(candidate.read_text())
+                                candidate.replace(directory / (item + '.json'))
+                            except json.JSONDecodeError:
+                                pass
+                last_health = time.monotonic()
             time.sleep(5)
         raise TimeoutError("Remote operation timed out: " + name)
 
@@ -101,6 +121,9 @@ class Bridge:
         archive = self.local / "results.tar.gz"
         self.command(["download", "-s", self.session, result["result"]["archive"], str(archive)])
         extracted = self.local / "exported"
+        if extracted.exists():
+            import shutil
+            shutil.rmtree(extracted)
         extracted.mkdir(exist_ok=True)
         with tarfile.open(archive) as source:
             source.extractall(extracted, filter="data")
@@ -110,14 +133,31 @@ class Bridge:
             self.command(["download", "-s", self.session, self.remote + "/" + filename, str(output / filename)])
         return {"archive_sha256": hashlib.sha256(archive.read_bytes()).hexdigest(), "downloaded": True}
 
+    def backup_checkpoints(self, output):
+        backup = self.local / 'checkpoint_backups'
+        backup.mkdir(exist_ok=True)
+        path = output / 'checkpoint_backup_manifest.json'
+        state = json.loads(path.read_text()) if path.exists() else {}
+        for source in sorted((output / 'candidate_manifests').glob('*.json')):
+            manifest_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+            if state.get(source.stem, {}).get('manifest_sha256') == manifest_hash:
+                continue
+            target = backup / (source.stem + '.safetensors')
+            self.command(['download', '-s', self.session,
+                self.remote + '/results/checkpoints/' + target.name, str(target)])
+            state[source.stem] = {'manifest_sha256': manifest_hash,
+                'file_sha256': hashlib.sha256(target.read_bytes()).hexdigest(), 'bytes': target.stat().st_size}
+            write(path, state)
 
-def editor(session, label, output, key, max_turns=120):
+
+def editor(session, label, output, key, max_turns=120, resume=None):
     bridge = Bridge(session, label)
-    (output / "launch.log").write_text(bridge.launch())
+    if resume is None:
+        (output / "launch.log").write_text(bridge.launch())
     metadata = bridge.rpc("metadata", {}, timeout=600)
     if not metadata["ok"]:
         raise RuntimeError("Numerical service failed to initialize")
-    write(output / "metadata.json", metadata)
+    write(output / ("metadata_resume.json" if resume is not None else "metadata.json"), metadata)
     task = {"target": BASE_ID, "revision": BASE_REVISION,
         "text_architecture": metadata["result"]["config"].get("text_config", metadata["result"]["config"]),
         "practice_sources": metadata["result"]["sources"], "practice_count": metadata["result"]["practice_count"],
@@ -128,8 +168,21 @@ def editor(session, label, output, key, max_turns=120):
     run = {"label": label, "model": MODELS[label], "status": "discovering", "api_cost_ceiling_usd": None,
            "reasoning_effort": "xhigh", "max_api_turns": max_turns, "max_forward_calls": MAX_FORWARD_CALLS,
            "created_utc": datetime.now(timezone.utc).isoformat()}
+    first_turn = 1
+    if resume is not None:
+        history = resume["history"]
+        run = json.loads((output / "run.json").read_text())
+        run.update(status="discovering", recovery="recovery_001")
+        for field in ["error_type", "http_status", "paused_utc", "pending_tool_turn", "pending_result_received", "completed_forward_calls", "remaining_forward_calls"]:
+            run.pop(field, None)
+        if resume.get('resumption'):
+            run['resumption'] = resume['resumption']
+        spent = run["estimated_api_cost_usd"]
+        first_turn = resume["first_turn"]
+        elapsed = resume.get('elapsed_seconds', (datetime.now(timezone.utc) - datetime.fromisoformat(run["created_utc"])).total_seconds())
+        started = time.monotonic() - elapsed
     try:
-        for turn in range(1, max_turns + 1):
+        for turn in range(first_turn, max_turns + 1):
             if time.monotonic() - started > 4 * 3600:
                 run["stop_reason"] = "four-hour editor wall limit"
                 break
@@ -140,14 +193,20 @@ def editor(session, label, output, key, max_turns=120):
             write(folder / "request.json", request)
             print(f"EDITOR {label} turn={turn}/{max_turns} api_cost=${spent:.3f}", flush=True)
             api_started = time.perf_counter()
-            response = client.responses.create(**request)
-            raw = response.model_dump(mode="json")
+            prefetched = resume.get("prefetched") if resume is not None and turn == first_turn else None
+            if prefetched is not None:
+                assert request == prefetched["request"], "Recovery request changed after its API response"
+                raw = prefetched["response"]
+            else:
+                response = client.responses.create(**request)
+                raw = response.model_dump(mode="json")
             write(folder / "response.json", raw)
             if not raw.get("usage"):
                 raise RuntimeError("API usage missing")
             cost = usage_cost(label, raw["usage"])
             spent += cost
-            write(folder / "accounting.json", {"usage": raw["usage"], "estimated_api_cost_usd": cost,
+            write(folder / "accounting.json", prefetched["accounting"] if prefetched is not None else {
+                "usage": raw["usage"], "estimated_api_cost_usd": cost,
                 "api_wall_seconds": time.perf_counter() - api_started})
             run.update(api_turns=turn, estimated_api_cost_usd=round(spent, 6))
             write(output / "run.json", run)
@@ -165,6 +224,9 @@ def editor(session, label, output, key, max_turns=120):
                     result = bridge.rpc(call["name"], arguments, timeout=3600 if call["name"] in {"generate", "probe"} else 300)
                 write(folder / (call["call_id"] + ".json"), {"name": call["name"], "arguments": arguments, "response": result})
                 history.append({"type": "function_call_output", "call_id": call["call_id"], "output": json.dumps(result)})
+                if resume is not None and resume.get('durable') and result['ok'] and call['name'] in {'generate', 'probe'}:
+                    write(output / 'live_export.json', bridge.export(output))
+                    bridge.backup_checkpoints(output)
                 print("RESULT", label, call["name"], "ok=", result["ok"], "forward_remaining=", result.get("remaining_forward_calls"), flush=True)
                 if call["name"] == "finish" and result["ok"]:
                     frozen = True

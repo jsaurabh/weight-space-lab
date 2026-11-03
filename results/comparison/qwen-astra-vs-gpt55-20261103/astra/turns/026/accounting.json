@@ -1,0 +1,16 @@
+{
+  "api_wall_seconds": 678.5778910000008,
+  "estimated_api_cost_usd": 0.1034765,
+  "usage": {
+    "input_tokens": 40496,
+    "input_tokens_details": {
+      "cache_write_tokens": 509,
+      "cached_tokens": 39984
+    },
+    "output_tokens": 1142,
+    "output_tokens_details": {
+      "reasoning_tokens": 966
+    },
+    "total_tokens": 41638
+  }
+}

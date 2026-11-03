@@ -1,0 +1,86 @@
+{
+  "arguments": {
+    "ids": [
+      "gsm8k_train_32",
+      "gsm8k_train_1085",
+      "gsm8k_train_2139",
+      "gsm8k_train_3192",
+      "gsm8k_train_4245",
+      "gsm8k_train_5299",
+      "gsm8k_train_6352",
+      "gsm8k_train_7405",
+      "math_train_algebra_19",
+      "math_train_algebra_401",
+      "math_train_algebra_784",
+      "math_train_algebra_1170",
+      "math_train_algebra_1557",
+      "math_train_counting_and_probability_196",
+      "math_train_counting_and_probability_607",
+      "math_train_geometry_224",
+      "math_train_geometry_661",
+      "math_train_intermediate_algebra_182",
+      "math_train_intermediate_algebra_570",
+      "math_train_intermediate_algebra_957",
+      "math_train_number_theory_51",
+      "math_train_number_theory_435",
+      "math_train_number_theory_820",
+      "math_train_prealgebra_337",
+      "math_train_prealgebra_719",
+      "math_train_prealgebra_1102",
+      "math_train_precalculus_298",
+      "math_train_precalculus_714",
+      "aime_1987-1",
+      "aime_2002-I-2",
+      "aime_2009-II-8",
+      "aime_2018-I-7"
+    ],
+    "reason": "Strength comparison: fully project out the matched-token repetition direction from the same middle-layer residual writes; measure correctness on the same 32 IDs.",
+    "which": "current"
+  },
+  "name": "generate",
+  "response": {
+    "maintenance_notice": "Restored your exact saved weights, checkpoints and observations after documented infrastructure maintenance. Temporary CPU variables were cleared; failed generation requests were refunded. Remaining budgets are shown in each tool result. The numerical backend and tools are unchanged. No peer repair or final test data was provided.",
+    "ok": true,
+    "remaining_analysis_calls": 79,
+    "remaining_forward_calls": 3,
+    "result": {
+      "artifact": "generation-007",
+      "summaries": {
+        "current": {
+          "correct": 5,
+          "examples": [
+            {
+              "answer": "10",
+              "correct": false,
+              "hit_token_limit": true,
+              "id": "gsm8k_train_32",
+              "question": "A car is driving through a tunnel with many turns. After a while, the car must travel through a ring that requires a total of 4 right-hand turns. After the 1st turn, it travels 5 meters. After the 2nd turn, it travels 8 meters. After the 3rd turn, it travels a little further and at the 4th turn, it immediately exits the tunnel. If the car has driven a total of 23 meters around the ring, how far did it have to travel after the 3rd turn?",
+              "sample": 0,
+              "text_end": " 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n        *   And the turns are 1, 2, 3.\n        *   Wait, if the car has to travel 23 meters.\n",
+              "text_start": "Here's a thinking process that leads to the solution:\n\n1.  **Analyze the Problem:**\n    *   **Scenario:** A car driving in a tunnel with turns, then entering a ring (a closed loop).\n    *   **Specifics of the Ring:** It has a total length of 4 right-hand turns.\n    *   **Data Points:**\n        *   Turn 1 distance = 5 meters.\n        *   Turn 2 distance = 8 meters.\n        *   Turn 3 distance is \"little further\".\n        *   Total travel around the ring = 23 meters.\n    *   **Goal:** Find the distance traveled after the 3rd turn.\n\n2.  **Identify Key Concepts:**\n    *   The problem involves turning and distances.\n    *   Let $d$ be the distance traveled at each turn.\n    *   Let $n$ be the number of turns.\n    *   Let $T$ be the total distance traveled.\n    *   Wait, I need to check if this is about simple geometry or a trick question.\n\n3.  **Evaluate the Geometry/Logic:**\n    *   The prompt mentions \"tunnel\" and \"turns\".\n    *   Usually, in these types of riddles/math problems, there ar",
+              "thinking_closed": false,
+              "tokens": 32768
+            },
+            {
+              "answer": "14",
+              "correct": false,
+              "hit_token_limit": true,
+              "id": "gsm8k_train_1085",
+              "question": "Lily is going abroad on vacation with her family. Each of her 4 siblings is bringing 2 suitcases, and her parents are bringing 3 suitcases. Lily decides that there is already too much luggage and she won't be bringing any. How many suitcases is the entire family bringing on vacation?",
+              "sample": 0,
+              "text_end": "ber of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Wait, let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Wait, let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Wait, let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Wait, let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not mentioned, it's ambiguous.\n        *   So 14.\n\n        *   Let's check if the prompt implies \"parents\" (plural) but the number of parents is not mentioned.\n        *   If the number of parents is not",
+              "text_start": "Here's a thinking process to solve the problem:\n\n1.  **Analyze the Request:**\n    *   **Scenario:** Lily is going on vacation with her family.\n    *   **Given Data:**\n        *   Number of siblings = 4.\n        *   Each sibling brings 2 suitcases.\n        *   Parents bring 3 suitcases.\n        *   Lily decides not to bring any (or she says \"she won't be bringing any\").\n    *   **Goal:** Calculate the total number of suitcases.\n    *   **Constraint:** Reason step-by-step and put the final answer in $\\boxed{}$.\n\n2.  **Break Down the Problem:**\n    *   I need to calculate the number of items based on the provided conditions.\n    *   Item 1: The siblings.\n    *   Item 2: The parents.\n    *   Item 3: Lily.\n    *   Wait, let me re-read the prompt carefully to ensure no misinterpretation. \"Lily is going abroad... with her family.\" This implies the group includes Lily and her siblings/parents.\n\n    *   *Step 1: Count the siblings.*\n        *   There are 4 siblings.\n        *   Each sibling bri",
+              "thinking_closed": false,
+              "tokens": 32768
+            }
+          ],
+          "hit_token_limit": 28,
+          "max_tokens": 32768,
+          "seconds": 232.41053372199985,
+          "total": 32
+        }
+      }
+    },
+    "seconds": 233.9374090250003
+  }
+}

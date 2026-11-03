@@ -1,0 +1,56 @@
+{
+  "api_costs_usd": {
+    "astra": 2.845501,
+    "gpt55": 2.919984
+  },
+  "colab_cost_included": false,
+  "comparison_api_cost_usd": 5.765485,
+  "completed_astra_forward_calls": [
+    {
+      "artifact": "generation-001",
+      "tool": "generate",
+      "turn": 3
+    },
+    {
+      "artifact": "probe-002",
+      "tool": "probe",
+      "turn": 11
+    },
+    {
+      "artifact": "probe-003",
+      "tool": "probe",
+      "turn": 18
+    },
+    {
+      "artifact": "generation-004",
+      "tool": "generate",
+      "turn": 28
+    },
+    {
+      "artifact": "generation-005",
+      "tool": "generate",
+      "turn": 30
+    },
+    {
+      "artifact": "generation-006",
+      "tool": "generate",
+      "turn": 33
+    }
+  ],
+  "g4_active": false,
+  "gpt55_frozen_and_verified": true,
+  "including_excluded_trial_api_cost_usd": 7.350063,
+  "last_api_turn": 35,
+  "next_api_turn_not_started": 36,
+  "paused_utc": "2026-11-03T20:56:11.739212+00:00",
+  "pending_result_received": false,
+  "pending_tool": "generate",
+  "reason": "Explicit user request to pause before the next editor API turn.",
+  "remaining_forward_calls": 4,
+  "resume_notes": "Original API requests/responses and numerical probes are saved. Latest complete remote generation artifacts and current checkpoint require recovery/reconstruction because the VM disappeared before final export; do not assume a complete numerical-service snapshot. The unresolved seventh call delivered no feedback.",
+  "resume_requires_new_vm": true,
+  "runtime_state": "Colab CLI reported session lost (404/401); server inventory confirmed no active sessions.",
+  "successful_forward_calls": 6,
+  "test_evaluated": false,
+  "test_uploaded": false
+}

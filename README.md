@@ -15,9 +15,11 @@ Experiments in writing and editing transformer weights directly, without trainin
 | Local Qwen feasibility tests | Both 64- and 4,096-token runs reached the cap | [Notes](docs/qwen-replay.md#local-feasibility) |
 | Published Qwen edit replay | Base **4/64 → 28/64** | [Report](results/qwen/g4-pilot/README.md) |
 | Blind Astra Qwen repair search | Base **5/64 → 3/64**; no improvement | [Report](results/qwen/blind-discovery/README.md) |
+| Astra vs GPT-5.5 Qwen repair | Base **7/64**; Astra **11/64**; GPT-5.5 **13/64** | [Report](results/comparison/qwen-astra-vs-gpt55-20261103/README.md) |
 
-Tiny-task scores cover the complete stated domains. Qwen scores are small pilots
-on different question sets, not a direct comparison or full benchmark replication.
+Tiny-task scores cover the complete stated domains. Qwen pilots use different
+question sets; compare editors within the matched comparison above. These are
+small pilots rather than full benchmark replications.
 
 ## Setup
 
@@ -31,7 +33,7 @@ uv run --extra qwen --no-editable python experiments/fetch_artifacts.py
 uv run --extra qwen --no-editable python -m unittest discover -s tests -v
 ```
 
-The artifact download is about 43 MB and verifies the pinned hashes in
+The artifact download is about 201 MB and verifies the pinned hashes in
 [model_artifacts.json](model_artifacts.json). No GPU or API key is needed for
 setup, tests or saved-result replay.
 
@@ -52,6 +54,7 @@ Regrade the saved generations on CPU:
 ```sh
 uv run --extra qwen --no-editable python experiments/analyze_qwen_results.py results/qwen/g4-pilot
 uv run --extra qwen --no-editable python experiments/blind/analyze.py results/qwen/blind-discovery
+uv run --extra qwen --no-editable python experiments/qwen_compare/analyze.py results/comparison/qwen-astra-vs-gpt55-20261103
 ```
 
 For fresh model runs and checkpoint reconstruction:

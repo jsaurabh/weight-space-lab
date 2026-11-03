@@ -114,9 +114,15 @@ def main():
             "paired_losses": sum(a[k]["correct"] and not b[k]["correct"] for k in a)}
     write(root / "analysis.json", {"conditions": summary, "comparisons": pair_results,
         "problem_subjects": dict(Counter(p["subject"] for p in problems)), "bootstrap_replicates": 10000})
+    recovery = json.loads((root / "recovery_001/manifest.json").read_text()) if (root / "recovery_001/manifest.json").exists() else None
+    launcher = root / "recovery_001/launcher_repair/host_manifest.json"
+    resumption = root / 'resumption_002/manifest.json'
     write(root / "blinding_audit.json", {"identical_initial_inputs_and_tools": True, "editors": audit,
         "test_uploaded_after_both_frozen": True, "heldout_uploaded_utc": state["heldout_uploaded_utc"],
-        "evaluated_candidate_manifests_match_selections": True, "prior_solution_provided": False})
+        "evaluated_candidate_manifests_match_selections": True, "prior_solution_provided": False,
+        "declared_api_context_recovery": recovery,
+        "declared_worker_launcher_repair": json.loads(launcher.read_text()) if launcher.exists() else None,
+        "declared_vm_loss_resumption": json.loads(resumption.read_text()) if resumption.exists() else None})
     write(root / "grader_validation.json", {"comparisons": len(scores), "changes": changes,
         "grader_sha256": hashlib.sha256(grader_path.read_bytes()).hexdigest(), "regraded_after_both_frozen": True})
     write(root / "api_usage_summary.json", {"editors": api_usage,

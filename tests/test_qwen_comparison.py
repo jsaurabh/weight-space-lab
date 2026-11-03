@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+from unittest.mock import MagicMock
 
 import numpy as np
 import torch
@@ -27,6 +28,50 @@ with patch.dict(sys.modules, {"protocol": protocol}):
 
 
 class QwenComparison(unittest.TestCase):
+    def test_recovery_worker_import_does_not_start_service_in_spawned_child(self):
+        fake_backend = MagicMock()
+        namespace = {"__name__": "__mp_main__"}
+        source = (DIRECTORY / "resume_service.py").read_text()
+        with patch.dict(sys.modules, {"backend": fake_backend}):
+            exec(compile(source, "resume_service.py", "exec"), namespace)
+        fake_backend.Service.assert_not_called()
+
+    def test_recovery_executes_prefetched_response_without_second_api_charge(self):
+        class Bridge:
+            def __init__(self, session, label):
+                self.calls = []
+            def rpc(self, name, arguments, **kwargs):
+                self.calls.append(name)
+                return {"ok": True, "result": {"config": {}, "sources": {}, "practice_count": 0}}
+
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            original_metadata = {"initial": True}
+            (output / "metadata.json").write_text(json.dumps(original_metadata))
+            (output / "run.json").write_text(json.dumps({"created_utc": driver.datetime.now(driver.timezone.utc).isoformat(),
+                "estimated_api_cost_usd": 0.12, "status": "stopped_on_error", "error_type": "BadRequestError"}))
+            history = [{"role": "user", "content": "Continue the saved math experiment."}]
+            request = {"model": driver.MODELS["astra"], "input": json.loads(json.dumps(history)),
+                "tools": protocol.TOOLS, "parallel_tool_calls": False, "store": False,
+                "service_tier": "default", "include": ["reasoning.encrypted_content"],
+                "reasoning": {"effort": "xhigh"}, "max_output_tokens": 16000}
+            usage = {"input_tokens": 1000, "output_tokens": 1000}
+            response = {"status": "completed", "usage": usage, "output": [{"type": "function_call",
+                "name": "finish", "arguments": '{"checkpoint_label":"base","rationale":"done"}', "call_id": "call_test"}]}
+            accounting = {"usage": usage, "estimated_api_cost_usd": 0.06, "api_wall_seconds": 3.0}
+            client = MagicMock()
+            client.responses.create.side_effect = AssertionError("Prefetched call must not be billed twice")
+            with patch.object(driver, "Bridge", Bridge), patch.object(driver, "OpenAI", return_value=client):
+                bridge = driver.editor("test", "astra", output, "unused", resume={"history": history, "first_turn": 11,
+                    "prefetched": {"request": request, "response": response, "accounting": accounting}})
+            self.assertEqual(bridge.calls, ["metadata", "finish"])
+            client.responses.create.assert_not_called()
+            run = json.loads((output / "run.json").read_text())
+            self.assertEqual(run["status"], "frozen")
+            self.assertAlmostEqual(run["estimated_api_cost_usd"], 0.18)
+            self.assertEqual(json.loads((output / "turns/011/accounting.json").read_text()), accounting)
+            self.assertEqual(json.loads((output / "metadata.json").read_text()), original_metadata)
+
     def test_sparse_column_edits_are_allowed_and_global_gains_are_rejected(self):
         service = backend.Service.__new__(backend.Service)
         service.frozen = False

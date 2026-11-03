@@ -1,0 +1,15 @@
+{
+  "api_cost_ceiling_usd": null,
+  "api_turns": 9,
+  "created_utc": "2026-11-03T19:56:04.438345+00:00",
+  "error_type": "BadRequestError",
+  "estimated_api_cost_usd": 0.588501,
+  "http_status": 400,
+  "label": "astra",
+  "max_api_turns": 120,
+  "max_forward_calls": 10,
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "status": "stopped_on_error",
+  "wall_seconds": 401.5016699589978
+}

@@ -1,0 +1,15 @@
+{
+  "api_cost_ceiling_usd": null,
+  "api_turns": 43,
+  "created_utc": "2026-11-03T19:56:04.438345+00:00",
+  "estimated_api_cost_usd": 4.6259,
+  "label": "astra",
+  "max_api_turns": 120,
+  "max_forward_calls": 10,
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "recovery": "recovery_001",
+  "resumption": "resumption_002",
+  "status": "frozen",
+  "wall_seconds": 4802.8338302090015
+}

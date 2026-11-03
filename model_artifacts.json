@@ -10,6 +10,21 @@
       "group": "qwen-comparison",
       "sha256": "f48714c352876bf0e3432eed6d9b8a5956b9729c88ee54dc3a2cbcfd8e4525e1"
     },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/astra/artifacts/probe-002.npz": {
+      "bytes": 9220195,
+      "group": "qwen-comparison",
+      "sha256": "ed4a21a6b714a08dd7e361130ede4fa8cdc121fcfba463e0981b2c896a2e259a"
+    },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/astra/artifacts/probe-003.npz": {
+      "bytes": 6326081,
+      "group": "qwen-comparison",
+      "sha256": "f1fa1557f9cb897ebfb2e69696e659d7f09f8d6517d94bd6ff8493bfdce4b421"
+    },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/astra/selected.safetensors": {
+      "bytes": 138415136,
+      "group": "qwen-comparison",
+      "sha256": "f402086f1ae4b84d2db58abdb59b0559fcf6d3b57432a91be871d80d871e823a"
+    },
     "results/comparison/qwen-astra-vs-gpt55-20261103/gpt55/artifacts/probe-002.npz": {
       "bytes": 1598775,
       "group": "qwen-comparison",
@@ -24,6 +39,11 @@
       "bytes": 7340160,
       "group": "qwen-comparison",
       "sha256": "e6a194111a7b3ac029ac21deab7870af2aa56e4e40a1e5b5b9849db6808f1d9d"
+    },
+    "results/comparison/qwen-astra-vs-gpt55-20261103/recovery_001/launcher_repair/current_checkpoint.safetensors": {
+      "bytes": 4194440,
+      "group": "qwen-comparison",
+      "sha256": "fdc78a030029f51c3b2a8b31ddd36d37b9d46422f919490a52c8a7e7b7e5c18f"
     },
     "results/discovery/astra-initial/addition/weights.pt": {
       "bytes": 87807,
@@ -88,5 +108,5 @@
   },
   "repo_id": "jsaurabh/weight-space-lab-artifacts",
   "repo_type": "model",
-  "revision": "94c57ea8d65cb713c69d1184ff9ddcab81aec22c"
+  "revision": "341a4f3af99762d3c61fd4de5ed57ca674442324"
 }

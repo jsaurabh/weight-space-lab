@@ -1,0 +1,49 @@
+{
+  "arguments": {
+    "ids": [
+      "gsm8k_train_32",
+      "gsm8k_train_1085",
+      "gsm8k_train_2139",
+      "gsm8k_train_3192",
+      "gsm8k_train_4245",
+      "gsm8k_train_5299",
+      "gsm8k_train_6352",
+      "gsm8k_train_7405",
+      "math_train_algebra_19",
+      "math_train_algebra_401",
+      "math_train_algebra_784",
+      "math_train_algebra_1170",
+      "math_train_algebra_1557",
+      "math_train_counting_and_probability_196",
+      "math_train_counting_and_probability_607",
+      "math_train_geometry_224",
+      "math_train_geometry_661",
+      "math_train_intermediate_algebra_182",
+      "math_train_intermediate_algebra_570",
+      "math_train_intermediate_algebra_957",
+      "math_train_number_theory_51",
+      "math_train_number_theory_435",
+      "math_train_number_theory_820",
+      "math_train_prealgebra_337",
+      "math_train_prealgebra_719",
+      "math_train_prealgebra_1102",
+      "math_train_precalculus_298",
+      "math_train_precalculus_714",
+      "aime_1987-1",
+      "aime_2002-I-2",
+      "aime_2009-II-8",
+      "aime_2018-I-7"
+    ],
+    "reason": "Test whether attenuating the two repetition-amplifying heads improves math answers, using all 32 baseline IDs at the same token cap and sampling.",
+    "which": "current"
+  },
+  "name": "generate",
+  "response": {
+    "error": "RuntimeError: \n        An attempt has been made to start a new process before the\n        current process has finished its bootstrapping phase.\n\n        This probably means that you are not using fork to start your\n        child processes and you have forgotten to use the proper idiom\n        in the main module:\n\n            if __name__ == '__main__':\n                freeze_support()\n                ...\n\n        The \"freeze_support()\" line can be omitted if the program\n        is not going to be frozen to produce an executable.\n\n        To fix this issue, refer to the \"Safe importing of main module\"\n        section in https://docs.python.org/3/library/multiprocessing.html\n        ",
+    "maintenance_notice": "Restored your original base checkpoint and own baseline artifacts after the recorded API interruption. Temporary CPU variables were cleared; tool limits and observations are preserved. No peer repair or test data was provided.",
+    "ok": false,
+    "remaining_analysis_calls": 92,
+    "remaining_forward_calls": 9,
+    "seconds": 8.276059718000397
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793736088.0,
+  "conversation": null,
+  "created_at": 1793736077.0,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_0806bbfdd3fbb3d3016aea3d8d97a487d1b0d139a267019df4",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6j2YKgA-d_2NhlSC4CW6EJZ3zUkakZgw8inp9dVtBML0ElYZVArRWv4zsT0NctrcGmlb1jUTQzltnHxYy1hWZkS0_OvRb7G7bOJrN9BiGSyUMA78lbdfe0CTHLEArGzjomREE1yTyjYnr2nGCd17I_oA29j6dH67_8dqD2j-GfpEpbqnQPEtQ0YveIEieVFJyOEJb9LOHqsWKT7pv6Q1miZhjPKseFT3fMsyt_1isoCMKCORyN2gIUm8jvx6GtjebGyP0ns3cRUKo35v2HnqT_oXSaADmUNmRj8Mhtx0JJPKDsZMswXe4-uVGv4QW4e27cAt9uveusfQ5SogLpvz2F1tAFCFAixOC3-AtaMLRvxR-EQD_z2hXNxkrXFA0VxX0ElPsDNA5prS5OdCsNbSXlXVql4vEuFkthirStVAPynSjo78f5WCDWK5bWnzBJizzlcLjDLyIRUSl_HZgv-3_Z6y19uXADYER-J_-yzGPONksZVDZMyvjb1UGmJ4IeIzRtwLNEPG7oGt17Rco00iOfiMRedjNzixCNZYIsURHJeBZ9iEu3WTFvyKC973jpYjUHV30jVDmHhblTdhvkoTMS_9yZjv1xCyj3qMqooYhxkyanw2I2dBMe82hUFyYKFGUODOD3iCzEgKDF3lQEt2IMxEVxZR0YwPINMsq5xgJLsn_GrMENw9HeruRjLMzmBFXLWeXWOCymxuDN57HFaqgeQ1wZYh0FOJvvdZK0kqUWf7tFAsZ10KSNCTuAHO5_jK_EZ9hQtFMVx2lXNzdl5WZaG3q6JrdCi_iLyiFYPQqQG_qIVW15V4zRNXTiF_Iw4B6kwKfSJYIbugrboMaWLQdV8h-srsnf9vgoXgPjJLdHakOcCjYoKjaDlxKZmykc4jwlzH2ANSV5gYQZuC3jlCdD8l8LTZHlaz01G086E3CKhz7u9q8dHOOl8DQQmZuEvXZZ0dU9_xnK-2iVgNCw6ZiYp9f_Kec5sRz2Xqv_z2efxb0ZT5Cvv8WK7mcYJIKtxgAWoFC-YQv2kYoUR7U6F01rA4cg5rD-x419vmlEyW_ig5OORGzykpP6494dQLtQC4FqX1evC-T5jm-kn9raUveQEKu4AV7EOx0d-Vt81ZcHposaMvaN5UpsRNLLYQRfRUL8umynkupg1tlB0jAS4Xm-XkTp63cINci5MgDDnJNl5U9591NYFDXYIb1JMQScPXARes4-bk90_Jq0Zwxhd7Q-Xt6a7tV0JAK9cYpfhOz0lLWrPbZw-h1JFUjVBtyPuPJsvz3_iGLVzjs63ksqJCaFGoHRJKiHsD1JO4nNdhgnDxZ9OBW3Qeo884KnJkjsa6PFOtJqAxJVCv9mKV-NB1KM4tL3tiTNLRW6es24KuuO3V9_qw8ZihuCHnBs3-dEYZgIUGfjCMGyrGGuBp_tFfLRqBcO4At-WawZ-y21jTO39T_El445SgtK5kTx_jJKR45OIcMj-wvtXkZspMi16yUxB31ydEo5xePT0yxX4ZKdDsMetgGlInp0lRFWU0StNAVrYgv_8YJG0wsK5WyndxfM_4Wpto7w3YLqaLyXs97NbwahWkinUVEXoEHptk278XgVbgqSb73uj4Y2oqeeQSJqGXokror_ic-DVIGkOBD3tVa_nBCLRfuov_RJI3LhqUvxhch9zy00OFpXApNvbmSUeMcnZHcG39Vge45VOUHzVyvPOQQUpH_gP-n8IJhe9EkC3Euh9c3YGtgWooafbuiD0-tdDiIbKh45d3tvIysZcklCLp_Y1Ggp3nAKDZTZTay6YoO--9wRU2F5mNlwd7Wybvw2au--qJPr24-rUWCVd3op3rmUo4OwZ42pww78YFHPTQbDp7Pex8bQhRMgh0_AT0hnKOWA5X3gmn4VJgAFCsuvXnNZc-X_y2iJrOnFYSsM7-Ufy8jj_VPO3_JWQcwNNZ7H_s4GEv0VXjtrZ6OM9Rvnm4aOMn7qoz9futoV-1qNxURVO1y9wIEvkF-zy7Dcco1q09rGYzBKOOxZq0we0tJqBYWT6ATiF6o1y782s3f3zZkNxQmBsPvDxkbPX47fZQ-zNYS_j9G1yMVjldH9RWcefOtU5FW4JSGaXF33z0y4iZVsA6dpAwPzzEkzx7RJT6wQhFaNK7Cm7doPnFBeBsEJR4Fyt-EZV4kteKrRo_AjSYr9TSy9NbssOsFYnkfjmAH7B-YmEAG2YATEfTu8s3ZHIgMdeG9-qIspEaoKf4U9H08zvvf3SWVIsxs791DEbWMEwTTPx6Cv_PwcT1ieCujhePsdlLPXJ9UFc9uAhFtkrfRXBdf-RPc9nnbs1w7VdUg23tXeYEQSpLw3DZIOUtgYX7kOjzc1JxzSnVeBE8Ggzdxm7x01wleZAy2hsWB7KB4l7SXnDB9Pj7c_cEoEfIpc-YY0534-w5ucAMT8RVpYgqgOfAdSXqQVgRRB1vBvRBHGVgBKqnHUh1gWnbGSmwIiL2ImLvVN68oz1w9QYm3WPgqgp0hDkrH0MBqIgWdbiPKCgGH0o-B4jVuWELqJykuRC8oVtQeH6yXxZtd-shu_qPc5RLqViB6dkW-cElTInuzs92vCmJtu0OetBPXb1Mt_IxHf2pKvspQOBVETnBG2OfjHRNK95fabIoU9iz0qR-nIvJvpLKPb_Iv_7nSA1TXimjo0MgJ-9Ds16fMPbAM4UDpaQ9OLeN3KZFxAR9D4IqEklJo5Hi9BgSNkyjE6tQurrpWFendryLFOazdOCkal9-Lp8XiFvoE3Z_eWE0AMUoOxsuroe-oOMjYXn8GmDmP2d2gzua_36EceQVE5qQGR2lQ2CxHqsps4hb557wYstuFN1FVp_jGtzecW68eFpCGyiGJR4Z4DDRdrEsytHMrzGCu8m63Y9qmbeq5qt5qKjcYC_xIsVXzMQt1Y31J5X4MtZvNOeoyT25DMA-Gd9Qy1xUFvEddy0z4uqSz1Bj6QSURXXQK-ZobjvrN_Z0aGpO8tCjfIG1K1y-rkg-YdrktjKPzVH2YjyBv6GnL4T1x7cNBxlgr1GqCBs2EX2r6uKnkJuwWcSxD9imk1N02ziPquyHuMIb9WatvJhY_vtND3-z0xOb9fSjtvrdHN0dxR8CtKCMswLVf5c5EAGQ5TK2vUbe0YkW-xmE0s69ru0M7su9SCdnL_TQweWja-8y_zkjqkDhypyMyX3ebIs2j03yVBKNpe4miwkos70PAZ6llMGgDouAdOoEQdOdaYELr7Cq7ODuO2IR30FDx3cPAJe6p-cbk1hw2qdHnSIBr0aZWNidBkpsRECGqElLKMapWBNZDcThSNLk2mG3n_Zpd5-Us2IRD3jpUpv_8I1ctyMaQ5do7GP-5ONgKvwM_hDGhgg2L1QSpOXPCikojCVlzutxz9k9BD4mvTTJl75cA1YI_iVRrYZrxobFMRh2SCOf4tOO3JXVRxB8ZtcU6UDVW8O8m4UFixmjS8yka_kzB_X9ziIFfxsBBEoRgDFTexCV4TtGK7lSn9Fg__xQPq5fHu_4bza9azsEVIqfdkdPnzzIarKG6OgHbPiR_5JT1lNWCtU10aPe5VJ_HGa9dnS_1CWj1WVsNEqD1-hbBKwixo1Gb8ohKtjWFyEmx9Wf6tqd6ODhtBtuUtc-EILRRyJ7kejvTgRI5ghOESu0mdP1p2qVuTsaRpOaVrD8Eqd5wr0MDlz3X1YO_QLYdOEgdu-LFALv-Kamrii02bytdeu4g7FhE6DD4TUya8urLXdj43Lh-mTEUtmI4K9Elvfrpglv6_6fO6dOorKjOxnX_fxKh5t5YU8PX4kPPBO5FAh9nI5tDzG4qBSrVqQfY2-gpAtPG-p_pYmfeVVSiI6udUG-brVjIUzMNY4hevywHPQJfKyGDS6YrWBGXEk9PYnrqtrmDKgCVDPk7RXojs1heIeGmW3wLIhsZ3w-qo1KgEhN7sPn_xqwqulTBO_7xSbD2_0Ywxx61JjNVAUb6sKZWHFPSnJX4v63ouYBAGdTur00296vJKIbcednrBquM7PQsBRKnXfiRWXVupkG1aG_HJnqFTJWG81296V-Pu0rPOG2KY9tsUp6cFiqnUHGONq9R7h0Z8UHdzMvRUU-r7-sKEAoddAcGHcHBDIwtB9MWv4mwZ0OtV0QhSPHlCDM6pjh8MMKMwWeA-hTQ2cRRDZk2tfKdJ08QGXKZQa2qBkaXMRRdY2q_2sXPZGlYleNh5rL2cY9GMp85rs6TwLD98lNLPVfwlHkEwqZeg3MLbk1-hOqGGev-6SExUDEEPDQrfai6Va2w7iVFNZuQNOBZycLa0EQE4hIjxh1f3ONcQS930vw-y6gF6DKR07UqyJ2gl_PtAbMQwPHgxP-80hAqNDJKCe1uwakBRugxw==",
+      "id": "rs_0806bbfdd3fbb3d3016aea3d8f753c87d1949182e29c04d6a6",
+      "status": null,
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"reason\":\"Check chat tokens and attention tensor shapes; locate a compact transition from valid calculation to repetitive verification.\",\"code\":\"print('SPECIAL',[(i,decode([i])) for i in range(248044,248054)])\\nprint([(n,shapes[n]) for n in names if 'layers.19.self_attn' in n])\\nfor j in [4,11,13]:\\n r=rows[j];print('TEXT',j,'FIRST',r['text'][:5200])\\n\"}",
+      "call_id": "call_T2wE3rtTl9LadmCMue17APAR",
+      "caller": null,
+      "id": "fc_0806bbfdd3fbb3d3016aea3d96cd2487d184c9f671de71e529",
+      "name": "python_analysis",
+      "namespace": null,
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "parallel_tool_calls": false,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "xhigh",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Read training questions, answers and available reference solutions. Returns up to 16 rows, using offsets in the combined pool. Metadata lists source ranges.",
+      "name": "practice",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "maximum": 16,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Persistent CPU NumPy only; cannot run the target. Globals: np, math, names, shapes, config, practice_ids (all training IDs in source order). Helpers: practice_row(id) returns a copied training question/answer/solution; weight(name,current=False) returns a float32 COPY; save_edit(name,array), remove_edit(name), clear_edits(), list_edits(), checkpoint(label), restore(label), artifact(id), tokenize(text), decode(ids). Print compact summaries. No files/network/processes or training. A checkpoint label has up to 40 letters, digits, underscores or hyphens.",
+      "name": "python_analysis",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Thinking generation on distinct practice IDs: base, current or both. Fixed 32768-token cap; max 64 TOTAL generations, so max 32 paired problems for both. One sample per problem. Returns accuracy, token limits, paired rescues/losses, and an artifact ID containing complete texts. One forward-budget unit.",
+      "name": "generate",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Teacher-force base/current on up to 16 raw texts, <=32768 tokens each and <=131072 tokens total. At up to 32 selected positions (negative indices allowed), capture all layer hidden states and up to 8 modules' input/output vectors, top-20 next-token IDs/logprobs and actual next-token logprobs where present. Module name is its tensor name without .weight. Artifact: texts entries have text,tokens,positions,hidden (layers x positions x width),modules (name -> input/output arrays),top_ids,top_logprobs,next_ids,next_logprobs. One forward-budget unit. Include exact chat template text for faithful diagnostic probes.",
+      "name": "probe",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "After all 10 forward calls, select a checkpoint label (or empty string for current weights) and freeze permanently. The host alone performs later held-out evaluation. Restore your base checkpoint if no edit is justified.",
+      "name": "finish",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 18095,
+    "input_tokens_details": {
+      "cache_write_tokens": 4828,
+      "cached_tokens": 13264
+    },
+    "output_tokens": 349,
+    "output_tokens_details": {
+      "reasoning_tokens": 224
+    },
+    "total_tokens": 18444
+  },
+  "user": null
+}

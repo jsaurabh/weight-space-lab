@@ -78,16 +78,60 @@ before the driver starts, stop the provisioned session with
 
 ## Replay a frozen choice
 
-After the completed run is published, fetch its saved tensors and activation
+Fetch the completed run’s saved tensors and activation
 arrays with `python3 experiments/fetch_artifacts.py --group qwen-comparison`.
-The shared reconstruction tool accepts either editor's result directory:
+Download the pinned base separately (about 1.8 GB), then reconstruct either
+editor’s frozen choice:
 
 ```sh
+uv run --extra qwen --no-editable hf download Qwen/Qwen3.5-0.8B --revision 2fc06364715b967f1860aea9cf38778875588b17 --local-dir .artifacts/qwen-base
 uv run --extra qwen --no-editable python experiments/blind/replay.py --result results/comparison/qwen-astra-vs-gpt55-20261103/gpt55 --base .artifacts/qwen-base --output .artifacts/qwen-gpt55-replay
 uv run --extra qwen --no-editable python experiments/blind/replay.py --result results/comparison/qwen-astra-vs-gpt55-20261103/astra --base .artifacts/qwen-base --output .artifacts/qwen-astra-replay
 ```
 
-Use a local copy of the pinned base revision listed in `protocol.json`.
 Reconstruction verifies the frozen patch and replaced tensor hashes, needs CPU
 and disk space, and makes no editor calls. Regrading the saved evaluation with
 `analyze.py` also needs only CPU. Generating new answers uses the GPU.
+
+## Recorded API interruption
+
+In the November 3 run, Astra's tenth API request received a 400 prompt-filter
+rejection after a long raw Qwen math continuation entered its history. It had
+used one GPU feedback call and made no edits. GPT-5.5 had already frozen.
+The controller exported the available records and stopped the G4.
+
+One clarified continuation was accepted before allocating a replacement G4.
+The original rejected request and stdout are retained. The recovered history
+omits that single long stdout item and adds an infrastructure notice requesting
+compact diagnostics. Astra's own artifacts, base checkpoint and counters are
+restored; temporary CPU variables are cleared. The numerical backend, tools,
+sampling and ten-call budget stay the same. This is a declared context change
+and a limitation of the head-to-head comparison.
+
+The run-specific recovery uses `recover_api.py` once, then `resume.py` after
+provisioning and initializing another G4 with the commands above. It is not an
+automatic retry mechanism. Recovery sources, before/after histories and hashes
+are recorded under the run's `recovery_001` directory. Peer weights and the test
+are uploaded to the replacement VM only after Astra freezes.
+
+The first recovery launcher then exposed a missing multiprocessing entry-point
+guard. Failed generation requests ran no answers and were refunded. The host
+stopped API execution, preserved the exact current checkpoint, corrected the
+launcher, and restored cumulative counters from the actual editor tool records
+(three successful forward calls). Both completed probes were checked by
+reconstructing the edited projection's outputs from its recorded inputs; their
+claimed base/current states matched. Native GPU checks verified candidate
+loading and exact base restoration before the editor continued. CPU variables
+were cleared again. These infrastructure detours also limit interpretations of
+Astra's discovery time and API cost.
+
+The user then paused the run during Astra call 35. Colab reported the VM lost,
+and that call's result was unavailable. On resumption, all named checkpoints
+were reconstructed on Colab CPU from the recorded edit programs and saved
+probes. Every reconstructed tensor hash matched its original manifest. The
+full records of practice generations 004–006 were lost; their original returned
+summaries remain explicitly marked as summary-only artifacts. Call 35 was
+reissued without another editor API request, followed by the three remaining
+feedback calls. The user pause was excluded from the wall budget. Subsequent
+forward feedback, checkpoint backups and final-evaluation progress are saved
+locally during execution. See `resumption_002` for the exact recovery record.

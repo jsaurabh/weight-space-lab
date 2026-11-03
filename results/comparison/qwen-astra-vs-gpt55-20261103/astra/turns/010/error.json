@@ -1,0 +1,8 @@
+{
+  "http_status": 400,
+  "error_type": "BadRequestError",
+  "message": "Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting",
+  "response_usage_available": false,
+  "source": "Controller error output preserved in recovery_001/controller.log",
+  "original_request_preserved": true
+}

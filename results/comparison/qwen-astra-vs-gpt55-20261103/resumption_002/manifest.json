@@ -1,0 +1,17 @@
+{
+  "durable_exports_after_every_future_forward_call": true,
+  "history_notice": "Resuming after the user pause and loss of the old Colab VM. All reconstructed checkpoint tensor hashes match your recorded weights exactly; numerical tools and decoding are unchanged. Your original baseline and two probe artifacts are restored. Full texts of generation-004, generation-005 and generation-006 were lost; their artifact objects now explicitly retain only the original returned summaries. CPU variables are cleared. The unresolved call 35 was rerun and its new result is above. Seven successful feedback calls are now used, leaving three. The user pause is excluded from the remaining wall budget. No peer edit, published repair or held-out test data has been supplied. Continue your investigation and select final weights after all ten calls.",
+  "lost_full_generation_artifacts": [
+    "generation-004",
+    "generation-005",
+    "generation-006"
+  ],
+  "paused_record": "pause_001/manifest.json",
+  "peer_or_test_data_provided": false,
+  "pending_call_reissued_without_extra_api_request": 35,
+  "reconstruction_hashes_match": true,
+  "remaining_after_pending_result": 3,
+  "restored_completed_forward_calls": 6,
+  "resumed_utc": "2026-11-03T22:27:37.714733+00:00",
+  "user_pause_excluded_from_wall_budget": true
+}

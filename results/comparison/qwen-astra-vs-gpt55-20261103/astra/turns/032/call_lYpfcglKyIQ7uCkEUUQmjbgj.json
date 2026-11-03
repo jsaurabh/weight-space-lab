@@ -1,0 +1,283 @@
+{
+  "arguments": {
+    "code": "restore('base');a=artifact('probe-002')['texts'];loopdirs={}\nfor l in range(7,19):\n ds=[]\n for i in [0,2]:\n  d=np.mean(np.asarray(a[i+1]['hidden'])[l+1]-np.asarray(a[i]['hidden'])[l+1],axis=0);ds.append(d/np.linalg.norm(d))\n d=ds[0]+ds[1];d/=np.linalg.norm(d);loopdirs[l]=d\nstats=[]\nfor l,d in loopdirs.items():\n suffix='self_attn.o_proj.weight' if l%4==3 else 'linear_attn.out_proj.weight'\n for s in [suffix,'mlp.down_proj.weight']:\n  n=f'model.language_model.layers.{l}.{s}';w=weight(n);v=d@w;delta=np.outer(d,v);stats.append(float(np.linalg.norm(delta)/np.linalg.norm(w)));save_edit(n,w-0.5*delta)\ncheckpoint('loop_projection_half');print('edited tensors',len(list_edits()),'full projection relative norms min/mean/max',np.round([np.min(stats),np.mean(stats),np.max(stats)],4))",
+    "reason": "Create a selective alternative to head scaling: remove half of the cross-question repetition-drift component from middle-layer residual writes. Directions come only from matched-token hidden differences, not answers or stop-token vectors."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 80,
+    "remaining_forward_calls": 5,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "588e20883705d942ccab8d166e35f6d4969b4da0992af5dc84bcb8b6070fa26d",
+          "changed_entries": 1538452,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "0249bda771c8ed2f0f0e1e588b579207766e59fa1d4f93e28bd20d2bdc872a12",
+          "name": "model.language_model.layers.10.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "e32e37cffba5b41c4939ad74507e10dea14db631b6fef69c16b1a37dd3dc9b12",
+          "changed_entries": 2640179,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "68146e5f2c43fdfb4ea2da631f22eb99e08d30ca84dd934e68fe8cbde0f01d3d",
+          "name": "model.language_model.layers.10.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "5120ba8e1da3aeb89ddcf924f2c5e5108fdfe63fb072a4f270dd3508c7e24e3f",
+          "changed_entries": 2826493,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "3af87bab83956d5fe2e9cf28cdf72dbc988967638988056638ef872d107ae9f8",
+          "name": "model.language_model.layers.11.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "fd07e3e0b48deb3d36314fb39863cc30739c0d0cd9575da79bc26f562ba2762e",
+          "changed_entries": 1618012,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "26441ea759c5f4feef549975d37a6a054e9969537a5854ca9934390e992ca871",
+          "name": "model.language_model.layers.11.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "7fd66cf843f4ded4175804494f9ed9ed91375bf224d99a209789bb762c7e19ed",
+          "changed_entries": 1551429,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "fbaabe5428446e013242db703139edb5bae3ece81ca4e3fbd78750a68aff2407",
+          "name": "model.language_model.layers.12.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "2d5f2fef40eb81eddb32ab0ca8e4e53e5578c53f335cdd6b54d9d62051b0759e",
+          "changed_entries": 2683258,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "6f20556822b208f8ecfbe9a75291e2c6b6001504227c38599e29cd01dce97d48",
+          "name": "model.language_model.layers.12.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "ed7cb4978176a6fadd07c3fd9d90fb6ab0ac125021e198d8f4dce00fa7169c3b",
+          "changed_entries": 1497339,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "308a3e0bf0740d3768460d864eb13f12225f6d782afe7aea4ede7c2924a1e315",
+          "name": "model.language_model.layers.13.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "a903cbbf112b0c17b53cc7c89faed3df7fa718ec5f0a148ab474b6a75a064210",
+          "changed_entries": 2628926,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "44e68f275242334b65f51d74f6c652a9c5cec71a6a1e4f3ff277e66adae58abd",
+          "name": "model.language_model.layers.13.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "4104c25ec4cce12ad592be6a296c4cc0275e2e8f4b00521f49bb03187d8a83c0",
+          "changed_entries": 1512448,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "c706e5a8980bf064a0aa7e8d9be4ba3d91282ced940b83f137c3fe30bc99700d",
+          "name": "model.language_model.layers.14.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "96d8150df0567e3d748b0388e6a20781b0569388a4ffa2a34faa531c85642803",
+          "changed_entries": 2589219,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "23240fccf4fda730da09a914ebc0ddf43957f0985984ecfbcba367d891abd6d6",
+          "name": "model.language_model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "ef60d2c687bab19464dca9c8bfd7777e46ad226df0c9e25643b0bab04b5a1cca",
+          "changed_entries": 2529820,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "4b064fbf9278b42d8fb8c6a35d828093ae93cb6d2583d0611066fafcd2acdaaf",
+          "name": "model.language_model.layers.15.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "2f5be1b0f59d3bf45a992e18c26b3658ce5112527ea570b00d05fe1a48140092",
+          "changed_entries": 1459915,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "2f38c28d74e294102a6714b400807aecbde7f7dcf049aaec0d05ffa9e4e932db",
+          "name": "model.language_model.layers.15.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "726ecc2ab3ba05f84cbff821eca9425519c30aec5d7ab1cf3aceaea7af38722a",
+          "changed_entries": 1462624,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "a4fc642d1017c209eedc892c75ffdf48cf2e74a17ba2fce28a6e7772ff000dc4",
+          "name": "model.language_model.layers.16.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "e12df33b47e0bb61125b8fe421d0aba4a75e6bf0b07e1b233f79937b978356d0",
+          "changed_entries": 2426315,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "edb338164a995dde13a9c6f2ded2abcc59c87eae0f0cc8b8a9a7e42215fe0768",
+          "name": "model.language_model.layers.16.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "73a8878d3e33c44b82f667c38243a535b6a3ca73c3a5fcf8c7dde790d246744d",
+          "changed_entries": 1465388,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "b15613073c95c60e498128be19cbb228db94baae3d9136c3cf24c23d279de268",
+          "name": "model.language_model.layers.17.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "412058832c188e22c34c358c8e59601fbc9a945b7ac7fb8ed5b4712302b237a8",
+          "changed_entries": 2436208,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "f91b6cf50a446f1a0899ec97f28870fc57983ca91aefb0f15f01cae5f2c0ca83",
+          "name": "model.language_model.layers.17.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "45929a42f3c3e0b9ade395dfb3ac8acc5084dd010cd4045cd8f570629b19d1e3",
+          "changed_entries": 1361060,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "c27c9e2a4bb5476a3828a2ffb40479d5070b87dc031600558fae436e8fb74b77",
+          "name": "model.language_model.layers.18.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "f41124d728ee26c54cd15b22cdd10138cbfe5a04c6e7fe514f53d86d4780d838",
+          "changed_entries": 2336584,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "73fd318636722ec6f138036d46fd38fe8a7b1c7d383da84897d30b8f916c4893",
+          "name": "model.language_model.layers.18.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "0c2ba3eec24441cc0a4b4c9e6956f64210caa2acb8fae18b3579fce9ec49159c",
+          "changed_entries": 2748190,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "b3624b1c7cc5be6e9b585c32fe2881e17af048e52895dbb3b32cc81750837501",
+          "name": "model.language_model.layers.7.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "495f9a04acd3b164cd7fb06a9d3e09f699e4abb0298b6cb3313b2d9b8470a63c",
+          "changed_entries": 1575806,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "a357c981871232fbfac39490f4d9711b8230ef43d1affcaa4e70564449f3727f",
+          "name": "model.language_model.layers.7.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "f999552cfea17861edc5f5dd25b48f51e89fe3f12e3d7b27c482993d61f773b9",
+          "changed_entries": 1544852,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "d90b8cacb7ceda8fef183bc285994979e44398b15a5751bfbe943c5676304b66",
+          "name": "model.language_model.layers.8.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "05fb318d3507148575b60805a4d34ccaba09aab41705d75a33fe101a78ff841c",
+          "changed_entries": 2637508,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "268793a26e7e7af03c9570cbcc38cee76c800a43d21fc11453e56f4312f1e94a",
+          "name": "model.language_model.layers.8.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        },
+        {
+          "base_sha256": "253571bd7bcb82ae7d6c3db2a5ba0ea44b62deb54d2dbc5cd43672c4081691ca",
+          "changed_entries": 1620359,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "33051412cb3b7c8ee1592cbbb026c252ca7936e3d38aceef2a8f9a74ddc1cd79",
+          "name": "model.language_model.layers.9.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "base_sha256": "09751bd4c7ef156fd8c5cf4e3be0d6250c7cccc14cf30883fbb28d213fec6132",
+          "changed_entries": 2795970,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "d45e66aac1062861e9932e9f2534dfd6db3a74ba821f5c98894cf00f28dddf3d",
+          "name": "model.language_model.layers.9.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        }
+      ],
+      "stdout": "edited tensors 24 full projection relative norms min/mean/max [0.0246 0.0373 0.0494]\n",
+      "truncated": false
+    },
+    "seconds": 1.1585596209997675
+  }
+}

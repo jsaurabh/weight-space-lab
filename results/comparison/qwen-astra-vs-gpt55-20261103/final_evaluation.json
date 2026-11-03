@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "remaining_analysis_calls": 75,
+  "remaining_forward_calls": 0,
+  "result": {
+    "astra": {
+      "correct": 11,
+      "hit_token_limit": 56,
+      "max_tokens": 32768,
+      "seconds": 379.20437690000017,
+      "total": 64
+    },
+    "base": {
+      "correct": 7,
+      "hit_token_limit": 57,
+      "max_tokens": 32768,
+      "seconds": 398.06540790400004,
+      "total": 64
+    },
+    "gpt55": {
+      "correct": 13,
+      "hit_token_limit": 51,
+      "max_tokens": 32768,
+      "seconds": 350.2304227170007,
+      "total": 64
+    }
+  },
+  "seconds": 1130.2401576759999
+}

@@ -1,0 +1,275 @@
+{
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793735778.0,
+  "conversation": null,
+  "created_at": 1793735770.0,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_0806bbfdd3fbb3d3016aea3c5a285c87d1a0b06d1a7d6e0d30",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6jxip5E7sFRjuT2DJYQ0YW34KIuioQ98M61CtKUvo8fMyaqddm9ejUlaWwgqpYySIYSv-ANYPUrVt7dDc4nGlUaGkoLzuR3vBu5Q24VrRn1HEQyyafnKoiPFxxqkzk5nYSYtkBZIuTDYjp4XHtt6crftEAASxAoD1i87PDrzNtt5dyfedML5mcwkJZw2WCm4a1hDp6BrYLKyx-95sGW4e3esoLzgoFDXP8zekuQSquNsR_kME0gg4tnIygFXHJiMQWI5tbJawaC9SjvyDqAxxr6ihmu_lnNtutUDvWkin5fio_qsA_nkGWdIl82qvcWcQNARNS-1yBAKyGALQnJPc1x52zzXYRznSiU4_URQIMRy3ys6O73wgA1rs6lViv1UrgiaymyKJkn1hExBkT7WdzO92cF7V-y8jU1VO_xTEu-eCvfKTeh-3qF0BnNMHcfBZ9BJVsVdJcLaPSU7jk8kRDlXdjH_pbqydzw-ovvUAeUbhctnoCsb9qpn-T03bn05kETq2dwWPLikCKCYTlQuMvH0R7nzO-9wCU_nEWo5WQJ7Jq5UEjf9kgidN3oy6QyxcEIi5_Qu9fMl5n1i3g_uqzeD0R18AVrUPnjuSn-UynhIfP5pUMovaWwNLn3tTQdkwvsNRSaA7rKGjGeugJR4Y1bucakkmouvoOwNJ_CKyLm2q0VM525xQFfphfICiGEejXpY5B3VxiKOgA2MvSwkpiPa2ckYZSpYo0HKM6_jqXYHYEzJT_wFBowqRvjLP7VALdPE74VzzlwETSJoGp8BRmef4cUlb6XUa37T4cguhYr-LxI-sV5ytfv_hfnsoGkFK5NPF1kUYvWg1K9E9puNG1Wm7N1tFqiJRNkdg5oJe1osg_3k3mDIWgghemj8PzPBkymtUyvwESUMHEHu_qaavaCUQDFagd4mmphhUnvzib8ixVlvTGcTqGHozKc7XQtX0UPM0w-KSDS54shkxHtAYD990vAV8J55uj2FQwRqGUwnq2aFsN6AxgmHPd-am88HV6tlkS7PSUfGjdKK3NUE1kZm9G10kCtMSrLL3ZWjaBwOxmiQ7SYp24lS5KancVfOxeLifqRad4XFAq-FbEnLUENqdXdk942eEBW4LtNDbyxPV40BvLXe3reOS1xOIatCYFHuwZUoIx122M5Qi0c_wY-oBbdSZwgBHm_1KmgDQ7e4589lf0R0ozeQ_VxaA4lLb3iIYMQOjncE2LfovdEH621S02slFPmoM_yr4VoWMTj4Q5vg3kV2PhX-eYyDOItwD-P0OtyuRNuYtTFnuUEsD3E0s_ECWM-PH5Rn20I0y3ewrbLdlYxhW6IMjFrqvYtFcpQgCmfwBqDUf3T6ND3C2jbbHg_YMtQs8SkNqvUJ-JrpKOTr_2oePKXElQf9v0sXt5RyScaMBVykjxst2w_P85EIIqAA9o1P_N3b6jBQGCm9pjBl5FEDlfcU1AKJoJ9uK5v5tXk5UVMF1HaJv8sUnzNGN4ERvjI-COI5IMOCG1zGEdMR1t-z0HZAdiBTq5mepaM0gIOVi6bLLcwWUZ7M01rqvP-nrq0jZmJqviLSHr84Oj_xttMaQT4-BsWw7gINbiX2ee0MSeuIP1i_3XNKls-1sWJ-4g7EWckA5uenf---3xf3-EG0UsSJ2zCRCUoNiUSZzCGPpc3Niegvwe6ozGv032UF7EJHdis1XUrEErTemjLtLhA-6lUcOjV0h1fm8nAFZ1P5PYmJBKGn4sd7RThJoUdqvfMPo4DE2Keo_1l1578du9r16rDAxWZkZHlw6wQtGNovJtGpxXVqpgY2-N2bhOpSRKdsmwfMyoqTBK8pfiEhOiDb5F6B4DegP-JC8JhiS28qu-Or-pvA9xRfjLj59OULkTWZTMXUMUwaAAToRxXOFkE2EfDiw4Fbhp1b3LPNRNGXrlBgzFwc4Ycf_-wp-wtNe57Fh_tQfmnGyBRpYVOkRWxE3vrMUE9J64rY_HkcRcr4MmICJc-yvOJJSfL04T35M6G2q7P1aX8UFP5ER6YkvMiy4OFDc0cbFKHSsWGnmKVPDn-ASwtitb3d8_mgWnAoErC9DtsjCgsmbFIFCQw=",
+      "id": "rs_0806bbfdd3fbb3d3016aea3c5d9a5887d19fc9cd247df60421",
+      "status": null,
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"reason\":\"Select a fixed, source-stratified diagnostic set without looking at answers or model success.\",\"code\":\"idx=[int(i) for i in np.linspace(31,7401,8)]+[int(i) for i in np.linspace(7488,14715,20)]+[14800,14979,15158,15337]\\nids=[practice_ids[i] for i in idx]\\nfor i,p in zip(idx,ids):\\n r=practice_row(p); print(i,p,str(r)[:280])\\nprint('BATCH',ids)\"}",
+      "call_id": "call_3YYZuQWIdcO0GuMr6yUhSfQN",
+      "caller": null,
+      "id": "fc_0806bbfdd3fbb3d3016aea3c5f436887d1ab412cdc5c6b5af7",
+      "name": "python_analysis",
+      "namespace": null,
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "parallel_tool_calls": false,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "xhigh",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Read training questions, answers and available reference solutions. Returns up to 16 rows, using offsets in the combined pool. Metadata lists source ranges.",
+      "name": "practice",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "maximum": 16,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Persistent CPU NumPy only; cannot run the target. Globals: np, math, names, shapes, config, practice_ids (all training IDs in source order). Helpers: practice_row(id) returns a copied training question/answer/solution; weight(name,current=False) returns a float32 COPY; save_edit(name,array), remove_edit(name), clear_edits(), list_edits(), checkpoint(label), restore(label), artifact(id), tokenize(text), decode(ids). Print compact summaries. No files/network/processes or training. A checkpoint label has up to 40 letters, digits, underscores or hyphens.",
+      "name": "python_analysis",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Thinking generation on distinct practice IDs: base, current or both. Fixed 32768-token cap; max 64 TOTAL generations, so max 32 paired problems for both. One sample per problem. Returns accuracy, token limits, paired rescues/losses, and an artifact ID containing complete texts. One forward-budget unit.",
+      "name": "generate",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Teacher-force base/current on up to 16 raw texts, <=32768 tokens each and <=131072 tokens total. At up to 32 selected positions (negative indices allowed), capture all layer hidden states and up to 8 modules' input/output vectors, top-20 next-token IDs/logprobs and actual next-token logprobs where present. Module name is its tensor name without .weight. Artifact: texts entries have text,tokens,positions,hidden (layers x positions x width),modules (name -> input/output arrays),top_ids,top_logprobs,next_ids,next_logprobs. One forward-budget unit. Include exact chat template text for faithful diagnostic probes.",
+      "name": "probe",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "After all 10 forward calls, select a checkpoint label (or empty string for current weights) and freeze permanently. The host alone performs later held-out evaluation. Restore your base checkpoint if no edit is justified.",
+      "name": "finish",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3032,
+    "input_tokens_details": {
+      "cache_write_tokens": 1371,
+      "cached_tokens": 1658
+    },
+    "output_tokens": 191,
+    "output_tokens_details": {
+      "reasoning_tokens": 53
+    },
+    "total_tokens": 3223
+  },
+  "user": null
+}

@@ -1,0 +1,64 @@
+{
+  "arguments": {
+    "modules": [
+      "model.language_model.layers.11.self_attn.o_proj",
+      "model.language_model.layers.15.self_attn.o_proj",
+      "model.language_model.layers.23.self_attn.o_proj"
+    ],
+    "positions": [
+      -24,
+      -23,
+      -22,
+      -21,
+      -20,
+      -19,
+      -18,
+      -17,
+      -16,
+      -15,
+      -14,
+      -13,
+      -12,
+      -11,
+      -10,
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+    ],
+    "reason": "Measure the causal effect of the half-strength head edit on matched repeated-token likelihoods while generation worker startup is unavailable.",
+    "texts": [
+      "<|im_start|>user\nAn infinite geometric series has common ratio $1/8$ and sum 60. What is the first term of the series?\nPlease reason step by step, and put your final answer within \\boxed{}.<|im_end|>\n<|im_start|>assistant\n<think>\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n",
+      "<|im_start|>user\nAn infinite geometric series has common ratio $1/8$ and sum 60. What is the first term of the series?\nPlease reason step by step, and put your final answer within \\boxed{}.<|im_end|>\n<|im_start|>assistant\n<think>\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n    $a = 52.5$.\n    $S = 60$.\n",
+      "<|im_start|>user\nLily is going abroad on vacation with her family. Each of her 4 siblings is bringing 2 suitcases, and her parents are bringing 3 suitcases. Lily decides that there is already too much luggage and she won't be bringing any. How many suitcases is the entire family bringing on vacation?\nPlease reason step by step, and put your final answer within \\boxed{}.<|im_end|>\n<|im_start|>assistant\n<think>\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n",
+      "<|im_start|>user\nLily is going abroad on vacation with her family. Each of her 4 siblings is bringing 2 suitcases, and her parents are bringing 3 suitcases. Lily decides that there is already too much luggage and she won't be bringing any. How many suitcases is the entire family bringing on vacation?\nPlease reason step by step, and put your final answer within \\boxed{}.<|im_end|>\n<|im_start|>assistant\n<think>\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n    Wait, does \"parents\" include the siblings? No.\n"
+    ],
+    "which": "current"
+  },
+  "name": "probe",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 91,
+    "remaining_forward_calls": 8,
+    "result": {
+      "artifact": "probe-003",
+      "hidden_shape": [
+        25,
+        24,
+        1024
+      ],
+      "modules": [
+        "model.language_model.layers.11.self_attn.o_proj",
+        "model.language_model.layers.15.self_attn.o_proj",
+        "model.language_model.layers.23.self_attn.o_proj"
+      ],
+      "texts": 4
+    },
+    "seconds": 3.129929372999868
+  }
+}

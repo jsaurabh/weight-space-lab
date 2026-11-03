@@ -1,0 +1,14 @@
+{
+  "arguments": {
+    "code": "g=artifact('generation-001'); rows=g['base']; ids=[r['id'] for r in rows]\np=artifact('probe-002');print(p.keys());print(p['texts'][0].keys())\na=p['texts']\nfor i in [0,2]:\n h0=np.asarray(a[i]['hidden']);h1=np.asarray(a[i+1]['hidden']);print('pair',i,'hidden-relative-drift',np.round(np.linalg.norm(h1-h0,axis=(1,2))/np.linalg.norm(h0,axis=(1,2)),3))\nmods=list(a[0]['modules']);scores=[]\nfor m in mods:\n w=weight(m+'.weight');nh=8 if 'self_attn' in m else 16;hd=w.shape[1]//nh\n vals=[]\n for i in [0,2]:\n  x=np.asarray(a[i]['modules'][m]['input']);y=np.asarray(a[i+1]['modules'][m]['input']); d=y-x\n  v=[]\n  for h in range(nh):\n   sl=slice(h*hd,(h+1)*hd); b=x[:,sl]@w[:,sl].T;c=y[:,sl]@w[:,sl].T\n   v.append([np.linalg.norm(c-b),np.linalg.norm(b),np.linalg.norm(c)])\n  vals.append(v)\n v=np.array(vals);diff=np.mean(v[:,:,0],0); rel=np.mean(v[:,:,0]/(v[:,:,1]+1e-8),0)\n print(m.split('layers.')[1],'diff',np.round(diff,2),'relative',np.round(rel,2),'growth',np.round(np.mean(v[:,:,2]/v[:,:,1],0),2))\n for h in range(nh): scores.append((float(diff[h]),float(rel[h]),m,h))\nprint('largest absolute drifts',sorted(scores,reverse=True)[:12])",
+    "reason": "Measure matched-token hidden drift and per-head output changes induced only by repetition, without fitting to math answers."
+  },
+  "name": "python_analysis",
+  "response": {
+    "error": "NameError: name 'slice' is not defined",
+    "ok": false,
+    "remaining_analysis_calls": 91,
+    "remaining_forward_calls": 8,
+    "seconds": 0.00616678000005777
+  }
+}
