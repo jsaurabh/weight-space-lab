@@ -1,0 +1,275 @@
+{
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793729872.0,
+  "conversation": null,
+  "created_at": 1793729850.0,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_08fb8051db894778016aea253a9fe087d1b1d89c3eb46270f9",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-5.5-2026-04-23",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABq6iVQPmVxs_DTyR5ShW0IDHd-Q1mTcJR2Y2pd6Mie9lApxiSusnqSV1G5uuQ0FPBhY6Y6HgxtBgPm9rEnyQMxugtiX7WPDUxqkhrabQ6z3DtK3KfoEAXGeNauLED4JSV4VOdHyUGdCtXtVp9g-1H4Y5MnWyGgeMJfCoXX5TUkD3s0z7ot9pWYwf2ZCyLbATzulOuqC04699jmXiaTNq0b1UlV7Ln5Su6CrHBdRQrCRbkhowLd2j7gX4JEofn-Ef7d9aECzvpAQpg4CRr-yyO1eKBwZP3FeXCocA6hIhhPtKNlYjNV-8ispRigGAYaiu_6nXWvAFdM5XwbB0Ya6NJ6-g9WRPA0ZBFdOi198OXFd1jCefiX9S2wPY56dhZUdgYiFfdcTG8L2Xn0cso429eYHvfuUiUYVI5wwyvROiXv5-nMJhun8gFXYxRTqubeM2uaFoOunAI_U5MAXMUzWyr-FlQ15mICGcrpyjnCv6VpCZ06uAx2Cl6jSkOL0WNTdozmSpQoNPMopw8aqbzApxOurZVbMDKFTdLZpPklZPi6ThlhfdwO-2EIyUDbHSmbk390dGqty-gRP6TXykHzqGsZCqCCb6Gp6sQ6VnA3Nb3pN9g2F1Og6pUn-9uN0kFsvvgLFjTLB6HQVlS5jo29ChiiMHSb7eJeK5Mh9fuS9j1vbC1wjvVfKuviR8Yvw-OFbyU8tvXqOqgyto4yi40eo0my1N77hHUWLkeIF8bMTphNFUf2KRDJc27g7aZcV9ILrkRy5XvcZ-zOKHOe1dMQz7rmBB4GzryGaBVpo-hC2jWxOXentr2Tjjk-YciFaendG30HsfsL1GCIssw_OrIGIbHwX75d60MDPjJjxXtLDaVTaz5cyuJiT8Gf62GsTu9U3IMXbb5DavX3R4Y1JfbGcHtAPKXqygcSPFFLjIVKmIisvl8wFq6_1H-451_U1htX9MWMnVEf6DjYuap2o2A_WEjkugMbZ8FL1GAIWNKDs3IWdppbCKdlRzWYQaYP36xuKQbkCHQkptcmnWLYn6dVT2e5bsd2dKJqoiE9Pw8Rzrs4NFfGWq3_y4OdWznhhFgfZCem65PloWP1m03RZOP7yP1yeDXbclHFyl4nFKzD5vfsy_tJiGoZw-7ff_YHV1gu4LTZ1WHctyIrY2mPyaUS8oemaSeILWe326Cnb4xd3bLr5HRBE5S5VJ6VD-LbguBz22v4PjN0Zz8Xr2G12_p_k0u5FwBlYu4AjKY0s0aeRBvPP5DW0MWpCl3dFwpBYO2aXVDHTLGjSazhaIv0VPW8R8UfmI95vuJlfniUG5qU81l_ngTiZm1ruohO64Ephk12kt7JuCtNeEF73FK6flz7HfYqxbvERcy85xGTrPxjP-5dfSXuBNqqxMjKjiJIUdbf7ZYT0kJHSyYV_V_v8srLG8kdJf0r9rqt7WtDRrN1r365DTiWdQyVgd0cdAfLVTls4LW6YKQJfIaYsmr3DRj43RnGuPPzDxq0vAI5KnP4bpfpLubkZQw0mpSOh7n2zuNmNxPe5tjE_vPoh6Kku-2SdPcrH5AFfDafTtrfKzuHUlcsblf4PjyrYnWcNiy95kpU7mnPU2HV_g-NEiA9ICI5G29gqB4TEawDDcm6qc4KY0OTI2ok-AoMM7PFVyMBlOje-_c0Mo3ds0o8s4QGkcyKg4gznIs23a41a0qRhWiLYnXCSaSt_7WMKXCyu4GWTa18GsU7cWdvn3L3LfcH4tID-sK8JtojeTJVyOI8dAtG2jdkmBq8iWNs1in2z8TxJ3Qv1jmuI8H8Amc4-DsQeQQGuMhdmzg3TM8KJ0c1ohtKdSFX1VMrjjLphIqR9rMq_YCETYlJVc2uQTWiCXRTzlAmSOwiOHuHRvdxw8X1Oi34MAY5h-4bgqQfRGVxailKpIaAb8ZjkjreMnJa_z4ekCeCjPNmjnBh02xyMkSMyJ19cPUykXWhD2JTNwE77G28Kz5brzA0RPro39iyYqc2TR5nFSHu92_4MoRli_bPIjezfNtcARWmC6jH_gIi3IxUpiBPQ9LxA5TxJD3z7s6Ry83Nz4x-j-qBAW0S_jTMWVplRLtCsk1VViAG344ZwIiGSjhEh0pc83km2_RaFr4lFuet3ukh3kRJxDS6ixVaNeL0razpxwlbwwZKF33QGxaNB-F2g61h2gjsMqYkHP6deyUmjqvFyY3cMupKrcbt_xPYSqJ8JrdRAB7m3DlO8eV7CbcjMsOtCWB1r5Ikafa_kzhj6OJ8j86O1zuXG7xSpyGLVtHZBa1mvfdVwiuKMro1n8_MAwalZLOLnwqZz3fulUu2bYY_XAN0zQE2JCQOdg1Ckd9waAV2x5Zm07-hEUiVa0lc4mlC7kdJRs3p1EL4aNkIbbHSLhtneBfKX4ZkgAhG6jyoy0HGu0hoTC_Og7SO6ay0qFT94p49eDINbxO36UMXaTBO22_GW9GSugkzTmNWUDnhkYOnXef9YkDLiMYB_K0Ymw15Y_YhZZ2hGgWH_EMJp7U29ZyoU4X4nFOy0qVgVitqCmDu3MBwxJQRZqAxs0oHjaGPeYzu73llaIOB5huGEPHVPC5PQKSdFxaOUsU8xowYYDjcVVpwAfIzeqIvbXOFw4YpZlRTf_vwSS9lL4EkDEaPA7eOdiB4oviiK2ZF3TjgyCGkRJ2zeOGBMjNAP6G0dTCS-qgf-vBEY3WeYYjtM2DGSDbltJqhBC2TvTCyQWBkNHmV7yxxvsgqm3PVRqbgV7a52gprrJ9kUuHG85bWxha3R7UCV1w8Yc2gL1stkix_XwdRZxRzylGH85WG2uZYdhmFqu1rwNG93kk007z9cmruOaIMBk3KHXbPid81fZtLFfh8-vv2AHTsPJGzEPCQP3bBPReDOgT8e79XYQ1VOIt93DacclZxp_Af891CyL1J5E7vHg_ApcsbTUuKLo_LBJSX1qu8_AoA4z3EIYMy5aci_AXCZ_asewnlmmUWNCJcruA0IPfZheWJDNFJP-XqBiXsDjnJwl2K5E0Qduyy03lKfMvevsi5dh80gOADHwOA61xRT3PpsCtGIMUBVzt0anpAxlDGTxa0U7vyPIE3xh7ujshTyyBQiyEWMyZcnKjcvbHYSCipDzQ9awwzf0PxRV0VMR1zp-JEO3lbDJ2UXDJJPdlw5R86F0NtvaBDqGWa-SThgRguBw9PUFUUvOzh_goYRiJ8gG5oaZdj74HZWnMXuI7tecImqvt0j7FHlUHYo9PeshDswbUck6XH30U5Z4mzZJiH37RXL_LZvNLlS6gIYWGDUOlsQknhSBFFJXonUr1jYc1jIzCr40OIGYlyf5HaTCUATKe1HSNu5jDDpwtgOwOb84FaChQ3ijUpTUq7udFa7KAxh4YFnNB6mtvqM7ey2v_N07CZ-pLQ-BPlG3zT_SyJRTuxQcRunFYAjxW-cPCy_qK8-7qLrz5FHdKCOlagn1YnSPIH_TPlmer9nYBh1RrBqFXwd0LExkOsUhtjJ8Ve1K1TzFsN-ew-PkOaCuxUZF954V6Ps4baGDKUm3jQeHefIqTkOn3pDPzsCn_1Mf2lq4QKCeDo9mYVHG2is8STt0QGwMwlLtt64AozxaY2uIO7Gdo0eoqwsNzBV0qKVKzcAJEW0dsakskPYRpsG4aEsVH7U6544f_oxUWUVn1yPDh9IwOjQbbdgWocmtkgM26SM7lwTRR1HklvRvhD0I19jvXT0lwyQQ6urgt-iXQ_UKCVV3Pc1BXNYzWsuQWrH1-gbS9_2Wi08sB3jvDcrCTFvDAXQzsckbnfDiaGbdCJcLcxOHHpiPX8tukpclsC2rjzX_mIRKZ_OlZnYedGeSCxmGmEnFkXhBhg1RSF3OunvOnQKaK0_wsuycViyKTaUhrbXZS-s5gsQc0ceu60MlH4v7NcdBowgX-_Tn4BXL1k2Csg4dEogcdeyGLoAUwuM0oHXoxxFQyHHBlsnsQsgxO9aD7jz16FgF5o0Oyl3hV-zTAbc6ZyOlnlkJ_WSoMHh9uv36H6_OZOAOd_3udzAuLucgDdp0d0Ddo11mx2R8E5eHrxZbX6ZdJvVzFBdeQN4u_b104iToOCO_YrYs_K6NAWTrNVUanRNA2KrOQkzGDaoleq7Li2WJs4L_PBHD9KQfby9guiEqVGss8_lkiCSolksoh2GodtG6FRi2lxBw-GFfbktgzO4p8cD770PTOMnRpO9U2hiQfla5g77LehRjLauoi5l8KGcxD7sgInokwSG-Kr5nh9nqRai5Ns9Nk3kmEFz5YyUmcRypqqqgkPseQGhdkToW5rATWiar5hvJJZW_Go7dKW87NtRidGb4qYxikxQQvDaql58uS1sOF3Th0f6vhXUOtjYIBYGVjM6pYVlGgPtUqI8gcabWQpH6eV4GgivLJGBmM8Hceh7AV98Zxz3sso3wbWta6KUBy7a9sr1TPBX7S7Z42Y-AAusWUXLGvYwYziPMDxVDpTKongazSvbKZkUGC6luWPjHfh3TblKAsTcmiAu34iD3mIFCIWscZmXytwsmdDb_4rnR6ZxAP78wzyukwuvhZoa9-zTcF2aRbXY6Nk9y4YhRfPK0s97X8pZAKevHVrLljUTn-I95D3-Pz78JGfi-ata8Jcz9PAw4riGmRyRWbHEJpCPBBb46kE7swGrCMQfeDgBi9Wqb2otPz3I0xIUyRLYyBQmy1KACOEIE5-K3IX2u95S6NwGneMFx5NfLKHG43GxbI9PrUnsB-99mg1-SnOXGkF-DivaaXazOVTu1aKqPnkULuD-G7kHX9yHEB2YWXr3PjELRtutU3mFt4cnqKcu2wHegojO4oGJCWZO6k9t2xmjpiINHFcPLVembzxq8nHZe1N03-j6TJev7p17N7MyLIYd8aSMbb2J3zMZ1gttoV5dxBqhiWVIJklGQKmKcr4vO6YViS-vyljAR0gBdt--dmrD5rQShqN6OlUDU4cCJM38tVDuf3F2qtNr5x_oHKQCeWlFRIdg_C_aSN5w5limzhgj_rLyBoibFLl3_QU1apzFdZIbtEFJKy8ki3bKdOP0nDozs_QAI6Gfby4Zu5UpGVgxyhNkETxj0Ys1LRVbAexDxxe-OXQNDSlzmZu0c6IXyDgl7xS6mw-wlvsbS8prjNxmQgGZgxNO53igy4DqtBoIsRkHzrDbuWdw1T0hOSENOUKzgmZDau_jmugI4V8x9Mfx2dmyoBr6gU1J4b8ZNgdG_OLq6w_whQABal30bCZo5Le1VXLTTl8S2yGE87s5n66AMkG3bKplAgKlaUjjsREkHIJu1tREpk46SUp6DhrcT5OLi476rCyv-1l_wcsQ4o2cj2TSC0TRASWoLUrWduJOI8of9EsEYMda-EZc5fKfvYmpPt_qGK9V1aluJKkgfEGJ1FMADj9qoOOn9vajxVlwkW0VdTaHq_PLs8IBy-QwlHb6ye3ibVBk8uLWWRNvOJcRqCdCSw_FN1hMHcGQhEn0ItZCU7AtTDd_JK5OrVj64HpZKepTrpEob-zALE6L4zj-HVIVtdeTSWMA47RFJF27KoANuknsLESTG5xfjcyk4PcOEiKU0DrEfsp988n_gv7w3_eNppXa7Ratyw80xuAXs_z-A9gfRtPyAfGyW7q4Ia7m2jDrOSowRYrjqruKpn-TC8Yv0r2Og162-MUGzDRqhCrH3X0-fMQ-HUHrwR2EMtrPmeMrlNxKkL6LfRuKqvcM1F6TkZVrvHriu9eaIE4knD8smI9xzkQQWeUv8xlaVY9vGSgZDwR4Z4uijeyhhIOJeRI8ydrJU5_EzkzISnPUZzTh4ZCQFQUkWj6jP0GmP9LlvJY28652dReW2PtipaVNKibMCDEflt-sbOWgDA-fJCjmVRvnS-l0vW4o3nxD_SSK6zfXnVq-LnzrlblEAuLTCu9p5QJzbms57qaPJUzzEpDWkEVCgngBGkud0ZRkrExI1rPldlipKLIc-2YxSfKickTppAK-u6hFORC_8dJJ0BHUz9A5GvlZvGyF5rtp9JZbCvgEfEeQG8DzvYVAEVgL99D4p8aBWhrmKq8MuegaUjvt5ey0mpgZIXGxnN1MiPTWeA-yI08So9X4fk9C7qtCkE0zNi0nshQ65LWSxzptwu4AB2vL8OXdIElXt_sZ6_GBU6Co2QpVsL_2ayXJgirLQABsSMnvY1A4B_x1M2hzXvHYyS5YsftnfIP7XTY4KrV1UXKZbIKlAqAMFYZNuN6HZGrh5o7pdmTJdZtlwhvz2RQ79VNTEbZI0Sc6510-OxCbQeUL8PAoZ93lzWUxMRvsYGw4dyHBQMZdTC9s9TtAP6wnuvSudU5bc4LiRCe8lKYxcKQOJ7FOjmWfgvc6Rgl1ot5e2zJTmakp8WiR5Olk3BlQPLYjIleAD_mEzgNyWucK_0XjTvhbIto9GC7S56RYkHexjqt4woNv6Yxg1pQvb-DLbhzaqfG9MdsyKsDbd7K6UPVImXvGOwYCkJQ-Y-5ZewdcCB5uS-nUOX6KNPsVAWr4fkCBOl9s6GbafGIfRSbIzvP2oV7kZJLymk1BD95L0pror5Zz28LiNLqJ5UH7y6qU38oYDgVJ0iuEV5cLUmYMwzrKjnuUX-MZU818Caw10mzurGOOk8iTBEgZiMpq2xy7-AOSZZ_mjk0WlgMMWzKGB8zzy2CnasuOIq6PABaZ1uXUExBTaSH7d3QZgFFU4yIrU8RuMfnYMqeglyiwWJRPjJaVr1lJmHUUcXZ-6SXYfrVIP3AEbPhK3jXTWd6w4noms1WLQdL5O_TOIBnRcOo9gNqTo-pox2lUcHzUMLfUltblDWDCtELumJYN2eZfZKGZoKkdYXfDfTSXLpfRwjGV88IGlGEMsy_Yb0gb1mqH9e7DlMduNMenCvCSzfTP-8v9yp8ToSSjT6JyzUf4DfNzpp8IfdBxt45dOugbnRTN9TiGfq2xZdTrnnyLJf1XMQNFbglOoPDDG5dJGpr9WjIcu7spa_539V7niU8Yr0nR-raq2m28ELqf7KJbXKFyfrAyimdZBmBgEyzdwOeKnUMWE0PTm6-dWqDJptGaALq1fO4OPWrK2jZmcAW1TAqkFzwQmhWPnpQA52NDU_TwIY17wKY41ITDWZ5wnfQQlqDD7T-A4rroaXSBuVQWi5j2L1ys68qjMDsXhOGQn4r8bkV6y7P_zkPXC5IwDf-5DArRY-SpN7NoX8HqHVInz9J34jf4Cv0VCqhkJ2tQHvYYwIuzgiHkw_7ZFUrXBbA1TjSKMYrh9qU5vlc2elIXHSdblqLzq-EDDqgtQM0RvaWL4m7nJuMt0PBpQpKZx7nO-axnXQeIDy2AUm99gWDTpAuoDuzUcQTkA2mbYeSRPmm7EWx2Ow5aIijGsgy4WLOHadZDfe3HgVA1CHASnEO4b7lAJtxh9dzFpWGB0AHgTOCF6GMroh-rhQHZi5rmAKCZJlWJ9_0XllPlKK2EIjBpe4PT_Pot1dXstJi4kJ0hrFiSx17DcnV3kwlCF1RnKrGks9C6AJOCYCNWi4l94geG9q1Vh_JJacEm_4ZOxB-BbBWHrnj5QZqMcfodtFEOJvqbhxij0mEBIC1wZJVyI2OQILtqdICQN1M8ehkblEzwW0crnAnKkM6zUuNuVGq3it-U5AdPjrFrYZa7dE4h9AcKPzE9oFXrn3ucutYCz1ezlP76Q7Pmsc3mT-8M3Kv4Rkk5cx2dz-MoYOz1O__FjfmV8svV1qzfKLNgiFTqpKBIZAQGsTEhZQpo-QdUsGI0lTaYrrmUcP4WX0qlNQjtIYm13tZpPTJOi5_ftLm_oOZYvMUIvvDdBocXD695dULgPqUeX25rHbDWBcFEzk5Ew0TZcveZIcPV8BsoD6xvWdWbv2kJLNUQGENIR7yYBZucvNGtELfE7bW98vQkw0TnkDLzwf35iPCZhLWSm4FRtkuhM--Fn1BEvszzf2zmDzwZnkN0FasBe9o5UBubj5dWJ1sNVKE-Ps3P4u4THMNCUkHJVydWrh6aiX14EheVbgVrrcuIpSlhz8ZK_Lp6Z3DG6DJyNlsaxN2LUSoyPoobGKeOHF6LVpbR0Um1ydMhGFGHAeICquZu4sNxf18oKVPDBKA_yk62eAHR_2lblrnXU0kRdHaD3CyHI8PC1lLN9yOO6EacZ4F-JTN7PPt7ko7o5Inal4r-87xF2sEYy_jwoADk4ka7LBTgSyzcktlWPb7HNuTmXGaRl8S2U4IHnOzpq4icRciHYwREon5h3cfBAcHxQyGSyktPeKagBmtwJkk2rm9kJJViPz03pZkne3olKbn6JOb79oAw10ja8K0mWJTZI-6OJGfEaYcDmMqM-MboL1m7WG8We5tc3-UC_Lo-k99JY9iTi2p0F-Je-_mb4QaB6HAeVTUaqHOtY48dZ4fV99ZTNdzxVkfl3Nu53bFcWoLBQskhVHE2IQBcLmGSG59hDzIli8sUmG0fNSHQ3YAzCBGF2hhFfGAsticfXs2xqrB136mh55b6CdFwUOvSy4oCP8cI3PASeKoIMFaTTZdNR5AmxvHqK2gzbJxuADPCyybXr2GvuCL9ltCWrfSeeo_rCJUw37iYSi2MUrCLExaanu6ga9CBsSoqVRsGhAicegHD523-yby255R9HrkTvkzKIHao9J89kQdcDy8HV8-kKMgl8o8WDLg3s4e6NsHY_Gzx6v6tHBlp-4VgqYpeWvzh63VCC8PwdtIsi-Gmh1aSAykLl_m4RqyqsT52kX2HejZrdpUjmzaenQmWXtssHYDFPNez7a4q_gUPetrxka5nKSrl1IfYD6hbqhopnUcbsanY5pV3In9kR8g6E2fK49wvOnE1y7ZqjGcx_EXY2XRqmfY5dDjX_UK6zN7kfv8VN5X-opM1KOk9TB8e-KRtUBhpierKyMlYFn2eveGktJLR4J4CmbH-Ggj-e5SPTAHIvD2R_z_OtwzkP305uLvtYMWuSY-tbN36udAE6q8ZeNdrahsZz4ZYHiwAtdimkh_hL91JleJeJaj7e8z0TbgTsfoxi0K1CnhHvYmF6AYABoSyUSF-C_dN9CIk4AyA90i01xjC3ypUFn0435E5MFW0uxdIM6H_17B4eQ-SVUf1_3nhrak2kj2CzilTjhNIAg9-k7HEX9B-XlDNT3t5LZub8eK_3mYjVrLQe4LiqFcbmFaDFP5xC5EGASskP8xOv7u8i-aEVBYJfk4_ya_UJXQhgJhisjUpoZghXExWUAo6MMOfVV0euaAMFHBMeO8a3nHjy_oyCK3Rw63bKLKOyl5Bt0t73R5S8ucNEfmxSe_tO3wOklUFuGws7GRbP2dsziGw2J2nO3aUFvP6QfiuORD4LfXNOJBrJ_SY9QI9dBeG_riYlaTQPsWUL7Z7dML4I1bnPu9DivA2DfFqnP837d8afF_OZnEmH-h0xrmbFdVm6ibQZPcNZSbZrgLEoKjnnXgQKOsq_1PC-aF6c-8nQ-cqqBKEsgyVs5JSNE227JrxaCupY_J8uyKbeeISreXVllVNtBKtrSvlPi_sOYnsdTb_TTbD-bFvB3R_1TcZfFtPKjjhZFhT4l2g3Ad8yCi35Iz3A4S2a5odIL6fLTjZfduYC9IuF6Hqe5_yWCZXmUUNP7YkUocZlWmii9r6q-7qYLkHGYXRl1u0Whd5goWa26mYS0qmkBlYzd7G2tboW56TWnNmIcUif4h4mkWZtWPwPFsuEkmoMZGfHBzlymu4kJdG_TNIQOrF8i5uEnJW3sJ-Ctx-Pztv9VbQRvGl8EOy8wDwrs8ctZ-EzAtRksewcWqOeNmneRwoY6sfs_uw7AJ6ALaXpx-55GEDCo0pwwa7A1I7BdM67W_7E_vjMGd4nljxeq_m0-qDhQD12SC7aeYueH15LBPZ-Y0dIGFtZdVyl8o_Tp22dbyIsBl7Y1ZZFMzJBk6ErCHwnJaDvnLo9b6yzA6suF4-j8Vkg5FuCPgs6HFLVNjlsPq_2uTonT7rK1HKsxSI1iBNA1JDLaJFv7wzUxWiv28Eo12QB5ogoeIoC8t_WKbVFdgyxfZ2Ui9UYunTwC9fvQvGOz71D5hCAQX3Z5qgeQ1owunQvAzNKwVddvAnxLCIufCRcgsqxYFbm-3PyCh03yFFSfxk9Ot1iqEnrSBswmIJ6I7eHwYFPj6d3FMvSmxKWMHiZO_wmS14r1nEo3-WZoFjQmO6zMNH3_lEDiyZApEQqkMzGvs0bgKZg3V7pYTxwfI-L3ynNoTwjy4_58LE4pL-ceHdqzZrP5MjDKBWIQNZqcrYeU5VieoGFDMzxrfJIHEw6wXg5v1rsCLDsTu1MOdLHYCaY5g0TKVeymI91gxEj80fjB1WYUgd5_sj5PhkjF-GcoVriDaq9_GNKtXWKoJZRW18TmvozidBZoTfxXMW6X_TbKmNNKVz59GSWxJKF-8hlaAJqWY5UhWM85z47XLdrnCD7eRI-Qao7YTJRGSKN-14Jn5HCH0Dg2x2HSt5a54AdyJRoHX1ErOLx83YPIqUH6BUoL9PDlU4Jact5E-o7oJvuS3F2-3zuhExC26k0WnjVIOZ8Fj1zPOG6Is-QBrY38A_IGdu0y2a059GyLQTDICMaL-HPm7DFBgGCqH_qkJHA2rqrFADwfh4DgfeQRs-ogu6ZRJk5z6ItJmVZMJegOYlxA-hqje7KMdwqMCKBynfZd5JsCTSi7cN-FgBVdgKyj7TR3QzXsAVJmUBntS969b2exJtokFaepyZXkk3nEHQMNsepEhBfqZ0wCVOC0fp_1QEhyZ_nYtRwKgrZw32ziBU08KGrqogY_F9UXIdjwGmCVtJoN2C9hq9pBmEQiZXVwElcphMlSYEVb7XYK7If8lHRU3N36VgRzumx6NmnVuFf0IsrqIIu-yd9dKBZWNrbI66SkovQeb5rP5tBR7_TD7uDioo_vxA4iZoqQoX2CMZ778bhO5h_Do11BJTJ-cGnQdq1uuDlK_u9vBAOszNwH_i9EdGTjGPULNWSOiHhEWhIo4r5ysnlwf5DBscbvO1iAb3ZJxBlkR0oEghWmymOHgKCrW128oG2HREMgUEa0mVlh0iB2Ztz7At_1YNDkx0CCRrwdsRI3dNaG24lky5lxZK6F25L64B26Wg_h0J-XkPUEeAGiH-VTJ-pjpYevuLn-w724RIgUmGR-YEVw-mEsparx3xAwEHIIcExr7KGcPTmFYQ0RwImIaV0KfrDq02BFLchMqu_OnbWUhiLpXMCEqVpuUV0dfj-2l2OHjNtcgGF9XM3v1ibV31uXyZUEWNcRJMnyuH70btZOEhm43DqWpWllszyD4CLTw45xeSrbdI98q7fdh7p1J7JVQMHoHYvAiZNA8hZSgu_Ci_ccn58UdB1J0dl6CDkakce6saxJYmNweSMYNbXwna501UOufubrr4IvHSxwqJwSHv4aaYOoZF0FqaCg_KgiUcdu57TpJjasNZF7I-yHtGkCkPG4yRLwj2JbrycUfdu6lFBV1Vzdn4vAPIVU9Qw==",
+      "id": "rs_08fb8051db894778016aea253bca2087d1afa23339c788a218",
+      "status": null,
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"reason\":\"Compute rank-one gate factors for candidate layer23 MLP edit using probed activation mean; inspect selectivity and weight-update norm.\",\"code\":\"p=artifact('probe-002')\\nmod='model.language_model.layers.23.mlp.down_proj'\\nA=np.stack([np.array(t['modules'][mod]['input'][0],dtype=np.float32) for t in p['texts']])\\nprint('A shape', A.shape)\\nfor targets in [[0,2,3,4,6,7],[0,2,3,6,7],[0,2,3],[0,3,7],[0,2,3,7]]:\\n    m=A[targets].mean(axis=0)\\n    u=m/(np.dot(m,m)+1e-9)\\n    fac=A@u\\n    print('targets',targets,'mean norm',np.linalg.norm(m),'fac',np.round(fac,3),'minmax',fac.min(),fac.max())\\n# Try centered loop-vs-mid discriminant? target [0,2,3,7], non [1,5]\\ntar=[0,2,3,7]; non=[1,5]\\nmt=A[tar].mean(axis=0); mn=A[non].mean(axis=0); u=(mt-mn); u=u/(mt@u+1e-9) # target mean factor 1, non maybe?\\nprint('diff fac', np.round(A@u,3), 'den target mean', mt@u, 'non mean', mn@u, 'norm u',np.linalg.norm(u))\\n# Ridge discriminant maybe using diagonal? not necessary.\\n# Weight norm ratio for W update with d strength c=4 and this u\\nW=weight(mod+'.weight')\\nprint('W norm',np.linalg.norm(W), 'W col/row std', W.std())\\nE=weight('model.language_model.embed_tokens.weight'); fn=weight('model.language_model.norm.weight')\\nd=fn*(E[tokenize('</think>')[-1]]-E[tokenize(' Wait')[-1]])\\nfor c in [2,4,6,8]:\\n    upd=c*np.outer(d,u)\\n    print('c',c,'upd norm',np.linalg.norm(upd),'max abs',np.max(np.abs(upd)),'Wrel',np.linalg.norm(upd)/np.linalg.norm(W))\\n\"}",
+      "call_id": "call_HGZcIYA7cffy57V8ioV8M46L",
+      "caller": null,
+      "id": "fc_08fb8051db894778016aea2549b91487d19e9a595166630543",
+      "name": "python_analysis",
+      "namespace": null,
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "parallel_tool_calls": false,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "xhigh",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Read training questions, answers and available reference solutions. Returns up to 16 rows, using offsets in the combined pool. Metadata lists source ranges.",
+      "name": "practice",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "maximum": 16,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "count"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Persistent CPU NumPy only; cannot run the target. Globals: np, math, names, shapes, config, practice_ids (all training IDs in source order). Helpers: practice_row(id) returns a copied training question/answer/solution; weight(name,current=False) returns a float32 COPY; save_edit(name,array), remove_edit(name), clear_edits(), list_edits(), checkpoint(label), restore(label), artifact(id), tokenize(text), decode(ids). Print compact summaries. No files/network/processes or training. A checkpoint label has up to 40 letters, digits, underscores or hyphens.",
+      "name": "python_analysis",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "code"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Thinking generation on distinct practice IDs: base, current or both. Fixed 32768-token cap; max 64 TOTAL generations, so max 32 paired problems for both. One sample per problem. Returns accuracy, token limits, paired rescues/losses, and an artifact ID containing complete texts. One forward-budget unit.",
+      "name": "generate",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current",
+              "both"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "ids"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "Teacher-force base/current on up to 16 raw texts, <=32768 tokens each and <=131072 tokens total. At up to 32 selected positions (negative indices allowed), capture all layer hidden states and up to 8 modules' input/output vectors, top-20 next-token IDs/logprobs and actual next-token logprobs where present. Module name is its tensor name without .weight. Artifact: texts entries have text,tokens,positions,hidden (layers x positions x width),modules (name -> input/output arrays),top_ids,top_logprobs,next_ids,next_logprobs. One forward-budget unit. Include exact chat template text for faithful diagnostic probes.",
+      "name": "probe",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "modules": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "texts": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "which": {
+            "enum": [
+              "base",
+              "current"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "which",
+          "texts",
+          "modules",
+          "positions"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    },
+    {
+      "allowed_callers": null,
+      "defer_loading": null,
+      "description": "After all 10 forward calls, select a checkpoint label (or empty string for current weights) and freeze permanently. The host alone performs later held-out evaluation. Restore your base checkpoint if no edit is justified.",
+      "name": "finish",
+      "output_schema": null,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_label": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_label",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "strict": true,
+      "type": "function"
+    }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 37471,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 34560
+    },
+    "output_tokens": 1317,
+    "output_tokens_details": {
+      "reasoning_tokens": 782
+    },
+    "total_tokens": 38788
+  },
+  "user": null
+}

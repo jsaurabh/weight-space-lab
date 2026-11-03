@@ -1,12 +1,14 @@
 """Audit the frozen three-condition comparison using saved texts only."""
 import argparse
 from collections import Counter
+from datetime import datetime
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import random
 import statistics
+import tarfile
 
 
 def write(path, value):
@@ -21,14 +23,42 @@ def main():
     protocol = json.loads((root / "protocol.json").read_text())
     state = json.loads((root / "run.json").read_text())
     assert state["status"] == "completed" and state["g4_stopped"]
-    audit = {}
+    uploaded_at = datetime.fromisoformat(state["heldout_uploaded_utc"]).timestamp()
+    payload = json.loads((root / "payload_manifest.json").read_text())
+    with tarfile.open(root / "initial_payload.tar.gz") as archive:
+        assert set(archive.getnames()) == {"backend.py", "protocol.py", "practice.json"}
+        for name, expected_hash in payload.items():
+            assert hashlib.sha256(archive.extractfile(name).read()).hexdigest() == expected_hash
+    audit, api_usage = {}, {}
     for label in protocol["models"]:
+        environment = json.loads((root / label / "environment.json").read_text())
+        assert environment["practice_sha256"] == payload["practice.json"]
+        assert environment["source_sha256"] == {name: payload[name] for name in ["backend.py", "protocol.py"]}
         frozen = json.loads((root / label / "frozen.json").read_text())
         assert not frozen["test_data_present_at_freeze"]
+        assert frozen["frozen_at_unix"] < uploaded_at, "Test uploaded before both selections were frozen"
         assert hashlib.sha256((root / label / "selected.safetensors").read_bytes()).hexdigest() == frozen["selected_file_sha256"]
         responses = [json.loads(p.read_text()) for p in sorted((root / label / "turns").glob("*/response.json"))]
         assert all(r["created_at"] <= frozen["frozen_at_unix"] for r in responses)
-        audit[label] = {"frozen": frozen, "api_requests": len(responses), "api_requests_after_freeze": 0}
+        accounting = [json.loads(p.read_text()) for p in sorted((root / label / "turns").glob("*/accounting.json"))]
+        run = json.loads((root / label / "run.json").read_text())
+        assert run["status"] == "frozen" and len(accounting) == len(responses)
+        cost = round(sum(a["estimated_api_cost_usd"] for a in accounting), 6)
+        assert abs(cost - run["estimated_api_cost_usd"]) < 1e-6
+        api_usage[label] = {"api_calls": len(accounting), "estimated_api_cost_usd": cost,
+            "response_model_ids": sorted({r["model"] for r in responses}),
+            "api_wall_seconds": sum(a["api_wall_seconds"] for a in accounting),
+            "discovery_wall_seconds": run["wall_seconds"],
+            "input_tokens": sum(a["usage"]["input_tokens"] for a in accounting),
+            "cached_input_tokens": sum((a["usage"].get("input_tokens_details") or {}).get("cached_tokens", 0) or 0 for a in accounting),
+            "output_tokens": sum(a["usage"]["output_tokens"] for a in accounting)}
+        calls = [json.loads(p.read_text()) for p in sorted((root / label / "turns").glob("*/call_*.json"))]
+        forward_calls = sum(c["name"] in {"generate", "probe"} and c["response"]["ok"] for c in calls)
+        assert forward_calls == frozen["forward_calls"]
+        assert forward_calls <= protocol["forward_calls_per_editor"]
+        assert frozen["host_forced"] or forward_calls == protocol["forward_calls_per_editor"]
+        audit[label] = {"frozen": frozen, "api_requests": len(responses), "api_requests_after_freeze": 0,
+                        "successful_forward_calls_in_tool_logs": forward_calls}
     first = {}
     for label in protocol["models"]:
         request = json.loads((root / label / "turns/001/request.json").read_text())
@@ -38,6 +68,10 @@ def main():
     problems_path = evaluation / "problems.json"
     assert hashlib.sha256(problems_path.read_bytes()).hexdigest() == protocol["test"]["sha256"]
     problems = json.loads(problems_path.read_text())
+    candidates = json.loads((evaluation / "candidates.json").read_text())
+    assert {c["label"] for c in candidates} == set(protocol["models"])
+    for candidate in candidates:
+        assert candidate["frozen"] == audit[candidate["label"]]["frozen"]
     grader_path = Path(__file__).resolve().parents[2] / "third_party/qwen_p50c/published_grading.py"
     spec = importlib.util.spec_from_file_location("comparison_grader", grader_path)
     grader = importlib.util.module_from_spec(spec)
@@ -46,6 +80,7 @@ def main():
     expected = {(p["unique_id"], s) for p in problems for s in range(2)}
     for condition in ["base", "astra", "gpt55"]:
         data = json.loads((evaluation / (condition + ".json")).read_text())
+        assert len(data["records"]) == len(expected), "Missing or duplicated evaluation samples"
         assert {(r["id"], r["sample"]) for r in data["records"]} == expected
         group = []
         for r in data["records"]:
@@ -80,9 +115,14 @@ def main():
     write(root / "analysis.json", {"conditions": summary, "comparisons": pair_results,
         "problem_subjects": dict(Counter(p["subject"] for p in problems)), "bootstrap_replicates": 10000})
     write(root / "blinding_audit.json", {"identical_initial_inputs_and_tools": True, "editors": audit,
-        "test_uploaded_after_both_frozen": True, "prior_solution_provided": False})
+        "test_uploaded_after_both_frozen": True, "heldout_uploaded_utc": state["heldout_uploaded_utc"],
+        "evaluated_candidate_manifests_match_selections": True, "prior_solution_provided": False})
     write(root / "grader_validation.json", {"comparisons": len(scores), "changes": changes,
         "grader_sha256": hashlib.sha256(grader_path.read_bytes()).hexdigest(), "regraded_after_both_frozen": True})
+    write(root / "api_usage_summary.json", {"editors": api_usage,
+        "estimated_total_api_cost_usd": round(sum(v["estimated_api_cost_usd"] for v in api_usage.values()), 6),
+        "colab_compute_included": False, "price_sources": protocol["price_sources"],
+        "prices_verified_utc": protocol["prices_verified_utc"]})
     (root / "graded_scores.jsonl").write_text("".join(json.dumps(r) + "\n" for r in scores))
     print(json.dumps(summary, indent=2))
     print(json.dumps(pair_results, indent=2))

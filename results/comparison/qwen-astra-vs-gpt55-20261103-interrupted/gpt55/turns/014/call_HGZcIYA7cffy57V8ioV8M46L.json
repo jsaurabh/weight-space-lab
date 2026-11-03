@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "code": "p=artifact('probe-002')\nmod='model.language_model.layers.23.mlp.down_proj'\nA=np.stack([np.array(t['modules'][mod]['input'][0],dtype=np.float32) for t in p['texts']])\nprint('A shape', A.shape)\nfor targets in [[0,2,3,4,6,7],[0,2,3,6,7],[0,2,3],[0,3,7],[0,2,3,7]]:\n    m=A[targets].mean(axis=0)\n    u=m/(np.dot(m,m)+1e-9)\n    fac=A@u\n    print('targets',targets,'mean norm',np.linalg.norm(m),'fac',np.round(fac,3),'minmax',fac.min(),fac.max())\n# Try centered loop-vs-mid discriminant? target [0,2,3,7], non [1,5]\ntar=[0,2,3,7]; non=[1,5]\nmt=A[tar].mean(axis=0); mn=A[non].mean(axis=0); u=(mt-mn); u=u/(mt@u+1e-9) # target mean factor 1, non maybe?\nprint('diff fac', np.round(A@u,3), 'den target mean', mt@u, 'non mean', mn@u, 'norm u',np.linalg.norm(u))\n# Ridge discriminant maybe using diagonal? not necessary.\n# Weight norm ratio for W update with d strength c=4 and this u\nW=weight(mod+'.weight')\nprint('W norm',np.linalg.norm(W), 'W col/row std', W.std())\nE=weight('model.language_model.embed_tokens.weight'); fn=weight('model.language_model.norm.weight')\nd=fn*(E[tokenize('</think>')[-1]]-E[tokenize(' Wait')[-1]])\nfor c in [2,4,6,8]:\n    upd=c*np.outer(d,u)\n    print('c',c,'upd norm',np.linalg.norm(upd),'max abs',np.max(np.abs(upd)),'Wrel',np.linalg.norm(upd)/np.linalg.norm(W))\n",
+    "reason": "Compute rank-one gate factors for candidate layer23 MLP edit using probed activation mean; inspect selectivity and weight-update norm."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 92,
+    "remaining_forward_calls": 8,
+    "result": {
+      "edits": [],
+      "stdout": "A shape (8, 3584)\ntargets [0, 2, 3, 4, 6, 7] mean norm 12.688695 fac [1.068 0.243 1.156 0.831 0.936 0.892 1.058 0.95 ] minmax 0.24303737 1.1564684\ntargets [0, 2, 3, 6, 7] mean norm 13.218579 fac [1.04  0.213 1.133 0.872 0.6   0.867 1.063 0.892] minmax 0.21278988 1.13288\ntargets [0, 2, 3] mean norm 14.560594 fac [1.02  0.167 1.15  0.83  0.459 0.53  0.525 0.658] minmax 0.16694927 1.1498858\ntargets [0, 3, 7] mean norm 13.158999 fac [1.092 0.171 1.045 0.934 0.584 0.566 0.672 0.974] minmax 0.17144628 1.0920577\ntargets [0, 2, 3, 7] mean norm 13.678526 fac [1.092 0.175 1.192 0.825 0.575 0.546 0.596 0.891] minmax 0.17526743 1.192193\ndiff fac [ 0.982 -0.808  1.208  0.819  0.26  -1.977 -0.754  0.99 ] den target mean 1.0 non mean -1.3923191 norm u 0.14141873\nW norm 16.417046 W col/row std 0.008569442\nc 2 upd norm 0.70936453 max abs 0.036307313 Wrel 0.043209024\nc 4 upd norm 1.4187291 max abs 0.072614625 Wrel 0.08641805\nc 6 upd norm 2.128094 max abs 0.10892194 Wrel 0.1296271\nc 8 upd norm 2.8374581 max abs 0.14522925 Wrel 0.1728361\n",
+      "truncated": false
+    },
+    "seconds": 0.17735424800002875
+  }
+}

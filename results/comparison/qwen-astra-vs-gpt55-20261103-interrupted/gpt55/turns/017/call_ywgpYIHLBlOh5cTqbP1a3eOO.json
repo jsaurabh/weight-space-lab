@@ -1,0 +1,30 @@
+{
+  "arguments": {
+    "code": "restore('base')\n# Construct rank-one edit on final layer MLP down projection.\nmod='model.language_model.layers.23.mlp.down_proj.weight'\np=artifact('probe-002')\nA=np.stack([np.array(t['modules']['model.language_model.layers.23.mlp.down_proj']['input'][0],dtype=np.float32) for t in p['texts']])\n# Post-solution / loop-like contexts: Betty loop, degree loop, AIME loop, short solved expression.\ntargets=[0,2,3,7]\nm=A[targets].mean(axis=0)\nu=m/(np.dot(m,m)+1e-9)\nE=weight('model.language_model.embed_tokens.weight')\nfn=weight('model.language_model.norm.weight')\nid_wait=tokenize('Wait')[-1]; id_spwait=tokenize(' Wait')[-1]; id_stop=tokenize('</think>')[-1]\nd=fn*(E[id_stop]-0.5*(E[id_wait]+E[id_spwait]))\nstrength=6.0\nW=weight(mod)\nW2=W + strength*np.outer(d.astype(np.float32), u.astype(np.float32))\nsave_edit(mod,W2.astype(np.float32))\ncheckpoint('stopwait6_l23mlp')\nprint('edit saved', mod, 'strength', strength)\nprint('factors on probe texts', np.round(A@u,3))\nprint('update norm', np.linalg.norm(W2-W), 'W norm', np.linalg.norm(W), 'max abs update', np.max(np.abs(W2-W)))\nprint('edits', list_edits())",
+    "reason": "Create first candidate: a rank-one final-MLP output edit that, in probed post-solution/loop states, suppresses Wait token directions and boosts </think>."
+  },
+  "name": "python_analysis",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 89,
+    "remaining_forward_calls": 8,
+    "result": {
+      "edits": [
+        {
+          "base_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+          "changed_entries": 2853627,
+          "dtype": "torch.bfloat16",
+          "edited_sha256": "d7205c157e283fa73be7525c82cb2e4e6fb56c100701b31d261ae7a64897ad48",
+          "name": "model.language_model.layers.23.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ]
+        }
+      ],
+      "stdout": "edit saved model.language_model.layers.23.mlp.down_proj.weight strength 6.0\nfactors on probe texts [1.092 0.175 1.192 0.825 0.575 0.546 0.596 0.891]\nupdate norm 1.0820446 W norm 16.417046 max abs update 0.04015762\nedits [{'name': 'model.language_model.layers.23.mlp.down_proj.weight', 'shape': [1024, 3584], 'dtype': 'torch.bfloat16', 'changed_entries': 2853627, 'base_sha256': '1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48', 'edited_sha256': 'd7205c157e283fa73be7525c82cb2e4e6fb56c100701b31d261ae7a64897ad48'}]\n",
+      "truncated": false
+    },
+    "seconds": 0.21895283899993956
+  }
+}

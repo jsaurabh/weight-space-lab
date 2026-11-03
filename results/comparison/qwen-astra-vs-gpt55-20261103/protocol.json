@@ -2,7 +2,7 @@
   "api_cost_ceiling_usd": null,
   "api_retries": 0,
   "cpu_calls_per_editor": 100,
-  "created_utc": "2026-11-03T18:09:22.039784+00:00",
+  "created_utc": "2026-11-03T18:51:29.432263+00:00",
   "evaluation_conditions": [
     "base",
     "astra",
@@ -46,7 +46,7 @@
   ],
   "prices_verified_utc": "2026-11-03",
   "prior_repair_provided": false,
-  "protocol": "paired_qwen_editor_pilot_v1",
+  "protocol": "paired_qwen_editor_pilot_v2",
   "reasoning_effort": "xhigh",
   "repetitions_per_editor": 1,
   "revision": "2fc06364715b967f1860aea9cf38778875588b17",

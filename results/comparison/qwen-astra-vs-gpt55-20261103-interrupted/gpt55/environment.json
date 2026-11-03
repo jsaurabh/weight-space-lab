@@ -1,0 +1,11 @@
+{
+  "model": "Qwen/Qwen3.5-0.8B",
+  "payload_contains_only_base_and_practice": true,
+  "practice_count": 15458,
+  "practice_sha256": "9910f72a7eafd326095d26dac28f12bde665d357ddcc0e2a8b1209dc3662fb7b",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "source_sha256": {
+    "backend.py": "3982aba8942668591f2074a938fbe3ae792ea391fb88c40cdc496572b4b1a67e",
+    "protocol.py": "7579931c69d7b57aecd867fc1fbf38a253a9f8feaa775cd46f37a59d26cd281f"
+  }
+}

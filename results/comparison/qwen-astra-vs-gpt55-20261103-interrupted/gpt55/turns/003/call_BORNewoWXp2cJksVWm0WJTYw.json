@@ -1,0 +1,48 @@
+{
+  "arguments": {
+    "ids": [
+      "gsm8k_train_0",
+      "gsm8k_train_1",
+      "gsm8k_train_2",
+      "gsm8k_train_3",
+      "gsm8k_train_4",
+      "gsm8k_train_5",
+      "gsm8k_train_6",
+      "gsm8k_train_7",
+      "gsm8k_train_8",
+      "gsm8k_train_9",
+      "gsm8k_train_10",
+      "gsm8k_train_11",
+      "gsm8k_train_12",
+      "gsm8k_train_13",
+      "gsm8k_train_14",
+      "gsm8k_train_15",
+      "math_train_0",
+      "math_train_1",
+      "math_train_2",
+      "math_train_3",
+      "math_train_4",
+      "math_train_5",
+      "math_train_6",
+      "math_train_7",
+      "aime_train_0",
+      "aime_train_1",
+      "aime_train_2",
+      "aime_train_3",
+      "aime_train_4",
+      "aime_train_5",
+      "aime_train_6",
+      "aime_train_7"
+    ],
+    "reason": "Baseline thinking-sampling accuracy and failure modes on a mixed practice batch before any weight edits.",
+    "which": "base"
+  },
+  "name": "generate",
+  "response": {
+    "error": "ValueError: Provide distinct valid practice IDs",
+    "ok": false,
+    "remaining_analysis_calls": 99,
+    "remaining_forward_calls": 10,
+    "seconds": 0.0006906700000399724
+  }
+}

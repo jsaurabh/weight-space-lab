@@ -1,0 +1,12 @@
+{
+  "active_editor": "gpt55",
+  "completed_editors": [],
+  "error_type": "KeyboardInterrupt",
+  "g4_stopped": true,
+  "order": [
+    "gpt55",
+    "astra"
+  ],
+  "session": "weight-space-qwen-compare",
+  "status": "stopped_on_error"
+}

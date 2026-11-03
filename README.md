@@ -58,6 +58,7 @@ For fresh model runs and checkpoint reconstruction:
 
 - [Published-edit replay](docs/qwen-replay.md): pinned base model, exact edit verification, local and G4 commands.
 - [Blind-search protocol](docs/blind-qwen-discovery.md): editor tools, budgets and test isolation.
+- [Astra vs GPT-5.5 on Qwen](docs/qwen-editor-comparison.md): matched editor budgets and G4 reproduction commands.
 - [Frozen blind candidate](results/qwen/blind-discovery/README.md#replay-without-further-api-calls): reconstruct the selected checkpoint without calling the editor.
 
 The base Qwen model is downloaded separately. Generating new Qwen answers is

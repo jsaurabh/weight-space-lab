@@ -170,12 +170,14 @@ class Service:
             self.edits.pop(name, None)
             return {"name": name, "changed_entries": 0}
         # Reject a whole-tensor scalar gain without prohibiting local interventions.
-        old = base.float().flatten().numpy()[::max(1, base.numel() // 8192)].astype(np.float64)
-        new = np.asarray(array).reshape(-1)[::max(1, base.numel() // 8192)].astype(np.float64)
+        # A strided sample can miss an entire edited column. Compare all entries
+        # so legitimate sparse interventions cannot look like the identity gain.
+        old = base.float().flatten().numpy().astype(np.float64)
+        new = np.asarray(array).reshape(-1).astype(np.float64)
         norm = float(old @ old)
         if norm:
             gain = float(new @ old / norm)
-            if np.linalg.norm(new - gain * old) <= 1e-6 * max(np.linalg.norm(new), 1e-20):
+            if abs(gain - 1.0) > 1e-6 and np.linalg.norm(new - gain * old) <= 1e-6 * max(np.linalg.norm(new), 1e-20):
                 raise ValueError("Whole-tensor scalar rescaling is not an admissible edit")
         candidate = dict(self.edits)
         candidate[name] = tensor.contiguous()

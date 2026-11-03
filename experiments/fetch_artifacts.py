@@ -23,7 +23,7 @@ def matches(path, info):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--group", choices=["all", "tiny", "qwen-published", "qwen-blind"], default="all")
+    parser.add_argument("--group", choices=["all", "tiny", "qwen-published", "qwen-blind", "qwen-comparison"], default="all")
     parser.add_argument("--verify-only", action="store_true", help="Check local files without downloading")
     args = parser.parse_args()
     root = args.root.resolve()

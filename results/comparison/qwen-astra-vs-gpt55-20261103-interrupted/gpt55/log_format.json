@@ -1,0 +1,6 @@
+{
+  "raw_sha256": "ae8e9b64d5c3ee80b7a34e42dd7aed2f1ca0aca023eadf99051bf875e330d2b9",
+  "normalized_sha256": "ec17455cfcbe6e78e8b3d5feb51274d57168e76d1ff68a4e6c5381a63f9e6240",
+  "raw_bytes_preserved_in": "service_raw.log.gz",
+  "normalization": "Expand carriage returns to newlines; remove trailing whitespace."
+}

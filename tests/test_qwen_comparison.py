@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import numpy as np
 import torch
 
 DIRECTORY = Path(__file__).resolve().parents[1] / "experiments/qwen_compare"
@@ -26,6 +27,23 @@ with patch.dict(sys.modules, {"protocol": protocol}):
 
 
 class QwenComparison(unittest.TestCase):
+    def test_sparse_column_edits_are_allowed_and_global_gains_are_rejected(self):
+        service = backend.Service.__new__(backend.Service)
+        service.frozen = False
+        service.edits = {}
+        name = "model.language_model.layers.0.test.weight"
+        # The old 8,192-element stride inspected only even columns here.
+        before = torch.ones((128, 128), dtype=torch.bfloat16)
+        service.headers = {name: {"shape": [128, 128]}}
+        service.base_tensor = lambda key: before
+        sparse = before.float().numpy().copy()
+        sparse[:, 1] += 0.125
+        self.assertEqual(service.save_edit(name, sparse)["changed_entries"], 128)
+        scalar = before.float().numpy() * 1.25
+        with self.assertRaises(ValueError):
+            service.save_edit(name, scalar)
+        np.testing.assert_array_equal(service.weight(name, current=True), sparse)
+
     def test_equal_long_generation_budget_and_no_published_solution(self):
         self.assertEqual(protocol.MAX_FORWARD_CALLS, 10)
         tools = {tool["name"]: tool for tool in protocol.TOOLS}

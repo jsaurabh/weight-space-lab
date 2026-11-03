@@ -47,6 +47,10 @@ The per-run `protocol.json`, payload hashes, tool logs and frozen manifests are
 the authoritative record. Model artifacts belong on Hugging Face; source,
 reports and API exchanges belong on GitHub.
 
+An [interrupted GPT-5.5-only attempt](../results/comparison/qwen-astra-vs-gpt55-20261103-interrupted/)
+is excluded: a validator falsely rejected a sparse column edit. The corrected
+interface is tested before both fresh discovery runs.
+
 ## Run
 
 Install the repository's `qwen` extra and configure `OPENAI_API_KEY` locally.

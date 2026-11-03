@@ -3,5 +3,6 @@
   "metadata_practice_count": 15458,
   "native_reload_validated": true,
   "probability_probe_validated": true,
-  "separate_workspace": true
+  "separate_workspace": true,
+  "sparse_entry_and_column_edits_validated": true
 }

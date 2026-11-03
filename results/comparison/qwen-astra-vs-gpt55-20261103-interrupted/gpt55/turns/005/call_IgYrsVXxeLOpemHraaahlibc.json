@@ -1,0 +1,79 @@
+{
+  "arguments": {
+    "count": 8,
+    "offset": 14744
+  },
+  "name": "practice",
+  "response": {
+    "ok": true,
+    "remaining_analysis_calls": 99,
+    "remaining_forward_calls": 10,
+    "result": [
+      {
+        "answer": "60",
+        "id": "aime_1983-1",
+        "question": "Let $x$ , $y$ and $z$ all exceed $1$ and let $w$ be a positive number such that $\\log_xw=24$ , $\\log_y w = 40$ and $\\log_{xyz}w=12$ . Find $\\log_zw$ .",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "20",
+        "id": "aime_1983-3",
+        "question": "What is the product of the real roots of the equation $x^2 + 18x + 30 = 2 \\sqrt{x^2 + 18x + 45}$ ?",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "26",
+        "id": "aime_1983-4",
+        "question": "A machine-shop cutting tool has the shape of a notched circle, as shown. The radius of the circle is $\\sqrt{50}$ cm, the length of $AB$ is $6$ cm and that of $BC$ is $2$ cm. The angle $ABC$ is a right angle. Find the square of the distance (in centimeters) from $B$ to the center of the circle. [asy] size(150); defaultpen(linewidth(0.6)+fontsize(11)); real r=10; pair O=(0,0), A=r*dir(45),B=(A.x,A.y-r); path P=circle(O,r); pair C=intersectionpoint(B--(B.x+r,B.y),P); // Drawing arc instead of full circle //draw(P); draw(arc(O, r, degrees(A), degrees(C))); draw(C--B--A--B); dot(A); dot(B); dot(C); label(\"$A$\",A,NE); label(\"$B$\",B,S); label(\"$C$\",C,SE); [/asy]",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "4",
+        "id": "aime_1983-5",
+        "question": "Suppose that the sum of the squares of two complex numbers $x$ and $y$ is $7$ and the sum of the cubes is $10$ . What is the largest real value that $x + y$ can have?",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "35",
+        "id": "aime_1983-6",
+        "question": "Let $a_n=6^{n}+8^{n}$ . Determine the remainder on dividing $a_{83}$ by $49$ .",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "57",
+        "id": "aime_1983-7",
+        "question": "Twenty five of King Arthur's knights are seated at their customary round table. Three of them are chosen - all choices being equally likely - and are sent off to slay a troublesome dragon. Let $P$ be the probability that at least two of the three had been sitting next to each other. If $P$ is written as a fraction in lowest terms, what is the sum of the numerator and denominator?",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "61",
+        "id": "aime_1983-8",
+        "question": "What is the largest $2$ -digit prime factor of the integer $n = {200\\choose 100}$ ?",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      },
+      {
+        "answer": "12",
+        "id": "aime_1983-9",
+        "question": "Find the minimum value of $\\frac{9x^2\\sin^2 x + 4}{x\\sin x}$ for $0 < x < \\pi$ .",
+        "solution": "",
+        "source": "aime",
+        "year": 1983
+      }
+    ],
+    "seconds": 8.954999998422863e-05
+  }
+}

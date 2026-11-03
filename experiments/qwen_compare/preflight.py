@@ -17,7 +17,8 @@ def main():
         assert metadata["ok"], metadata
         edited = bridge.rpc("python_analysis", {"code":
             "n=next(n for n in names if n.startswith('model.language_model.layers.') and len(shapes[n])==2)\n"
-            "w=weight(n); w.flat[0]+=0.125\nsave_edit(n,w)\nprint(list_edits())"})
+            "w=weight(n); w.flat[0]+=0.125\nsave_edit(n,w)\n"
+            "clear_edits()\nw=weight(n); w[:,1]+=0.125\nsave_edit(n,w)\nprint(list_edits())"})
         assert edited["ok"], edited
         native = bridge.rpc("smoke_reload", {}, timeout=900)
         assert native["ok"] and native["result"]["base_roundtrip_exact"], native
@@ -26,6 +27,7 @@ def main():
         assert probe["ok"], probe
         write(args.output / "preflight.json", {"metadata_practice_count": metadata["result"]["practice_count"],
             "native_reload_validated": True, "probability_probe_validated": True,
+            "sparse_entry_and_column_edits_validated": True,
             "separate_workspace": True, "editor_budget_used": 0})
         bridge.export(Path(".artifacts/qwen-compare/preflight-export"))
         print("Hardware preflight passed", flush=True)

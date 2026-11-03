@@ -206,7 +206,7 @@ def main():
         raise SystemExit("No authorized project key")
     order = list(MODELS)
     random.Random(20261103).shuffle(order)
-    protocol = {"protocol": "paired_qwen_editor_pilot_v1", "created_utc": datetime.now(timezone.utc).isoformat(),
+    protocol = {"protocol": "paired_qwen_editor_pilot_v2", "created_utc": datetime.now(timezone.utc).isoformat(),
         "models": MODELS, "order": order, "order_seed": 20261103, "target": BASE_ID, "revision": BASE_REVISION,
         "reasoning_effort": "xhigh", "max_output_tokens_per_api_call": 16000, "api_cost_ceiling_usd": None,
         "api_retries": 0, "max_api_turns_per_editor": 120, "forward_calls_per_editor": 10,
@@ -221,6 +221,7 @@ def main():
         "prices_verified_utc": "2026-11-03", "repetitions_per_editor": 1,
         "scope": "Small matched Qwen-repair pilot; not the paper's 50-pass discovery protocol or an equivalence test."}
     write(output / "protocol.json", protocol)
+    (output / "initial_payload.tar.gz").write_bytes((ROOT / ".artifacts/qwen-compare/payload.tar.gz").read_bytes())
     source = output / "source"
     source.mkdir(exist_ok=True)
     for path in Path(__file__).parent.glob("*.py"):

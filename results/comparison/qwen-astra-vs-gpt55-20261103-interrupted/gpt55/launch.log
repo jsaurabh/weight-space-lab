@@ -1,0 +1,6 @@
+
+[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+{"label": "gpt55", "pid": 7074, "runtime": {"python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]", "requested_accelerator": "G4", "hardware": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB, 12.0, 580.82.07", "software": {"torch": "2.14.0", "vllm": "0.33.0", "transformers": "5.20.2", "math-verify": "0.9.0"}}}
