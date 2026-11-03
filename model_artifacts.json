@@ -1,5 +1,15 @@
 {
   "files": {
+    "results/comparison/qwen-astra-vs-gpt55-20261103-interrupted/gpt55/artifacts/probe-002.npz": {
+      "bytes": 972891,
+      "group": "qwen-comparison",
+      "sha256": "f9f93406f8468e77b211e56a5a143d0c47ec9086d6ac925deeed44360be4c73c"
+    },
+    "results/comparison/qwen-astra-vs-gpt55-20261103-interrupted/gpt55/artifacts/probe-005.npz": {
+      "bytes": 1936555,
+      "group": "qwen-comparison",
+      "sha256": "f48714c352876bf0e3432eed6d9b8a5956b9729c88ee54dc3a2cbcfd8e4525e1"
+    },
     "results/discovery/astra-initial/addition/weights.pt": {
       "bytes": 87807,
       "group": "tiny",
@@ -63,5 +73,5 @@
   },
   "repo_id": "jsaurabh/weight-space-lab-artifacts",
   "repo_type": "model",
-  "revision": "645821601020cbd7dbfdac9ae576c1332a1f6604"
+  "revision": "2fc6ef70c4e94c622f5d66901c0655cf44699045"
 }
