@@ -46,3 +46,24 @@ Source: [authors' public training data and setup](https://github.com/RikiyaT/lm_
 The per-run `protocol.json`, payload hashes, tool logs and frozen manifests are
 the authoritative record. Model artifacts belong on Hugging Face; source,
 reports and API exchanges belong on GitHub.
+
+## Run
+
+Install the repository's `qwen` extra and configure `OPENAI_API_KEY` locally.
+The preparation step uses public data and no editor API calls. Use a new result
+directory; the cache and Colab session below are intended for one active run.
+
+```sh
+uv run --extra qwen --no-editable python experiments/qwen_compare/prepare.py --output results/comparison/new-run
+colab new -s weight-space-qwen-compare --gpu G4
+colab exec -s weight-space-qwen-compare -f experiments/blind/setup.py --timeout 600
+colab exec -s weight-space-qwen-compare -f experiments/qwen_compare/init.py --timeout 60
+colab upload -s weight-space-qwen-compare .artifacts/qwen-compare/payload.tar.gz /content/qwen-comparison/payload.tar.gz
+uv run --extra qwen --no-editable python experiments/qwen_compare/preflight.py --output results/comparison/new-run
+uv run --extra qwen --no-editable python experiments/qwen_compare/driver.py --output results/comparison/new-run
+uv run --extra qwen --no-editable python experiments/qwen_compare/analyze.py results/comparison/new-run
+```
+
+The driver exports evidence and stops the G4 in its cleanup path. If interrupted
+before the driver starts, stop the provisioned session with
+`colab stop -s weight-space-qwen-compare`.
