@@ -7,6 +7,7 @@ CONFIGS = {
     "addition": Config(12, 8, 32, 4, 81),
 }
 VOCABS = {"parity": "01=_", "addition": "0123456789+="}
+PROMPT_EXAMPLES = {"parity": (), "addition": ("00+00=", "99+99=")}
 DESCRIPTIONS = {
     "parity": (
         "Given a nonempty binary string of length 1 through 10, output a single token: "

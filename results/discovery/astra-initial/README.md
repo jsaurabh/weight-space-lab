@@ -9,7 +9,7 @@ no edits to either generated proposal.
 | Task | Attempts | Development | Unseen holdout | Entire domain | Stored / nonzero values |
 | --- | --- | --- | --- | --- | --- |
 | Parity | 1 | 200 / 200 | 1,846 / 1,846 | 2,046 / 2,046 | 170 / 37 |
-| Addition | 1 | 200 / 200 | 9,800 / 9,800 | 10,000 / 10,000 | 10,429 / 106 |
+| Addition | 1 | 200 / 200 | 9,798 / 9,798 | 10,000 / 10,000 | 10,429 / 106 |
 
 Both candidates were selected and frozen before final evaluation. Because the
 first proposal passed every development example, neither run received feedback
@@ -17,6 +17,12 @@ or a revision request. The API programmer's reasoning effort was `high`; all
 target execution used the local CPU and float64. Total estimated standard API
 cost was **$0.325747**, including cache writes, calculated from recorded token usage rather than a billing
 invoice. The run's declared estimated ceiling was $5.
+
+The strict unseen score excludes both development inputs and the two illustrative
+addition pairs (`00+00=`, `99+99=`) shown in the task prompt. An initial report
+excluded only development inputs; the final evaluation was corrected after the
+run by excluding those two demonstrations. The original requests, responses,
+proposals, development samples, and frozen candidate selections are preserved.
 
 ## Parity circuit
 

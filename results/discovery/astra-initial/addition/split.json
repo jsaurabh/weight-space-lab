@@ -201,6 +201,10 @@
     "93+25=",
     "35+24="
   ],
-  "holdout_count": 9800,
+  "holdout_count": 9798,
+  "prompt_demonstrations": [
+    "00+00=",
+    "99+99="
+  ],
   "seed": 20261102
 }

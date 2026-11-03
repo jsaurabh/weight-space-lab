@@ -2,6 +2,7 @@
   "cost_accounting": "Includes uncached input, cached input, cache writes, and output (including reasoning)",
   "estimated_cost_ceiling_usd": 5.0,
   "estimated_cost_usd": 0.325747,
+  "final_holdout_policy": "exclude development examples and explicit prompt demonstrations",
   "max_attempts_per_task": 3,
   "max_output_tokens_per_attempt": 16000,
   "model": "gpt-6-astra",
@@ -17,6 +18,7 @@
   "protocol": "numeric_only_fixed_architecture_v1",
   "reasoning_effort": "high",
   "reference_weights_provided": false,
+  "reporting_correction": "Strict addition holdout excludes the two prompt demonstrations; original API artifacts and frozen weights unchanged.",
   "schema_sha256": "c6b48c342199e49608bb23385e73d28b1b463525f1bccc814053be5cb6ed413a",
   "seed": 20261102,
   "status": "completed",
@@ -43,13 +45,13 @@
       "attempt_count": 1,
       "baseline_holdout_accuracy": {
         "random_seed_1337": 0.0,
-        "zero": 0.00010204081632653062
+        "zero": 0.0
       },
       "development_count": 200,
       "full_correct": 10000,
       "full_total": 10000,
-      "holdout_correct": 9800,
-      "holdout_total": 9800,
+      "holdout_correct": 9798,
+      "holdout_total": 9798,
       "nonzero_elements": 106,
       "selected_attempt": 1,
       "state_sha256": "72b52ee217502443d3aa1e105d335752e7a6ca15a6b7e43541a75fd37b054a75",

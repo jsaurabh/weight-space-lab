@@ -1,5 +1,5 @@
 {
-  "accuracy": 0.00010204081632653062,
+  "accuracy": 0.0,
   "buffer_elements": 0,
   "config": {
     "context": 8,
@@ -8,7 +8,7 @@
     "vocab_size": 12,
     "width": 32
   },
-  "correct": 1,
+  "correct": 0,
   "device": "cpu",
   "dtype": "torch.float64",
   "evaluation": "provided_subset",
@@ -67,11 +67,11 @@
   "groups": {
     "carry": {
       "correct": 0,
-      "total": 4412
+      "total": 4411
     },
     "no_ones_carry": {
-      "correct": 1,
-      "total": 5388
+      "correct": 0,
+      "total": 5387
     }
   },
   "nonzero_elements": 0,
@@ -81,7 +81,7 @@
     "system": "Darwin"
   },
   "provenance": "baseline_zero",
-  "seconds": 0.150198,
+  "seconds": 0.213119,
   "state_sha256": "4079b26470ab8ed5fb5bf576235e1122c744b1b8860b162371a2bfab224499b6",
   "stored_elements": 10429,
   "task": "addition",
@@ -133,5 +133,5 @@
     ]
   },
   "torch_version": "2.15.0",
-  "total": 9800
+  "total": 9798
 }

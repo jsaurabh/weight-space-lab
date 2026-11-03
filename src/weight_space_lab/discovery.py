@@ -19,7 +19,7 @@ from . import model as model_module
 from .evaluate import evaluate, examples, state_digest, write_report
 from .model import TinyTransformer
 from .proposals import PROPOSAL_SCHEMA, load_proposal
-from .specs import CONFIGS, DESCRIPTIONS, VOCABS
+from .specs import CONFIGS, DESCRIPTIONS, PROMPT_EXAMPLES, VOCABS
 
 # Standard text prices checked 2026-11-02. Estimates are not an invoice or an
 # account-level spending limit. No automatic API retries or optional paid tools.
@@ -99,7 +99,8 @@ def split_examples(task, seed, size=200):
     rows = list(examples(task))
     development = random.Random(seed).sample(rows, min(size, len(rows) - 1))
     development_prompts = {row[0] for row in development}
-    holdout = [row for row in rows if row[0] not in development_prompts]
+    visible = development_prompts | set(PROMPT_EXAMPLES[task])
+    holdout = [row for row in rows if row[0] not in visible]
     return development, holdout
 
 
@@ -108,6 +109,7 @@ def run_task(client, task, destination, budget, *, model_name, attempts, max_out
     development, holdout = split_examples(task, seed)
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": task_prompt(task)}]
     write_report({"development_prompts": [r[0] for r in development],
+                  "prompt_demonstrations": list(PROMPT_EXAMPLES[task]),
                   "holdout_count": len(holdout), "seed": seed}, destination / "split.json")
     records, best = [], None
     for number in range(1, attempts + 1):
@@ -257,6 +259,7 @@ def main():
         "price_source": PRICE_SOURCE, "price_rates_per_million": RATES[args.model],
         "price_checked_date": "2026-11-02", "seed": args.seed,
         "reference_weights_provided": False, "tools_provided": False,
+        "final_holdout_policy": "exclude development examples and explicit prompt demonstrations",
         "model_source_sha256": hashlib.sha256(inspect.getsource(model_module).encode()).hexdigest(),
         "schema_sha256": hashlib.sha256(json.dumps(PROPOSAL_SCHEMA, sort_keys=True).encode()).hexdigest(),
         "tasks": [], "status": "running",

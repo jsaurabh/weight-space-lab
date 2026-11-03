@@ -11,6 +11,7 @@ from weight_space_lab.discovery import Budget, run_task, split_examples, task_pr
 from weight_space_lab.evaluate import state_digest
 from weight_space_lab.programs import parity, addition
 from weight_space_lab.proposals import load_proposal
+from weight_space_lab.specs import PROMPT_EXAMPLES
 
 
 def numeric_proposal(model):
@@ -61,8 +62,10 @@ class Discovery(unittest.TestCase):
         for task, size in (("parity", 2046), ("addition", 10000)):
             dev, holdout = split_examples(task, 42)
             self.assertEqual(len(dev), 200)
-            self.assertEqual(len(dev) + len(holdout), size)
+            visible_demos = set(PROMPT_EXAMPLES[task]) - {r[0] for r in dev}
+            self.assertEqual(len(dev) + len(holdout) + len(visible_demos), size)
             self.assertFalse({r[0] for r in dev} & {r[0] for r in holdout})
+            self.assertFalse(set(PROMPT_EXAMPLES[task]) & {r[0] for r in holdout})
             self.assertEqual((dev, holdout), split_examples(task, 42))
 
     def test_prompt_contains_forward_but_no_reference_solution(self):

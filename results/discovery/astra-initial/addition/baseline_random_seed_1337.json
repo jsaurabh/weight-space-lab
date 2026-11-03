@@ -15,11 +15,6 @@
   "failures_first_10": [
     {
       "actual": "211",
-      "expected": "000",
-      "prompt": "00+00="
-    },
-    {
-      "actual": "211",
       "expected": "001",
       "prompt": "00+01="
     },
@@ -62,16 +57,21 @@
       "actual": "20+",
       "expected": "009",
       "prompt": "00+09="
+    },
+    {
+      "actual": "211",
+      "expected": "010",
+      "prompt": "00+10="
     }
   ],
   "groups": {
     "carry": {
       "correct": 0,
-      "total": 4412
+      "total": 4411
     },
     "no_ones_carry": {
       "correct": 0,
-      "total": 5388
+      "total": 5387
     }
   },
   "nonzero_elements": 10429,
@@ -81,7 +81,7 @@
     "system": "Darwin"
   },
   "provenance": "baseline_random_seed_1337",
-  "seconds": 0.156686,
+  "seconds": 0.225892,
   "state_sha256": "2f301064af96610367c62ab7c2732c02c40575bcfbf4dafc0a71744537855086",
   "stored_elements": 10429,
   "task": "addition",
@@ -133,5 +133,5 @@
     ]
   },
   "torch_version": "2.15.0",
-  "total": 9800
+  "total": 9798
 }

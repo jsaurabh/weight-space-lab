@@ -51,6 +51,11 @@ Python 3.12 is selected by `.python-version`. The model uses CPU float64 and one
 compute thread; no GPU, Colab session, API key, or network connection is required
 after dependencies are installed. The lockfile records dependency versions.
 
+On macOS, if Python reports that it cannot find `weight_space_lab`, use
+`uv sync --locked --no-editable` and `uv run --no-editable ...` for the commands
+below. This copies the package into the environment and avoids reliance on
+editable `.pth` files, which this device sometimes marks hidden.
+
 Inspect individual guided reference computations:
 
 ```sh
@@ -122,7 +127,7 @@ first proposal for both tasks, with no feedback revisions:
 | Task | Full domain | Unseen remainder | Stored / nonzero values |
 | --- | --- | --- | --- |
 | Parity | 2,046 / 2,046 | 1,846 / 1,846 | 170 / 37 |
-| Addition | 10,000 / 10,000 | 9,800 / 9,800 | 10,429 / 106 |
+| Addition | 10,000 / 10,000 | 9,798 / 9,798 | 10,429 / 106 |
 
 Total estimated API cost: **$0.325747**, including cache writes. These are actual API-produced numerical
 proposals, saved without hand edits. They are separate from the guided results
@@ -155,7 +160,8 @@ Selection uses only development accuracy, preferring the earliest tied candidate
 and stops at 100% development accuracy or the attempt/cost limit. The selected
 proposal and state digest are frozen before final evaluation. Final results
 include both the full finite domain and the disjoint unseen remainder: 1,846
-parity inputs or 9,800 addition inputs. Final feedback is never sent to the
+parity inputs or 9,798 addition inputs. Two explicit addition demonstrations in
+the task prompt are excluded from the unseen remainder. Final feedback is never sent to the
 programmer. Zero and one seeded random model provide holdout baselines.
 
 Each run saves requests, raw response objects, proposals, development reports,
